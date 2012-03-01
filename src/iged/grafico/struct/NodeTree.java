@@ -100,14 +100,14 @@ public class NodeTree extends Elemento implements Node{
 		//   >> Olhar depois <<
 	//----------------------------------------------------------
 	public void setSLeftChield(Point2D ppe){
-		Seta spe = new Seta(this.pe, new Point2D.Double(ppe.getX(), ppe.getY()-4));
+		Seta spe = new Seta(this.pe, new Point2D.Double(ppe.getX(), ppe.getY()-4), false);
 		this.elementos.add(spe);
 		Quadro.getInstance().add(spe);
 		Quadro.getInstance().atualizar();
 	}
 	
 	public void setSRightChield(Point2D ppd){
-		Seta spd = new Seta(this.pd, new Point2D.Double(ppd.getX(), ppd.getY()-4));
+		Seta spd = new Seta(this.pd, new Point2D.Double(ppd.getX(), ppd.getY()-4), false);
 		this.elementos.add(spd);
 		Quadro.getInstance().add(spd);
 		Quadro.getInstance().atualizar();
@@ -152,7 +152,7 @@ public class NodeTree extends Elemento implements Node{
 		if(this.sRightChield!=null)
 			clearSRightChield();
 		this.rightChield = nt;
-		this.sRightChield = new Seta(this.pd, nt.getPP());
+		this.sRightChield = new Seta(this.pd, nt.getPP(), false);
 	    this.elementos.add(this.sRightChield);
 	    Quadro.getInstance().add(this.sRightChield);
 	    Quadro.getInstance().atualizar();
@@ -167,7 +167,7 @@ public class NodeTree extends Elemento implements Node{
 		if(this.sLeftChield!=null)
 			clearSLeftChield();
 		this.leftChield = nt;
-	    this.sLeftChield = new Seta(this.pe, nt.getPP());
+	    this.sLeftChield = new Seta(this.pe, nt.getPP(), false);
 	    this.elementos.add(this.sLeftChield);
 	    Quadro.getInstance().add(this.sLeftChield);
 	    Quadro.getInstance().atualizar();
@@ -243,7 +243,7 @@ public class NodeTree extends Elemento implements Node{
 	
 	
 	public boolean mover(Point2D np) {
-		this.circ.evidencia(Color.red, 4);
+		//this.circ.evidencia(Color.red, 4);
 		super.mover(np);
 		
 		return true;

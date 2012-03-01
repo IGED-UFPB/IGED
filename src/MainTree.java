@@ -158,13 +158,13 @@ public class MainTree implements AcaoUsuario {
 	   
 	   public void passo5(){
 		   node.adjust(this.pbTree);
-		   
+		   node.repintarSetas();
 		   this.quadro.atualizar();
 		   
 		   }
 	   
 	   public void passo6(){
-		   node.repintarSetas();
+		   //node.repintarSetas();
 		   node3 = new NodeTree(pi);
 		 
 		   this.quadro.add(node3);
@@ -179,7 +179,7 @@ public class MainTree implements AcaoUsuario {
 	   
 	   public void passo8(){
 		   node.adjust(this.pbTree);
-		   
+		   node.repintarSetas();
 		  
 		   this.quadro.atualizar();
 		   	  
@@ -187,7 +187,7 @@ public class MainTree implements AcaoUsuario {
 	   }
 	   
 	   public void passo9(){
-		   node.repintarSetas();
+		   //node.repintarSetas();
 		   node4 = new NodeTree(pi);
 			 
 		   this.quadro.add(node4);
@@ -202,14 +202,14 @@ public class MainTree implements AcaoUsuario {
 	    
 	   public void passo11(){
 		   node.adjust(this.pbTree);
-		   
+		   node.repintarSetas();
 		   this.quadro.atualizar();
 		   
 		  
 	   }
 	   
 	   public void passo12(){
-		   node.repintarSetas();
+		   //node.repintarSetas();
 		   node5 = new NodeTree(pi);
 			 
 		   this.quadro.add(node5);
@@ -224,14 +224,14 @@ public class MainTree implements AcaoUsuario {
 	    
 	   public void passo14(){
 		   node.adjust(this.pbTree);
-		   
+		   node.repintarSetas();
 		   this.quadro.atualizar();
 		   
 		   
 	   }
 
 	   public void passo15(){
-		   node.repintarSetas();
+		   //node.repintarSetas();
 		   node6 = new NodeTree(pi);
 			 
 		   this.quadro.add(node6);
@@ -246,13 +246,13 @@ public class MainTree implements AcaoUsuario {
 	    
 	   public void passo17(){
 		   node.adjust(this.pbTree);
-		   
+		   node.repintarSetas();
 		   this.quadro.atualizar();
 		   
 	   }
 	   
 	   public void passo18(){
-		   node.repintarSetas();
+		   //node.repintarSetas();
 		   node7 = new NodeTree(pi);
 		   
 		   this.quadro.add(node7);
@@ -267,13 +267,13 @@ public class MainTree implements AcaoUsuario {
 	    
 	   public void passo20(){
 		   node.adjust(this.pbTree);
-		   
+		   node.repintarSetas();
 		   this.quadro.atualizar();
 		   
 	   }
 	   
 	   public void passo21(){
-		   node.repintarSetas();
+		   //node.repintarSetas();
 	   }
 	   
 	  
