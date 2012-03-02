@@ -1,3 +1,4 @@
+import iged.Interpretador;
 import iged.grafico.manager.AcaoUsuario;
 import iged.grafico.manager.PaintUI;
 import iged.grafico.manager.Quadro;

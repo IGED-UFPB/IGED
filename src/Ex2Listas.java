@@ -1,3 +1,4 @@
+import iged.GraficoAED;
 import iged.IGEDConst;
 import iged.grafico.manager.AcaoUsuario;
 import iged.grafico.manager.GraphicManager;
