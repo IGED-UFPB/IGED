@@ -19,10 +19,11 @@ public class Referencia extends Elemento {
 
 
         label = new Label(nome, new Point2D.Double((pb.getX() - 4 * nome.length()), (pb.getY() - 3)));
-
+        this.textos.add(label);
         Point2D pf = new Point2D.Double(n.getPointPI().getX(), n.getPointPI().getY() - 10);
 
         ref = new Seta(this.pb, pf);
+        this.elementos.add(ref);
 
         this.setRef(n);
     }
@@ -33,10 +34,12 @@ public class Referencia extends Elemento {
 
 
         label = new Label(nome, new Point2D.Double((pb.getX() - 4 * nome.length()), (pb.getY() - 3)));
+        this.textos.add(label);
 
         Point2D pf = new Point2D.Double(n.getPointPI().getX(), n.getPointPI().getY());
 
         ref = new Seta(this.pb, pf);
+        this.elementos.add(ref);
 
         this.setRef(n);
     }
@@ -72,11 +75,14 @@ public class Referencia extends Elemento {
 
         Point2D pf = new Point2D.Double(n.getPointPI().getX(), n.getPointPI().getY() - 10);
         if (ref != null) {
-            Quadro.getInstance().remove(ref);
+            ref.setPoints(this.pb, pf);
+            //Quadro.getInstance().remove(ref);
+            //this.elementos.remove(ref);
+        }else{
+            ref = new Seta(this.pb, pf);
+            this.elementos.add(ref);
+            Quadro.getInstance().add(ref);
         }
-        ref = new Seta(this.pb, pf);
-        this.elementos.add(ref);
-        Quadro.getInstance().add(ref);
 
     }
     

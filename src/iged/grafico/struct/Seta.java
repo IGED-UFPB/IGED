@@ -67,4 +67,40 @@ public class Seta extends Elemento{
         public Seta(Point2D pi, Point2D pf, boolean f){
 		this(pi, pf, f, Seta.FRENTE);
 	}
+        
+        public void setPoints(Point2D pi, Point2D pf){
+
+                double deltaX = pf.getX() - pi.getX();
+                double deltaY = pf.getY() - pi.getY();
+
+                linha.clearPoints();
+                if((deltaY == 0) && (deltaX < 0)){                       
+                    linha.setType(PoligonoGrafico.CURVE);
+                        
+                    linha.add(pi);
+                    linha.add(new Point2D.Double(pi.getX()+60, pi.getY()+100));
+                    linha.add(new Point2D.Double(pf.getX()-60, pf.getY()+100));
+                    linha.add(pf);
+                }else{
+                    linha.add(pi);
+                    linha.add(pf);
+                }
+                    
+                
+                if(type == Seta.FRENTE){
+                
+                    double h = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+                    double sen = deltaX / h;
+                    double cos = deltaY / h;
+	
+                    double dx = 5 * sen;
+                    double dy = 5 * cos;
+
+                    ponta.clearPoints();
+                    ponta.add(new Point2D.Double(pf.getX() - dy, pf.getY() + dx));
+                    ponta.add(new Point2D.Double(pf.getX() + dy, pf.getY() - dx));
+                    ponta.add(new Point2D.Double(pf.getX() + 8 * sen, pf.getY() + 8 * cos));
+                }
+	}
+        
 }

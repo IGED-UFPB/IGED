@@ -61,5 +61,5 @@ public class Poligono extends PoligonoGrafico{
 				p.setLocation(p.getX() + dx, p.getY() + dy);
 			}
 		}
-
+            
 }

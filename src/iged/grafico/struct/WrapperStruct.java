@@ -56,18 +56,20 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
         switch (type) {
             case IGEDConst.LISTA:
                 LinkedListNode l = ((Lista) s).getInit();
-                System.out.println("CLEAR NEXT");
+                //System.out.println("CLEAR NEXT");
                 //l.clearNext();
-                l.remove(ref);
+                if(l != null)
+                    l.remove(ref);
                 Quadro.getInstance().remove((Lista)s);
                 Quadro.getInstance().atualizar();
                 break;
 
             case IGEDConst.NODE:
                 if (ref != null && ref.getNode() != null) {
+                    System.out.println("REMOVEEEEEEEEEEEEEEE");
                     Quadro.getInstance().remove(this.ref);
                     LinkedListNode n = ((LinkedListNode) s);
-                    n.clearNext();
+                    //n.clearNext();
                     n.remove(ref);
                 }
                 break;

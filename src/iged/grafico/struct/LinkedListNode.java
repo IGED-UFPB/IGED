@@ -102,13 +102,13 @@ public class LinkedListNode extends Elemento implements Node {
 
     public Point2D add(Referencia ref) {
         if (!this.referencias.contains(ref)) {
+            System.out.println("ADDDDDD");
             this.referencias.add(ref);
-
         }
-        if (!ref.isFixa()) {
-
-            ++this.numRef;
-        }
+            if (!ref.isFixa()) {
+                ++this.numRef;
+            }
+        //}
         return new Point2D.Double(this.pr.getX(), (this.pr.getY() - (15 * numRef)));
     }
 
