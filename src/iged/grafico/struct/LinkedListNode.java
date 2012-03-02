@@ -15,7 +15,6 @@ public class LinkedListNode extends Node {
     private LinkedListNode prox = null;
     private int numRef = -1;
     private Point2D pp = null;
-    private Point2D pi = null;
     private Point2D pr = null;
     private Retangulo rect = null;
     private Retangulo rectP = null;
@@ -38,10 +37,6 @@ public class LinkedListNode extends Node {
         valor = new Label("-", new Point2D.Double(pb.getX() - 25, pb.getY() + 10));
         this.textos.add(valor);
 
-    }
-
-    public Point2D getPointPI() {
-        return this.pi;
     }
 
     public Point2D getPointPB() {

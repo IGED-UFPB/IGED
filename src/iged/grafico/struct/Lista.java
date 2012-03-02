@@ -254,4 +254,19 @@ public class Lista extends Struct {
 	public String toString() {
 		return "Lista " + referencia;
 	}
+
+    @Override
+    public Point2D add(Referencia ref) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void remove(Referencia ref) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Point2D getPointPI() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

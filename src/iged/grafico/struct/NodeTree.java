@@ -2,10 +2,6 @@ package iged.grafico.struct;
 
 import java.awt.Color;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 
 
 import iged.grafico.geometria.Circulo;
@@ -33,9 +29,6 @@ public class NodeTree extends Node{
 	private Point2D pe; // ponto-marca da esquerda
 	private Point2D pc; // ponto-marca do centro
 	
-	/**ponto de incidência da seta da referência para este node*/
-	private Point2D pi;
-
 	
 	// retorna o ponto base do filho à esquerda
 	public Point2D getPBEsq(){
@@ -47,12 +40,7 @@ public class NodeTree extends Node{
 		return new Point2D.Double(this.pb.getX()+(3*this.sizeRadius),this.pb.getY()+(3*this.sizeRadius)); 
 	}	
 	
-	// retorna o ponto de incidência da referência para este node
-	public Point2D getPointPI(){
-		return this.pi;
-	}
-	
-	
+		
 	public NodeTree(Point2D pb){
 		super.setPoint(pb);
 		

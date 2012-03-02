@@ -17,15 +17,18 @@ public class Vetor extends Struct{
 	
 	public Vetor(int yBase){
 		this.pb = new Point2D.Double(x, yBase+80);
+                this.pi = new Point2D.Double(pb.getX() - 10, pb.getY() - 5);
 	}
 	
 	
 	public void setNome(String nome){
 		if(this.nome != null){
-			Quadro.getInstance().remove(this.nome);
-		}
-		this.nome = new Label(nome, new Point2D.Double(pb.getX() - 5, pb.getY() - 5));
-		this.textos.add(this.nome);
+                    this.nome.setText(nome);
+		    //Quadro.getInstance().remove(this.nome);
+		}else{
+                    this.nome = new Label(nome, this.pi);
+                    this.textos.add(this.nome);
+                }
 	}
 	
 	public void setSize(int size){
@@ -103,4 +106,44 @@ public class Vetor extends Struct{
 		// TODO Auto-generated method stub
 		
 	}
+
+    @Override
+    public Point2D add(Referencia ref) {
+        if (!this.referencias.contains(ref)) {
+            this.referencias.add(ref);
+        }
+        this.updateReferencia();
+        return null;
+    }
+
+    @Override
+    public void remove(Referencia ref) {
+        if (this.referencias.contains(ref)) {
+            this.referencias.remove(ref);
+        }
+        this.updateReferencia();
+    }
+    
+    private void updateReferencia(){
+        String s = "";
+        if(this.referencias.size() == 1){
+            s += this.referencias.get(0).label.getText();
+        }else{
+            s += "{";
+            int c = 0;
+            for(Referencia re : this.referencias){
+                s += re.label.getText();
+                if(c != this.referencias.size()-1)
+                    s += ",";
+                ++c;
+            }
+            s += "}";
+        }
+        this.setNome(s);
+    }
+
+    @Override
+    public Point2D getPointPI() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

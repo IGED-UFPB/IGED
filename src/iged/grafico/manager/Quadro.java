@@ -15,15 +15,6 @@ import java.util.*;
 
 import javax.swing.JPanel;
 
-
-/** An example of drawing/filling shapes with Java2D in Java 1.2.
- *
- *  From tutorial on learning Java2D at
- *  http://www.apl.jhu.edu/~hall/java/Java2D-Tutorial.html
- *
- *  1998 Marty Hall, http://www.apl.jhu.edu/~hall/java/
- */
-
 public class Quadro extends JPanel {
 
   private java.util.List<Poligono> desenhaveis = null;
@@ -113,6 +104,8 @@ public class Quadro extends JPanel {
 		for(Label l : textos){
 			g2d.setPaint(Color.black);
 			Point2D p = l.getPoint();
+                        if(p == null)
+                            continue;
 			Font f = l.getFont();
 
 			if(f != null)

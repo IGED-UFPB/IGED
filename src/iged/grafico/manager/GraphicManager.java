@@ -88,49 +88,11 @@ public class GraphicManager {
 
     public void createReference(String reference, int type) {
         //feito acho
-        switch (type) {
-            case IGEDConst.LISTA:
-                WrapperStruct w = new WrapperStruct(null, IGEDConst.LISTA);
-                w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
-                pilha.push(w);
-                this.structs.put(reference, w);
-                referenciasVazias++;
-
-                break;
-
-            case IGEDConst.NODE:
-
-
-                WrapperStruct w2 = new WrapperStruct(null, IGEDConst.NODE);
-                w2.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
-                this.structs.put(reference, w2);
-                pilha.push(w2);
-                referenciasVazias++;
-
-
-                break;
-
-            case IGEDConst.VETOR:
-                WrapperStruct w3 = new WrapperStruct(null, IGEDConst.VETOR);
-                w3.setReferencia(reference);
-                this.structs.put(reference, w3);
-                pilha.push(w3);
-
-                break;
-                
-            case IGEDConst.NODE_TREE:
-                
-                WrapperStruct w4 = new WrapperStruct(null, IGEDConst.NODE_TREE);
-		w4.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho+60));
-		this.structs.put(reference, w4);
-		pilha.push(w4);
-		referenciasVazias++;
-                
-                break;
-
-            default:
-                break;
-        }
+        WrapperStruct w = new WrapperStruct(null, type);
+        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
+        pilha.push(w);
+        this.structs.put(reference, w);
+        referenciasVazias++;
     }
 
     public void readReference(String reference) {
@@ -212,10 +174,11 @@ public class GraphicManager {
     }
 
     public void removeReference(String reference) {
-        System.out.println("Remove: " + reference);
         WrapperStruct w = structs.remove(reference);
         if(w == null)
             return;
+        
+        System.out.println("Remove: " + reference);
         w.removerReferencia();
     }
 

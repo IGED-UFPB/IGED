@@ -27,26 +27,9 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
 
     public void setReferenciaVazia(String reference, Point2D pn) {
         //lembrar de repintar quando o esta referencia deixar de ser vazia
-
-        switch (type) {
-            /*case Struct.LISTA:
-            this.ref = new Referencia( pn,reference);
-            Quadro.getInstance().add(ref);
-            break;
-             */
-            case IGEDConst.NODE:
-                this.ref = new Referencia(pn, reference);
-                Quadro.getInstance().add(ref);
-                break;
-                
-            case IGEDConst.NODE_TREE:
-                this.ref = new Referencia(pn, reference);
-		Quadro.getInstance().add(ref);
-		break;
-
-            default:
-                break;
-        }
+        this.ref = new Referencia(pn, reference);
+	Quadro.getInstance().add(ref);        
+        
         this.referencia = reference;
     }
 
@@ -71,6 +54,14 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                     n.remove(ref);
                 }
                 break;
+            case IGEDConst.VETOR:
+                if (ref != null && ref.getNode() != null) {
+                    System.out.println("REMOVEEEEEEEEEEEEEEE");
+                    Vetor v = ((Vetor) s);
+                    //n.clearNext();
+                    v.remove(ref);
+                }
+                break;
 
             default:
                 break;
@@ -91,9 +82,14 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                 ref = new Referencia(n, reference);
                 Quadro.getInstance().add(ref);
                 break;
+            case IGEDConst.VETOR:
+                Vetor v = ((Vetor) s);
+                ref = new Referencia(null, reference, true);
+                ref.setNode(s);
+                v.add(ref);
+                break;
 
         }
-
 
         this.referencia = reference;
     }
@@ -122,7 +118,11 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                 Quadro.getInstance().add(ref);
                 break;
             case IGEDConst.VETOR:
-                ((Vetor) s).setNome(this.referencia);
+                //((Vetor) s).setNome(this.referencia);
+                Vetor v = ((Vetor) s);
+                ref = new Referencia(null, this.referencia, true);
+                v.add(ref);
+                ref.setNode(s);
                 break;
                 
             case IGEDConst.NODE_TREE:

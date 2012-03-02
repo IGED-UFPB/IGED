@@ -1,6 +1,5 @@
 package iged.grafico.struct;
 
-import iged.grafico.geometria.Poligono;
 import iged.grafico.geometria.Label;
 import java.awt.geom.Point2D;
 
@@ -8,8 +7,8 @@ import iged.grafico.manager.Quadro;
 
 public class Referencia extends Elemento {
 
-    private Node node = null;
-    private Label label = null;
+    private Struct node = null;
+    Label label = null;
     private Seta ref = null;
     private boolean fixa = false;
 
@@ -105,10 +104,13 @@ public class Referencia extends Elemento {
     
     
 
-    public Node getNode() {
+    public Struct getNode() {
         return node;
     }
-
+    public void setNode(Struct s) {
+        this.node = s;
+    }
+    
     public boolean isFixa() {
         return fixa;
     }

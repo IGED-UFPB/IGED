@@ -11,6 +11,7 @@ import iged.grafico.geometria.Label;
 import iged.grafico.struct.LinkedListNode;
 import iged.grafico.struct.Node;
 import iged.grafico.struct.Referencia;
+import iged.grafico.struct.Struct;
 
 public class Apontadores {
 	
@@ -85,7 +86,7 @@ public class Apontadores {
 			if(ponteiros.get(n).contains(referencia)){
 				ponteiros.get(n).remove(referencia);
 				Referencia r = this.referencias.remove(referencia);
-				Node n2 = r.getNode();
+				Struct n2 = r.getNode();
 				n2.remove(r);
 				quadro.remove(r);
 				quadro.atualizar();
