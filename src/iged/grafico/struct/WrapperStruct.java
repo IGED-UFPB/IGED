@@ -2,8 +2,6 @@ package iged.grafico.struct;
 
 import iged.IGEDConst;
 import java.awt.geom.Point2D;
-
-import iged.grafico.geometria.Label;
 import iged.grafico.manager.Quadro;
 
 public class WrapperStruct implements Comparable<WrapperStruct> {

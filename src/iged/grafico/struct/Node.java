@@ -10,13 +10,13 @@ import java.awt.geom.Point2D;
  *
  * @author smith
  */
-public interface Node extends Struct  {
+public abstract class Node extends Struct  {
     
-    public Point2D getPointPI();
-    public Point2D add(Referencia ref);
-    public void remove(Referencia ref);
-    public boolean isRepintado();
-    public void setRepintado(boolean state);
+    public abstract Point2D getPointPI();
+    public abstract Point2D add(Referencia ref);
+    public abstract void remove(Referencia ref);
+    public abstract boolean isRepintado();
+    public abstract void setRepintado(boolean state);
 
     
 }

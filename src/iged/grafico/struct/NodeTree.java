@@ -12,12 +12,11 @@ import iged.grafico.geometria.Circulo;
 import iged.grafico.geometria.Label;
 import iged.grafico.manager.Quadro;
 
-public class NodeTree extends Elemento implements Node{
+public class NodeTree extends Node{
 	
 	private int sizeRadius = 30;
 	public boolean repintado = false;
 	
-	private List<Referencia> referencias = new ArrayList<Referencia>();
 	private int numRef = -1;
 	
 	private Circulo circ;

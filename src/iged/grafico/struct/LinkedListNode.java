@@ -9,11 +9,10 @@ import java.util.*;
 
 import iged.grafico.manager.Quadro;
 
-public class LinkedListNode extends Elemento implements Node {
+public class LinkedListNode extends Node {
 
     public boolean repintado = false;
     private LinkedListNode prox = null;
-    private List<Referencia> referencias = new ArrayList<Referencia>();
     private int numRef = -1;
     private Point2D pp = null;
     private Point2D pi = null;

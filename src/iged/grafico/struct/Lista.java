@@ -8,7 +8,7 @@ import iged.grafico.manager.Quadro;
 import iged.grafico.manager.StructManager;
 
 
-public class Lista extends Elemento implements Struct {
+public class Lista extends Struct {
 
 	private int bond = 100;
 	private boolean repintado = false;

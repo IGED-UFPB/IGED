@@ -1,25 +1,28 @@
 package iged.grafico.struct;
 
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-public interface Struct {
+public abstract class Struct extends Elemento {
 
-	public Point2D getPInit();
+    protected List<Referencia> referencias = new ArrayList<Referencia>();
 
-	public int getBond();
-	
-	public void repintar();
-	
-	public boolean isRepintado();
-	
-	public void startRepaint();
+    public abstract Point2D getPInit();
 
-	public Struct readField(int field);
+    public abstract int getBond();
 
-	public void writeField(Struct s, int field);
+    public abstract void repintar();
 
-	public String readInfo();
+    public abstract boolean isRepintado();
 
-	public void writeInfo(String value);
-        
+    public abstract void startRepaint();
+
+    public abstract Struct readField(int field);
+
+    public abstract void writeField(Struct s, int field);
+
+    public abstract String readInfo();
+
+    public abstract void writeInfo(String value);
 }

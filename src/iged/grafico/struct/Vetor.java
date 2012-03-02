@@ -7,7 +7,7 @@ import java.util.*;
 import iged.grafico.geometria.Label;
 import iged.grafico.manager.Quadro;
 
-public class Vetor extends Elemento implements Struct{
+public class Vetor extends Struct{
 	private static int bond = 100;
 	private static int x = 20;
 	private Label nome = null;
