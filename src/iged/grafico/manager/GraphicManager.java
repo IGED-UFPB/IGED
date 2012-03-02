@@ -219,7 +219,7 @@ public class GraphicManager {
         w.removerReferencia();
     }
 
-    public void creat_Int(String referencia) {
+    public void create_Int(String referencia) {
         vi.createVarInteiro(referencia);
     }
 
@@ -235,7 +235,7 @@ public class GraphicManager {
         vi.setValor(ints.pop(), value);
     }
 
-    public void ler_Int(String referencia) {
+    public void read_Int(String referencia) {
         vi.ler(referencia);
     }
 
@@ -269,7 +269,7 @@ public class GraphicManager {
         return x;
     }
 
-    public void crearStack() {
+    public void clearStack() {
         pilha.clear();
     }
 
@@ -284,30 +284,28 @@ public class GraphicManager {
             w.startRepaint();
         }
 
+        //Pintas as Estruturas diferentes de Nodes.
         List<WrapperStruct> nodes = new ArrayList<WrapperStruct>();
-
         for (WrapperStruct w : this.structs.values()) {
-            if (w.getType() != IGEDConst.NODE || w.getType()!= IGEDConst.NODE_TREE) {
+            if (w.getType() != IGEDConst.NODE && w.getType()!= IGEDConst.NODE_TREE) {
+                System.out.println("Repintar: " + w.getReferencia());
                 w.repintar();
             } else {
+                System.out.println("Nodes add: " + w.getReferencia());
                 nodes.add(w);
             }
         }
 
-
-
-
         this.nodesSoltos = 0;
         Collections.sort(nodes);
 
-        //Repinta primeiro as struct != NODE
         for (WrapperStruct no : nodes) {
             if (no.getStruct() != null && !no.getStruct().isRepintado()) {
                 no.repintar();
                 
                 
                 
-                
+                System.out.println("HHHHHHH");
                 if(no.getType() == IGEDConst.NODE){
                     LinkedListNode n = ((LinkedListNode)no.getStruct());
                     n.adjust(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho));
@@ -329,12 +327,10 @@ public class GraphicManager {
             } else {
                 no.repintar();
             }
-
-
         }
 
         Quadro.getInstance().atualizar();
-        crearStack();
+        clearStack();
         vi.getInstance().repintar();
     }
 

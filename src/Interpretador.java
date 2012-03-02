@@ -1,10 +1,6 @@
 
-import iged.AED.LinkedList;
-import iged.AED.LinkedListNode;
 import iged.IGEDConst;
 import iged.grafico.manager.Quadro;
-import iged.grafico.manager.Quadro;
-import iged.grafico.struct.Struct;
 import java.util.StringTokenizer;
 
 

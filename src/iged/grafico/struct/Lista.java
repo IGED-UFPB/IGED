@@ -63,22 +63,14 @@ public class Lista extends Elemento implements Struct {
 			if (ref != null) {
 				quadro.remove(ref);
 				ini.remove(ref);
+                        }
 
-				ref = new Referencia(ini, referencia + ".inicio",
-						new Point2D.Double(60, yBase + espaco + 10));
-				ref.setFixa(true);
+			ref = new Referencia(ini, referencia + ".inicio",
+					new Point2D.Double(60, yBase + espaco + 10));
+			ref.setFixa(true);
 
-				quadro.add(ref);
-				quadro.atualizar();
-			} else {
-
-				ref = new Referencia(ini, referencia + ".inicio",
-						new Point2D.Double(60, yBase + espaco + 10));
-				ref.setFixa(true);
-
-				quadro.add(ref);
-				quadro.atualizar();
-			}
+			quadro.add(ref);
+			quadro.atualizar();
 		}
 		if (tam != null) {
 			quadro.remove(tam);

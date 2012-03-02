@@ -27,8 +27,9 @@ public class Referencia extends Elemento {
 
         this.setRef(n);
     }
+
     public Referencia(Node n, String nome, Point2D p) {
-    	this.fixa = true;
+        this.fixa = true;
         Point2D pn = n.add(this);
         this.setPoint(p);
 
@@ -43,83 +44,80 @@ public class Referencia extends Elemento {
 
         this.setRef(n);
     }
-    
+
     public Referencia(Point2D pn, String nome, boolean fixa) {
-    	this.fixa = fixa;
-    	this.setPoint(pn);
-    	label = new Label(nome,pn);
-    	
-    	
-    	this.textos.add(label);
-    	Quadro.getInstance();
+        this.fixa = fixa;
+        this.setPoint(pn);
+        label = new Label(nome, pn);
+
+
+        this.textos.add(label);
+        Quadro.getInstance();
     }
-    
+
     public Referencia(Point2D pn, String nome) {
-    	this.setPoint(pn);
-    	label = new Label(nome+";",pn);
-    	
-    	this.textos.add(label);
-    	Quadro.getInstance();
+        this.setPoint(pn);
+        label = new Label(nome + ";", pn);
+
+        this.textos.add(label);
+        Quadro.getInstance();
     }
-    
-    
-    
+
     public void config(Node n) {
-    	
+
         Point2D pn = n.add(this);
         this.setPoint(pn);
 
-        
+
         label.setPoint(new Point2D.Double((pb.getX() - 5), (pb.getY() - 3)));
-        
+
 
         Point2D pf = new Point2D.Double(n.getPointPI().getX(), n.getPointPI().getY() - 10);
         if (ref != null) {
             ref.setPoints(this.pb, pf);
             //Quadro.getInstance().remove(ref);
             //this.elementos.remove(ref);
-        }else{
+        } else {
             ref = new Seta(this.pb, pf);
             this.elementos.add(ref);
             Quadro.getInstance().add(ref);
         }
 
     }
-    
-    
-    protected void atualiza(double dx, double dy){
-        if(this.isFixa()){
-        	for(Poligono p : conteudo)
-    			p.mover(dx, dy);
-        	
-        	Point2D pf = new Point2D.Double(node.getPointPI().getX(), node.getPointPI().getY() );
+
+    protected void atualiza(double dx, double dy) {
+        if (this.isFixa()) {
             if (ref != null) {
-                Quadro.getInstance().remove(ref);
+                //ref.atualiza(dx, dy);
+                //this.label.mover(dx, dy);
+                ref.setPoints(this.pb, node.getPointPI());
+            }else{
+                ref = new Seta(this.pb, node.getPointPI());
+                Quadro.getInstance().add(ref);
             }
-            
-            ref = new Seta(this.pb, pf);
-            Quadro.getInstance().add(ref);
-            
-        }else{
-        	super.atualiza(dx, dy);
+
+        } else {
+            this.label.mover(dx, dy);
+            this.ref.atualiza(dx, dy);
+
         }
-	}
+    }
     
     
+
     public Node getNode() {
-		return node;
-	}
+        return node;
+    }
 
+    public boolean isFixa() {
+        return fixa;
+    }
 
-	public boolean isFixa() {
-		return fixa;
-	}
-	
-	public void setFixa(boolean fixa){
-		this.fixa = fixa;
-	}
+    public void setFixa(boolean fixa) {
+        this.fixa = fixa;
+    }
 
-	public void setRef(Node n) {
+    public void setRef(Node n) {
         if (this.node == null) {
             this.textos.add(label);
             this.elementos.add(ref);
@@ -127,7 +125,7 @@ public class Referencia extends Elemento {
             this.elementos.remove(ref);
             Quadro.getInstance().remove(ref);
             node.remove(this);
-            if (n != null ) {
+            if (n != null) {
                 this.config(n);
             }
         }

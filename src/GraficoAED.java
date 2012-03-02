@@ -1,7 +1,5 @@
 import java.util.List;
 
-import javax.swing.JPanel;
-
 import iged.AED.Appraiser;
 import iged.AED.StructManager;
 import iged.grafico.manager.GraphicManager;
@@ -87,7 +85,7 @@ public class GraficoAED {
 
 	
 	public void creat_Int(String referencia){
-		gm.creat_Int(referencia);
+		gm.create_Int(referencia);
 	}
         
         public void remove_int(String referencia){
@@ -102,7 +100,7 @@ public class GraficoAED {
 		gm.setValue(String.valueOf(value));
 	}
 	public void ler_Int(String referencia){
-		gm.ler_Int(referencia);
+		gm.read_Int(referencia);
 	}
 	
 	public void endCommand(){

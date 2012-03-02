@@ -138,7 +138,10 @@ public class LinkedListNode extends Elemento implements Node {
         super.mover(dx, dy, t);
 
         for (Referencia r : this.referencias) {
-            r.mover(dx, dy, t);
+            if(!r.isFixa())
+                r.mover(dx, dy, t);
+            else
+                r.atualiza(dx, dy);
         }
 
     }
