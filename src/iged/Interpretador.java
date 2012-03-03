@@ -1,10 +1,7 @@
 package iged;
 
-
-import iged.IGEDConst;
 import iged.grafico.manager.Quadro;
 import java.util.StringTokenizer;
-
 
 /*
  * To change this template, choose Tools | Templates

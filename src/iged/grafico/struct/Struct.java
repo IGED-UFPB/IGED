@@ -6,7 +6,10 @@ import java.util.List;
 
 public abstract class Struct extends Elemento {
 
+    //Referência grafica
+    protected Referencia ref;
     protected List<Referencia> referencias = new ArrayList<Referencia>();
+    protected List<String> referenciasS = new ArrayList<String>();
     protected Point2D pi = null;
     
     public abstract Point2D getPInit();
@@ -31,7 +34,48 @@ public abstract class Struct extends Elemento {
 
     public abstract void writeInfo(String value);
     
-    public abstract Point2D add(Referencia ref);
+    public abstract void add(String ref);
     
-    public abstract void remove(Referencia ref);
+    public Point2D add(Referencia ref) {
+        if (!this.referencias.contains(ref)) {
+            this.referencias.add(ref);
+        }
+        return null;
+    }
+    
+    public void addReference(String ref) {
+        if (!this.referenciasS.contains(ref)) {
+            this.referenciasS.add(ref);
+        }
+    }
+
+    public void remove(Referencia ref) {
+        if (this.referencias.contains(ref)) {
+            this.referencias.remove(ref);
+        }
+    }
+    
+    public void removeReference(String ref) {
+        if (this.referenciasS.contains(ref)) {
+            this.referenciasS.remove(ref);
+        }
+    }
+    
+    public String getNameReferencia(){
+        String s = "";
+        if(this.referenciasS.size() == 1){
+            s += this.referenciasS.get(0);
+        }else{
+            s += "{";
+            int c = 0;
+            for(String re : this.referenciasS){
+                s += re;
+                if(c != this.referenciasS.size()-1)
+                    s += ",";
+                ++c;
+            }
+            s += "}";
+        }
+        return s;
+    }
 }

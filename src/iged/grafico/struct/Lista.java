@@ -5,268 +5,259 @@ import java.awt.geom.Point2D;
 
 import iged.grafico.geometria.Label;
 import iged.grafico.manager.Quadro;
-import iged.grafico.manager.StructManager;
-
 
 public class Lista extends Struct {
 
-	private int bond = 100;
-	private boolean repintado = false;
-	private String referencia;
-	private String tamanho = "0";
+    private int bond = 100;
+    private boolean repintado = false;
+    private String referencia;
+    private String tamanho = "0";
+    private Label l;
+    private VarInteiro tam = null;
+    private LinkedListNode ini = null;
+    private Quadro quadro = Quadro.getInstance();
+    private int yBase = 0;
+    private int espaco = 85;
+    private Null n;
 
-	private Label l;
-	private Referencia ref;
-	private VarInteiro tam = null;
+    public void desenhar(int yBase) {
+        this.yBase = yBase;
 
-	private LinkedListNode ini = null;
-	private Quadro quadro = Quadro.getInstance();
-	private int yBase = 0;
-	private int espaco = 85;
+        if (this.ini == null) {
+            // desenhar lista vazia "referencia solta"
+            if (n == null) {
+                this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
+                        + 10), referencia + ".inicio", true);
 
-	private Null n;
+                n = new Null(new Point2D.Double(
+                        120 + (7 * referencia.length()), yBase + espaco + 5),
+                        true);// apontando para null
+                quadro.add(n);
+                quadro.add(ref);
+                quadro.atualizar();
+            } else {
+                quadro.remove(ref);
+                quadro.remove(n);
+                this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
+                        + 10), referencia + ".inicio", true);// apontando para
+                // null
+                n = new Null(new Point2D.Double(
+                        120 + (7 * referencia.length()), yBase + espaco + 5),
+                        true);
+                quadro.add(n);
+                quadro.add(ref);
+                quadro.atualizar();
+            }
+        } else {
 
-	public void desenhar(int yBase) {
-		this.yBase = yBase;
+            if (n != null) {
+                quadro.remove(n);
+                n = null;
+            }
+            if (ref != null) {
+                quadro.remove(ref);
+                ini.remove(ref);
+            }
 
-		if (this.ini == null) {
-			// desenhar lista vazia "referencia solta"
-			if (n == null) {
-				this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
-						+ 10), referencia + ".inicio", true);
+            ref = new Referencia(ini, referencia + ".inicio",
+                    new Point2D.Double(60, yBase + espaco + 10));
+            ref.setFixa(true);
 
-				n = new Null(new Point2D.Double(
-						120 + (7 * referencia.length()), yBase + espaco + 5),
-						true);// apontando para null
-				quadro.add(n);
-				quadro.add(ref);
-				quadro.atualizar();
-			} else {
-				quadro.remove(ref);
-				quadro.remove(n);
-				this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
-						+ 10), referencia + ".inicio", true);// apontando para
-																// null
-				n = new Null(new Point2D.Double(
-						120 + (7 * referencia.length()), yBase + espaco + 5),
-						true);
-				quadro.add(n);
-				quadro.add(ref);
-				quadro.atualizar();
-			}
-		} else {
+            quadro.add(ref);
+            quadro.atualizar();
+        }
+        if (tam != null) {
+            quadro.remove(tam);
+            quadro.add(tam);
+        } else {
+            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), "tamanho");
+            tam.setValor(tamanho);
+            quadro.add(tam);
+        }
+        quadro.atualizar();
+    }
 
-			if (n != null) {
-				quadro.remove(n);
-				n = null;
-			}
-			if (ref != null) {
-				quadro.remove(ref);
-				ini.remove(ref);
-                        }
+    public void setyBase(int yBase) {
+        this.yBase = yBase;
+    }
 
-			ref = new Referencia(ini, referencia + ".inicio",
-					new Point2D.Double(60, yBase + espaco + 10));
-			ref.setFixa(true);
+    public void setBond(int bond) {
+        this.bond = bond;
+    }
 
-			quadro.add(ref);
-			quadro.atualizar();
-		}
-		if (tam != null) {
-			quadro.remove(tam);
-			quadro.add(tam);
-		} else {
-			tam = new VarInteiro(new Point2D.Double(30, yBase + 100),referencia + ".tamanho");
-			tam.setValor(tamanho);
-			quadro.add(tam);
-		}
-		quadro.atualizar();
-	}
+    @Override
+    public int getBond() {
+        return this.bond;
+    }
 
-	public void setyBase(int yBase) {
-		this.yBase = yBase;
-	}
+    public String getReferencia() {
+        return referencia;
+    }
 
-	public void setBond(int bond) {
-		this.bond = bond;
-	}
+    public void add(String referencia) {
+        //Referencia reff = new Referencia(null, referencia, true);
+        this.addReference(referencia);
+        //reff.setNode(this);
+        //super.add(reff);
+        
+        this.referencia = this.getNameReferencia();
+        if(this.ref != null){
+            this.ref.label.setText(this.referencia + ".inicio");
+        }else
+            this.desenhar(yBase);
+    }
+    
+     public void removeReference(String ref) {
+        super.removeReference(ref);
+        
+        this.referencia = this.getNameReferencia();
+        if(this.ref != null){
+            this.ref.label.setText(this.referencia + ".inicio");
+        }
+    }
 
-	@Override
-	public int getBond() {
-		return this.bond;
-	}
+    public LinkedListNode getInit() {
+        return ini;
+    }
 
-	public String getReferencia() {
-		return referencia;
-	}
+    public void setInit(Struct ini) {
+        if (this.ini != null) {
+            this.ini.remove(this.ref);
+        }
+        if (n != null) {
+            quadro.remove(n);
+        }
+        this.ini = ((LinkedListNode) ini);
+        this.desenhar(yBase);
 
-	public void setReferencia(String referencia) {
-		this.referencia = referencia;
-		this.desenhar(yBase);
-	}
+    }
 
-	public LinkedListNode getInit() {
-		return ini;
-	}
+    public void adjust() {
 
-	public void setInit(Struct ini) {
-		if(this.ini != null){
-			this.ini.remove(this.ref);
-		}
-		if(n != null){
-			quadro.remove(n);
-		}
-		this.ini = ((LinkedListNode) ini);
-		this.desenhar(yBase);
+        this.ini.adjust(this.getPInit());
 
-	}
+    }
 
-	public void adjust() {
+    public boolean isVista() {
+        return this.repintado;
+    }
 
-		this.ini.adjust(this.getPInit());
+    public void serVista(boolean vista) {
+        this.repintado = vista;
+    }
 
-	}
+    public void setSize(String value) {
+        this.tamanho = value;
+        if (tam != null) {
+            quadro.remove(tam);
+            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), referencia + ".tamanho");
+            tam.setValor(tamanho);
+            quadro.add(tam);
+        } else {
+            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), referencia + ".tamanho");
+            tam.setValor(tamanho);
+            quadro.add(tam);
+        }
+        quadro.atualizar();
+    }
 
-	public boolean isVista() {
-		return this.repintado;
-	}
+    @Override
+    public Point2D getPInit() {
+        return new Point2D.Double(VarInteiro.LARGURA + 120, yBase + (bond + 30));
+    }
 
-	public void serVista(boolean vista) {
-		this.repintado = vista;
-	}
+    public void repintar() {
 
-	public void setSize(String value) {
-		this.tamanho = value;
-		if (tam != null) {
-			quadro.remove(tam);
-			tam = new VarInteiro(new Point2D.Double(30, yBase + 100),referencia + ".tamanho");
-			tam.setValor(tamanho);
-			quadro.add(tam);
-		} else {
-			tam = new VarInteiro(new Point2D.Double(30, yBase + 100),referencia + ".tamanho");
-			tam.setValor(tamanho);
-			quadro.add(tam);
-		}
-		quadro.atualizar();
-	}
-
-	public Point2D getPInit() {
-		return new Point2D.Double(VarInteiro.LARGURA + 120, yBase + (bond + 30));
-	}
-
-	public void repintar() {
-		
 // redesenhando
-		
-		if(!this.repintado){
-			this.desenhar(yBase);
-			LinkedListNode n1 = this.ini;
 
-				n1 = this.ini;
-				
-				while (n1 != null) {
-					if(!n1.isRepintado()){
-						n1.repintar();
-					}else{
-						break;
-					}
-					
-					n1 = n1.getProx();
-					if (n1 != null && n1.equals(this.ini)) {
-						break;
-					}
-				}
-				
-				if(this.ini !=null){
-					this.adjust();
-				}
-			
-			this.repintado = true;
-		}
-		
-	}
+        if (!this.repintado) {
+            this.desenhar(yBase);
+            LinkedListNode n1 = this.ini;
 
-	@Override
-	public Struct readField(int field) {
-		switch (field) {
-		case IGEDConst.LISTA_INICIO:
-			return this.ini;
+            n1 = this.ini;
 
-		}
-		return null;
-	}
+            while (n1 != null) {
+                if (!n1.isRepintado()) {
+                    n1.repintar();
+                } else {
+                    break;
+                }
 
-	@Override
-	public void writeField(Struct s, int field) {
-		switch (field) {
-		case IGEDConst.LISTA_INICIO:
-			this.setInit(((LinkedListNode) s));
+                n1 = n1.getProx();
+                if (n1 != null && n1.equals(this.ini)) {
+                    break;
+                }
+            }
 
-		}
+            if (this.ini != null) {
+                this.adjust();
+            }
 
-	}
+            this.repintado = true;
+        }
 
-	@Override
-	public String readInfo() {
-		return this.tamanho;
-	}
-
-	@Override
-	public void writeInfo(String value) {
-		this.tamanho = value;
-		if (tam != null) {
-			quadro.remove(tam);
-			tam = new VarInteiro(new Point2D.Double(30, yBase + 100),
-					referencia + ".tamanho");
-			tam.setValor(tamanho);
-			quadro.add(tam);
-		} else {
-			tam = new VarInteiro(new Point2D.Double(30, yBase + 100),
-					referencia + ".tamanho");
-			tam.setValor(tamanho);
-			quadro.add(tam);
-		}
-		quadro.atualizar();
-	}
-
-
-	@Override
-	public boolean isRepintado() {
-		return this.repintado;
-	}
-
-	@Override
-	public void startRepaint() {
-		this.repintado = false;
-		
-		LinkedListNode n1 = this.ini;
-		while (n1 != null) {
-			n1.startRepaint();
-			n1 = n1.getProx();
-			if (n1 != null && n1.equals(this.ini)) {
-				break;
-			}
-		}
-
-	}
-
-	@Override
-	public String toString() {
-		return "Lista " + referencia;
-	}
-
-    @Override
-    public Point2D add(Referencia ref) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void remove(Referencia ref) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Struct readField(int field) {
+        switch (field) {
+            case IGEDConst.LISTA_INICIO:
+                return this.ini;
+
+        }
+        return null;
     }
 
     @Override
-    public Point2D getPointPI() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void writeField(Struct s, int field) {
+        switch (field) {
+            case IGEDConst.LISTA_INICIO:
+                this.setInit(((LinkedListNode) s));
+
+        }
+
+    }
+
+    @Override
+    public String readInfo() {
+        return this.tamanho;
+    }
+
+    @Override
+    public void writeInfo(String value) {
+        this.tamanho = value;
+        if (tam != null) {
+            tam.setValor(tamanho);
+        } else {
+            tam = new VarInteiro(new Point2D.Double(30, yBase + 100),
+                    referencia + ".tamanho");
+            quadro.add(tam);
+            tam.setValor(tamanho);
+        }
+    }
+
+    @Override
+    public boolean isRepintado() {
+        return this.repintado;
+    }
+
+    @Override
+    public void startRepaint() {
+        this.repintado = false;
+
+        LinkedListNode n1 = this.ini;
+        while (n1 != null) {
+            n1.startRepaint();
+            n1 = n1.getProx();
+            if (n1 != null && n1.equals(this.ini)) {
+                break;
+            }
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "Lista " + referencia;
     }
 }

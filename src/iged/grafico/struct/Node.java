@@ -12,4 +12,8 @@ import java.awt.geom.Point2D;
  */
 public abstract class Node extends Struct  {
     public abstract void setRepintado(boolean state);
+    
+    public void add(String ref){
+    
+    }
 }

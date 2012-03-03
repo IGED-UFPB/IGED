@@ -108,7 +108,6 @@ public class GraphicManager {
             return;
         }
         w1.setStruct(w2.getStruct());
-
     }
 
     public void readReferenceField(int field) {
