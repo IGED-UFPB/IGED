@@ -14,6 +14,9 @@ public interface IGEDConst {
 	public static final int MODE_PROFESSOR = 300;
         
         public static final int NODE_TREE = 3;
+        public static final int NODE_TREE_ROOT = 4;
+        public static final int RIGHT_CHIELD = 5;
+        public static final int LEFT_CHIELD = 6; 
 
 	
 	

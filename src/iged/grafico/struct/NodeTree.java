@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.geom.Point2D;
 
 
+import iged.IGEDConst;
 import iged.grafico.geometria.Circulo;
 import iged.grafico.geometria.Label;
 import iged.grafico.manager.Quadro;
@@ -21,6 +22,7 @@ public class NodeTree extends Node{
 	private NodeTree leftChield = null;
 	
 	private Label valor = null;
+	private Label altura = null;
 	private Seta sRightChield = null;
 	private Seta sLeftChield = null;
 	
@@ -28,6 +30,8 @@ public class NodeTree extends Node{
 	private Point2D pd; // ponto-marca da direita
 	private Point2D pe; // ponto-marca da esquerda
 	private Point2D pc; // ponto-marca do centro
+	private Point2D pi; // ponto-marca de incidência da seta da referência
+	private Point2D ph; // ponto-marca do label altura no node
 	
 	
 	// retorna o ponto base do filho à esquerda
@@ -40,6 +44,12 @@ public class NodeTree extends Node{
 		return new Point2D.Double(this.pb.getX()+(3*this.sizeRadius),this.pb.getY()+(3*this.sizeRadius)); 
 	}	
 	
+	public void setAltura(String h){
+		this.altura.setText(h);
+        this.repintar();
+		
+	}
+	
 		
 	public NodeTree(Point2D pb){
 		super.setPoint(pb);
@@ -49,12 +59,15 @@ public class NodeTree extends Node{
 		pe = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));
 		pc = new Point2D.Double(pb.getX() - 13, pb.getY() + 7);
 		pi = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY());
+		ph = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()-this.sizeRadius);
 		
 		this.circ = new Circulo(this.pb, sizeRadius);
 		this.conteudo.add(circ);
 		
 		valor = new Label("-",this.pc);
+		altura = new Label(" ",this.ph);
 		this.textos.add(valor);
+		this.textos.add(altura);
 		
 	}
 	
@@ -218,8 +231,10 @@ public class NodeTree extends Node{
 		this.pe = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));
 		this.pc = new Point2D.Double(pb.getX() - 13, pb.getY() + 7);
 		this.pi = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY());
+		this.ph = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()-this.sizeRadius);
 		
 	}
+	
 	
 	// seta o label deste node
 	public void setValue(String v){
@@ -243,8 +258,7 @@ public class NodeTree extends Node{
 	
 	@Override
 	public Point2D getPInit() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.pi;
 	}
 
 	
@@ -288,16 +302,11 @@ public class NodeTree extends Node{
 			this.rightChield.startRepaint();
 	}
 
-	
-	public static int RC = 1;//right chield
-	
-	public static int LC = 1;// left chield
-	
 	@Override
 	public void writeField(Struct s, int field) {
-		if(field == NodeTree.LC)
+		if(field == IGEDConst.LEFT_CHIELD)
 			this.setLeftChield((NodeTree)s);
-		else if(field == NodeTree.RC)
+		else if(field == IGEDConst.RIGHT_CHIELD)
 			this.setRightChield((NodeTree)s);
 		
 	}
@@ -312,14 +321,23 @@ public class NodeTree extends Node{
 	
 	@Override
 	public void writeInfo(String value) {
-		// TODO Auto-generated method stub
+		this.circ.evidencia(Color.red, 4);
+		this.valor.setText(value);
+        this.repintar();
 		
 	}
 
 	@Override
 	public Struct readField(int field) {
-		// TODO Auto-generated method stub
-		return null;
+		switch(field){
+			case IGEDConst.RIGHT_CHIELD:
+				return this.rightChield;
+			case IGEDConst.LEFT_CHIELD:
+				return this.leftChield;
+				
+			default:
+				return null;
+		}
 	}
 	
         public void setRepintado(boolean state){
