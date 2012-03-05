@@ -5,7 +5,6 @@ import iged.grafico.geometria.Retangulo;
 import iged.grafico.geometria.Label;
 import java.awt.geom.Point2D;
 import java.awt.Color;
-import java.util.*;
 
 import iged.grafico.manager.Quadro;
 
@@ -13,9 +12,7 @@ public class LinkedListNode extends Node {
 
     public boolean repintado = false;
     private LinkedListNode prox = null;
-    private int numRef = -1;
     private Point2D pp = null;
-    private Point2D pr = null;
     private Retangulo rect = null;
     private Retangulo rectP = null;
     private Label valor = null;
@@ -94,30 +91,12 @@ public class LinkedListNode extends Node {
         Quadro.getInstance().atualizar();
     }
 
+    @Override
     public Point2D add(Referencia ref) {
-        if (!this.referencias.contains(ref)) {
-            System.out.println("ADDDDDD");
-            this.referencias.add(ref);
-        }
-            if (!ref.isFixa()) {
-                ++this.numRef;
-            }
-        //}
-        return new Point2D.Double(this.pr.getX(), (this.pr.getY() - (15 * numRef)));
+        super.add(ref);
+        return new Point2D.Double(this.pr.getX(), (this.pr.getY() - (15 * this.numRef)));
     }
-
-    public void remove(Referencia ref) {
-        if (this.referencias.contains(ref)) {
-            int j = this.referencias.indexOf(ref);
-            this.numRef = j - 1;
-            this.referencias.remove(ref);
-
-            for (int i = j; i < this.referencias.size(); ++i) {
-                this.referencias.get(i).config(this);
-            }
-        }
-    }
-
+    
     public void remove(String ref) {
         for (Referencia refe : this.referencias) {
             if (refe.getTextos().contains(ref)) {
@@ -127,18 +106,6 @@ public class LinkedListNode extends Node {
         }
     }
 
-    public void mover(final double dx, final double dy, final int t) {
-
-        super.mover(dx, dy, t);
-
-        for (Referencia r : this.referencias) {
-            if(!r.isFixa())
-                r.mover(dx, dy, t);
-            else
-                r.atualiza(dx, dy);
-        }
-
-    }
     public boolean isAjustado = false;
 
     public synchronized void adjust(final Point2D p) {

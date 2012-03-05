@@ -30,7 +30,6 @@ public class NodeTree extends Node{
 	private Point2D pd; // ponto-marca da direita
 	private Point2D pe; // ponto-marca da esquerda
 	private Point2D pc; // ponto-marca do centro
-	private Point2D pi; // ponto-marca de incidência da seta da referência
 	private Point2D ph; // ponto-marca do label altura no node
 	
 	
@@ -58,8 +57,9 @@ public class NodeTree extends Node{
 		pd = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));
 		pe = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));
 		pc = new Point2D.Double(pb.getX() - 13, pb.getY() + 7);
-		pi = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY());
+		pi = pp;
 		ph = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()-this.sizeRadius);
+                pr = new Point2D.Double(this.pb.getX()-70,(this.pb.getY()-45));
 		
 		this.circ = new Circulo(this.pb, sizeRadius);
 		this.conteudo.add(circ);
@@ -71,7 +71,7 @@ public class NodeTree extends Node{
 		
 	}
 	
-	public Point2D add(Referencia ref){
+	/*public Point2D add(Referencia ref){
 		if(!this.referencias.contains(ref) ){
 			this.referencias.add(ref);
 	       		
@@ -81,10 +81,10 @@ public class NodeTree extends Node{
 	    	
 	    }
 	    return new Point2D.Double(this.pb.getX()-70,((this.pb.getY()-45) -(15*numRef)));
-  }
+        }
 	
 	public void remove(Referencia ref){
-        if(this.referencias.contains(ref)){
+            if(this.referencias.contains(ref)){
 			int j = this.referencias.indexOf(ref);
         	this.numRef = j - 1;
         	this.referencias.remove(ref);
@@ -93,7 +93,7 @@ public class NodeTree extends Node{
                     this.referencias.get(i).config(this);
             }
         }
-}
+}*/
 
 	
 	
@@ -232,7 +232,7 @@ public class NodeTree extends Node{
 		this.pc = new Point2D.Double(pb.getX() - 13, pb.getY() + 7);
 		this.pi = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY());
 		this.ph = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()-this.sizeRadius);
-		
+		this.pr = new Point2D.Double(this.pb.getX()-70,(this.pb.getY()-45));
 	}
 	
 	
@@ -247,7 +247,7 @@ public class NodeTree extends Node{
 	public boolean mover(Point2D np) {
 		//this.circ.evidencia(Color.red, 4);
 		super.mover(np);
-		
+                               
 		return true;
 	}
 	
@@ -343,6 +343,4 @@ public class NodeTree extends Node{
         public void setRepintado(boolean state){
             this.repintado = state;
         }
-	
-
 }

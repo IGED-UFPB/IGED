@@ -118,14 +118,6 @@ public class BinaryTree extends Struct{
 		
 	}
 
-	public Point2D add(Referencia ref) {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
-	public void remove(Referencia ref) {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
-
 	public void add(String ref) {
 		// TODO Auto-generated method stub
 		
@@ -141,7 +133,7 @@ public class BinaryTree extends Struct{
 			// desenhar lista vazia "referencia solta"
 			if (n == null) {
 				this.ref = new Referencia(new Point2D.Double(60, yBase+ espaco
-						+ 10), referencia + ".raiz", true);
+						+ 10), referencia + ".raiz");
 
 				n = new Null(new Point2D.Double(
 						120 + (7 * referencia.length()), yBase + espaco + 5),
@@ -153,7 +145,7 @@ public class BinaryTree extends Struct{
 				quadro.remove(ref);
 				quadro.remove(n);
 				this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
-						+ 10), referencia + ".raiz", true);// apontando para
+						+ 10), referencia + ".raiz");// apontando para
 																// null
 				n = new Null(new Point2D.Double(
 						120 + (7 * referencia.length()), yBase + espaco + 5),
@@ -175,10 +167,10 @@ public class BinaryTree extends Struct{
 
 			ref = new Referencia(ini, referencia + ".raiz",
 					new Point2D.Double(60, yBase + espaco + 10));
-			ref.setFixa(true);
+			ref.setFixa(false);
 
 			quadro.add(ref);
-			quadro.atualizar();
+			//quadro.atualizar();
 		}
 
 		quadro.atualizar();
@@ -189,13 +181,13 @@ public class BinaryTree extends Struct{
 		this.ini.adjust(this.getPInit());
 		this.ini.repintarSetas();
 		
-		if(this.ini!= null && this.ini.getPInit().getX()!=beforeValueX)
-			this.writeField(this.ini, IGEDConst.NODE_TREE_ROOT);
+		//if(this.ini!= null && this.ini.getPInit().getX()!=beforeValueX)
+		//	this.writeField(this.ini, IGEDConst.NODE_TREE_ROOT);
 		
 	}
 	
 	public void setInit(NodeTree nt){
-		if(this.ini!=null)
+		if((this.ini!=null)&&(this.ref !=null))
 			this.ini.remove(this.ref);
 		if(n!=null)
 			this.quadro.remove(n);

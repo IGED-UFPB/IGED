@@ -11,6 +11,7 @@ public abstract class Struct extends Elemento {
     protected List<Referencia> referencias = new ArrayList<Referencia>();
     protected List<String> referenciasS = new ArrayList<String>();
     protected Point2D pi = null;
+    protected Point2D pr = null;
     
     public abstract Point2D getPInit();
     //Ponto de incidência das Referencias
