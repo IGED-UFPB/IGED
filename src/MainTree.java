@@ -158,7 +158,7 @@ public class MainTree implements AcaoUsuario {
 	   
 	   public void passo5(){
 		   node.adjust(this.pbTree);
-		   node.repintarSetas();
+		   node.repintarTracos();
 		   this.quadro.atualizar();
 		   
 		   }
@@ -179,7 +179,7 @@ public class MainTree implements AcaoUsuario {
 	   
 	   public void passo8(){
 		   node.adjust(this.pbTree);
-		   node.repintarSetas();
+		   node.repintarTracos();
 		  
 		   this.quadro.atualizar();
 		   	  
@@ -202,7 +202,7 @@ public class MainTree implements AcaoUsuario {
 	    
 	   public void passo11(){
 		   node.adjust(this.pbTree);
-		   node.repintarSetas();
+		   node.repintarTracos();
 		   this.quadro.atualizar();
 		   
 		  
@@ -224,7 +224,7 @@ public class MainTree implements AcaoUsuario {
 	    
 	   public void passo14(){
 		   node.adjust(this.pbTree);
-		   node.repintarSetas();
+		   node.repintarTracos();
 		   this.quadro.atualizar();
 		   
 		   
@@ -246,7 +246,7 @@ public class MainTree implements AcaoUsuario {
 	    
 	   public void passo17(){
 		   node.adjust(this.pbTree);
-		   node.repintarSetas();
+		   node.repintarTracos();
 		   this.quadro.atualizar();
 		   
 	   }
@@ -267,7 +267,7 @@ public class MainTree implements AcaoUsuario {
 	    
 	   public void passo20(){
 		   node.adjust(this.pbTree);
-		   node.repintarSetas();
+		   node.repintarTracos();
 		   this.quadro.atualizar();
 		   
 	   }

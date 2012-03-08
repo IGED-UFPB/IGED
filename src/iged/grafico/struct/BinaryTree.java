@@ -37,7 +37,6 @@ public class BinaryTree extends Struct{
 	
 	public Point2D getPInit() {
 		return this.pi;
-		//return new Point2D.Double(VarInteiro.LARGURA + 120, yBase + (bond + 30));
 	}
 	
 	public int getBond() {
@@ -179,11 +178,9 @@ public class BinaryTree extends Struct{
 	public void adjust(){
 		double beforeValueX = this.ini.getPInit().getX();
 		this.ini.adjust(this.getPInit());
-		this.ini.repintarSetas();
+		this.ini.repintarTracos();
 		
-		//if(this.ini!= null && this.ini.getPInit().getX()!=beforeValueX)
-		//	this.writeField(this.ini, IGEDConst.NODE_TREE_ROOT);
-		
+	
 	}
 	
 	public void setInit(NodeTree nt){

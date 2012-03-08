@@ -23,8 +23,8 @@ public class NodeTree extends Node{
 	
 	private Label valor = null;
 	private Label altura = null;
-	private Seta sRightChield = null;
-	private Seta sLeftChield = null;
+	private Traco tracoRightChield = null;
+	private Traco tracoLeftChield = null;
 	
 	private Point2D pp; //ponto de incidência do pai
 	private Point2D pd; // ponto-marca da direita
@@ -99,15 +99,15 @@ public class NodeTree extends Node{
 	
 		//   >> Olhar depois <<
 	//----------------------------------------------------------
-	public void setSLeftChield(Point2D ppe){
-		Seta spe = new Seta(this.pe, new Point2D.Double(ppe.getX(), ppe.getY()-4), false);
+	public void setTracoLeftChield(Point2D ppe){
+		Traco spe = new Traco(this.pe, new Point2D.Double(ppe.getX(), ppe.getY()-4), false);
 		this.elementos.add(spe);
 		Quadro.getInstance().add(spe);
 		Quadro.getInstance().atualizar();
 	}
 	
-	public void setSRightChield(Point2D ppd){
-		Seta spd = new Seta(this.pd, new Point2D.Double(ppd.getX(), ppd.getY()-4), false);
+	public void setTracoRightChield(Point2D ppd){
+		Traco spd = new Traco(this.pd, new Point2D.Double(ppd.getX(), ppd.getY()-4), false);
 		this.elementos.add(spd);
 		Quadro.getInstance().add(spd);
 		Quadro.getInstance().atualizar();
@@ -116,27 +116,27 @@ public class NodeTree extends Node{
 	//--------------------------------------------------
 	
 
-		/** Métodos que limpam as setas p/ para os filhos deste nó
+		/** Métodos que limpam as tracos p/ para os filhos deste nó
 		 * 
 		 * limpam também os nós filhos
 		 * 
 		 * */
 	//----------------------------------------
 	
-	public void clearSRightChield(){
-	    if(this.sRightChield != null){
-	    	this.elementos.remove(this.sRightChield);
-	    	Quadro.getInstance().remove(this.sRightChield);
-	        this.sRightChield = null;
+	public void clearTracoRightChield(){
+	    if(this.tracoRightChield != null){
+	    	this.elementos.remove(this.tracoRightChield);
+	    	Quadro.getInstance().remove(this.tracoRightChield);
+	        this.tracoRightChield = null;
 	        this.rightChield = null;
 	    }
 	}
 	
-	public void clearSLeftChield(){
-	    if(this.sLeftChield != null){
-	    	this.elementos.remove(this.sLeftChield);
-	    	Quadro.getInstance().remove(this.sLeftChield);
-	    	this.sLeftChield = null;
+	public void clearTracoLeftChield(){
+	    if(this.tracoLeftChield != null){
+	    	this.elementos.remove(this.tracoLeftChield);
+	    	Quadro.getInstance().remove(this.tracoLeftChield);
+	    	this.tracoLeftChield = null;
 	        this.leftChield = null;
 	    }
 	}
@@ -146,48 +146,48 @@ public class NodeTree extends Node{
 	
 	public void setRightChield(NodeTree nt){
 		if(nt == null){
-			this.sRightChield = null;
+			this.tracoRightChield = null;
 			return;
 		}
-		if(this.sRightChield!=null)
-			clearSRightChield();
+		if(this.tracoRightChield!=null)
+			clearTracoRightChield();
 		this.rightChield = nt;
-		this.sRightChield = new Seta(this.pd, nt.getPP(), false);
-	    this.elementos.add(this.sRightChield);
-	    Quadro.getInstance().add(this.sRightChield);
+		this.tracoRightChield = new Traco(this.pd, nt.getPP(), false);
+	    this.elementos.add(this.tracoRightChield);
+	    Quadro.getInstance().add(this.tracoRightChield);
 	    Quadro.getInstance().atualizar();
 		
 	}
 	
 	public void setLeftChield(NodeTree nt){
 		if(nt == null){
-			this.sLeftChield = null;
+			this.tracoLeftChield = null;
 			return;
 		}
-		if(this.sLeftChield!=null)
-			clearSLeftChield();
+		if(this.tracoLeftChield!=null)
+			clearTracoLeftChield();
 		this.leftChield = nt;
-	    this.sLeftChield = new Seta(this.pe, nt.getPP(), false);
-	    this.elementos.add(this.sLeftChield);
-	    Quadro.getInstance().add(this.sLeftChield);
+	    this.tracoLeftChield = new Traco(this.pe, nt.getPP(), false);
+	    this.elementos.add(this.tracoLeftChield);
+	    Quadro.getInstance().add(this.tracoLeftChield);
 	    Quadro.getInstance().atualizar();
 		
 	}
 	
 	
-	/**Método provisório para repintar as setas dos nós filhos
+	/**Método provisório para repintar os tracos dos nós filhos
 	 * o método 'seta' novamente os filhos para as novas
 	 * coordenadas após a chamada ao 'adjust'
 	 * */
 	
-	public void repintarSetas(){
+	public void repintarTracos(){
 		if(this.leftChield!=null){
-			this.leftChield.repintarSetas();
+			this.leftChield.repintarTracos();
 			this.setLeftChield(this.leftChield);
 			
 		}
 		if(this.rightChield!=null){
-			this.rightChield.repintarSetas();
+			this.rightChield.repintarTracos();
 			this.setRightChield(this.rightChield);
 			
 		}
@@ -245,7 +245,6 @@ public class NodeTree extends Node{
 	
 	
 	public boolean mover(Point2D np) {
-		//this.circ.evidencia(Color.red, 4);
 		super.mover(np);
                                
 		return true;
