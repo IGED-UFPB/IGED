@@ -13,19 +13,35 @@ public abstract class Struct extends Elemento {
     protected Point2D pi = null;
     protected Point2D pr = null;
     
+    protected boolean repintado = false;
+    protected boolean ajustado = false;
+    
     public abstract Point2D getPInit();
     //Ponto de incidência das Referencias
     public Point2D getPointPI() {
         return this.pi;
+    }
+    public void setRepintado(boolean state){
+        this.repintado = state;
+    }
+    
+    public boolean isRepintado() {
+        return this.repintado;
+    }
+    
+    public boolean isAjustado() {
+        return this.ajustado;
     }
 
     public abstract int getBond();
 
     public abstract void repintar();
 
-    public abstract boolean isRepintado();
-
-    public abstract void startRepaint();
+    public void startRepaint(){
+        this.initSemaphore();
+        this.ajustado = false;
+        this.repintado = false;
+    }
 
     public abstract Struct readField(int field);
 

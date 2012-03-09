@@ -15,99 +15,109 @@ public class GraficoAED {
 	private StructManager sm =  StructManager.getIntance();
 	private Appraiser ap;
 	
-	
-	
+        private int mode = IGEDConst.MODE_BOTH;
 	
 	public void createStruct(int tipo){
 		sm.createStruct(tipo);
-		gm.createStruct(tipo);
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.createStruct(tipo);
 	}
 	
 	public void createReference(String reference, int type) {
 		sm.createReference(reference, type);
-		gm.createReference(reference, type);
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.createReference(reference, type);
 	}
 	
 	public void readReference(String reference) {
 		sm.readReference(reference);
-		gm.readReference(reference);
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.readReference(reference);
 	}
 	
 	public void writeReference() {
 		sm.writeReference();
-		gm.writeReference();
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.writeReference();
 	}
 	
 	public void readReferenceField(int field) {
 		sm.readReferenceField(field);
-		gm.readReferenceField(field);
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.readReferenceField(field);
 	}
 	
 	
 	public void writeReferenceField(int field) {
 		sm.writeReferenceField(field);
-		gm.writeReferenceField(field);
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.writeReferenceField(field);
 	}
 	
 	
 	public void writeReferenceFieldNull(int field) {
 		sm.writeReferenceFieldNull(field);
-		gm.writeReferenceFieldNull(field);
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.writeReferenceFieldNull(field);
 		
 	}
 	
 	public int readStructInfo() {
 		int i = sm.readInfo();
-		gm.readInfo();
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.readInfo();
 		return i;
 	}
 	
 
 	public void writeStructInfo(int value) {
 		sm.writeInfo(value);
-		gm.writeInfo(String.valueOf(value));
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.writeInfo(String.valueOf(value));
 	}
-        
-        /*public int readStructLength() {
-		int i = sm.readLength();
-		//gm.readLength();
-		return i;
-	}*/
-	
+
 
 	public void writeStructLength(int value) {
 		sm.set_LengthStruct(value);
-		gm.regVet(value);
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.regVet(value);
 	}
         
 	public void removeReference(String reference) {
 		sm.removeStruct(reference);
-		gm.removeReference(reference);
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.removeReference(reference);
 	}
 
 	
 	public void creat_Int(String referencia){
-		gm.create_Int(referencia);
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.create_Int(referencia);
 	}
         
         public void remove_int(String referencia){
-		gm.remove_int(referencia);
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.remove_int(referencia);
 	}
 	
 	public void readReferenceInt(String referencia){
-		gm.readReferenceInt(referencia);
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.readReferenceInt(referencia);
 	}
 	
 	public void setValueInt(int value){
-		gm.setValue(String.valueOf(value));
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.setValue(String.valueOf(value));
 	}
 	public void ler_Int(String referencia){
-		gm.read_Int(referencia);
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.read_Int(referencia);
 	}
 	
 	public void endCommand(){
 		sm.endCommand();
-		gm.lixeiro();
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.lixeiro();
 	}
 	
 	public boolean correctTask(){
@@ -122,7 +132,8 @@ public class GraficoAED {
 	public void setPosVector(int pos){
 		sm.setPosVector(pos);
 		sm.set_LengthStruct(pos);
-		gm.regVet(pos);
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.regVet(pos);
 	}
 	
 	public static Quadro quadro(){
@@ -130,6 +141,7 @@ public class GraficoAED {
 	}
 	
 	public void setMode(int mode){
+                this.mode = mode;
 		sm.setMode(mode);
 	}	
 }

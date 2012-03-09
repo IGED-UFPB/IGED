@@ -7,10 +7,10 @@ import java.awt.geom.Point2D;
 import java.awt.Color;
 
 import iged.grafico.manager.Quadro;
+import java.util.concurrent.Semaphore;
 
 public class LinkedListNode extends Node {
-
-    public boolean repintado = false;
+    
     private LinkedListNode prox = null;
     private Point2D pp = null;
     private Retangulo rect = null;
@@ -106,48 +106,61 @@ public class LinkedListNode extends Node {
         }
     }
 
-    public boolean isAjustado = false;
+    //public boolean isAjustado = false;
 
-    public synchronized void adjust(final Point2D p) {
+    public synchronized void adjust(final Point2D p, final Semaphore semLista) {
 
-        if (isAjustado) {
+        if (this.ajustado) {
+            System.out.println("Node Ajustado");
             return;
         }
-        isAjustado = true;
+        //this.repintado = true;
 
         final LinkedListNode n = this;
-
 
         new Thread() {
 
             public void run() {
-                if (n.mover(p)) {
-                    try {
-                        Thread.sleep(500);
-                    } catch (Exception e) {
-                    }
-                }
-
+                //n.repintar();
+                
+                boolean moveu = n.mover(p);
+                n.ajustado = true;
+                //if(moveu){
+                System.out.println("Node vai mover!");
+                    n.bloqueiaMovendo();
+                    System.out.println("Node n movido!");
+                    semLista.release();
+                /*}else{
+                    System.out.println("Node n moveu!");
+                    semLista.release();
+                }*/
 
                 if (n.prox != null) {
-                    if (n.prox.isAjustado) {
+                    System.out.println("n.prox != null");
+                    if (n.prox.ajustado) {
                         n.setNext(n.prox);
                         return;
                     }
                     Point2D pprox = new Point2D.Double((p.getX() + 150), p.getY());
-
+                    n.prox.adjust(pprox, semLista);
+                    
+                    //n.prox.repintar();
                     n.prox.mover(pprox);
-
+                    n.prox.ajustado = true;
                     n.setNext(n.prox);
-                    n.prox.adjust(pprox);
-                    n.prox.isAjustado = true;
+                    
+                    //n.prox.repintado = true;
+                    //n.prox.bloqueiaMovendo();
+                    //System.out.println("Node prox movido!");
+                    //semLista.release();
+                    return;
                 } else {
+                    System.out.println("n.prox == null");
                     n.setNext(null);
+                    //return;
                 }
             }
         }.start();
-
-
 
     }
 
@@ -221,29 +234,20 @@ public class LinkedListNode extends Node {
         return 0;
     }
 
-    public void setRepintado(boolean state){
-        this.repintado = state;
-    }
-    
-    @Override
-    public boolean isRepintado() {
-        return this.repintado;
-
-    }
-
     @Override
     public void startRepaint() {
+        super.startRepaint();
         this.repintado = false;
-        this.isAjustado = false;
+        //this.isAjustado = false;
         if (this.prox != null) {
             //this.prox.startRepaint(); , fiz isso para nao dar estouro de pilha
             LinkedListNode p = this.prox;
             while (p != null) {
                 p.repintado = false;
-                p.isAjustado = false;
+                //p.isAjustado = false;
 
                 p = p.getProx();
-                if (p == null || p.equals(this)) {
+                if (p == null || !p.isRepintado()) {
                     break;
                 }
             }

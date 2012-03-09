@@ -5,7 +5,6 @@ import iged.grafico.struct.Vetor;
 import iged.grafico.struct.Lista;
 import iged.grafico.struct.LinkedListNode;
 import iged.grafico.struct.NodeTree;
-import iged.grafico.struct.Struct;
 import iged.grafico.struct.WrapperStruct;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
+import java.util.concurrent.Semaphore;
 import javax.swing.JPanel;
 
 public class GraphicManager {
@@ -265,12 +265,25 @@ public class GraphicManager {
             if (no.getStruct() != null && !no.getStruct().isRepintado()) {
                 no.repintar();
                 
-                
-                
                 System.out.println("HHHHHHH");
                 if(no.getType() == IGEDConst.NODE){
                     LinkedListNode n = ((LinkedListNode)no.getStruct());
-                    n.adjust(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho));
+                    //Cria um semaphoro que bloquea a Thread equanto os nodes n forem desenhados.
+                    LinkedListNode aux = n.getProx();
+                    //Conta com o no atual n.
+                    int count = 1;
+                    while((aux != null)&&(!aux.isAjustado()) && (aux != n)){
+                        ++count;
+                        aux = aux.getProx();
+                    }
+                    System.out.println("Noooode: " + count);
+                    if(count > 0){
+                        Semaphore sem = new Semaphore(0, true);
+                        n.adjust(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho), sem);
+                        try{
+                            sem.acquire(count);
+                        }catch(InterruptedException ie){}
+                    }
                     nodesSoltos++;
 		}
 		else{

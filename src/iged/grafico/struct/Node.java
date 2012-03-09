@@ -13,9 +13,8 @@ import java.awt.geom.Point2D;
 public abstract class Node extends Struct {
 
     protected int numRef = -1;
-
-    public abstract void setRepintado(boolean state);
-
+    
+    
     public void add(String ref) {
     }
 
@@ -37,12 +36,12 @@ public abstract class Node extends Struct {
         if (!this.referencias.contains(ref)) {
             System.out.println("ADDDDDD");
             this.referencias.add(ref);
+            this.elementos.add(ref);
         }
         if (!ref.isFixa()) {
             ++this.numRef;
         }
         return pi;
-        
     }
 
     public void remove(Referencia ref) {
@@ -50,6 +49,7 @@ public abstract class Node extends Struct {
             int j = this.referencias.indexOf(ref);
             this.numRef = j - 1;
             this.referencias.remove(ref);
+            this.elementos.remove(ref);
 
             for (int i = j; i < this.referencias.size(); ++i) {
                 this.referencias.get(i).config(this);

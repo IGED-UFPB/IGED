@@ -9,8 +9,8 @@ import java.util.Stack;
 
 public class StructManager {
 
-    Map<String, WrapperStruct> nodeOriginal;
-    Map<String, WrapperStruct> nodeReplica;
+    //Map<String, WrapperStruct> nodeOriginal;
+    //Map<String, WrapperStruct> nodeReplica;
     Map<String, WrapperStruct> structOriginal;
     Map<String, WrapperStruct> structReplica;
     private StructFactory factory = new StructFactory();
@@ -28,7 +28,7 @@ public class StructManager {
         structReplica = new HashMap<String, WrapperStruct>();
         //nodeOriginal = new HashMap<String, WrapperStruct>();
         //nodeReplica = new HashMap<String, WrapperStruct>();
-        mode = StructManager.BOTH;
+        mode = IGEDConst.MODE_BOTH;
     }
 
     public static StructManager getIntance() {
@@ -42,14 +42,14 @@ public class StructManager {
 
         /*if(this.getNode(id)!= null){
         switch(mode){
-        case StructManager.PROFESSOR:
+        case IGEDConst.MODE_PROFESSOR:
         this.nodeReplica.remove(id);
         return true;
-        case StructManager.BOTH:
+        case IGEDConst.MODE_BOTH:
         this.nodeOriginal.remove(id);
         this.nodeReplica.remove(id);
         return true;
-        case StructManager.STUDENT:
+        case IGEDConst.MODE_STUDENT:
         this.nodeOriginal.remove(id);
         return true;
         default:
@@ -58,14 +58,14 @@ public class StructManager {
         }else*/
         if (this.getStruct(id) != null) {
             switch (mode) {
-                case StructManager.PROFESSOR:
+                case IGEDConst.MODE_PROFESSOR:
                     this.structReplica.remove(id);
                     return true;
-                case StructManager.BOTH:
+                case IGEDConst.MODE_BOTH:
                     this.structOriginal.remove(id);
                     this.structReplica.remove(id);
                     return true;
-                case StructManager.STUDENT:
+                case IGEDConst.MODE_STUDENT:
                     this.structOriginal.remove(id);
                     return true;
                 default:
@@ -288,14 +288,14 @@ public class StructManager {
     public void insertStruct(String id, Struct s) {
         WrapperStruct ws = new WrapperStruct(s);
         switch (mode) {
-            case StructManager.PROFESSOR:
+            case IGEDConst.MODE_PROFESSOR:
                 this.structReplica.put(id, ws);
                 break;
-            case StructManager.BOTH:
+            case IGEDConst.MODE_BOTH:
                 this.structOriginal.put(id, ws);
                 this.structReplica.put(id, factory.duplicateStruct(s));
                 break;
-            case StructManager.STUDENT:
+            case IGEDConst.MODE_STUDENT:
                 this.structOriginal.put(id, ws);
                 break;
             default:
@@ -308,14 +308,14 @@ public class StructManager {
     /*public void insertNode(String id, Node n){
     WrapperStruct wn = new WrapperStruct(n);
     switch(mode){
-    case StructManager.PROFESSOR:
+    case IGEDConst.MODE_PROFESSOR:
     this.nodeReplica.put(id, wn);
     break;
-    case StructManager.BOTH:
+    case IGEDConst.MODE_BOTH:
     this.nodeOriginal.put(id, wn);
     this.nodeReplica.put(id,factory.duplicateStruct(n));
     break;
-    case StructManager.STUDENT:
+    case IGEDConst.MODE_STUDENT:
     this.nodeOriginal.put(id, wn);
     break;
     }
@@ -323,11 +323,11 @@ public class StructManager {
     }*/
     public WrapperStruct getStruct(String id) {
         switch (mode) {
-            case StructManager.PROFESSOR:
+            case IGEDConst.MODE_PROFESSOR:
                 return this.structReplica.get(id);
-            case StructManager.BOTH:
+            case IGEDConst.MODE_BOTH:
                 return this.structOriginal.get(id);
-            case StructManager.STUDENT:
+            case IGEDConst.MODE_STUDENT:
                 return this.structOriginal.get(id);
             default:
                 return null;
@@ -337,11 +337,11 @@ public class StructManager {
 
     /*public WrapperStruct getNode(String id){
     switch(mode){
-    case StructManager.PROFESSOR:
+    case IGEDConst.MODE_PROFESSOR:
     return this.nodeReplica.get(id);
-    case StructManager.BOTH:
+    case IGEDConst.MODE_BOTH:
     return this.nodeOriginal.get(id);
-    case StructManager.STUDENT:
+    case IGEDConst.MODE_STUDENT:
     return this.nodeOriginal.get(id);
     default:
     return null;
@@ -349,11 +349,11 @@ public class StructManager {
     }*/
     public List<String> listStruct() {
         switch (mode) {
-            case StructManager.PROFESSOR:
+            case IGEDConst.MODE_PROFESSOR:
                 return new ArrayList<String>(this.structReplica.keySet());
-            case StructManager.BOTH:
+            case IGEDConst.MODE_BOTH:
                 return new ArrayList<String>(this.structOriginal.keySet());
-            case StructManager.STUDENT:
+            case IGEDConst.MODE_STUDENT:
                 return new ArrayList<String>(this.structOriginal.keySet());
             default:
                 return null;
@@ -362,11 +362,11 @@ public class StructManager {
 
     /*public List<String> listNode(){
     switch(mode){
-    case StructManager.PROFESSOR:
+    case IGEDConst.MODE_PROFESSOR:
     return new ArrayList<String>(this.nodeReplica.keySet());
-    case StructManager.BOTH:
+    case IGEDConst.MODE_BOTH:
     return new ArrayList<String>(this.nodeOriginal.keySet());
-    case StructManager.STUDENT:
+    case IGEDConst.MODE_STUDENT:
     return new ArrayList<String>(this.nodeOriginal.keySet());
     default:
     return null;
@@ -377,7 +377,4 @@ public class StructManager {
         pilha.clear();
         factory.setLengthStruct(10);
     }
-    public static final int STUDENT = 100;
-    public static final int BOTH = 200;
-    public static final int PROFESSOR = 300;
 }

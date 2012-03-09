@@ -228,4 +228,8 @@ public class Interpretador {
         }
         return -1;
     }
+    
+    public void setMode(int mode){
+        con.setMode(mode);
+    }
 }

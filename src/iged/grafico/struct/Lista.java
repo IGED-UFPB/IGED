@@ -5,11 +5,11 @@ import java.awt.geom.Point2D;
 
 import iged.grafico.geometria.Label;
 import iged.grafico.manager.Quadro;
+import java.util.concurrent.Semaphore;
 
 public class Lista extends Struct {
 
     private int bond = 100;
-    private boolean repintado = false;
     private String referencia;
     private String tamanho = "0";
     private Label l;
@@ -110,9 +110,17 @@ public class Lista extends Struct {
      public void removeReference(String ref) {
         super.removeReference(ref);
         
-        this.referencia = this.getNameReferencia();
-        if(this.ref != null){
-            this.ref.label.setText(this.referencia + ".inicio");
+        if(this.referenciasS.isEmpty()){
+            if (this.ini != null) {
+                this.ini.remove(this.ref);
+            }else{
+                quadro.remove(this.ref);
+            }
+        }else{
+            this.referencia = this.getNameReferencia();
+            if(this.ref != null){
+                this.ref.label.setText(this.referencia + ".inicio");
+            }
         }
     }
 
@@ -133,8 +141,22 @@ public class Lista extends Struct {
     }
 
     public void adjust() {
-
-        this.ini.adjust(this.getPInit());
+        LinkedListNode aux = this.ini.getProx();
+        int count = 1;
+        while((aux != null)&&(!aux.ajustado) && (aux != this.ini)){
+            ++count;
+            aux = aux.getProx();
+        }
+        final Semaphore sem = new Semaphore(0, true);
+        System.out.println("Count: " + count);
+        this.ini.adjust(this.getPInit(), sem);
+        
+        try {
+            sem.acquire(count);
+        } catch (InterruptedException ex) {
+        }
+        
+        System.out.println("Lista liberada!");
 
     }
 
@@ -172,7 +194,7 @@ public class Lista extends Struct {
 
         if (!this.repintado) {
             this.desenhar(yBase);
-            LinkedListNode n1 = this.ini;
+            /*LinkedListNode n1 = this.ini;
 
             n1 = this.ini;
 
@@ -187,9 +209,12 @@ public class Lista extends Struct {
                 if (n1 != null && n1.equals(this.ini)) {
                     break;
                 }
-            }
+            }*/
 
             if (this.ini != null) {
+                System.out.println("Repitando Lista");
+                this.ini.repintar();
+                System.out.println("Ajuntando Lista");
                 this.adjust();
             }
 
@@ -237,23 +262,11 @@ public class Lista extends Struct {
     }
 
     @Override
-    public boolean isRepintado() {
-        return this.repintado;
-    }
-
-    @Override
     public void startRepaint() {
         this.repintado = false;
-
-        LinkedListNode n1 = this.ini;
-        while (n1 != null) {
-            n1.startRepaint();
-            n1 = n1.getProx();
-            if (n1 != null && n1.equals(this.ini)) {
-                break;
-            }
-        }
-
+        if(this.ini != null)
+            this.ini.startRepaint();
+        
     }
 
     @Override
