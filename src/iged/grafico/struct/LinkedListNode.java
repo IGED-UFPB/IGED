@@ -19,6 +19,7 @@ public class LinkedListNode extends Node {
     private Elemento next = null;
 
     public LinkedListNode(Point2D p) {
+        this.type = IGEDConst.NODE;
         this.pp = new Point2D.Double();
         this.pi = new Point2D.Double();
         this.pr = new Point2D.Double();
@@ -97,14 +98,14 @@ public class LinkedListNode extends Node {
         return new Point2D.Double(this.pr.getX(), (this.pr.getY() - (15 * this.numRef)));
     }
     
-    public void remove(String ref) {
+    /*public void remove(String ref) {
         for (Referencia refe : this.referencias) {
             if (refe.getTextos().contains(ref)) {
                 this.remove(refe);
                 break;
             }
         }
-    }
+    }*/
 
     //public boolean isAjustado = false;
 
@@ -123,17 +124,12 @@ public class LinkedListNode extends Node {
             public void run() {
                 //n.repintar();
                 
-                boolean moveu = n.mover(p);
+                n.mover(p);
                 n.ajustado = true;
-                //if(moveu){
                 System.out.println("Node vai mover!");
                     n.bloqueiaMovendo();
                     System.out.println("Node n movido!");
                     semLista.release();
-                /*}else{
-                    System.out.println("Node n moveu!");
-                    semLista.release();
-                }*/
 
                 if (n.prox != null) {
                     System.out.println("n.prox != null");
@@ -236,21 +232,23 @@ public class LinkedListNode extends Node {
 
     @Override
     public void startRepaint() {
+        if(!this.isRepintado())
+            return;
         super.startRepaint();
-        this.repintado = false;
-        //this.isAjustado = false;
-        if (this.prox != null) {
-            //this.prox.startRepaint(); , fiz isso para nao dar estouro de pilha
-            LinkedListNode p = this.prox;
+        //this.repintado = false;
+        //this.ajustado = false;
+        if (this.prox != null){
+            this.prox.startRepaint(); //, fiz isso para nao dar estouro de pilha
+            /*LinkedListNode p = this.prox;
             while (p != null) {
-                p.repintado = false;
-                //p.isAjustado = false;
+                //p.repintado = false;
+                //p.ajustado = false;
 
                 p = p.getProx();
                 if (p == null || !p.isRepintado()) {
                     break;
                 }
-            }
+            }*/
         }
     }
 }

@@ -6,6 +6,8 @@ import java.util.List;
 
 public abstract class Struct extends Elemento {
 
+    protected int type;
+    
     //Referência grafica
     protected Referencia ref;
     protected List<Referencia> referencias = new ArrayList<Referencia>();
@@ -32,15 +34,23 @@ public abstract class Struct extends Elemento {
     public boolean isAjustado() {
         return this.ajustado;
     }
+    
+    public int getType() {
+        return type;
+    }
 
+    public void setType(int type) {
+        this.type = type;
+    }
+    
     public abstract int getBond();
 
     public abstract void repintar();
 
     public void startRepaint(){
-        this.initSemaphore();
         this.ajustado = false;
         this.repintado = false;
+        this.initSemaphore();
     }
 
     public abstract Struct readField(int field);

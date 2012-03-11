@@ -12,9 +12,6 @@ import iged.grafico.manager.Quadro;
 public class NodeTree extends Node{
 	
 	private int sizeRadius = 30;
-	public boolean repintado = false;
-	
-	private int numRef = -1;
 	
 	private Circulo circ;
 	
@@ -52,6 +49,7 @@ public class NodeTree extends Node{
 		
 	public NodeTree(Point2D pb){
 		super.setPoint(pb);
+                this.type = IGEDConst.NODE_TREE;
 		
 		pp = new Point2D.Double(this.pb.getX(), this.pb.getY()-this.sizeRadius);
 		pd = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));

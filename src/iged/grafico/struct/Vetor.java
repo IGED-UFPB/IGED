@@ -1,5 +1,6 @@
 package iged.grafico.struct;
 
+import iged.IGEDConst;
 import java.awt.geom.Point2D;
 import java.util.*;
 
@@ -13,9 +14,9 @@ public class Vetor extends Struct {
     private Label nome = null;
     private List<Celula> celulas = null;
     private int size = 10;
-    private String ref;
 
     public Vetor(int yBase) {
+        this.type = IGEDConst.VETOR;
         this.pb = new Point2D.Double(x, yBase + 80);
         this.pi = new Point2D.Double(pb.getX() - 10, pb.getY() - 5);
     }

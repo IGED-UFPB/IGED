@@ -44,16 +44,23 @@ public abstract class Node extends Struct {
         return pi;
     }
 
+    @Override
     public void remove(Referencia ref) {
         if (this.referencias.contains(ref)) {
+            System.out.println("Node contém a referencia");
             int j = this.referencias.indexOf(ref);
             this.numRef = j - 1;
             this.referencias.remove(ref);
+            System.out.println("Node tem " + this.elementos.size());
             this.elementos.remove(ref);
-
+            //Quadro.getInstance().remove(ref);
+            System.out.println("Node agora tem " + this.elementos.size());
+            
             for (int i = j; i < this.referencias.size(); ++i) {
                 this.referencias.get(i).config(this);
             }
+        }else{
+            System.out.println("Node não contém a referencia");
         }
     }
 }

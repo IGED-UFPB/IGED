@@ -124,14 +124,14 @@ public class Referencia extends Elemento {
             this.textos.add(label);
             this.elementos.add(ref);
         } else {
-            this.elementos.remove(ref);
-            Quadro.getInstance().remove(ref);
+            //this.elementos.remove(ref);
+            //Quadro.getInstance().remove(ref);
             node.remove(this);
             if (n != null) {
                 this.config(n);
             }
         }
         this.node = n;
-        Quadro.getInstance();
+        //Quadro.getInstance();
     }
 }

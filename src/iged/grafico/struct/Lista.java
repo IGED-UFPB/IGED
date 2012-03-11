@@ -20,6 +20,10 @@ public class Lista extends Struct {
     private int espaco = 85;
     private Null n;
 
+    public Lista(){
+        this.type = IGEDConst.LISTA;
+    }
+    
     public void desenhar(int yBase) {
         this.yBase = yBase;
 
@@ -93,7 +97,7 @@ public class Lista extends Struct {
     public String getReferencia() {
         return referencia;
     }
-
+    @Override
     public void add(String referencia) {
         //Referencia reff = new Referencia(null, referencia, true);
         this.addReference(referencia);
@@ -107,6 +111,7 @@ public class Lista extends Struct {
             this.desenhar(yBase);
     }
     
+    @Override
      public void removeReference(String ref) {
         super.removeReference(ref);
         
@@ -143,6 +148,16 @@ public class Lista extends Struct {
     public void adjust() {
         LinkedListNode aux = this.ini.getProx();
         int count = 1;
+        
+        if(aux == null){
+            System.out.println("aux == null");
+        }else{
+            if(aux.ajustado)
+                System.out.println("ajustado");
+        }
+        if(aux == this.ini)
+            System.out.println("aux == ini");
+        
         while((aux != null)&&(!aux.ajustado) && (aux != this.ini)){
             ++count;
             aux = aux.getProx();
@@ -188,6 +203,7 @@ public class Lista extends Struct {
         return new Point2D.Double(VarInteiro.LARGURA + 120, yBase + (bond + 30));
     }
 
+    @Override
     public void repintar() {
 
 // redesenhando
@@ -264,6 +280,7 @@ public class Lista extends Struct {
     @Override
     public void startRepaint() {
         this.repintado = false;
+        this.ajustado = false;
         if(this.ini != null)
             this.ini.startRepaint();
         

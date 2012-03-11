@@ -5,6 +5,7 @@ import iged.grafico.struct.Vetor;
 import iged.grafico.struct.Lista;
 import iged.grafico.struct.LinkedListNode;
 import iged.grafico.struct.NodeTree;
+import iged.grafico.struct.Struct;
 import iged.grafico.struct.WrapperStruct;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -86,8 +87,10 @@ public class GraphicManager {
         }
     }
 
-    public void createReference(String reference, int type) {
+    public void createReference(String reference, int type) throws ReferenceExistingException{
         //feito acho
+        if(this.structs.get(reference) != null)
+            throw new ReferenceExistingException("Referencia: " + reference + " já foi criada.");
         WrapperStruct w = new WrapperStruct(null, type);
         w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
         pilha.push(w);
@@ -115,7 +118,12 @@ public class GraphicManager {
         if (wp == null) {
             return;
         }
-        WrapperStruct w = new WrapperStruct(wp.getStruct().readField(field), IGEDConst.VAZIA);
+        Struct s = wp.getStruct().readField(field);
+        WrapperStruct w;
+        if(s == null)
+            w = new WrapperStruct(s, IGEDConst.VAZIA);
+        else
+            w = new WrapperStruct(s, s.getType());
         pilha.push(w);
         //retira o primeiro WrapperStruct da pilha e empilha o campo field como WrapperStruct apenas com esse struct
     }
@@ -123,6 +131,7 @@ public class GraphicManager {
     public void writeReferenceField(int field) {
         WrapperStruct w2 = pilha.pop();
         WrapperStruct w1 = pilha.pop();
+        
         if ((w1 == null) || (w2 == null)) {
             return;
         }

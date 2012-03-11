@@ -1,6 +1,6 @@
 package iged;
 
-import iged.grafico.manager.Quadro;
+import iged.grafico.manager.*;
 import java.util.StringTokenizer;
 
 /*
@@ -65,6 +65,7 @@ public class Interpretador {
                 String tipo = st.nextToken();
                 String var = st.nextToken();
                 if ((var != null) && (!var.equals(""))) {
+                    try{
                     if (tipo.equals("NODE")) {
                         con.createReference(var, IGEDConst.NODE);
                     } else {
@@ -76,6 +77,7 @@ public class Interpretador {
                             }
                         }
                     }
+                    }catch(ReferenceExistingException re){}
                 }
             } else {
                 if (metodo.equals("WRITE_REF")) {

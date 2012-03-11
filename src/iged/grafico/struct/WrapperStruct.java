@@ -35,7 +35,7 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
     public void removerReferencia() {
         switch (type) {
             case IGEDConst.LISTA:
-                LinkedListNode l = ((Lista) s).getInit();
+                //LinkedListNode l = ((Lista) s).getInit();
                 //System.out.println("CLEAR NEXT");
                 //if(l != null)
                 //    l.remove(ref);
@@ -110,16 +110,20 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                 //break;
                 
             case IGEDConst.VETOR:
-                if(ref != null)
+                if(ref != null){
                     Quadro.getInstance().remove(ref);
-                ref = null;
+                    ref = null;
+                }
                 s.add(this.referencia);
                 break;
 
             case IGEDConst.NODE:
                 if (this.s != null) {
-                    LinkedListNode n = ((LinkedListNode) this.s);
-                    n.remove(ref);
+                    this.ref.setRef((Node)s);
+                    //break;
+                    //LinkedListNode n = ((LinkedListNode) this.s);
+                    //n.remove(ref);
+                    break;
                 }
                 ref = new Referencia(((LinkedListNode) s), this.referencia);
                 Quadro.getInstance().add(ref);

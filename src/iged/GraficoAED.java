@@ -1,5 +1,6 @@
 package iged;
 
+import iged.grafico.manager.ReferenceExistingException;
 import java.util.List;
 
 import iged.AED.Appraiser;
@@ -23,7 +24,7 @@ public class GraficoAED {
                     gm.createStruct(tipo);
 	}
 	
-	public void createReference(String reference, int type) {
+	public void createReference(String reference, int type) throws ReferenceExistingException {
 		sm.createReference(reference, type);
                 if(mode != IGEDConst.MODE_PROFESSOR)
                     gm.createReference(reference, type);
