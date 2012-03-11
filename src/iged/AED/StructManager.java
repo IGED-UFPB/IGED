@@ -76,7 +76,7 @@ public class StructManager {
     }
 
     public void setMode(int m) {
-        if (m <= 2 && m >= 0) {
+        if (m == IGEDConst.MODE_BOTH || m == IGEDConst.MODE_STUDENT || m == IGEDConst.MODE_PROFESSOR ) {
             this.mode = m;
         }
     }

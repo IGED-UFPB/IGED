@@ -19,6 +19,10 @@ public class Interpretador {
         return con.quadro();
     }
 
+    public boolean taskIsCorrect(){
+        return con.correctTask();
+    }
+    
     public void init() {
         /*con.createReference("l", Struct.LISTA);
         con.createStruct(Struct.LISTA);

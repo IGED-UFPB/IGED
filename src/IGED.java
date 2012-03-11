@@ -47,6 +47,11 @@ public class IGED implements AcaoUsuario{
                         System.out.println(c);
                         iter.interprete(c);
                     }
+                    
+                    if(iter.taskIsCorrect())
+                        System.out.println("Tarefa Correta!");
+                    else
+                        System.out.println("Tarefa Inorreta!");
                 }
             }.start();
 	}
@@ -55,7 +60,7 @@ public class IGED implements AcaoUsuario{
 	@Override
 	public void move() {
 		// TODO Auto-generated method stub
-            String s = "CREATE_REF LIST l \n CREATE_STRUCT LIST \n WRITE_REF \n	END_COMMAND \n CREATE_REF NODE n \n CREATE_STRUCT NODE \n WRITE_REF \n END_COMMAND \n READ_REF n \n WRITE_INFO 10 \n END_COMMAND \n READ_REF l \n READ_REF n \n WRITE_REF_FIELD INIT \n END_COMMAND \n DELETE_REF n \n END_COMMAND";
+            String s = "CREATE_REF LIST l \n CREATE_STRUCT LIST \n WRITE_REF \n	END_COMMAND \n CREATE_REF NODE n \n CREATE_STRUCT NODE \n WRITE_REF \n END_COMMAND \n READ_REF n \n WRITE_INFO 10 \n END_COMMAND \n READ_REF l \n READ_REF n \n WRITE_REF_FIELD INIT \n END_COMMAND \n DELETE_REF n \n END_COMMAND \n READ_REF l \n WRITE_INFO 1 \n END_COMMAND";
 	
             StringTokenizer st = new StringTokenizer(s, "\n");
             iter.setMode(IGEDConst.MODE_BOTH);
@@ -65,7 +70,7 @@ public class IGED implements AcaoUsuario{
                 iter.interprete(c);
             }
             
-            /*s = "CREATE_REF NODE n \n CREATE_STRUCT NODE \n WRITE_REF \n END_COMMAND \n READ_REF n \n WRITE_INFO 5 \n END_COMMAND \n READ_REF n \n READ_REF l \n READ_REF_FIELD INIT \n WRITE_REF_FIELD NEXT \n END_COMMAND \n READ_REF l \n READ_REF n \n WRITE_REF_FIELD INIT \n DELETE_REF n \n END_COMMAND \n READ_REF l \n WRITE_INFO 1 \n END_COMMAND";
+            s = "CREATE_REF NODE n \n CREATE_STRUCT NODE \n WRITE_REF \n END_COMMAND \n READ_REF n \n WRITE_INFO 5 \n END_COMMAND \n READ_REF n \n READ_REF l \n READ_REF_FIELD INIT \n WRITE_REF_FIELD NEXT \n END_COMMAND \n READ_REF l \n READ_REF n \n WRITE_REF_FIELD INIT \n DELETE_REF n \n END_COMMAND \n READ_REF l \n WRITE_INFO 2 \n END_COMMAND";
 	
             st = new StringTokenizer(s, "\n");
             iter.setMode(IGEDConst.MODE_PROFESSOR);
@@ -75,7 +80,7 @@ public class IGED implements AcaoUsuario{
                 iter.interprete(c);
             }
             
-            iter.setMode(IGEDConst.MODE_STUDENT);*/
+            iter.setMode(IGEDConst.MODE_STUDENT);
         }
 
 

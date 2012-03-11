@@ -19,12 +19,18 @@ public class LinkedList extends Struct {
         return this.start;
     }
 
+    @Override
     public boolean compare(Struct lk) {
         if(!(lk instanceof LinkedList))
             return false;
         if (lk.getType() == IGEDConst.LISTA) {
+            LinkedList l = ((LinkedList) lk);
+            
+            if(this.tamanho != l.tamanho)
+                return false;
+            
             LinkedListNode thisNode = this.start;
-            LinkedListNode lkNode = ((LinkedList) lk).getStart();
+            LinkedListNode lkNode = l.getStart();
             while (thisNode != null && lkNode != null) {
                 if (!thisNode.compare(lkNode)) {
                     return false;
