@@ -1,6 +1,7 @@
 package iged.grafico.manager;
 
 import iged.IGEDConst;
+import iged.grafico.struct.BinaryTree;
 import iged.grafico.struct.Vetor;
 import iged.grafico.struct.Lista;
 import iged.grafico.struct.LinkedListNode;
@@ -73,7 +74,6 @@ public class GraphicManager {
                 break;
                 
            case IGEDConst.NODE_TREE:
-               
                NodeTree nt = new NodeTree(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho));
                pilha.push(new WrapperStruct(nt, IGEDConst.NODE_TREE));
                Quadro.getInstance().add(nt);
@@ -173,7 +173,7 @@ public class GraphicManager {
     }
 
     public void removeReference(String reference) {
-        WrapperStruct w = structs.remove(reference);
+       WrapperStruct w = structs.remove(reference);
         if(w == null)
             return;
         

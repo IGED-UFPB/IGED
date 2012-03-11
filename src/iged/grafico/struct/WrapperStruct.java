@@ -28,7 +28,7 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
     public void setReferenciaVazia(String reference, Point2D pn) {
         //lembrar de repintar quando o esta referencia deixar de ser vazia
         this.ref = new Referencia(pn, reference);
-	Quadro.getInstance().add(this.ref);        
+        Quadro.getInstance().add(this.ref);        
         this.referencia = reference;
     }
 
@@ -61,6 +61,14 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                     //v.remove(ref);
                     v.remove(referencia);
                 //}
+                break;
+                
+            case IGEDConst.NODE_TREE:
+            	if (ref != null && ref.getNode() != null) {
+                    Quadro.getInstance().remove(this.ref);
+                    NodeTree nt = ((NodeTree) s);
+                    nt.remove(ref);
+                }
                 break;
 
             default:
@@ -129,11 +137,11 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                 if(this.s!=null){
                     NodeTree nt = ((NodeTree)s);
                     nt.remove(this.ref);
-		}
-		this.ref = new Referencia(((NodeTree)s), this.referencia);
-		Quadro.getInstance().add(this.ref);
-			
-		break;
+				}
+				this.ref = new Referencia(((NodeTree)s), this.referencia);
+				Quadro.getInstance().add(this.ref);
+					
+				break;
 
             default:
                 break;
