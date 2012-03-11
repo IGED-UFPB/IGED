@@ -28,11 +28,13 @@ public class BinaryTree extends Struct{
 	private int bond = 100;
 	private int espaco = 85;
 	
+	
+	
 	private String referencia;
 	private String tamanho = "0";
 
         public BinaryTree(){
-            this.type = IGEDConst.TREE;
+            this.type = IGEDConst.BINARY_TREE;
         }
 	
     @Override
@@ -70,12 +72,15 @@ public class BinaryTree extends Struct{
 	public void startRepaint() {
 		this.repintado = false;
 		
+		if(this.ini!=null){
+		
 		NodeTree n1 = this.ini;
 		/**Essa chamada será feita para a referência de nodetree desta classe
 		 * de forma recursiva, na classe nodetree, será feita para os filhos à direita e 
 		 * à esquerda de n1.
 		 * */
 		n1.startRepaint();
+		}
 		
 		
 	}
@@ -146,12 +151,13 @@ public class BinaryTree extends Struct{
 			} else {
 				quadro.remove(ref);
 				quadro.remove(n);
+				
 				this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
 						+ 10), referencia + ".raiz");// apontando para
 																// null
 				n = new Null(new Point2D.Double(
-						120 + (7 * referencia.length()), yBase + espaco + 5),
-						true);
+						120 + (7 * referencia.length()), yBase + espaco + 5),true);
+				
 				quadro.add(n);
 				quadro.add(ref);
 				quadro.atualizar();
@@ -166,20 +172,20 @@ public class BinaryTree extends Struct{
 				quadro.remove(ref);
 				ini.remove(ref);
 			}
-
-			ref = new Referencia(ini, referencia + ".raiz",
+			
+		ref = new Referencia(ini, referencia + ".raiz",
 					new Point2D.Double(60, yBase + espaco + 10));
 			ref.setFixa(false);
-
+		
 			quadro.add(ref);
 			//quadro.atualizar();
 		}
 
 		quadro.atualizar();
+		System.out.println("ds");
 	}
 
 	public void adjust(){
-		double beforeValueX = this.ini.getPInit().getX();
 		this.ini.adjust(this.getPInit());
 		this.ini.repintarTracos();
 		

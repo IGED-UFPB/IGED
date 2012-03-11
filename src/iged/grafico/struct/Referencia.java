@@ -19,6 +19,7 @@ public class Referencia extends Elemento {
 
         label = new Label(nome, new Point2D.Double((pb.getX() - 4 * nome.length()), (pb.getY() - 3)));
         this.textos.add(label);
+        
         Point2D pf = new Point2D.Double(n.getPointPI().getX(), n.getPointPI().getY() - 10);
 
         ref = new Seta(this.pb, pf);

@@ -3,7 +3,6 @@ import iged.grafico.manager.AcaoUsuario;
 import iged.grafico.manager.PaintUI;
 import iged.grafico.manager.Quadro;
 import iged.grafico.struct.NodeTree;
-import java.awt.Point;
 import java.awt.geom.Point2D;
 
 

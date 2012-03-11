@@ -55,9 +55,9 @@ public class NodeTree extends Node{
 		pd = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));
 		pe = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));
 		pc = new Point2D.Double(pb.getX() - 13, pb.getY() + 7);
-		pi = pp;
+		pi = new Point2D.Double(this.pb.getX()-70,((this.pb.getY()-55)));
 		ph = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()-this.sizeRadius);
-                pr = new Point2D.Double(this.pb.getX()-70,(this.pb.getY()-45));
+        pr = new Point2D.Double(this.pb.getX()-70,(this.pb.getY()-45));
 		
 		this.circ = new Circulo(this.pb, sizeRadius);
 		this.conteudo.add(circ);
@@ -228,7 +228,7 @@ public class NodeTree extends Node{
 		this.pd = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));
 		this.pe = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY()+(4*(this.sizeRadius/10)));
 		this.pc = new Point2D.Double(pb.getX() - 13, pb.getY() + 7);
-		this.pi = new Point2D.Double(this.pb.getX()-this.sizeRadius, this.pb.getY());
+		this.pi = new Point2D.Double(this.pb.getX()-70,((this.pb.getY()-55)));
 		this.ph = new Point2D.Double(this.pb.getX()+this.sizeRadius, this.pb.getY()-this.sizeRadius);
 		this.pr = new Point2D.Double(this.pb.getX()-70,(this.pb.getY()-45));
 	}
@@ -253,13 +253,6 @@ public class NodeTree extends Node{
 	}
 
 	
-	@Override
-	public Point2D getPInit() {
-		return this.pi;
-	}
-
-	
-	@Override
 	public int getBond() {
 		// TODO Auto-generated method stub
 		return 0;
@@ -305,7 +298,6 @@ public class NodeTree extends Node{
 			this.setLeftChield((NodeTree)s);
 		else if(field == IGEDConst.RIGHT_CHIELD)
 			this.setRightChield((NodeTree)s);
-		
 	}
 	
 
@@ -340,4 +332,15 @@ public class NodeTree extends Node{
         public void setRepintado(boolean state){
             this.repintado = state;
         }
+        
+        
+        
+        // Provisório - Depois resolver este caso em referência
+        public Point2D getPointPI() {
+            return new Point2D.Double(this.pp.getX(),this.pp.getY()+10);
+        }
+        
+        public Point2D getPInit() {
+    		return this.pp;
+    	}
 }
