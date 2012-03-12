@@ -15,7 +15,6 @@ import java.awt.geom.Point2D;
  */
 public class BinaryTree extends Struct{
 	
-	//private Point2D pi = new Point2D.Double(150, 150);
 	
 	private NodeTree ini = null;
 	private Label l;
@@ -28,14 +27,14 @@ public class BinaryTree extends Struct{
 	private int bond = 100;
 	private int espaco = 85;
 	
-	
-	
 	private String referencia;
 	private String tamanho = "0";
 
-        public BinaryTree(){
-            this.type = IGEDConst.BINARY_TREE;
-        }
+	public BinaryTree(){
+		this.type = IGEDConst.BINARY_TREE;
+
+		this.pi = new Point2D.Double(150, 150);
+	}
 	
     @Override
 	public Point2D getPInit() {
@@ -49,18 +48,17 @@ public class BinaryTree extends Struct{
 	
     @Override
 	public void repintar() {
-		if(!this.repintado){
-			this.desenhar(yBase);
-			NodeTree n1 = this.ini;
+		this.desenhar(yBase);
+		NodeTree n1 = this.ini;
 
-			if(!n1.isRepintado())
-				n1.repintar();
+		if(n1!=null && !n1.isRepintado())
+			n1.repintar();
+	
+		if(this.ini !=null)
+			this.adjust();
 		
-			if(this.ini !=null)
-				this.adjust();
-			
-			this.repintado = true;
-		}
+		this.repintado = true;
+		
 		
 		
 	}

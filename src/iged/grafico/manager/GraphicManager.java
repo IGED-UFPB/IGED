@@ -81,6 +81,12 @@ public class GraphicManager {
                this.nodesSoltos++;
              
                break;
+           case IGEDConst.BINARY_TREE:
+        	   BinaryTree bt = new BinaryTree();
+        	   
+        	   pilha.push(new WrapperStruct(bt, IGEDConst.BINARY_TREE));
+        	   
+        	   break;
 
             default:
                 break;

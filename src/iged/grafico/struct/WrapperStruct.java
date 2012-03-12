@@ -144,8 +144,14 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
 				}
 				this.ref = new Referencia(((NodeTree)s), this.referencia);
 				Quadro.getInstance().add(this.ref);
-					
 				break;
+           
+            case IGEDConst.BINARY_TREE:
+            	((BinaryTree)s).setReferencia(this.referencia);
+            	this.s = s;
+            	Quadro.getInstance().remove(this.ref); 
+            	this.ref = null;
+            	break;
 
             default:
                 break;
