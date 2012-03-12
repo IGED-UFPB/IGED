@@ -2,10 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package iged.gui.gerenciador;
-
-import iged.gui.*;
 
 /**
  *
@@ -13,8 +10,7 @@ import iged.gui.*;
  */
 class DiretorioExistenteException extends Exception {
 
-    public DiretorioExistenteException(String msg){
-        super (msg);
+    public DiretorioExistenteException(String msg) {
+        super(msg);
     }
-
 }

@@ -9,7 +9,7 @@ package iged.gui;
  *
  * @author Dorgi
  */
-class DiretorioExistenteException extends Exception {
+public class DiretorioExistenteException extends Exception {
 
     public DiretorioExistenteException(String msg){
         super (msg);

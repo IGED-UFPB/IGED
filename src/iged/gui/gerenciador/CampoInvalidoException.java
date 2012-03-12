@@ -4,16 +4,13 @@
  */
 package iged.gui.gerenciador;
 
-
-import iged.gui.*;
-
 /**
  *
  * @author Dorgi
  */
-public class CampoInvalidoException extends Exception{
-    
-    public CampoInvalidoException(String msg){
+public class CampoInvalidoException extends Exception {
+
+    public CampoInvalidoException(String msg) {
         super(msg);
     }
 }

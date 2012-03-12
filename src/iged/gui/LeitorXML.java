@@ -23,7 +23,7 @@ public class LeitorXML {
     private String ano;
     private String descricao;
     private String area;
-    CamposXML c = new CamposXML();
+    CadastroTutorial c = new CadastroTutorial();
     LinkedList<String> informacoes;
     LinkedList<String> dado;
 
@@ -34,7 +34,7 @@ public class LeitorXML {
 
     public LinkedList lerXML() {
         XStream x = new XStream(new DomDriver());
-        TelaCadastradorXML tc = new TelaCadastradorXML();
+        TelaCadastradorDeTutorial tc = new TelaCadastradorDeTutorial();
 
         try {
             // carrega o arquivo XML
@@ -42,10 +42,10 @@ public class LeitorXML {
             File f = new File("C:\\Tutoriais\\teste1\\tutorial.xml");
             FileInputStream input = new FileInputStream(f);
             // informa o nome do nó raiz do xml
-            x.alias("pessoa", CamposXML.class);
+            x.alias("pessoa", CadastroTutorial.class);
             // cria um objeto de Campos,
             // contendo os dados lidos no xml
-            c = (CamposXML) x.fromXML(input);
+            c = (CadastroTutorial) x.fromXML(input);
             // imprime os dados
 
             titulo = c.getTitulo();

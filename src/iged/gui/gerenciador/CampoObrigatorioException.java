@@ -2,10 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package iged.gui.gerenciador;
-
-
 
 /**
  *
@@ -13,7 +10,7 @@ package iged.gui.gerenciador;
  */
 public class CampoObrigatorioException extends Exception {
 
-    CampoObrigatorioException(String msg){
+    CampoObrigatorioException(String msg) {
         super(msg);
     }
 }

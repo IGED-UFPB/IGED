@@ -57,44 +57,40 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="19" pref="19" max="19" attributes="0"/>
-                                      <Component id="jScrollPane1" pref="334" max="32767" attributes="1"/>
+                                      <Component id="jScrollPane1" pref="417" max="32767" attributes="1"/>
                                   </Group>
-                                  <Component id="jScrollPane2" alignment="0" pref="353" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane2" alignment="0" pref="436" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="fieldAutor" pref="244" max="32767" attributes="0"/>
+                                      <Component id="fieldAutor" min="-2" pref="327" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="id" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="fieldId" min="-2" pref="84" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="area" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="comboArea" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="1">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="OK" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="okInformacao" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="panelCodigoIni" alignment="0" max="32767" attributes="1"/>
-                          <Component id="panelCodigoSol" alignment="0" max="32767" attributes="1"/>
+                          <Component id="panelCodigoIni" alignment="0" min="-2" max="-2" attributes="1"/>
+                          <Component id="panelCodigoSol" alignment="0" min="-2" max="-2" attributes="1"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="334" max="-2" attributes="0"/>
                       <Component id="botaoCadastrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="104" max="32767" attributes="0"/>
                       <Component id="botaoCancelar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="panelAnimacao" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -110,7 +106,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jPanel1" alignment="0" max="32767" attributes="1"/>
+                          <Component id="panelAnimacao" alignment="0" min="-2" max="-2" attributes="1"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
@@ -125,7 +121,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="OK" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="okInformacao" alignment="1" min="-2" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Group type="103" groupAlignment="3" attributes="0">
                                                           <Component id="fieldAutor" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -204,6 +200,7 @@
             </Property>
             <Property name="rows" type="int" value="5"/>
             <Property name="tabSize" type="int" value="10"/>
+            <Property name="autoscrolls" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -219,6 +216,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bookman Old Style" size="12" style="0"/>
         </Property>
+        <Property name="autoscrolls" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fieldIdActionPerformed"/>
@@ -236,17 +234,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panelInicializacao" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="okInicializacao" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="panelInicializacao" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="panelInicializacao" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="okInicializacao" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -265,16 +268,38 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="463" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" pref="505" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="189" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" pref="189" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="inicializacao">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="okInicializacao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="OK"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -294,6 +319,7 @@
               <Font name="Bookman Old Style" size="12" style="0"/>
             </Property>
             <Property name="rows" type="int" value="5"/>
+            <Property name="autoscrolls" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -314,25 +340,24 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCancelarActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="panelAnimacao">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Visualiza&#xe7;&#xe3;o"/>
           </Border>
         </Property>
-        <Property name="autoscrolls" type="boolean" value="true"/>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="462" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="468" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="613" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="624" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -349,17 +374,24 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="panelSolucao" pref="467" max="32767" attributes="1"/>
+                  <Component id="panelSolucao" pref="509" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="okSolucao" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="panelSolucao" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="panelSolucao" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="okSolucao" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -381,16 +413,38 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="463" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" alignment="0" pref="505" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="189" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" alignment="0" pref="189" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="solucao">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="okSolucao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="OK"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="area">
@@ -416,10 +470,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboAreaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="OK">
+    <Component class="javax.swing.JButton" name="okInformacao">
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okInformacaoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

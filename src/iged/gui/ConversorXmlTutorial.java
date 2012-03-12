@@ -26,13 +26,13 @@ public class ConversorXmlTutorial {
 
     private File novoDir;
     private String xmlTutorial;
-    CamposXML c = new CamposXML();
+    CadastroTutorial c = new CadastroTutorial();
 
     public ConversorXmlTutorial() {
     }
 
-    public void criarDiretorio() throws DiretorioExistenteException {
-        TelaCadastradorXML tc = new TelaCadastradorXML();
+    public File criarDiretorio() throws DiretorioExistenteException {
+        TelaCadastradorDeTutorial tc = new TelaCadastradorDeTutorial();
         novoDir = new File("C:\\Tutoriais\\" + tc.getTituloStr());
         if (novoDir.exists()) {
             throw new DiretorioExistenteException("Diretório já existe! Digite outro título!");
@@ -40,12 +40,13 @@ public class ConversorXmlTutorial {
             novoDir.mkdir();
             System.out.println("Diretório criado em: " + novoDir.getAbsolutePath());
         }
+        return novoDir;
     }
 
-    public void converterStringXML() throws DiretorioExistenteException {
+    public String converterStringXML(){
         XStream xstream = new XStream(new DomDriver());
-        TelaCadastradorXML tc = new TelaCadastradorXML();
-        xstream.alias("Cadastro de Apresentação", CamposXML.class);
+        TelaCadastradorDeTutorial tc = new TelaCadastradorDeTutorial();
+        xstream.alias("Cadastro de Apresentação", CadastroTutorial.class);
 
         c.setTitulo(tc.getTituloStr());
         c.setAno(tc.getAnoStr());
@@ -56,13 +57,13 @@ public class ConversorXmlTutorial {
         xmlTutorial = xstream.toXML(c);
         System.out.println(xmlTutorial);
 
-
+        return xmlTutorial;
         //c.getCampos().add(xmlTutorial);
     }
 
-    public void salvar() {
-        XStream xstream = new XStream(new DomDriver());
-        xmlTutorial = xstream.toXML(c);
+    
+    public void salvarXmlTutorial() {
+        ConversorXmlTutorial tutorial = new ConversorXmlTutorial();
         BufferedWriter writer = null;
         //Cria o arquivo já no sub-diretório
         File arquivo = new File(novoDir, "tutorial.xml");
@@ -70,20 +71,38 @@ public class ConversorXmlTutorial {
         try {
             writer = new BufferedWriter(new FileWriter(arquivo));
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastradorXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastradorDeTutorial.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.write(xmlTutorial); //salva fisicamente
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastradorXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastradorDeTutorial.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.close();
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastradorXML.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastradorDeTutorial.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+    
+    public File getNovoDir() {
+        return novoDir;
+    }
+
+    public void setNovoDir(File novoDir) {
+        this.novoDir = novoDir;
+    }
+
+    public String getXmlTutorial() {
+        return xmlTutorial;
+    }
+
+    public void setXmlTutorial(String xmlTutorial) {
+        this.xmlTutorial = xmlTutorial;
+    }
+
+    
 
     
 }
