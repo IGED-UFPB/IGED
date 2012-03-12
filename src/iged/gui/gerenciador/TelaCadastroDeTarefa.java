@@ -11,6 +11,9 @@
 package iged.gui.gerenciador;
 
 import iged.Interpretador;
+import iged.gerenciadorTarefa.GerenciadorTarefa;
+import iged.gerenciadorTarefa.MetadadoTarefa;
+import iged.gerenciadorTarefa.Tarefa;
 import iged.grafico.manager.Quadro;
 import iged.gerenciadorTarefa.XmlPersistencia;
 import java.awt.GraphicsDevice;
@@ -568,16 +571,29 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
     File tarefas = new File("C:\\Tarefas\\tarefas.xml");
     PortifolioXml pxml = new PortifolioXml();
 
+    
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         //while (validado != true) {
         try {
             validarCodInicializacao();
             validarCodSolucao();
-            xml.salvarXmlTarefa();
-            xml.salvarPortifolioXml(pxml);
+            MetadadoTarefa mt = new MetadadoTarefa();
+            mt.setArea(getAreaStr());
+            mt.setTitulo(getTituloStr());
+            mt.setAutor(getAutorStr());
+            
+            Tarefa tarefa = new Tarefa();
+            tarefa.setMetadado(mt);
+            tarefa.setCodInicializacao(inicializacaoStr);
+            tarefa.setCodSolucao(solucaoStr);
+            
+            GerenciadorTarefa gt = GerenciadorTarefa.getInstance();
+            gt.cadastrarTarefa(tarefa);
+            
+            
             apagarCampos();
-            lxml.lerXmlTarefa();
-            lxml.lerXmlGerTarefas(tarefas);
+            //lxml.lerXmlTarefa();
+            //lxml.lerXmlGerTarefas(tarefas);
             //pxml.atualizar();
             //xml.salvarPortifolioXmlAtualizado();
         } catch (CampoObrigatorioException ex) {

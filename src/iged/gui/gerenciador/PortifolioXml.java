@@ -4,6 +4,7 @@
  */
 package iged.gui.gerenciador;
 
+import iged.gerenciadorTarefa.MetadadoTarefa;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import java.io.File;
@@ -25,8 +26,8 @@ public class PortifolioXml {
 
     private static File dir;
     private static String xmlTutorial;
-    static Portifolio p = new Portifolio();
-    static Portifolio t = new Portifolio();
+    static MetadadoTarefa p = new MetadadoTarefa();
+    static MetadadoTarefa metadado = new MetadadoTarefa();
     static File tarefas = new File("C:\\Tarefas\\tarefas.xml");
 
     public PortifolioXml() {
@@ -38,15 +39,15 @@ public class PortifolioXml {
         XStream xstream = new XStream(new DomDriver());
 
         TelaCadastroDeTarefa tc = new TelaCadastroDeTarefa();
-        xstream.alias("portifolio", Portifolio.class);
+        xstream.alias("portifolio", MetadadoTarefa.class);
 
-        t.setCont(Integer.parseInt(tc.getIdStr()));
-        t.setTitulo(tc.getTituloStr());
-        t.setId(tc.getIdStr());
-        t.setAutor(tc.getAutorStr());
-        t.setArea(tc.getAreaStr());
+        //metadado.setCont(Integer.parseInt(tc.getIdStr()));
+        metadado.setTitulo(tc.getTituloStr());
+        metadado.setId(tc.getIdStr());
+        metadado.setAutor(tc.getAutorStr());
+        metadado.setArea(tc.getAreaStr());
 
-        xmlTutorial = xstream.toXML(t);
+        xmlTutorial = xstream.toXML(metadado);
         System.out.println(xmlTutorial);
         //reconstruir um objeto a partir de um xml
         //Portifolio newPortifolio = (Portifolio) xstream.fromXML(xmlTutorial); 

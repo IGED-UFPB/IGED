@@ -20,6 +20,8 @@ import java.util.logging.Logger;
  */
 public class XmlPersistencia {
 
+    public static final String DIRTAREFAS = "./Tarefas/";
+    
     public XmlPersistencia() {
     }
 
@@ -28,7 +30,7 @@ public class XmlPersistencia {
         ConversorXmlTarefa cxml = new ConversorXmlTarefa();
         BufferedWriter writer = null;
         //Cria o arquivo já no sub-diretório
-        File arquivo = new File(cxml.getDir(), "tarefa" + tc.getIdStr() + ".xml");
+        File arquivo = new File(cxml.getDir(), DIRTAREFAS+"tarefa" + tc.getIdStr() + ".xml");
 
         try {
             writer = new BufferedWriter(new FileWriter(arquivo));
@@ -49,32 +51,32 @@ public class XmlPersistencia {
 
     static PortifolioXml cxml = new PortifolioXml();
     
-    public static void salvarPortifolioXml(PortifolioXml cxml) {
+    public static void salvarXml(String portifolio, String nomeArquivo) {
         BufferedWriter writer = null;
         //Cria o arquivo já no sub-diretório
-        File arquivo = new File(cxml.getDir(), "tarefas.xml");
+        File arquivo = new File(DIRTAREFAS, nomeArquivo);
 
         try {
             writer = new BufferedWriter(new FileWriter(arquivo));
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XmlPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            writer.write(cxml.converter()); //salva fisicamente
+            writer.write(portifolio); //salva fisicamente
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XmlPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.close();
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(XmlPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     public static void salvarPortifolioXmlAtualizado() {
         BufferedWriter writer = null;
         //Cria o arquivo já no sub-diretório
-        File arquivo = new File(cxml.getDir(), "tarefas.xml");
+        File arquivo = new File(cxml.getDir(), DIRTAREFAS+"tarefas.xml");
 
         try {
             writer = new BufferedWriter(new FileWriter(arquivo));
