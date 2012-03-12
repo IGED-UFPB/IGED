@@ -6,7 +6,7 @@ package iged.gerenciadorTarefa;
 
 import iged.gui.gerenciador.ConversorXmlTarefa;
 import iged.gui.gerenciador.PortifolioXml;
-import iged.gui.gerenciador.TelaCadastroDeTarefa;
+import iged.gui.TelaCadastroDeTarefa;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -24,7 +24,7 @@ public class XmlPersistencia {
     
     public XmlPersistencia() {
     }
-
+/*
     public static void salvarXmlTarefa() {
         TelaCadastroDeTarefa tc = new TelaCadastroDeTarefa();
         ConversorXmlTarefa cxml = new ConversorXmlTarefa();
@@ -47,7 +47,7 @@ public class XmlPersistencia {
         } catch (IOException ex) {
             Logger.getLogger(TelaCadastroDeTarefa.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
 
     static PortifolioXml cxml = new PortifolioXml();
     

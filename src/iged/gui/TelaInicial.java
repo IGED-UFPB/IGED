@@ -17,8 +17,8 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
-import iged.gui.gerenciador.TelaCadastroDeTarefa;
-import iged.gui.gerenciador.TelaExercicio;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -202,8 +202,9 @@ public class TelaInicial extends javax.swing.JFrame {
 
     private void mostrarAula() {
         if (aula == null) { //se aula for vazio, instanciamos o objeto
-            //aula = new TutorialFrameGilberto();
             aula = new TutorialFrame();
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            gd.setFullScreenWindow(aula);
             aula.setVisible(true); //mostrar a tela aula
         } else {
             aula.setVisible(true);
@@ -218,6 +219,8 @@ public class TelaInicial extends javax.swing.JFrame {
     public void cadastrarApresentacao() {
         if (cadastrador == null) {
             cadastrador = new TelaCadastradorDeTutorial();
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            gd.setFullScreenWindow(cadastrador);
             cadastrador.setVisible(true);
         } else {
             cadastrador.setVisible(true);
@@ -234,6 +237,8 @@ public class TelaInicial extends javax.swing.JFrame {
         if (exercicio == null) {
             //exercicio = new Exercicio();
             exercicio = new TelaExercicio();
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            gd.setFullScreenWindow(exercicio);
             exercicio.setVisible(true);
         } else {
             exercicio.setVisible(true);
@@ -247,8 +252,9 @@ public class TelaInicial extends javax.swing.JFrame {
 
     public void cadastrarExercicio() {
         if (t == null) {
-            //exercicio = new Exercicio();
             t = new TelaCadastroDeTarefa();
+            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+            gd.setFullScreenWindow(t);
             t.setVisible(true);
         } else {
             t.setVisible(true);

@@ -32,5 +32,11 @@ public class Portifolio {
         tarefas.add(m);
         cont++;
     }
+
+    public int getCont() {
+        return cont;
+    }
+
+    
     
 }

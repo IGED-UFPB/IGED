@@ -8,7 +8,7 @@ import iged.gui.ConversorXmlTutorial;
 import iged.gui.DiretorioExistenteException;
 import iged.gui.TelaCadastradorDeTutorial;
 import iged.gui.gerenciador.ConversorXmlTarefa;
-import iged.gui.gerenciador.TelaCadastroDeTarefa;
+import iged.gui.TelaCadastroDeTarefa;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -25,7 +25,7 @@ public class Xml {
     public Xml(){
         
     }
-    
+    /*
     public static void salvarXmlTarefa() {
         TelaCadastroDeTarefa tc = new TelaCadastroDeTarefa();
         ConversorXmlTarefa cxml = new ConversorXmlTarefa();
@@ -50,5 +50,5 @@ public class Xml {
         }
     }
     
-    
+    */
 }

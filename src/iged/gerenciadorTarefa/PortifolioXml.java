@@ -22,6 +22,7 @@ public class PortifolioXml {
         XStream xstream = new XStream(new DomDriver());
 
         xstream.alias("portifolio", Portifolio.class);
+        xstream.alias("metadados", MetadadoTarefa.class);
 
         String xmlTutorial = xstream.toXML(portifolio);
         System.out.println(xmlTutorial);
@@ -29,7 +30,7 @@ public class PortifolioXml {
     }
 
     public static Portifolio lerXml() {
-       /*
+       
         XStream x = new XStream(new DomDriver());
         //MetadadoTarefa metadado = new MetadadoTarefa();
         try {
@@ -37,9 +38,20 @@ public class PortifolioXml {
             FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS+"tarefas.xml"));
             // informa o nome do nó raiz do xml
             x.alias("portifolio", Portifolio.class);
+            x.alias("metadados", MetadadoTarefa.class);
             // cria um objeto da classe, contendo os dados lidos no xml
             Portifolio pf = (Portifolio) x.fromXML(input);
-
+            if (pf.getTarefas()==null){
+                pf.setTarefas(new LinkedList<MetadadoTarefa>()) ;
+            }
+            
+            for (MetadadoTarefa mt : pf.getTarefas()){
+                System.out.println("Portifolio");
+                System.out.println("Área: "+mt.getArea());
+                System.out.println("Autor: "+mt.getAutor());
+                System.out.println("Id: "+mt.getId());
+                System.out.println("Título: "+mt.getTitulo());
+            }
             return pf;
 
         } catch (FileNotFoundException e) {
@@ -47,9 +59,9 @@ public class PortifolioXml {
         } catch (Exception e) {
             e.printStackTrace();
         }
-*/
-        return new Portifolio();
 
+        return new Portifolio();
+//        return null;
 
     }
 }

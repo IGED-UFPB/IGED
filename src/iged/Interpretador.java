@@ -14,7 +14,18 @@ import java.util.StringTokenizer;
 public class Interpretador {
 
     private static GraficoAED con = new GraficoAED();
+    private static Interpretador interpretador = null;
 
+    private Interpretador(){
+    }
+    
+    public static Interpretador getInstance(){
+        if (interpretador==null){
+            interpretador = new Interpretador();
+        }
+        return interpretador;
+    }
+            
     public Quadro getQuadro() {
         return con.quadro();
     }
