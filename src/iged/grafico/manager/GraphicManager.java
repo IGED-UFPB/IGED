@@ -32,6 +32,10 @@ public class GraphicManager {
     private int yBaseTrabalho = 170;
     private int espacoEntreNodes = 150;
     private int yBase = 200;
+    
+    private double boundsBinaryTree = 140;
+    private int espacoEntreEstruturas = 200;
+	
 
     public void createStruct(int type) {
         switch (type) {
@@ -75,7 +79,8 @@ public class GraphicManager {
                 break;
                 
            case IGEDConst.NODE_TREE:
-               NodeTree nt = new NodeTree(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho));
+               NodeTree nt = new NodeTree(new Point2D.Double(getXNodeSoltos(), 
+            		   this.boundsBinaryTree+espacoEntreEstruturas));
                pilha.push(new WrapperStruct(nt, IGEDConst.NODE_TREE));
                Quadro.getInstance().add(nt);
                this.nodesSoltos++;
@@ -98,7 +103,9 @@ public class GraphicManager {
         if(this.structs.get(reference) != null)
             throw new ReferenceExistingException("Referencia: " + reference + " já foi criada.");
         WrapperStruct w = new WrapperStruct(null, type);
-        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
+//        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
+        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), 
+        		this.boundsBinaryTree +espacoEntreEstruturas));
         pilha.push(w);
         this.structs.put(reference, w);
         referenciasVazias++;
@@ -253,6 +260,8 @@ public class GraphicManager {
     public void regVet(int regVet) {
         this.regVet = regVet;
     }
+    
+    
 
     public void lixeiro() {
         Quadro.getInstance().limpar();
@@ -266,7 +275,18 @@ public class GraphicManager {
         for (WrapperStruct w : this.structs.values()) {
             if (w.getType() != IGEDConst.NODE && w.getType()!= IGEDConst.NODE_TREE) {
                 System.out.println("Repintar: " + w.getReferencia());
+               
+                /**Devido a particularidade da binarytree em crescer para baixo
+                 * o código deste if calcula o limite inferior da árvore*/
+                
+                if(w.getType()==IGEDConst.BINARY_TREE && w.getStruct()!=null){
+                	BinaryTree bt = ((BinaryTree)w.getStruct());
+                	bt.adjust();
+                	this.calculaBound(bt.readField(IGEDConst.NODE_TREE_ROOT), IGEDConst.BINARY_TREE);
+                	System.out.println("o/");
+                }
                 w.repintar();
+               
             } else {
                 System.out.println("Nodes add: " + w.getReferencia());
                 nodes.add(w);
@@ -277,35 +297,36 @@ public class GraphicManager {
         Collections.sort(nodes);
 
         for (WrapperStruct no : nodes) {
-            if (no.getStruct() != null && !no.getStruct().isRepintado()) {
-                no.repintar();
-                
-                System.out.println("HHHHHHH");
-                if(no.getType() == IGEDConst.NODE){
-                    LinkedListNode n = ((LinkedListNode)no.getStruct());
-                    //Cria um semaphoro que bloquea a Thread equanto os nodes n forem desenhados.
-                    LinkedListNode aux = n.getProx();
-                    //Conta com o no atual n.
-                    int count = 1;
-                    while((aux != null)&&(!aux.isAjustado()) && (aux != n)){
-                        ++count;
-                        aux = aux.getProx();
-                    }
-                    System.out.println("Noooode: " + count);
-                    if(count > 0){
-                        Semaphore sem = new Semaphore(0, true);
-                        n.adjust(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho), sem);
-                        try{
-                            sem.acquire(count);
-                        }catch(InterruptedException ie){}
-                    }
-                    nodesSoltos++;
-		}
-		else{
-                    NodeTree nt = ((NodeTree)no.getStruct());
-                    nt.adjust(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho));
-                    nodesSoltos++;
-		}
+        	if (no.getStruct() != null && !no.getStruct().isRepintado()) {
+        		no.repintar();
+
+        		System.out.println("HHHHHHH");
+        		if(no.getType() == IGEDConst.NODE){
+        			LinkedListNode n = ((LinkedListNode)no.getStruct());
+        			//Cria um semaphoro que bloquea a Thread equanto os nodes n forem desenhados.
+        			LinkedListNode aux = n.getProx();
+        			//Conta com o no atual n.
+        			int count = 1;
+        			while((aux != null)&&(!aux.isAjustado()) && (aux != n)){
+        				++count;
+        				aux = aux.getProx();
+        			}
+        			System.out.println("Noooode: " + count);
+        			if(count > 0){
+        				Semaphore sem = new Semaphore(0, true);
+        				n.adjust(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho), sem);
+        				try{
+        					sem.acquire(count);
+        				}catch(InterruptedException ie){}
+        			}
+        			nodesSoltos++;
+        		}
+        		else{
+        			NodeTree nt = ((NodeTree)no.getStruct());
+        			nt.mover(new Point2D.Double(getXNodeSoltos(), this.boundsBinaryTree+this.espacoEntreEstruturas));
+        			nt.repintar();
+        			nodesSoltos++;
+        		}
                 
                 
 //                
@@ -327,4 +348,30 @@ public class GraphicManager {
     public JPanel getQuadro() {
         return Quadro.getInstance();
     }
+    
+    private void calculaBound(Struct s,int type){
+    	switch(type){
+    	case IGEDConst.BINARY_TREE:
+    		NodeTree nt = ((NodeTree)s);
+    		if(nt!=null){
+    			
+    			if(nt.getPB().getY() > this.boundsBinaryTree)
+    				this.boundsBinaryTree = nt.getPB().getY();
+    			
+    			if(nt.readField(IGEDConst.LEFT_CHIELD)!=null)
+    				this.calculaBound(nt.readField(IGEDConst.LEFT_CHIELD), type);
+    			if(nt.readField(IGEDConst.RIGHT_CHIELD)!=null)
+    				this.calculaBound(nt.readField(IGEDConst.RIGHT_CHIELD), type);
+    		}
+    		break;
+
+    	default:
+    		break;
+
+    		
+    		
+    	}
+    }
+    
+    
 }

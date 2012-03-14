@@ -48,14 +48,14 @@ public class BinaryTree extends Struct{
 	
     @Override
 	public void repintar() {
+    	if(this.ini !=null)
+			this.adjust();
+    	
 		this.desenhar(yBase);
 		NodeTree n1 = this.ini;
 
 		if(n1!=null && !n1.isRepintado())
 			n1.repintar();
-	
-		if(this.ini !=null)
-			this.adjust();
 		
 		this.repintado = true;
 		
@@ -139,7 +139,7 @@ public class BinaryTree extends Struct{
 			if (n == null) {
 				this.ref = new Referencia(new Point2D.Double(60, yBase+ espaco
 						+ 10), referencia + ".raiz");
-
+				
 				n = new Null(new Point2D.Double(
 						120 + (7 * referencia.length()), yBase + espaco + 5),
 						true);// apontando para null
@@ -153,6 +153,7 @@ public class BinaryTree extends Struct{
 				this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
 						+ 10), referencia + ".raiz");// apontando para
 																// null
+				
 				n = new Null(new Point2D.Double(
 						120 + (7 * referencia.length()), yBase + espaco + 5),true);
 				
@@ -171,10 +172,11 @@ public class BinaryTree extends Struct{
 				ini.remove(ref);
 			}
 			
-		ref = new Referencia(ini, referencia + ".raiz",
-					new Point2D.Double(60, yBase + espaco + 10));
+			
+			ref = new Referencia(ini, referencia + ".raiz",
+					new Point2D.Double(60, yBase+ espaco+ 10));
 			ref.setFixa(false);
-		
+			
 			quadro.add(ref);
 			//quadro.atualizar();
 		}
@@ -184,10 +186,10 @@ public class BinaryTree extends Struct{
 	}
 
 	public void adjust(){
-		this.ini.adjust(this.getPInit());
-		this.ini.repintarTracos();
-		
-	
+		if(this.ini!=null){
+			this.ini.adjust(this.getPInit());
+			this.ini.repintarTracos();
+		}
 	}
 	
 	public void setInit(NodeTree nt){
