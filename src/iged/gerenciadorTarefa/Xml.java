@@ -6,9 +6,9 @@ package iged.gerenciadorTarefa;
 
 import iged.gui.ConversorXmlTutorial;
 import iged.gui.DiretorioExistenteException;
-import iged.gui.TelaCadastradorDeTutorial;
+import iged.gui.TelaCadastroDeTutorialInterno;
 import iged.gui.gerenciador.ConversorXmlTarefa;
-import iged.gui.TelaCadastroDeTarefa;
+import iged.gui.TelaCadastroDeTarefaInterno;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

@@ -42,6 +42,7 @@ public class TarefaXml {
                 System.out.println("Tarefa");
                 System.out.println("Código de Inicialização: "+tf.getCodInicializacao());
                 System.out.println("Código de Solução: "+tf.getCodSolucao());
+                System.out.println("Descrição: "+tf.getDescricao());
                 System.out.println("Área: "+tf.getMetadado().getArea());
                 System.out.println("Autor: "+tf.getMetadado().getAutor());
                 System.out.println("Título: "+tf.getMetadado().getTitulo());

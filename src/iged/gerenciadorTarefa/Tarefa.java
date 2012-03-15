@@ -13,6 +13,7 @@ public class Tarefa {
     private MetadadoTarefa metadado;
     private String codInicializacao;
     private String codSolucao;
+    private String descricao;
 
     public Tarefa(){
     }
@@ -25,6 +26,14 @@ public class Tarefa {
         this.codInicializacao = codInicializacao;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+    
     public String getCodSolucao() {
         return codSolucao;
     }

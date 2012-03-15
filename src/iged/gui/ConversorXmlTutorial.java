@@ -32,7 +32,7 @@ public class ConversorXmlTutorial {
     }
 
     public File criarDiretorio() throws DiretorioExistenteException {
-        TelaCadastradorDeTutorial tc = new TelaCadastradorDeTutorial();
+        TelaCadastroDeTutorialInterno tc = new TelaCadastroDeTutorialInterno();
         novoDir = new File("C:\\Tutoriais\\" + tc.getTituloStr());
         if (novoDir.exists()) {
             throw new DiretorioExistenteException("Diretório já existe! Digite outro título!");
@@ -45,7 +45,7 @@ public class ConversorXmlTutorial {
 
     public String converterStringXML(){
         XStream xstream = new XStream(new DomDriver());
-        TelaCadastradorDeTutorial tc = new TelaCadastradorDeTutorial();
+        TelaCadastroDeTutorialInterno tc = new TelaCadastroDeTutorialInterno();
         xstream.alias("Cadastro de Apresentação", CadastroTutorial.class);
 
         c.setTitulo(tc.getTituloStr());
@@ -71,17 +71,17 @@ public class ConversorXmlTutorial {
         try {
             writer = new BufferedWriter(new FileWriter(arquivo));
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastradorDeTutorial.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastroDeTutorialInterno.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.write(xmlTutorial); //salva fisicamente
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastradorDeTutorial.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastroDeTutorialInterno.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.close();
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastradorDeTutorial.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastroDeTutorialInterno.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

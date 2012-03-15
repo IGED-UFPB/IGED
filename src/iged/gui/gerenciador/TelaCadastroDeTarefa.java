@@ -10,6 +10,9 @@
  */
 package iged.gui.gerenciador;
 
+import iged.gerenciadorTarefa.DiretorioExistenteException;
+import iged.gerenciadorTarefa.CampoObrigatorioException;
+import iged.gerenciadorTarefa.CampoInvalidoException;
 import iged.Interpretador;
 import iged.gerenciadorTarefa.GerenciadorTarefa;
 import iged.gerenciadorTarefa.MetadadoTarefa;

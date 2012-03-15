@@ -24,7 +24,7 @@ import javax.swing.JTextArea;
  */
 public class AnimacaoCodigo {
 
-    Interpretador iter = new Interpretador();
+    Interpretador iter = Interpretador.getInstance();
     
     public AnimacaoCodigo() {
     }

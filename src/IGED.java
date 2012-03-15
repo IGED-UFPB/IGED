@@ -9,7 +9,7 @@ public class IGED implements AcaoUsuario{
 
 	
 	static PaintUI pait ;
-        private Interpretador iter = new Interpretador();
+        private Interpretador iter = Interpretador.getInstance();
 	
 	
 	private IGED(){

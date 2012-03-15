@@ -6,7 +6,7 @@ package iged.gerenciadorTarefa;
 
 import iged.gui.gerenciador.ConversorXmlTarefa;
 import iged.gui.gerenciador.PortifolioXml;
-import iged.gui.TelaCadastroDeTarefa;
+import iged.gui.TelaCadastroDeTarefaInterno;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -81,17 +81,17 @@ public class XmlPersistencia {
         try {
             writer = new BufferedWriter(new FileWriter(arquivo));
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.write(cxml.atualizar()); //salva fisicamente
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             writer.close();
         } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefa.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

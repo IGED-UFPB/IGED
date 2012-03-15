@@ -34,7 +34,7 @@ public class LeitorXML {
 
     public LinkedList lerXML() {
         XStream x = new XStream(new DomDriver());
-        TelaCadastradorDeTutorial tc = new TelaCadastradorDeTutorial();
+        TelaCadastroDeTutorialInterno tc = new TelaCadastroDeTutorialInterno();
 
         try {
             // carrega o arquivo XML
