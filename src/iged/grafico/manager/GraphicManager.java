@@ -3,7 +3,7 @@ package iged.grafico.manager;
 import iged.IGEDConst;
 import iged.grafico.struct.BinaryTree;
 import iged.grafico.struct.Vetor;
-import iged.grafico.struct.Lista;
+import iged.grafico.struct.LinkedList;
 import iged.grafico.struct.LinkedListNode;
 import iged.grafico.struct.NodeTree;
 import iged.grafico.struct.Struct;
@@ -40,7 +40,7 @@ public class GraphicManager {
     public void createStruct(int type) {
         switch (type) {
             case IGEDConst.LISTA:
-                Lista l = new Lista();
+                LinkedList l = new LinkedList();
                 l.setyBase(yBase);
 
                 int y = yBase;

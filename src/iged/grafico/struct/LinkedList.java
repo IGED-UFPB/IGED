@@ -7,7 +7,7 @@ import iged.grafico.geometria.Label;
 import iged.grafico.manager.Quadro;
 import java.util.concurrent.Semaphore;
 
-public class Lista extends Struct {
+public class LinkedList extends Struct {
 
     private int bond = 100;
     private String referencia;
@@ -20,7 +20,7 @@ public class Lista extends Struct {
     private int espaco = 85;
     private Null n;
 
-    public Lista(){
+    public LinkedList(){
         this.type = IGEDConst.LISTA;
     }
     

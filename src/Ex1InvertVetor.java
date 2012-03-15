@@ -4,7 +4,7 @@ import iged.grafico.manager.AcaoUsuario;
 import iged.grafico.manager.GraphicManager;
 import iged.grafico.manager.PaintUI;
 import iged.grafico.manager.Quadro;
-import iged.grafico.struct.Lista;
+import iged.grafico.struct.LinkedList;
 import iged.grafico.struct.LinkedListNode;
 import iged.grafico.struct.Struct;
 
