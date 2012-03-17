@@ -343,4 +343,5 @@ public class NodeTree extends Node{
         public Point2D getPInit() {
     		return this.pp;
     	}
+        
 }
