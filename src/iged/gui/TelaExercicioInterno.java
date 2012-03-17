@@ -130,7 +130,6 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
         executarBotao.setText("Executar");
         executarBotao.addActionListener(new java.awt.event.ActionListener() {
-
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 executarBotaoActionPerformed(evt);
             }
@@ -333,17 +332,16 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
     private void executarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executarBotaoActionPerformed
         StringTokenizer st = new StringTokenizer(jTextArea1.getText(), "\n");
-        while (st.hasMoreTokens()) {
-            String c = st.nextToken();
-            System.out.println(c);
-            iter.interprete(c);
-        }
-
-        if (iter.taskIsCorrect()) {
-            System.out.println("Tarefa Correta!");
-        } else {
-            System.out.println("Tarefa Incorreta!");
-        }
+                    while (st.hasMoreTokens()) {
+                        String c = st.nextToken();
+                        System.out.println(c);
+                        iter.interprete(c);
+                    }
+                    
+                    if(iter.taskIsCorrect())
+                        System.out.println("Tarefa Correta!");
+                    else
+                        System.out.println("Tarefa Incorreta!");
     }//GEN-LAST:event_executarBotaoActionPerformed
 
     class SimpleTableModel extends AbstractTableModel {
