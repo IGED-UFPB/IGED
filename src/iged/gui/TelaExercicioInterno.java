@@ -79,7 +79,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
         idRadio = new javax.swing.JRadioButton();
         autorRadio = new javax.swing.JRadioButton();
 
-        Tarefa tf = TarefaXml.lerXml(14);
+        //Tarefa tf = TarefaXml.lerXml(14);
 
         JPanel panelAnimacao = Quadro.getInstance();
         panelAnimacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Animação"));
@@ -87,9 +87,9 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questão"));
 
-        tituloLabel.setText(tf.getMetadado().getTitulo());
-        descricaoLabel.setText(tf.getDescricao());
-        jTextArea1.setText(tf.getCodInicializacao());
+        //tituloLabel.setText(tf.getMetadado().getTitulo());
+        //descricaoLabel.setText(tf.getDescricao());
+        //jTextArea1.setText(tf.getCodInicializacao());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,6 +130,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
         executarBotao.setText("Executar");
         executarBotao.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 executarBotaoActionPerformed(evt);
             }
@@ -137,12 +138,13 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
         areaRadio.setText("Área");
         areaRadio.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 areaRadioActionPerformed(evt);
             }
         });
 
-        
+
         idRadio.setText("Id");
 
         autorRadio.setText("Autor");
@@ -327,21 +329,33 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
     public void executarTarefa(int id) {
         GerenciadorTarefa gt = GerenciadorTarefa.getInstance();
         List<MetadadoTarefa> metadados = gt.listarTarefas();
-        gt.executar(metadados.get(8));
+        MetadadoTarefa tf = metadados.get(4);
+        gt.executar(tf);
+
+        //tituloLabel.setText(tf.getTitulo());
+        //descricaoLabel.setText(tf.getDescricao());
+        //jTextArea1.setText(tf.getCodInicializacao());
+
+
     }
 
     private void executarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executarBotaoActionPerformed
-        StringTokenizer st = new StringTokenizer(jTextArea1.getText(), "\n");
-                    while (st.hasMoreTokens()) {
-                        String c = st.nextToken();
-                        System.out.println(c);
-                        iter.interprete(c);
-                    }
-                    
-                    if(iter.taskIsCorrect())
-                        System.out.println("Tarefa Correta!");
-                    else
-                        System.out.println("Tarefa Incorreta!");
+        new Thread() {
+            public void run() {
+                StringTokenizer st = new StringTokenizer(jTextArea1.getText(), "\n");
+                while (st.hasMoreTokens()) {
+                    String c = st.nextToken();
+                    System.out.println(c);
+                    iter.interprete(c);
+                }
+
+                if (iter.taskIsCorrect()) {
+                    System.out.println("Tarefa Correta!");
+                } else {
+                    System.out.println("Tarefa Incorreta!");
+                }
+            }
+        }.start();
     }//GEN-LAST:event_executarBotaoActionPerformed
 
     class SimpleTableModel extends AbstractTableModel {
@@ -430,36 +444,36 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         LinkedList<String> port = new LinkedList<String>();
         PortifolioXml.lerXml();
-        
+
         XStream x = new XStream(new DomDriver());
         // carrega o arquivo XML
-            FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS+"tarefas.xml"));
-            // informa o nome do nó raiz do xml
-            x.alias("portifolio", Portifolio.class);
-            x.alias("metadados", MetadadoTarefa.class);
-            // cria um objeto da classe, contendo os dados lidos no xml
-            Portifolio pf = (Portifolio) x.fromXML(input);
-            if (pf.getTarefas()==null){
-                pf.setTarefas(new LinkedList<MetadadoTarefa>()) ;
-            }
-            
-            for (MetadadoTarefa mt : pf.getTarefas()){
-                if ((mt.getArea().equals(area))) {
+        FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS + "tarefas.xml"));
+        // informa o nome do nó raiz do xml
+        x.alias("portifolio", Portifolio.class);
+        x.alias("metadados", MetadadoTarefa.class);
+        // cria um objeto da classe, contendo os dados lidos no xml
+        Portifolio pf = (Portifolio) x.fromXML(input);
+        if (pf.getTarefas() == null) {
+            pf.setTarefas(new LinkedList<MetadadoTarefa>());
+        }
+
+        for (MetadadoTarefa mt : pf.getTarefas()) {
+            if ((mt.getArea().equals(area))) {
                 dados.add(new String[]{"TESTE"});
             }
-            }
-        
+        }
+
         /*
         port.add(PortifolioXml.lerXml().toString());
-
+        
         for (int i=0; i< port.size();i++){
-            System.out.println(port.get(i).toString());
+        System.out.println(port.get(i).toString());
         }
         /*
         for (int i = 0; i < port.size(); i++) {
-            if (area.equals(port.get(i).getTarefas().get(i).getArea())) {
-                dados.add(new String[]{port.get(i).getTarefas().get(i).toString()});
-            } 
+        if (area.equals(port.get(i).getTarefas().get(i).getArea())) {
+        dados.add(new String[]{port.get(i).getTarefas().get(i).toString()});
+        } 
         }*/
         jTable1.setModel(modelo);
         jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

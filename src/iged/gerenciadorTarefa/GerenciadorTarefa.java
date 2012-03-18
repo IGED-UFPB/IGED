@@ -33,15 +33,19 @@ public class GerenciadorTarefa {
         return portifolio.getTarefas();
     }
 
-    public void executar(MetadadoTarefa mt) {
-        Tarefa t = TarefaXml.lerXml(mt.getId());
-        iter.setMode(IGEDConst.MODE_BOTH);
-        String codigo = t.getCodInicializacao();
-        execute(codigo);
-        iter.setMode(IGEDConst.MODE_PROFESSOR);
-        codigo = t.getCodSolucao();
-        execute(codigo);
-        iter.setMode(IGEDConst.MODE_STUDENT);
+    public void executar(final MetadadoTarefa mt) {
+        new Thread(){
+            public void run(){
+                Tarefa t = TarefaXml.lerXml(mt.getId());
+                iter.setMode(IGEDConst.MODE_BOTH);
+                String codigo = t.getCodInicializacao();
+                execute(codigo);
+                iter.setMode(IGEDConst.MODE_PROFESSOR);
+                codigo = t.getCodSolucao();
+                execute(codigo);
+                iter.setMode(IGEDConst.MODE_STUDENT);
+            }
+        }.start();
     }
 
     private void execute(String cod) {
