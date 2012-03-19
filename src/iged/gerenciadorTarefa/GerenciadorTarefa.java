@@ -32,11 +32,14 @@ public class GerenciadorTarefa {
     public LinkedList<MetadadoTarefa> listarTarefas() {
         return portifolio.getTarefas();
     }
+    
+    public Tarefa loadTarefa(MetadadoTarefa mt){
+        return TarefaXml.lerXml(mt.getId());
+    }
 
-    public void executar(final MetadadoTarefa mt) {
+    public void executar(final Tarefa t) {
         new Thread(){
-            public void run(){
-                Tarefa t = TarefaXml.lerXml(mt.getId());
+            public void run(){  
                 iter.setMode(IGEDConst.MODE_BOTH);
                 String codigo = t.getCodInicializacao();
                 execute(codigo);

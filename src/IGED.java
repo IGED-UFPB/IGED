@@ -51,7 +51,7 @@ public class IGED implements AcaoUsuario{
                     if(iter.taskIsCorrect())
                         System.out.println("Tarefa Correta!");
                     else
-                        System.out.println("Tarefa Inorreta!");
+                        System.out.println("Tarefa Incorreta!");
                 }
             }.start();
 	}

@@ -55,9 +55,9 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
     /** Creates new form TelaExercicioInterno */
     public TelaExercicioInterno() {
-        executarTarefa(14);
-
         initComponents();
+        
+        executarTarefa(4);
     }
 
     private void initComponents() {
@@ -320,7 +320,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
                 .addComponent(panelDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(executarBotao)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -329,12 +329,11 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
     public void executarTarefa(int id) {
         GerenciadorTarefa gt = GerenciadorTarefa.getInstance();
         List<MetadadoTarefa> metadados = gt.listarTarefas();
-        MetadadoTarefa tf = metadados.get(4);
+        Tarefa tf = gt.loadTarefa(metadados.get(id));
         gt.executar(tf);
 
-        //tituloLabel.setText(tf.getTitulo());
-        //descricaoLabel.setText(tf.getDescricao());
-        //jTextArea1.setText(tf.getCodInicializacao());
+        tituloLabel.setText(tf.getMetadado().getTitulo());
+        descricaoLabel.setText(tf.getDescricao());
 
 
     }

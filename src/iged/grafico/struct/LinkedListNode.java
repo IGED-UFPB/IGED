@@ -129,12 +129,13 @@ public class LinkedListNode extends Node {
                 System.out.println("Node vai mover!");
                     n.bloqueiaMovendo();
                     System.out.println("Node n movido!");
-                    semLista.release();
+                    //semLista.release();
 
                 if (n.prox != null) {
                     System.out.println("n.prox != null");
                     if (n.prox.ajustado) {
                         n.setNext(n.prox);
+                        semLista.release();
                         return;
                     }
                     Point2D pprox = new Point2D.Double((p.getX() + 150), p.getY());
@@ -144,6 +145,7 @@ public class LinkedListNode extends Node {
                     n.prox.mover(pprox);
                     n.prox.ajustado = true;
                     n.setNext(n.prox);
+                    semLista.release();
                     
                     //n.prox.repintado = true;
                     //n.prox.bloqueiaMovendo();
@@ -153,6 +155,7 @@ public class LinkedListNode extends Node {
                 } else {
                     System.out.println("n.prox == null");
                     n.setNext(null);
+                    semLista.release();
                     //return;
                 }
             }
