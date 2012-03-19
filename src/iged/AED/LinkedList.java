@@ -38,7 +38,10 @@ public class LinkedList extends Struct {
                 thisNode = thisNode.next();
                 lkNode = lkNode.next();
             }
-            return true;
+            if(thisNode == null && lkNode == null)
+                return true;
+            else
+                return false;
         }
         return false;
     }

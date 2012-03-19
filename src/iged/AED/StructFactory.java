@@ -5,8 +5,21 @@ import iged.IGEDConst;
 public class StructFactory {
 
 	private int lengthStruct = 10;
-
-	public void createStruct(int type) {
+        private static StructFactory sf = null;
+        
+        
+        private StructFactory(){
+            
+        }
+                
+        public static synchronized StructFactory getInstance(){
+            if(sf == null){
+                sf = new StructFactory();
+            }
+            return sf;
+        }
+        
+	public Struct createStruct(int type) {
 		Struct s;
                 switch (type) {
                     case IGEDConst.LISTA:
@@ -19,13 +32,14 @@ public class StructFactory {
 			s = new LinkedListNode();
 			break;
                     default:
-                        return;
+                        return null;
 
 		}
-                StructManager.pilha.add(new WrapperStruct(s));
+                return s;
+                //StructManager.pilha.add(new WrapperStruct(s));
 	}
         
-	public WrapperStruct duplicateStruct(Struct s) {
+	/*public WrapperStruct duplicateStruct(Struct s) {
 		if (s != null) {
                     switch (s.getType()) {
 
@@ -47,7 +61,7 @@ public class StructFactory {
 			this.createStruct(IGEDConst.LISTA);
                         return StructManager.pilha.pop();
 		}
-	}
+	}*/
 
         
 	public void setLengthStruct(int lengthStruct) {

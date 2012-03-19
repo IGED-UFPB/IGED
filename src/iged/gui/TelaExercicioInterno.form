@@ -59,8 +59,15 @@
                   <Component id="executarBotao" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
               <Component id="panelDesenho" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+=======
+              <Component id="panelDesenho" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="executarBotao" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
+>>>>>>> 7dd42befc355415f02ee06b1f5cc213f99cd6a7d
           </Group>
       </Group>
     </DimensionLayout>

@@ -58,8 +58,13 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
     /** Creates new form TelaExercicioInterno */
     public TelaExercicioInterno() {
+<<<<<<< HEAD
         executarTarefa(14);
+=======
+>>>>>>> 7dd42befc355415f02ee06b1f5cc213f99cd6a7d
         initComponents();
+        
+        executarTarefa(4);
     }
 
     private void initComponents() {
@@ -76,8 +81,12 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuPesquisar = new javax.swing.JMenu();
 
+<<<<<<< HEAD
         Tarefa tf = TarefaXml.lerXml(14);
         setTitle("Responder Exercício");
+=======
+        //Tarefa tf = TarefaXml.lerXml(14);
+>>>>>>> 7dd42befc355415f02ee06b1f5cc213f99cd6a7d
 
         JPanel panelAnimacao = Quadro.getInstance();
         panelAnimacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Animação"));
@@ -86,12 +95,18 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questão"));
         jPanel1.setAutoscrolls(true);
 
+<<<<<<< HEAD
         descricaoText.setText(tf.getMetadado().getTitulo()+"\n"+tf.getDescricao());
         descricaoText.setEditable(false);
         descricaoText.setLineWrap(true);
         descricaoText.setColumns(20);
         descricaoText.setRows(5);
         jScrollPane3.setViewportView(descricaoText);
+=======
+        //tituloLabel.setText(tf.getMetadado().getTitulo());
+        //descricaoLabel.setText(tf.getDescricao());
+        //jTextArea1.setText(tf.getCodInicializacao());
+>>>>>>> 7dd42befc355415f02ee06b1f5cc213f99cd6a7d
 
        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -137,6 +152,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
         executarBotao.setText("Executar");
         executarBotao.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 executarBotaoActionPerformed(evt);
             }
@@ -145,12 +161,29 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
 
+<<<<<<< HEAD
         jMenuPesquisar.setText("Pesquisar");
         jMenuBar1.add(jMenuPesquisar);
 
         setJMenuBar(jMenuBar1);
         
 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+=======
+        areaRadio.setText("Área");
+        areaRadio.addActionListener(new java.awt.event.ActionListener() {
+
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                areaRadioActionPerformed(evt);
+            }
+        });
+
+
+        idRadio.setText("Id");
+
+        autorRadio.setText("Autor");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+>>>>>>> 7dd42befc355415f02ee06b1f5cc213f99cd6a7d
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,8 +311,15 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(executarBotao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< HEAD
                 .addComponent(panelDesenho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+=======
+                .addComponent(panelDesenho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(executarBotao)
+                .addContainerGap(27, Short.MAX_VALUE))
+>>>>>>> 7dd42befc355415f02ee06b1f5cc213f99cd6a7d
         );
 
         pack();
@@ -288,10 +328,17 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     public void executarTarefa(int id) {
         GerenciadorTarefa gt = GerenciadorTarefa.getInstance();
         List<MetadadoTarefa> metadados = gt.listarTarefas();
-        gt.executar(metadados.get(8));
+        Tarefa tf = gt.loadTarefa(metadados.get(id));
+        gt.executar(tf);
+
+        tituloLabel.setText(tf.getMetadado().getTitulo());
+        descricaoLabel.setText(tf.getDescricao());
+
+
     }
 
     private void executarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executarBotaoActionPerformed
+<<<<<<< HEAD
         StringTokenizer st = new StringTokenizer(jTextArea1.getText(), "\n");
                     while (st.hasMoreTokens()) {
                         String c = st.nextToken();
@@ -305,6 +352,164 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     }//GEN-LAST:event_executarBotaoActionPerformed
 
         /*
+=======
+        new Thread() {
+            public void run() {
+                StringTokenizer st = new StringTokenizer(jTextArea1.getText(), "\n");
+                while (st.hasMoreTokens()) {
+                    String c = st.nextToken();
+                    System.out.println(c);
+                    iter.interprete(c);
+                }
+
+                if (iter.taskIsCorrect()) {
+                    System.out.println("Tarefa Correta!");
+                } else {
+                    System.out.println("Tarefa Incorreta!");
+                }
+            }
+        }.start();
+    }//GEN-LAST:event_executarBotaoActionPerformed
+
+    class SimpleTableModel extends AbstractTableModel {
+
+        ArrayList linhas = null;
+        String[] colunas = null;
+
+        public SimpleTableModel(ArrayList dados, String[] colunas) {
+            setLinhas(dados);
+            setColunas(colunas);
+        }
+
+        public String[] getColunas() {
+            return colunas;
+        }
+
+        public ArrayList getLinhas() {
+            return linhas;
+        }
+
+        public void setColunas(String[] strings) {
+            colunas = strings;
+        }
+
+        public void setLinhas(ArrayList list) {
+            linhas = list;
+        }
+
+        @Override
+        public int getRowCount() {
+            return getLinhas().size();
+        }
+
+        @Override
+        public int getColumnCount() {
+            return getColunas().length;
+        }
+
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            String[] linha = (String[]) getLinhas().get(rowIndex);
+            // Retorna o objeto que esta na coluna  
+            return linha[columnIndex];
+        }
+
+        public void addRow(String[] dadosLinha) {
+            getLinhas().add(dadosLinha);
+            // Informa a jtable de que houve linhas incluidas no modelo  
+            // COmo adicionamos no final, pegamos o tamanho total do modelo  
+            // menos 1 para obter a linha incluida.  
+            int linha = getLinhas().size() - 1;
+            fireTableRowsInserted(linha, linha);
+            return;
+        }
+    }
+
+    public void listarTodasTarefas() {
+        File raiz = new File("./Tarefas");
+        ArrayList dados = new ArrayList();
+        String[] colunas = new String[]{"Tarefa"};
+        SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
+        for (File f : raiz.listFiles()) {
+            if ((f.isFile()) && !(f.getName().contains("tarefas"))) {
+                dados.add(new String[]{f.getName()});
+            }
+        }
+        jTable1.setModel(modelo);
+        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    }
+
+    public void recuperarDados() {
+        int linhas = jTable1.getRowCount();
+        int colunas = jTable1.getColumnCount();
+        for (int linha = 0; linha < linhas; linha++) {
+            for (int col = 0; col < colunas; col++) {
+                jTable1.getModel().getValueAt(linha, col); // Pra recuparar o valor de uma celula da tabela  
+            }
+        }
+    }
+
+    public void listarAreaTarefas() throws AreaInexistenteException, FileNotFoundException {
+        String area = pesquisaText.getText();
+        Portifolio p = new Portifolio();
+        ArrayList dados = new ArrayList();
+        String[] colunas = new String[]{"Tarefa"};
+        SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
+        LinkedList<String> port = new LinkedList<String>();
+        PortifolioXml.lerXml();
+
+        XStream x = new XStream(new DomDriver());
+        // carrega o arquivo XML
+        FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS + "tarefas.xml"));
+        // informa o nome do nó raiz do xml
+        x.alias("portifolio", Portifolio.class);
+        x.alias("metadados", MetadadoTarefa.class);
+        // cria um objeto da classe, contendo os dados lidos no xml
+        Portifolio pf = (Portifolio) x.fromXML(input);
+        if (pf.getTarefas() == null) {
+            pf.setTarefas(new LinkedList<MetadadoTarefa>());
+        }
+
+        for (MetadadoTarefa mt : pf.getTarefas()) {
+            if ((mt.getArea().equals(area))) {
+                dados.add(new String[]{"TESTE"});
+            }
+        }
+
+        /*
+        port.add(PortifolioXml.lerXml().toString());
+        
+        for (int i=0; i< port.size();i++){
+        System.out.println(port.get(i).toString());
+        }
+        /*
+        for (int i = 0; i < port.size(); i++) {
+        if (area.equals(port.get(i).getTarefas().get(i).getArea())) {
+        dados.add(new String[]{port.get(i).getTarefas().get(i).toString()});
+        } 
+        }*/
+        jTable1.setModel(modelo);
+        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+    }
+
+    private void todosRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosRadioActionPerformed
+        listarTodasTarefas();
+    }//GEN-LAST:event_todosRadioActionPerformed
+
+    private void areaRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaRadioActionPerformed
+        try {
+            try {
+                listarAreaTarefas();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(TelaExercicioInterno.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (AreaInexistenteException ex) {
+            Logger.getLogger(TelaExercicioInterno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_areaRadioActionPerformed
+    /*
+>>>>>>> 7dd42befc355415f02ee06b1f5cc213f99cd6a7d
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea descricaoText;
     private javax.swing.JButton executarBotao;

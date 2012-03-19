@@ -42,6 +42,7 @@ public class LinkedListNode extends Node{
 		}
 	}
 	
+    @Override
 	public boolean compare(Struct node){
                 if(node instanceof LinkedListNode)
                     return content == ((LinkedListNode)node).getContent();

@@ -1,11 +1,8 @@
 package iged.AED;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.Set;
 
 
 public class Appraiser {
@@ -18,12 +15,12 @@ public class Appraiser {
 		structOriginal = new HashMap<String , Struct>();
 		structReplica = new HashMap<String , Struct>();
 		
-		for(String k : sm.structOriginal.keySet()){
-			this.structOriginal.put(k, sm.structOriginal.get(k).getStruct());
+		for(String k : sm.original.struct.keySet()){
+			this.structOriginal.put(k, sm.original.struct.get(k).getStruct());
 		}
 		
-		for(String k : sm.structReplica.keySet()){
-			this.structReplica.put(k, sm.structReplica.get(k).getStruct());
+		for(String k : sm.replica.struct.keySet()){
+			this.structReplica.put(k, sm.replica.struct.get(k).getStruct());
 		}
 		
 	}

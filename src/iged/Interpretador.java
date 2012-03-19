@@ -231,6 +231,7 @@ public class Interpretador {
                 }
             }
         }
+        System.out.println("FFFFFFFFFFFFFFFIM: " + comando);
     }
 
     public static int referenceField(String field) {
