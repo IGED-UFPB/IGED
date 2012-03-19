@@ -16,12 +16,20 @@ public class VarInteiroManager {
 	private Map<String , VarInteiro> ints =  new HashMap<String , VarInteiro>();
 	private List<VarInteiro> lista = new ArrayList<VarInteiro>();
 	private VarInteiro reg = null;
-	private int x = 20;
-	private int y = 5;
-	private int dis = 10;
+	private int x;
+	private int y;
+	private int dis;
 	private static VarInteiroManager vim = null;
 	
-	private VarInteiroManager(){}
+	private VarInteiroManager(){
+            this.initPosition();
+        }
+        
+        private void initPosition(){
+            this.x = INIT_X;
+            this.y = INIT_Y;
+            this.dis = DIST;
+        }
 	
 	public static VarInteiroManager getInstance(){
 		if(vim == null){
@@ -89,5 +97,16 @@ public class VarInteiroManager {
 		}
 	}
 	public static final int SPACE  = 100;
+
+    void clear() {
+        this.reg = null;
+        this.ints.clear();
+        this.lista.clear();
+        this.initPosition();
+    }
+    
+    static final int INIT_X = 20;
+    static final int INIT_Y = 5;
+    static final int DIST = 10;
 	
 }

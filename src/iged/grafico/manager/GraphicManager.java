@@ -21,29 +21,47 @@ import javax.swing.JPanel;
 
 public class GraphicManager {
 
-    private Map<String, WrapperStruct> structs = new HashMap<String, WrapperStruct>();
-    public Stack<WrapperStruct> pilha = new Stack<WrapperStruct>();
-    public Stack<String> ints = new Stack<String>();
-    private VarInteiroManager vi = VarInteiroManager.getInstance();
+    private static GraphicManager gm = null;
     
-    private int regVet = 0;
-    private int referenciasVazias = 0;
-    private int nodesSoltos = 0;
-    private int yBaseTrabalho = 170;
-    private int espacoEntreNodes = 150;
-    private int yBase = 200;
+    private Map<String, WrapperStruct> structs;
+    public Stack<WrapperStruct> pilha;
+    public Stack<String> ints;
+    private VarInteiroManager vi;
     
-    private double boundsBinaryTree = 140;
-    private int espacoEntreEstruturas = 200;
-	
+    private int regVet;
+    private int referenciasVazias;
+    private int nodesSoltos;
+    private double boundsBinaryTree;
 
+    public static synchronized GraphicManager getInstance(){
+        if(gm == null)
+            gm = new GraphicManager();
+        return gm;
+    }
+    
+    private GraphicManager(){
+        this.structs = new HashMap<String, WrapperStruct>();
+        this.pilha = new Stack<WrapperStruct>();
+        this.ints = new Stack<String>();
+        this.vi = VarInteiroManager.getInstance();
+        
+        this.initPosition();
+    }
+    
+    void initPosition(){
+        this.regVet = 0;
+        this.referenciasVazias = 0;
+        this.nodesSoltos = 0;
+        this.boundsBinaryTree = BinaryTree.BOUNDS;
+    }
+    
     public void createStruct(int type) {
         switch (type) {
             case IGEDConst.LISTA:
                 LinkedList l = new LinkedList();
-                l.setyBase(yBase);
+                l.setyBase(YBASE);
 
-                int y = yBase;
+                int y = YBASE;
                 for (WrapperStruct w : structs.values()) {
                     if (w.getType() != IGEDConst.NODE && w.getType() != IGEDConst.VAZIA) {
                         if (w.getStruct() != null) {
@@ -57,7 +75,7 @@ public class GraphicManager {
                 break;
             case IGEDConst.NODE:
 
-                LinkedListNode n = new LinkedListNode(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho));
+                LinkedListNode n = new LinkedListNode(new Point2D.Double(getXNodeSoltos(), YBASE_TRABALHO));
 
                 pilha.push(new WrapperStruct(n, IGEDConst.NODE));
                 Quadro.getInstance().add(n);
@@ -65,7 +83,7 @@ public class GraphicManager {
                 break;
                 
             case IGEDConst.VETOR:
-                int y2 = yBase;
+                int y2 = YBASE;
                 for (WrapperStruct w : structs.values()) {
                     if (w.getType() != IGEDConst.NODE && w.getType() != IGEDConst.VAZIA) {
                         if (w.getStruct() != null) {
@@ -80,7 +98,7 @@ public class GraphicManager {
                 
            case IGEDConst.NODE_TREE:
                NodeTree nt = new NodeTree(new Point2D.Double(getXNodeSoltos(), 
-            		   this.boundsBinaryTree+espacoEntreEstruturas));
+            		   this.boundsBinaryTree+ESPACO_ESTRUTURAS));
                pilha.push(new WrapperStruct(nt, IGEDConst.NODE_TREE));
                Quadro.getInstance().add(nt);
                this.nodesSoltos++;
@@ -105,7 +123,7 @@ public class GraphicManager {
         WrapperStruct w = new WrapperStruct(null, type);
 //        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
         w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), 
-        		this.boundsBinaryTree +espacoEntreEstruturas));
+        		this.boundsBinaryTree +ESPACO_ESTRUTURAS));
         pilha.push(w);
         this.structs.put(reference, w);
         referenciasVazias++;
@@ -228,7 +246,7 @@ public class GraphicManager {
         if (nodesSoltos == 0) {
             x = 100;
         } else {
-            x = (nodesSoltos * espacoEntreNodes) + 100;
+            x = (nodesSoltos * ESPACO_NODES) + 100;
         }
         return x;
     }
@@ -248,7 +266,7 @@ public class GraphicManager {
         if (index == 0) {
             x = 100;
         } else {
-            x = (index * espacoEntreNodes) + 100;
+            x = (index * ESPACO_NODES) + 100;
         }
         return x;
     }
@@ -263,7 +281,7 @@ public class GraphicManager {
     
     
 
-    public void lixeiro() {
+    public void lixeiro(){
         Quadro.getInstance().limpar();
         for (WrapperStruct w : this.structs.values()) {
             System.out.println(w.getReferencia());
@@ -314,7 +332,7 @@ public class GraphicManager {
         			System.out.println("Noooode: " + count);
         			if(count > 0){
         				Semaphore sem = new Semaphore(0, true);
-        				n.adjust(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho), sem);
+        				n.adjust(new Point2D.Double(getXNodeSoltos(), YBASE_TRABALHO), sem);
         				try{
         					sem.acquire(count);
         				}catch(InterruptedException ie){}
@@ -323,7 +341,7 @@ public class GraphicManager {
         		}
         		else{
         			NodeTree nt = ((NodeTree)no.getStruct());
-        			nt.mover(new Point2D.Double(getXNodeSoltos(), this.boundsBinaryTree+this.espacoEntreEstruturas));
+        			nt.mover(new Point2D.Double(getXNodeSoltos(), this.boundsBinaryTree+this.ESPACO_ESTRUTURAS));
         			nt.repintar();
         			nodesSoltos++;
         		}
@@ -373,5 +391,16 @@ public class GraphicManager {
     	}
     }
     
+    public void clearAll(){
+        this.ints.clear();
+        this.structs.clear();
+        this.vi.clear();
+        this.initPosition();
+    }
+    
+    static final int YBASE_TRABALHO = 170;
+    static final int YBASE = 200;
+    static final int ESPACO_NODES = 150;
+    static final int ESPACO_ESTRUTURAS = 200;
     
 }

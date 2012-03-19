@@ -132,5 +132,10 @@ public class StructManagerInstance{
         pilha.clear();
         factory.setLengthStruct(10);
     }
+
+    void clear() {
+        this.struct.clear();
+        this.pilha.clear();
+    }
 }
 

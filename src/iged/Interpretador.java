@@ -250,4 +250,9 @@ public class Interpretador {
     public void setMode(int mode){
         con.setMode(mode);
     }
+
+    public void clear() {
+        con.clearStruct();
+        con.endCommand();
+    }
 }

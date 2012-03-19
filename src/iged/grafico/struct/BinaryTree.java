@@ -14,7 +14,7 @@ import java.awt.geom.Point2D;
  *
  */
 public class BinaryTree extends Struct{
-	
+        public static double BOUNDS = 140;
 	
 	private NodeTree ini = null;
 	private Label l;

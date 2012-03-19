@@ -12,8 +12,8 @@ import iged.grafico.manager.Quadro;
 public class GraficoAED {
 
 	
-	private GraphicManager gm = new GraphicManager();
-	private StructManager sm =  StructManager.getIntance();
+	private GraphicManager gm = GraphicManager.getInstance();
+	private StructManager sm =  StructManager.getInstance();
 	private Appraiser ap;
 	
         private int mode = IGEDConst.MODE_BOTH;
@@ -144,5 +144,10 @@ public class GraficoAED {
 	public void setMode(int mode){
                 this.mode = mode;
 		sm.setMode(mode);
-	}	
+	}
+        
+        public void clearStruct(){
+            this.sm.clear();
+            this.gm.clearAll();
+        }
 }
