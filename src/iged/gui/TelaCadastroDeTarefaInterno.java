@@ -70,7 +70,7 @@ private void initComponents() {
         textDescricao = new javax.swing.JTextArea();
 
         setClosable(true);
-        setTitle("Cadastro de Tarefa");
+        setTitle("Cadastro de Exercício");
 
         area.setText("Área");
 

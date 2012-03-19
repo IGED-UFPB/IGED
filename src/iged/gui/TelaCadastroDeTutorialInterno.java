@@ -73,6 +73,8 @@ private void initComponents() {
         jSeparator4 = new javax.swing.JSeparator();
         labelTocador = new javax.swing.JLabel();
 
+        setTitle("Cadastro de Apresentação");
+        
         proximo.setText("Proximo");
         proximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
