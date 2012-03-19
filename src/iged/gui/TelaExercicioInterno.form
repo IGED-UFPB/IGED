@@ -1,7 +1,24 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <NonVisualComponents>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="File"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenuPesquisar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pesquisar"/>
+          </Properties>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
   <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
   <AuxValues>
@@ -22,69 +39,35 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                      <Component id="panelDesenho" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel1" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="pesquisaLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  <Component id="pesquisaText" min="-2" pref="160" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jScrollPane1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="1">
-                                  <Component id="todosRadio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="areaRadio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="idRadio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="autorRadio" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                  <Component id="panelDesenho" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="executarBotao" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="334" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="1">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="pesquisaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pesquisaText" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="autorRadio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="idRadio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="areaRadio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="todosRadio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="72" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="executarBotao" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
+              <Component id="panelDesenho" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+=======
               <Component id="panelDesenho" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="executarBotao" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="27" max="32767" attributes="0"/>
+>>>>>>> 7dd42befc355415f02ee06b1f5cc213f99cd6a7d
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,17 +80,14 @@
             <TitledBorder title="Quest&#xe3;o"/>
           </Border>
         </Property>
+        <Property name="autoscrolls" type="boolean" value="true"/>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="tituloLabel" alignment="0" pref="563" max="32767" attributes="0"/>
-                      <Component id="descricaoLabel" alignment="0" pref="563" max="32767" attributes="0"/>
-                  </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jScrollPane3" pref="673" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -115,19 +95,28 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="tituloLabel" min="-2" pref="20" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="descricaoLabel" pref="58" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="tituloLabel">
-        </Component>
-        <Component class="javax.swing.JLabel" name="descricaoLabel">
-        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="descricaoText">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelDesenho">
@@ -137,15 +126,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jSplitPane1" pref="812" max="32767" attributes="0"/>
+                  <Component id="jSplitPane1" pref="802" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jSplitPane1" pref="380" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jSplitPane1" pref="411" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -183,42 +172,6 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="1" rowCount="3">
-                <Column editable="true" title="Resultado da Busca" type="java.lang.Object"/>
-              </Table>
-            </Property>
-            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-            </Property>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JTextField" name="pesquisaText">
-    </Component>
-    <Component class="javax.swing.JLabel" name="pesquisaLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pesquisa:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="todosRadio">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Todos"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="todosRadioActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="executarBotao">
       <Properties>
         <Property name="text" type="java.lang.String" value="Executar"/>
@@ -226,24 +179,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="executarBotaoActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="areaRadio">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&#xc1;rea"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="areaRadioActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="idRadio">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Id"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="autorRadio">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Autor"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

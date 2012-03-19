@@ -63,6 +63,8 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
         area = new javax.swing.JLabel();
         conteudoArea = new javax.swing.JLabel();
 
+        setToolTipText("Apresentações");
+
         imgPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         imgPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -179,7 +181,7 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imgPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(descPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
         pack();

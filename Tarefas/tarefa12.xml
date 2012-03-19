@@ -1,0 +1,10 @@
+<tarefa>
+  <metadado>
+    <area>Lista</area>
+    <autor>teste</autor>
+    <id>12</id>
+    <titulo>teste</titulo>
+  </metadado>
+  <codInicializacao>teste</codInicializacao>
+  <codSolucao>teste</codSolucao>
+</tarefa>
