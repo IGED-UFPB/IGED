@@ -19,7 +19,7 @@ public class TesteBinaryTree implements AcaoUsuario{
 	
 	int passo = 0;
 	
-	GraphicManager gm = new GraphicManager();
+	GraphicManager gm = GraphicManager.getInstance();
 	
 	BinaryTree bt  = new BinaryTree();
 	

@@ -14,7 +14,6 @@ import iged.Interpretador;
 import iged.gerenciadorTarefa.GerenciadorTarefa;
 import iged.gerenciadorTarefa.MetadadoTarefa;
 import iged.gerenciadorTarefa.Tarefa;
-import iged.gerenciadorTarefa.TarefaXml;
 import iged.grafico.manager.Quadro;
 import java.io.File;
 import java.util.List;
@@ -38,10 +37,15 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
     /** Creates new form TelaExercicioInterno */
     public TelaExercicioInterno() {
-        executarTarefa(8);
         initComponents();
+        executarTarefa(8);
     }
 
+    private void initLabels(Tarefa tf){
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questão: " + tf.getMetadado().getTitulo()));
+        descricaoText.setText(tf.getDescricao());
+    }
+    
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -57,18 +61,16 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
         jMenuPesquisar = new javax.swing.JMenu();
 
 
-        Tarefa tf = TarefaXml.lerXml(14);
+        //Tarefa tf = TarefaXml.lerXml(14);
         setTitle("Responder Exercício");
 
         JPanel panelAnimacao = Quadro.getInstance();
         panelAnimacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Animação"));
         jSplitPane1.setLeftComponent(panelAnimacao);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questão"));
         jPanel1.setAutoscrolls(true);
 
 
-        descricaoText.setText(tf.getMetadado().getTitulo()+"\n"+tf.getDescricao());
         descricaoText.setEditable(false);
         descricaoText.setLineWrap(true);
         descricaoText.setColumns(20);
@@ -90,7 +92,6 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         
-        jTextArea1.setText(tf.getCodInicializacao());
        
         jSplitPane1.setAutoscrolls(true);
         jSplitPane1.setDividerLocation(450);
@@ -282,6 +283,8 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         List<MetadadoTarefa> metadados = gt.listarTarefas();
         Tarefa tf = gt.loadTarefa(metadados.get(id));
         gt.executar(tf);
+        
+        this.initLabels(tf);
     }
 
     private void executarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executarBotaoActionPerformed
