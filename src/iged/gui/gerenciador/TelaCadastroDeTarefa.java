@@ -10,15 +10,15 @@
  */
 package iged.gui.gerenciador;
 
-import iged.gerenciadorTarefa.DiretorioExistenteException;
-import iged.gerenciadorTarefa.CampoObrigatorioException;
-import iged.gerenciadorTarefa.CampoInvalidoException;
+import iged.gerenciadorAtividade.DiretorioExistenteException;
+import iged.gerenciadorAtividade.CampoObrigatorioException;
+import iged.gerenciadorAtividade.CampoInvalidoException;
 import iged.Interpretador;
-import iged.gerenciadorTarefa.GerenciadorTarefa;
-import iged.gerenciadorTarefa.MetadadoTarefa;
-import iged.gerenciadorTarefa.Tarefa;
+import iged.gerenciadorAtividade.GerenciadorAtividade;
+import iged.gerenciadorAtividade.MetadadoAtividade;
+import iged.gerenciadorAtividade.AtividadeSubjetiva;
 import iged.grafico.manager.Quadro;
-import iged.gerenciadorTarefa.XmlPersistencia;
+import iged.gerenciadorAtividade.XmlPersistencia;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
@@ -279,7 +279,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastrador de Tarefa");
+        setTitle("Cadastrador de AtividadeSubjetiva");
         setName("cadastradorDeTarefa"); // NOI18N
         setResizable(false);
 
@@ -580,17 +580,17 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
         try {
             validarCodInicializacao();
             validarCodSolucao();
-            MetadadoTarefa mt = new MetadadoTarefa();
+            MetadadoAtividade mt = new MetadadoAtividade();
             mt.setArea(getAreaStr());
             mt.setTitulo(getTituloStr());
             mt.setAutor(getAutorStr());
             
-            Tarefa tarefa = new Tarefa();
+            AtividadeSubjetiva tarefa = new AtividadeSubjetiva();
             tarefa.setMetadado(mt);
             tarefa.setCodInicializacao(inicializacaoStr);
             tarefa.setCodSolucao(solucaoStr);
             
-            GerenciadorTarefa gt = GerenciadorTarefa.getInstance();
+            GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
             gt.cadastrarTarefa(tarefa);
             
             

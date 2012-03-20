@@ -21,11 +21,11 @@ public class TesteBinaryTree implements AcaoUsuario{
 	
 	GraphicManager gm = new GraphicManager();
 	
-	BinaryTree bt  = new BinaryTree();
+	BinaryTree bt  = new BinaryTree(gm.getQuadro());
 	
-	NodeTree nt = new NodeTree(new Point2D.Double(150,150));
-	NodeTree nt2 = new NodeTree(this.nt.getPBDir());
-	NodeTree nt3 = new NodeTree(this.nt2.getPBEsq());
+	NodeTree nt = new NodeTree(new Point2D.Double(150,150), gm.getQuadro());
+	NodeTree nt2 = new NodeTree(this.nt.getPBDir(), gm.getQuadro());
+	NodeTree nt3 = new NodeTree(this.nt2.getPBEsq(), gm.getQuadro());
 	
 	
 	
@@ -38,22 +38,22 @@ public class TesteBinaryTree implements AcaoUsuario{
 	public void pass(){
 		
 		this.bt.setReferencia("bt");
-		Quadro.getInstance().add(bt);
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().add(bt);
+		gm.getQuadro().atualizar();
 	}
 	
 	public void pass1(){
 		this.bt.writeField(nt, IGEDConst.NODE_TREE_ROOT);
-		Quadro.getInstance().add(nt);
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().add(nt);
+		gm.getQuadro().atualizar();
 	}
 	
 	public void pass2(){
 		this.bt.readField(IGEDConst.NODE_TREE_ROOT).writeField(nt2, IGEDConst.RIGHT_CHIELD);
 		
 		
-		Quadro.getInstance().add(nt2);
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().add(nt2);
+		gm.getQuadro().atualizar();
 	}
 	
 	public void pass3(){
@@ -62,8 +62,8 @@ public class TesteBinaryTree implements AcaoUsuario{
 							.writeField(nt3, IGEDConst.LEFT_CHIELD);
 		
 		
-		Quadro.getInstance().add(nt3);
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().add(nt3);
+		gm.getQuadro().atualizar();
 		
 	}
 	
@@ -74,34 +74,34 @@ public class TesteBinaryTree implements AcaoUsuario{
 		 * */
 		
 		this.bt.adjust();
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().atualizar();
 	}
 	
 	public void pass5(){
 		this.nt.writeInfo("6");
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().atualizar();
 	}
 	
 	public void pass6(){
 		this.nt.setAltura("0");
 		this.nt2.setAltura("1");
 		this.nt3.setAltura("2");
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().atualizar();
 	}
 	
 	public void pass7(){
-		NodeTree nt4 = new NodeTree(this.nt.getPBEsq());
+		NodeTree nt4 = new NodeTree(this.nt.getPBEsq(), gm.getQuadro());
 		this.nt.writeField(nt4, IGEDConst.LEFT_CHIELD);
 		nt4.setAltura("1");
 		
-		Quadro.getInstance().add(nt4);
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().add(nt4);
+		gm.getQuadro().atualizar();
 	}
 	
 	public void pass8(){
 		this.bt.adjust();
 		
-		Quadro.getInstance().atualizar();
+		gm.getQuadro().atualizar();
 	}
 	
 	@Override
@@ -163,7 +163,7 @@ public class TesteBinaryTree implements AcaoUsuario{
 	@Override
 	public Quadro getQuadro() {
 		
-		return Quadro.getInstance();
+		return gm.getQuadro();
 	}
 
 }

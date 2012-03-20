@@ -4,6 +4,7 @@
  */
 package iged.grafico.struct;
 
+import iged.grafico.manager.Quadro;
 import java.awt.geom.Point2D;
 
 /**
@@ -14,6 +15,9 @@ public abstract class Node extends Struct {
 
     protected int numRef = -1;
     
+    public Node(Quadro q){
+        super(q);
+    }
     
     public void add(String ref) {
     }

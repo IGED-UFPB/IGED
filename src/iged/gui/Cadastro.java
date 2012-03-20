@@ -21,7 +21,7 @@ package iged.gui;
 
 
 
-import iged.gerenciadorTarefa.XmlPersistencia;
+import iged.gerenciadorAtividade.XmlPersistencia;
 import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;

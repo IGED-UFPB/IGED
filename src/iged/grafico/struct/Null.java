@@ -3,11 +3,13 @@ package iged.grafico.struct;
 import java.awt.geom.Point2D;
 
 import iged.grafico.geometria.Poligono;
+import iged.grafico.manager.Quadro;
 
 public class Null extends Elemento{
 	private Poligono linha[] = new Poligono[5];
 
-	public Null(Point2D pb, boolean agrupado){
+	public Null(Point2D pb, boolean agrupado, Quadro q){
+            super(q);
 		this.agrupado = agrupado;
 
 		linha[0] = new Poligono();
@@ -34,7 +36,7 @@ public class Null extends Elemento{
 
 	}
 
-	public Null(Point2D pb){
-		this(pb, true);
+	public Null(Point2D pb, Quadro q){
+		this(pb, true, q);
 	}
 }

@@ -5,7 +5,7 @@
 package iged.gui.gerenciador;
 
 import iged.gui.TelaCadastroDeTarefaInterno;
-import iged.gerenciadorTarefa.MetadadoTarefa;
+import iged.gerenciadorAtividade.MetadadoAtividade;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import java.io.File;
@@ -27,8 +27,8 @@ public class PortifolioXml {
 
     private static File dir;
     private static String xmlTutorial;
-    static MetadadoTarefa p = new MetadadoTarefa();
-    static MetadadoTarefa metadado = new MetadadoTarefa();
+    static MetadadoAtividade p = new MetadadoAtividade();
+    static MetadadoAtividade metadado = new MetadadoAtividade();
     static File tarefas = new File("C:\\Tarefas\\tarefas.xml");
 
     public PortifolioXml() {
@@ -40,7 +40,7 @@ public class PortifolioXml {
         XStream xstream = new XStream(new DomDriver());
 
         TelaCadastroDeTarefa tc = new TelaCadastroDeTarefa();
-        xstream.alias("portifolio", MetadadoTarefa.class);
+        xstream.alias("portifolio", MetadadoAtividade.class);
 
         //metadado.setCont(Integer.parseInt(tc.getIdStr()));
         metadado.setTitulo(tc.getTituloStr());

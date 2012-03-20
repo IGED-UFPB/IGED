@@ -2,6 +2,7 @@ package iged.grafico.struct;
 
 import iged.grafico.geometria.Retangulo;
 import iged.grafico.geometria.Label;
+import iged.grafico.manager.Quadro;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
@@ -10,7 +11,8 @@ public class Celula extends Elemento{
 	Retangulo r = null;
 	Label indice = null;
 
-	public Celula(Point2D p, int id){
+	public Celula(Point2D p, int id, Quadro q){
+                super(q);
 		this.pb = p;
 		this.r = new Retangulo(p, LARGURA, LARGURA);
 		this.conteudo.add(this.r);
@@ -27,12 +29,12 @@ public class Celula extends Elemento{
 	}
 
 	public void ler(){
-		this.r.evidencia(Color.blue, 4);
+		this.r.evidencia(Color.blue, 4, quadro);
 	}
 
 	public void escrever(String t){
 		this.valor.setText(t);
-		this.r.evidencia(Color.red, 4);
+		this.r.evidencia(Color.red, 4, quadro);
 	}
 
 	public static final int LARGURA = 60;

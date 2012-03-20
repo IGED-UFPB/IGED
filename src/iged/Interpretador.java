@@ -13,18 +13,19 @@ import java.util.StringTokenizer;
  */
 public class Interpretador {
 
-    private static GraficoAED con = new GraficoAED();
-    private static Interpretador interpretador = null;
+    private GraficoAED con;
+    //private static Interpretador interpretador = null;
 
-    private Interpretador(){
+    public Interpretador(){
+        con = new GraficoAED();
     }
     
-    public static Interpretador getInstance(){
+    /*public static Interpretador getInstance(){
         if (interpretador==null){
             interpretador = new Interpretador();
         }
         return interpretador;
-    }
+    }*/
             
     public Quadro getQuadro() {
         return con.quadro();
@@ -249,5 +250,10 @@ public class Interpretador {
     
     public void setMode(int mode){
         con.setMode(mode);
+    }
+
+    public void clear() {
+        con.clearStruct();
+        con.endCommand();
     }
 }

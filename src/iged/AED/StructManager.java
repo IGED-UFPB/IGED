@@ -3,36 +3,16 @@ package iged.AED;
 import iged.IGEDConst;
 
 public class StructManager {
-
-    //Map<String, WrapperStruct> nodeOriginal;
-    //Map<String, WrapperStruct> nodeReplica;
-    //Map<String, WrapperStruct> structOriginal;
-    //Map<String, WrapperStruct> structReplica;
-    //private static NodeFactory nFactory = new NodeFactory();
-    //Pilha de estruturas nao no
-    //public static Stack<WrapperStruct> pilhaOriginal = new Stack<WrapperStruct>();
-    //public static Stack<WrapperStruct> pilhaReplica = new Stack<WrapperStruct>();
-    //Pilha de estruturas no
-    //public static Stack<WrapperStruct> pilhaN = new Stack<WrapperStruct>();
     StructManagerInstance original;
     StructManagerInstance replica;
     private int mode;
-    private static StructManager sm;
     private StructFactory factory;
 
-    //private int pos = 0;
-    private StructManager() {
+    public StructManager() {
         original = new StructManagerInstance();
         replica = new StructManagerInstance();
         factory = StructFactory.getInstance();
         mode = IGEDConst.MODE_BOTH;
-    }
-
-    public static synchronized StructManager getIntance() {
-        if (sm == null) {
-            sm = new StructManager();
-        }
-        return sm;
     }
 
     public boolean removeStruct(String id) {
@@ -244,34 +224,7 @@ public class StructManager {
         }
     }
 
-    /*public WrapperStruct getStruct(String id) {
-        switch (mode) {
-            case IGEDConst.MODE_PROFESSOR:
-                return this.structReplica.get(id);
-            case IGEDConst.MODE_BOTH:
-                return this.structOriginal.get(id);
-            case IGEDConst.MODE_STUDENT:
-                return this.structOriginal.get(id);
-            default:
-                return null;
-        }
-
-    }*/
-
-    /*public List<String> listStruct() {
-        switch (mode) {
-            case IGEDConst.MODE_PROFESSOR:
-                return new ArrayList<String>(this.structReplica.keySet());
-            case IGEDConst.MODE_BOTH:
-                return new ArrayList<String>(this.structOriginal.keySet());
-            case IGEDConst.MODE_STUDENT:
-                return new ArrayList<String>(this.structOriginal.keySet());
-            default:
-                return null;
-        }
-    }*/
-
-    public void endCommand() {
+     public void endCommand() {
         switch (mode) {
             case IGEDConst.MODE_PROFESSOR:
                 this.replica.endCommand();
@@ -286,5 +239,10 @@ public class StructManager {
             default:
                 break;
         }
+    }
+    
+    public void clear(){
+        original.clear();
+        replica.clear();
     }
 }

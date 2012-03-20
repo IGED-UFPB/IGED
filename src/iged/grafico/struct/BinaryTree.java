@@ -14,14 +14,11 @@ import java.awt.geom.Point2D;
  *
  */
 public class BinaryTree extends Struct{
-	
+        public static double BOUNDS = 140;
 	
 	private NodeTree ini = null;
 	private Label l;
 	private Null n;
-	
-	
-	private Quadro quadro = Quadro.getInstance();
 	
 	private int yBase = 0;
 	private int bond = 100;
@@ -30,10 +27,10 @@ public class BinaryTree extends Struct{
 	private String referencia;
 	private String tamanho = "0";
 
-	public BinaryTree(){
-		this.type = IGEDConst.BINARY_TREE;
-
-		this.pi = new Point2D.Double(150, 150);
+	public BinaryTree(Quadro q){
+            super(q);
+            this.type = IGEDConst.BINARY_TREE;
+            this.pi = new Point2D.Double(150, 150);
 	}
 	
     @Override
@@ -138,11 +135,11 @@ public class BinaryTree extends Struct{
 			// desenhar lista vazia "referencia solta"
 			if (n == null) {
 				this.ref = new Referencia(new Point2D.Double(60, yBase+ espaco
-						+ 10), referencia + ".raiz");
+						+ 10), referencia + ".raiz", quadro);
 				
 				n = new Null(new Point2D.Double(
 						120 + (7 * referencia.length()), yBase + espaco + 5),
-						true);// apontando para null
+						true, this.quadro);// apontando para null
 				quadro.add(n);
 				quadro.add(ref);
 				quadro.atualizar();
@@ -151,11 +148,11 @@ public class BinaryTree extends Struct{
 				quadro.remove(n);
 				
 				this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
-						+ 10), referencia + ".raiz");// apontando para
+						+ 10), referencia + ".raiz", quadro);// apontando para
 																// null
 				
 				n = new Null(new Point2D.Double(
-						120 + (7 * referencia.length()), yBase + espaco + 5),true);
+						120 + (7 * referencia.length()), yBase + espaco + 5),true, this.quadro);
 				
 				quadro.add(n);
 				quadro.add(ref);
@@ -174,7 +171,7 @@ public class BinaryTree extends Struct{
 			
 			
 			ref = new Referencia(ini, referencia + ".raiz",
-					new Point2D.Double(60, yBase+ espaco+ 10));
+					new Point2D.Double(60, yBase+ espaco+ 10), quadro);
 			ref.setFixa(false);
 			
 			quadro.add(ref);

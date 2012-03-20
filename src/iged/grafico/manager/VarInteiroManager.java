@@ -11,28 +11,29 @@ import iged.grafico.struct.VarInteiro;
 
 public class VarInteiroManager {
 
-	private Quadro quadro = Quadro.getInstance();
+	private Quadro quadro;
 	
 	private Map<String , VarInteiro> ints =  new HashMap<String , VarInteiro>();
 	private List<VarInteiro> lista = new ArrayList<VarInteiro>();
 	private VarInteiro reg = null;
-	private int x = 20;
-	private int y = 5;
-	private int dis = 10;
-	private static VarInteiroManager vim = null;
+	private int x;
+	private int y;
+	private int dis;
 	
-	private VarInteiroManager(){}
-	
-	public static VarInteiroManager getInstance(){
-		if(vim == null){
-			vim = new VarInteiroManager();
-		}
-		return vim;
-	}
-	
+	public VarInteiroManager(Quadro q){
+            quadro = q;
+            this.initPosition();
+        }
+        
+        private void initPosition(){
+            this.x = INIT_X;
+            this.y = INIT_Y;
+            this.dis = DIST;
+        }
+		
 	public void createVarInteiro(String referencia){
 		atualizarX();
-		this.reg = new VarInteiro(new Point2D.Double(x+ (dis*lista.size()), y),referencia);
+		this.reg = new VarInteiro(new Point2D.Double(x+ (dis*lista.size()), y),referencia, quadro);
 		this.ints.put(referencia, reg);
 		this.lista.add(reg);
 		quadro.add(this.reg);
@@ -89,5 +90,16 @@ public class VarInteiroManager {
 		}
 	}
 	public static final int SPACE  = 100;
+
+    void clear() {
+        this.reg = null;
+        this.ints.clear();
+        this.lista.clear();
+        this.initPosition();
+    }
+    
+    static final int INIT_X = 20;
+    static final int INIT_Y = 5;
+    static final int DIST = 10;
 	
 }

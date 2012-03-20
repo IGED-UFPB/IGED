@@ -11,14 +11,14 @@
 package iged.gui;
 
 import iged.Interpretador;
-import iged.gerenciadorTarefa.GerenciadorTarefa;
-import iged.gerenciadorTarefa.MetadadoTarefa;
-import iged.gerenciadorTarefa.Portifolio;
-import iged.gerenciadorTarefa.Tarefa;
-import iged.gerenciadorTarefa.PortifolioXml;
-import iged.gerenciadorTarefa.TarefaXml;
+import iged.gerenciadorAtividade.GerenciadorAtividade;
+import iged.gerenciadorAtividade.MetadadoAtividade;
+import iged.gerenciadorAtividade.Portifolio;
+import iged.gerenciadorAtividade.AtividadeSubjetiva;
+import iged.gerenciadorAtividade.PortifolioXml;
+import iged.gerenciadorAtividade.AtividadeXml;
 import iged.grafico.manager.Quadro;
-import iged.gerenciadorTarefa.XmlPersistencia;
+import iged.gerenciadorAtividade.XmlPersistencia;
 import iged.gui.gerenciador.CadastroTarefa;
 import iged.gui.CampoInvalidoException;
 import iged.gui.CampoObrigatorioException;
@@ -368,7 +368,7 @@ private void initComponents() {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastrador de Tarefa");
+        setTitle("Cadastrador de AtividadeSubjetiva");
         setName("cadastradorDeTarefa"); // NOI18N
         setResizable(false);
 
@@ -651,21 +651,21 @@ private void initComponents() {
             validarCodInicializacao();
             validarCodSolucao();
             
-            MetadadoTarefa mt = new MetadadoTarefa();
+            MetadadoAtividade mt = new MetadadoAtividade();
             mt.setArea(getAreaStr());
             mt.setTitulo(getTituloStr());
             mt.setAutor(getAutorStr());
             
-            Tarefa tarefa = new Tarefa();
+            AtividadeSubjetiva tarefa = new AtividadeSubjetiva();
             tarefa.setMetadado(mt);
             tarefa.setCodInicializacao(inicializacaoStr);
             tarefa.setCodSolucao(solucaoStr);
             
-            GerenciadorTarefa gt = GerenciadorTarefa.getInstance();
+            GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
             gt.cadastrar(tarefa);
             
             PortifolioXml.lerXml();
-            TarefaXml.lerXml(tarefa.getMetadado().getId());
+            AtividadeXml.lerXml(tarefa.getMetadado().getId());
             apagarCampos();
             //lxml.lerXmlTarefa();
             //lxml.lerXmlGerTarefas(tarefas);

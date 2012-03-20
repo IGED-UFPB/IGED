@@ -9,7 +9,7 @@ public class IGED implements AcaoUsuario{
 
 	
 	static PaintUI pait ;
-        private Interpretador iter = Interpretador.getInstance();
+        private Interpretador iter = new Interpretador();
 	
 	
 	private IGED(){
@@ -52,6 +52,8 @@ public class IGED implements AcaoUsuario{
                         System.out.println("Tarefa Correta!");
                     else
                         System.out.println("Tarefa Incorreta!");
+                    
+                    iter.clear();
                 }
             }.start();
 	}

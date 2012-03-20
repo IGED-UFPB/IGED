@@ -15,7 +15,8 @@ public class Vetor extends Struct {
     private List<Celula> celulas = null;
     private int size = 10;
 
-    public Vetor(int yBase) {
+    public Vetor(int yBase, Quadro q) {
+        super(q);
         this.type = IGEDConst.VETOR;
         this.pb = new Point2D.Double(x, yBase + 80);
         this.pi = new Point2D.Double(pb.getX() - 10, pb.getY() - 5);
@@ -67,13 +68,13 @@ public class Vetor extends Struct {
             this.celulas = new ArrayList<Celula>(size);
             for (int i = 0; i < size; ++i) {
                 Point2D pc = new Point2D.Double(pb.getX() + i * (Celula.LARGURA + 2), pb.getY());
-                Celula c = new Celula(pc, i);
+                Celula c = new Celula(pc, i, quadro);
                 this.celulas.add(c);
                 this.elementos.add(c);
             }
         }
 
-        Quadro.getInstance().add(this);
+        quadro.add(this);
     }
 
     @Override

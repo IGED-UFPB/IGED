@@ -4,6 +4,7 @@ import java.awt.geom.Point2D;
 
 import iged.grafico.geometria.Poligono;
 import iged.grafico.manager.PoligonoGrafico;
+import iged.grafico.manager.Quadro;
 
 public class Seta extends Traco{
     
@@ -14,8 +15,8 @@ public class Seta extends Traco{
         
 	private Poligono ponta = null;
 
-	public Seta(Point2D pi, Point2D pf, boolean agrupado, int t){
-			super(pi,pf,agrupado,t);
+	public Seta(Point2D pi, Point2D pf, boolean agrupado, int t, Quadro q){
+		super(pi,pf,agrupado,t, q);
                 this.type = t;
                
                 if(type == Seta.FRENTE){
@@ -36,18 +37,18 @@ public class Seta extends Traco{
                 
 	}
 
-	public Seta(Point2D pi, Point2D pf, int type){
-		this(pi, pf, true, type);
+	public Seta(Point2D pi, Point2D pf, int type, Quadro q){
+		this(pi, pf, true, type, q);
 	}
         
 	
-	public Seta(Point2D pi, Point2D pf){
-		this(pi, pf, Seta.FRENTE);
+	public Seta(Point2D pi, Point2D pf, Quadro q){
+		this(pi, pf, Seta.FRENTE, q);
 	}
         
         
-	public Seta(Point2D pi, Point2D pf, boolean f){
-		this(pi, pf, f, Seta.FRENTE);
+	public Seta(Point2D pi, Point2D pf, boolean f, Quadro q){
+		this(pi, pf, f, Seta.FRENTE, q);
 	}
         
         

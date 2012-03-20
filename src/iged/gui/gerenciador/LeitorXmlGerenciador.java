@@ -5,7 +5,7 @@
 package iged.gui.gerenciador;
 
 import iged.gui.TelaCadastroDeTarefaInterno;
-import iged.gerenciadorTarefa.MetadadoTarefa;
+import iged.gerenciadorAtividade.MetadadoAtividade;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import java.io.File;
@@ -27,7 +27,7 @@ public class LeitorXmlGerenciador {
     private static String descricao;
     private static String codInicializacao;
     private static String codSolucao;
-    static MetadadoTarefa tar = new MetadadoTarefa();
+    static MetadadoAtividade tar = new MetadadoAtividade();
     static CadastroTarefa tarefa = new CadastroTarefa();
     
     static LinkedList<String> informacoes;
@@ -96,9 +96,9 @@ public class LeitorXmlGerenciador {
             // carrega o arquivo XML
             FileInputStream input = new FileInputStream(tarefas);
             // informa o nome do nó raiz do xml
-            x.alias("portifolio", MetadadoTarefa.class);
+            x.alias("portifolio", MetadadoAtividade.class);
             // cria um objeto da classe, contendo os dados lidos no xml
-            tar = (MetadadoTarefa) x.fromXML(input);
+            tar = (MetadadoAtividade) x.fromXML(input);
             // imprime os dados
             cont = tar.getCont();
             titulo = tar.getTitulo();
