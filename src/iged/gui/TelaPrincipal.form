@@ -72,7 +72,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jDesktopPane1" alignment="0" pref="1224" max="32767" attributes="0"/>
+              <Component id="jDesktopPane1" alignment="0" pref="711" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -93,7 +93,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/49.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cadastrar Tutorial"/>
         <Property name="toolTipText" type="java.lang.String" value="Cadastrar Tutorial"/>
       </Properties>
       <Events>
@@ -105,7 +104,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/119.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Abrir Arquivo"/>
         <Property name="toolTipText" type="java.lang.String" value="Abrir Arquivo"/>
       </Properties>
       <Events>
@@ -117,7 +115,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/10.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Visualizar Tutorial"/>
         <Property name="toolTipText" type="java.lang.String" value="Visualizar Tutorial"/>
       </Properties>
       <Events>
@@ -129,7 +126,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/37.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cadastrar Exerc&#xed;cio"/>
         <Property name="toolTipText" type="java.lang.String" value="Cadastrar Exerc&#xed;cio"/>
       </Properties>
       <Events>
@@ -141,7 +137,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/2.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Responder Exerc&#xed;cio"/>
         <Property name="toolTipText" type="java.lang.String" value="Responder Exerc&#xed;cio"/>
       </Properties>
       <Events>
@@ -153,7 +148,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/13.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Sobre"/>
         <Property name="toolTipText" type="java.lang.String" value="Sobre o IGED"/>
       </Properties>
       <Events>
@@ -165,7 +159,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/67.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ajuda"/>
         <Property name="toolTipText" type="java.lang.String" value="Ajuda"/>
       </Properties>
       <Events>

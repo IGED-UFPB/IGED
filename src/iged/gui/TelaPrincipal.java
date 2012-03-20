@@ -76,7 +76,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1224, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +84,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
 
         botaoCadastrarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/49.png"))); // NOI18N
-        botaoCadastrarTutorial.setText("Cadastrar Tutorial");
         botaoCadastrarTutorial.setToolTipText("Cadastrar Tutorial");
         botaoCadastrarTutorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,7 +92,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         botaoAbrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/119.png"))); // NOI18N
-        botaoAbrir.setText("Abrir Arquivo");
         botaoAbrir.setToolTipText("Abrir Arquivo");
         botaoAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +100,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         botaoVisualizarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/10.png"))); // NOI18N
-        botaoVisualizarTutorial.setText("Visualizar Tutorial");
         botaoVisualizarTutorial.setToolTipText("Visualizar Tutorial");
         botaoVisualizarTutorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +108,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         botaoCadastrarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/37.png"))); // NOI18N
-        botaoCadastrarExercicio.setText("Cadastrar Exercício");
         botaoCadastrarExercicio.setToolTipText("Cadastrar Exercício");
         botaoCadastrarExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +116,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         botaoResponderExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2.png"))); // NOI18N
-        botaoResponderExercicio.setText("Responder Exercício");
         botaoResponderExercicio.setToolTipText("Responder Exercício");
         botaoResponderExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +124,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         botaoSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/13.png"))); // NOI18N
-        botaoSobre.setText("Sobre");
         botaoSobre.setToolTipText("Sobre o IGED");
         botaoSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +132,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         botaoAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/67.png"))); // NOI18N
-        botaoAjuda.setText("Ajuda");
         botaoAjuda.setToolTipText("Ajuda");
         botaoAjuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +187,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         {
             visualizarTut = new TelaTocadorInterno();
             jDesktopPane1.add(visualizarTut);
+            try {
+                visualizarTut.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             visualizarTut.setClosable(true);
             visualizarTut.setMaximizable(true);
             visualizarTut.setIconifiable(true);
@@ -208,6 +206,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         {
             responderExe = new TelaExercicioInterno();
             jDesktopPane1.add(responderExe);
+            try {
+                responderExe.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             responderExe.setClosable(true);
             responderExe.setMaximizable(true);
             responderExe.setIconifiable(true);
@@ -222,6 +225,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         {
             cadExe = new TelaCadastroDeTarefaInterno();
             jDesktopPane1.add(cadExe);
+            try {
+                cadExe.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             cadExe.setClosable(true);
             cadExe.setMaximizable(true);
             cadExe.setIconifiable(true);
@@ -236,6 +244,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         {
             cadTutorial = new TelaCadastroDeTutorialInterno();
             jDesktopPane1.add(cadTutorial);
+            try {
+                cadTutorial.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             cadTutorial.setClosable(true);
             cadTutorial.setMaximizable(true);
             cadTutorial.setIconifiable(true);
@@ -272,7 +285,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return f.getName().toLowerCase().endsWith(".iged") || f.isDirectory();
             }
             //Mensagem exibida para o usuário
-
             public String getDescription() {
                 return "Arquivos de imagem (.iged)";
             }
@@ -283,7 +295,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jfc.setDialogTitle("Abrir apresentacao");
 
         int retorno = jfc.showOpenDialog(null);
-        //JOptionPane.showMessageDialog(this,"Funcionalidade ainda não implementada!");
+        
     }//GEN-LAST:event_botaoAbrirActionPerformed
 
     /**
