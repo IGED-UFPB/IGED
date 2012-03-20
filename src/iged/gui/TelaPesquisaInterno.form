@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
@@ -19,28 +19,33 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="431" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="pesquisaLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" alignment="0" pref="509" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="todosRadio" min="-2" max="-2" attributes="0"/>
+                              <Component id="pesquisaLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="pesquisaText" min="-2" pref="361" max="-2" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="areaRadio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="idRadio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="autorRadio" min="-2" max="-2" attributes="0"/>
+                              <Component id="pesquisarBotao" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="pesquisaText" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="todosRadio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="areaRadio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="idRadio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="tituloRadio" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,17 +56,18 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="pesquisaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pesquisaText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="pesquisarBotao" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="autorRadio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idRadio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="areaRadio" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="todosRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="areaRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idRadio" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tituloRadio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="229" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="273" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -92,11 +98,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Id"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idRadioActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="autorRadio">
+    <Component class="javax.swing.JRadioButton" name="tituloRadio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Autor"/>
+        <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tituloRadioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="areaRadio">
       <Properties>
@@ -120,6 +132,14 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="pesquisaText">
+    </Component>
+    <Component class="javax.swing.JButton" name="pesquisarBotao">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pesquisar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisarBotaoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

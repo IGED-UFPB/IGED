@@ -36,9 +36,9 @@
                       <Component id="botaoCadastrarExercicio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoResponderExercicio" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="botaoSobre" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="botaoPesquisarExercicio" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="botaoAjuda" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="panelPrincipal" alignment="0" max="32767" attributes="1"/>
@@ -50,14 +50,16 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="botaoAbrir" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoCadastrarTutorial" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoVisualizarTutorial" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoCadastrarExercicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoResponderExercicio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoSobre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="botaoAjuda" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="botaoAbrir" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoCadastrarTutorial" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoVisualizarTutorial" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoCadastrarExercicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoResponderExercicio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoAjuda" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="botaoPesquisarExercicio" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panelPrincipal" max="32767" attributes="0"/>
@@ -143,17 +145,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoResponderExercicioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoSobre">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/13.png"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Sobre o IGED"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSobreActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="botaoAjuda">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -163,6 +154,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoAjudaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoPesquisarExercicio">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/24.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Responder Exerc&#xed;cio"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoPesquisarExercicioActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

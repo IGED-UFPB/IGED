@@ -25,6 +25,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
@@ -71,7 +72,7 @@ public class TelaCadastroDeTarefaInterno extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cadastro de Exercício");
-
+        
         area.setText("Área");
 
         descricao.setText("Descrição");
@@ -504,24 +505,23 @@ public class TelaCadastroDeTarefaInterno extends javax.swing.JInternalFrame {
 
     private void okInformacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okInformacaoActionPerformed
         Object[] opcoes = {"Sim", "Não"};
-        int opcao = JOptionPane.showOptionDialog(null, "Tem certeza que os campos estão preenchidos corretamente?", "Saída", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        int opcao = JOptionPane.showInternalOptionDialog(this, "Tem certeza que os campos estão preenchidos corretamente?", "Informação", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon("./imagens/25.png"), opcoes, iconable);
         if (opcao == JOptionPane.YES_OPTION) {
             try {
                 try {
                     validarTexto();
-
                     comboArea.setEnabled(false);
                     fieldAutor.setEnabled(false);
                     textDescricao.setEnabled(false);
                     textTitulo.setEnabled(false);
                     okInformacao.setEnabled(false);
                 } catch (CampoObrigatorioException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage());
+                    JOptionPane.showInternalMessageDialog(this, ex.getMessage());
                 }
             } catch (DiretorioExistenteException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage());
+                JOptionPane.showInternalMessageDialog(this, ex.getMessage());
             } catch (CampoInvalidoException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage());
+                JOptionPane.showInternalMessageDialog(this, ex.getMessage());
             }
         }
     }//GEN-LAST:event_okInformacaoActionPerformed
@@ -716,7 +716,7 @@ public class TelaCadastroDeTarefaInterno extends javax.swing.JInternalFrame {
             validado = true;
         } catch (CampoInvalidoException ex) {
             validado = false;
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showInternalMessageDialog(this, ex.getMessage());
         }
         return validado;
     }

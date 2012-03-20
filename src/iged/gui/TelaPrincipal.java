@@ -24,6 +24,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
  *
@@ -36,6 +37,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /** Creates new form TelaPrincipal */
     private TelaPrincipal() {
         initComponents();
+        
     }
 
     public static TelaPrincipal getInstance() {
@@ -65,8 +67,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoVisualizarTutorial = new javax.swing.JButton();
         botaoCadastrarExercicio = new javax.swing.JButton();
         botaoResponderExercicio = new javax.swing.JButton();
-        botaoSobre = new javax.swing.JButton();
         botaoAjuda = new javax.swing.JButton();
+        botaoPesquisarExercicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("IGED - Interpretador de Comandos e Avaliador Gráfico para o Ensino de Estrutura de Dados");
@@ -123,19 +125,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botaoSobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/13.png"))); // NOI18N
-        botaoSobre.setToolTipText("Sobre o IGED");
-        botaoSobre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSobreActionPerformed(evt);
-            }
-        });
-
         botaoAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/67.png"))); // NOI18N
         botaoAjuda.setToolTipText("Ajuda");
         botaoAjuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoAjudaActionPerformed(evt);
+            }
+        });
+
+        botaoPesquisarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/24.png"))); // NOI18N
+        botaoPesquisarExercicio.setToolTipText("Responder Exercício");
+        botaoPesquisarExercicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesquisarExercicioActionPerformed(evt);
             }
         });
 
@@ -155,9 +157,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(botaoCadastrarExercicio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoResponderExercicio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoSobre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(10, 10, 10)
+                        .addComponent(botaoPesquisarExercicio)
+                        .addGap(18, 18, 18)
                         .addComponent(botaoAjuda))
                     .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -165,14 +167,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoAbrir)
-                    .addComponent(botaoCadastrarTutorial)
-                    .addComponent(botaoVisualizarTutorial)
-                    .addComponent(botaoCadastrarExercicio)
-                    .addComponent(botaoResponderExercicio)
-                    .addComponent(botaoSobre)
-                    .addComponent(botaoAjuda))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaoAbrir)
+                        .addComponent(botaoCadastrarTutorial)
+                        .addComponent(botaoVisualizarTutorial)
+                        .addComponent(botaoCadastrarExercicio)
+                        .addComponent(botaoResponderExercicio)
+                        .addComponent(botaoAjuda))
+                    .addComponent(botaoPesquisarExercicio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -180,13 +183,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    JInternalFrame cadTutorial, cadExe, visualizarTut, responderExe;
+    JInternalFrame cadTutorial, cadExe, visualizarTut, responderExe, pesquisarExe;
 
     private void botaoVisualizarTutorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVisualizarTutorialActionPerformed
         if (visualizarTut == null) //instancia a tela de cadastro de clientes
         {
             visualizarTut = new TelaTocadorInterno();
             jDesktopPane1.add(visualizarTut);
+            ((BasicInternalFrameUI)visualizarTut.getUI()).setNorthPane(null);
             try {
                 visualizarTut.setMaximum(true);
             } catch (PropertyVetoException ex) {
@@ -196,9 +200,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             visualizarTut.setMaximizable(true);
             visualizarTut.setIconifiable(true);
             visualizarTut.show();
+        } else{
+            visualizarTut.dispose();
         }
         //independente da tela estar visível ou não, a tela é movida para frente
-        jDesktopPane1.moveToFront(visualizarTut);
+        //jDesktopPane1.moveToFront(visualizarTut);
     }//GEN-LAST:event_botaoVisualizarTutorialActionPerformed
 
     private void botaoResponderExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoResponderExercicioActionPerformed
@@ -206,6 +212,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         {
             responderExe = new TelaExercicioInterno();
             jDesktopPane1.add(responderExe);
+            ((BasicInternalFrameUI)responderExe.getUI()).setNorthPane(null);
             try {
                 responderExe.setMaximum(true);
             } catch (PropertyVetoException ex) {
@@ -215,9 +222,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             responderExe.setMaximizable(true);
             responderExe.setIconifiable(true);
             responderExe.show();
+        } else{
+            responderExe.dispose();
         }
         //independente da tela estar visível ou não, a tela é movida para frente
-        jDesktopPane1.moveToFront(responderExe);
+        //jDesktopPane1.remove(responderExe);}
     }//GEN-LAST:event_botaoResponderExercicioActionPerformed
 
     private void botaoCadastrarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarExercicioActionPerformed
@@ -225,6 +234,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         {
             cadExe = new TelaCadastroDeTarefaInterno();
             jDesktopPane1.add(cadExe);
+            ((BasicInternalFrameUI)cadExe.getUI()).setNorthPane(null);
             try {
                 cadExe.setMaximum(true);
             } catch (PropertyVetoException ex) {
@@ -235,8 +245,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadExe.setIconifiable(true);
             cadExe.show();
         }
+        else{
+            cadExe.dispose();
+        }
         //independente da tela estar visível ou não, a tela é movida para frente
-        jDesktopPane1.moveToFront(cadExe);
+        //jDesktopPane1.remove(cadExe);}
     }//GEN-LAST:event_botaoCadastrarExercicioActionPerformed
 
     private void botaoCadastrarTutorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarTutorialActionPerformed
@@ -244,6 +257,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         {
             cadTutorial = new TelaCadastroDeTutorialInterno();
             jDesktopPane1.add(cadTutorial);
+            ((BasicInternalFrameUI)cadTutorial.getUI()).setNorthPane(null);
             try {
                 cadTutorial.setMaximum(true);
             } catch (PropertyVetoException ex) {
@@ -254,13 +268,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadTutorial.setIconifiable(true);
             cadTutorial.show();
         }
+        else{
+            cadTutorial.dispose();
+        }
         //independente da tela estar visível ou não, a tela é movida para frente
-        jDesktopPane1.moveToFront(cadTutorial);
+        //jDesktopPane1.moveToFront(cadTutorial);
     }//GEN-LAST:event_botaoCadastrarTutorialActionPerformed
-
-    private void botaoSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSobreActionPerformed
-        JOptionPane.showMessageDialog(this, "Interpretador de Comandos e Avaliador Gráfico para o Ensino de Estrutura de Dados!\n Versão 1.0");
-    }//GEN-LAST:event_botaoSobreActionPerformed
 
     private void botaoAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAjudaActionPerformed
         JOptionPane.showMessageDialog(this, "Ajuda Indisponível!");
@@ -297,6 +310,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
         int retorno = jfc.showOpenDialog(null);
         
     }//GEN-LAST:event_botaoAbrirActionPerformed
+
+    private void botaoPesquisarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarExercicioActionPerformed
+        if (pesquisarExe == null) //instancia a tela de cadastro de clientes
+        {
+            pesquisarExe = new TelaPesquisaInterno();
+            jDesktopPane1.add(pesquisarExe);
+            ((BasicInternalFrameUI)pesquisarExe.getUI()).setNorthPane(null);
+            try {
+                pesquisarExe.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            pesquisarExe.setClosable(true);
+            pesquisarExe.setMaximizable(true);
+            pesquisarExe.setIconifiable(true);
+            pesquisarExe.show();
+        }
+        else{
+            pesquisarExe.dispose();
+        }
+    }//GEN-LAST:event_botaoPesquisarExercicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -340,8 +374,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoAjuda;
     private javax.swing.JButton botaoCadastrarExercicio;
     private javax.swing.JButton botaoCadastrarTutorial;
+    private javax.swing.JButton botaoPesquisarExercicio;
     private javax.swing.JButton botaoResponderExercicio;
-    private javax.swing.JButton botaoSobre;
     private javax.swing.JButton botaoVisualizarTutorial;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel panelPrincipal;
