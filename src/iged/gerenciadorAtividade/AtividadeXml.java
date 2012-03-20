@@ -65,7 +65,7 @@ public class AtividadeXml {
         return null;
     }
 
-    static Atividade lerXml(MetadadoAtividade mt) {
+    public static Atividade lerXml(MetadadoAtividade mt) {
         if(mt.getType() == Atividade.SUBJETIVA)
             return AtividadeXml.lerXmlSubjetiva(mt.getId());
         else

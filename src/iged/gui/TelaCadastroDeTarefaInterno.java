@@ -36,13 +36,13 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class TelaCadastroDeTarefaInterno extends javax.swing.JInternalFrame {
 
-    Interpretador iter = Interpretador.getInstance();
+    //Interpretador iter = Interpretador.getInstance();
     /** Creates new form TelaCadastroDeTarefaInterno */
     public TelaCadastroDeTarefaInterno() {
         initComponents();
     }
 
-private void initComponents() {
+    private void initComponents() {
 
         area = new javax.swing.JLabel();
         descricao = new javax.swing.JLabel();
@@ -81,13 +81,15 @@ private void initComponents() {
 
         okInformacao.setText("OK");
         okInformacao.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okInformacaoActionPerformed(evt);
             }
         });
 
-        comboArea.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Árvore", "Fila", "Lista", "Ordenação", "Pilha", "Tabela Hash" }));
+        comboArea.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"", "Árvore", "Fila", "Lista", "Ordenação", "Pilha", "Tabela Hash"}));
         comboArea.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboAreaActionPerformed(evt);
             }
@@ -95,6 +97,7 @@ private void initComponents() {
 
         botaoCadastrar.setText("Cadastrar");
         botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastrarActionPerformed(evt);
             }
@@ -123,16 +126,13 @@ private void initComponents() {
         javax.swing.GroupLayout panelInicializacaoLayout = new javax.swing.GroupLayout(panelInicializacao);
         panelInicializacao.setLayout(panelInicializacaoLayout);
         panelInicializacaoLayout.setHorizontalGroup(
-            panelInicializacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
-        );
+                panelInicializacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE));
         panelInicializacaoLayout.setVerticalGroup(
-            panelInicializacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-        );
+                panelInicializacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE));
 
         okInicializacao.setText("OK");
         okInicializacao.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okInicializacaoActionPerformed(evt);
             }
@@ -141,22 +141,9 @@ private void initComponents() {
         javax.swing.GroupLayout panelCodigoIniLayout = new javax.swing.GroupLayout(panelCodigoIni);
         panelCodigoIni.setLayout(panelCodigoIniLayout);
         panelCodigoIniLayout.setHorizontalGroup(
-            panelCodigoIniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCodigoIniLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelInicializacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(okInicializacao)
-                .addContainerGap())
-        );
+                panelCodigoIniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(panelCodigoIniLayout.createSequentialGroup().addContainerGap().addComponent(panelInicializacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE).addComponent(okInicializacao).addContainerGap()));
         panelCodigoIniLayout.setVerticalGroup(
-            panelCodigoIniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCodigoIniLayout.createSequentialGroup()
-                .addGroup(panelCodigoIniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(okInicializacao)
-                    .addComponent(panelInicializacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                panelCodigoIniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(panelCodigoIniLayout.createSequentialGroup().addGroup(panelCodigoIniLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING).addComponent(okInicializacao).addComponent(panelInicializacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         panelCodigoSol.setBorder(javax.swing.BorderFactory.createTitledBorder("Código de Solução"));
 
@@ -170,16 +157,13 @@ private void initComponents() {
         javax.swing.GroupLayout panelSolucaoLayout = new javax.swing.GroupLayout(panelSolucao);
         panelSolucao.setLayout(panelSolucaoLayout);
         panelSolucaoLayout.setHorizontalGroup(
-            panelSolucaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-        );
+                panelSolucaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE));
         panelSolucaoLayout.setVerticalGroup(
-            panelSolucaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-        );
+                panelSolucaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE));
 
         okSolucao.setText("OK");
         okSolucao.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okSolucaoActionPerformed(evt);
             }
@@ -188,27 +172,13 @@ private void initComponents() {
         javax.swing.GroupLayout panelCodigoSolLayout = new javax.swing.GroupLayout(panelCodigoSol);
         panelCodigoSol.setLayout(panelCodigoSolLayout);
         panelCodigoSolLayout.setHorizontalGroup(
-            panelCodigoSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCodigoSolLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelSolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(okSolucao)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                panelCodigoSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(panelCodigoSolLayout.createSequentialGroup().addContainerGap().addComponent(panelSolucao, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(okSolucao).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         panelCodigoSolLayout.setVerticalGroup(
-            panelCodigoSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCodigoSolLayout.createSequentialGroup()
-                .addGroup(panelCodigoSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelCodigoSolLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(okSolucao))
-                    .addComponent(panelSolucao, 0, 124, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+                panelCodigoSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCodigoSolLayout.createSequentialGroup().addGroup(panelCodigoSolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING).addGroup(panelCodigoSolLayout.createSequentialGroup().addContainerGap().addComponent(okSolucao)).addComponent(panelSolucao, 0, 124, Short.MAX_VALUE)).addContainerGap()));
 
         botaoCancelar.setText("Cancelar");
         botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCancelarActionPerformed(evt);
             }
@@ -219,13 +189,9 @@ private void initComponents() {
         javax.swing.GroupLayout panelAnimacaoLayout = new javax.swing.GroupLayout(panelAnimacao);
         panelAnimacao.setLayout(panelAnimacaoLayout);
         panelAnimacaoLayout.setHorizontalGroup(
-            panelAnimacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 426, Short.MAX_VALUE)
-        );
+                panelAnimacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 426, Short.MAX_VALUE));
         panelAnimacaoLayout.setVerticalGroup(
-            panelAnimacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
-        );
+                panelAnimacaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 485, Short.MAX_VALUE));
 
         textDescricao.setColumns(20);
         textDescricao.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
@@ -237,90 +203,13 @@ private void initComponents() {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(panelCodigoIni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(descricao)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jScrollPane1))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(titulo)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(autor)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(fieldAutor)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addComponent(area)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(comboArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(okInformacao))))
-                            .addComponent(panelCodigoSol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelAnimacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(432, 432, 432)
-                        .addComponent(botaoCadastrar)
-                        .addGap(48, 48, 48)
-                        .addComponent(botaoCancelar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false).addComponent(panelCodigoIni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false).addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup().addComponent(descricao).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jScrollPane1)).addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup().addComponent(titulo).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)).addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup().addComponent(autor).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(fieldAutor))).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(10, 10, 10).addComponent(area).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(comboArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addComponent(okInformacao)))).addComponent(panelCodigoSol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(panelAnimacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addGroup(layout.createSequentialGroup().addGap(432, 432, 432).addComponent(botaoCadastrar).addGap(48, 48, 48).addComponent(botaoCancelar))).addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(titulo))
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(fieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(autor)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(comboArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(area)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(descricao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(okInformacao))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelCodigoIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelCodigoSol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelAnimacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoCadastrar)
-                    .addComponent(botaoCancelar))
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(18, 18, 18).addComponent(titulo)).addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(fieldAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(autor))).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(comboArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(area))).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addGroup(layout.createSequentialGroup().addGap(43, 43, 43).addComponent(descricao).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(okInformacao)).addGroup(layout.createSequentialGroup().addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(panelCodigoIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(panelCodigoSol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)).addComponent(panelAnimacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(botaoCadastrar).addComponent(botaoCancelar)).addContainerGap()));
 
         pack();
     }
-    
+
     /*
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -601,23 +490,20 @@ private void initComponents() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-*/
+     */
     private void comboAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAreaActionPerformed
-
     }//GEN-LAST:event_comboAreaActionPerformed
 
         private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
-
     }//GEN-LAST:event_botaoCancelarActionPerformed
-
-         XmlPersistencia xml = new XmlPersistencia();
+    XmlPersistencia xml = new XmlPersistencia();
     LeitorXmlGerenciador lxml = new LeitorXmlGerenciador();
     File tarefas = new File("C:\\Tarefas\\tarefas.xml");
     //PortifolioXml pxml = new PortifolioXml();
     Portifolio p;
-        
+
     private void okInformacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okInformacaoActionPerformed
-  Object[] opcoes = {"Sim", "Não"};
+        Object[] opcoes = {"Sim", "Não"};
         int opcao = JOptionPane.showOptionDialog(null, "Tem certeza que os campos estão preenchidos corretamente?", "Saída", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
         if (opcao == JOptionPane.YES_OPTION) {
             try {
@@ -641,26 +527,26 @@ private void initComponents() {
     }//GEN-LAST:event_okInformacaoActionPerformed
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
-try {
+        try {
             validarCodInicializacao();
             validarCodSolucao();
-            
+
             MetadadoAtividade mt = new MetadadoAtividade();
             mt.setArea(getAreaStr());
             mt.setTitulo(getTituloStr());
             mt.setAutor(getAutorStr());
-            
+
             AtividadeSubjetiva tarefa = new AtividadeSubjetiva();
             tarefa.setMetadado(mt);
             tarefa.setCodInicializacao(inicializacaoStr);
             tarefa.setCodSolucao(solucaoStr);
             tarefa.setDescricao(descricaoStr);
-            
+
             GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
             gt.cadastrar(tarefa);
-            
+
             PortifolioXml.lerXml();
-            AtividadeXml.lerXml(tarefa.getMetadado().getId());
+            AtividadeXml.lerXml(tarefa.getMetadado());
             apagarCampos();
             //lxml.lerXmlTarefa();
             //lxml.lerXmlGerTarefas(tarefas);
@@ -672,17 +558,25 @@ try {
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void okInicializacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okInicializacaoActionPerformed
-StringTokenizer st = new StringTokenizer(inicializacaoTextA.getText(), "\n");
+        StringTokenizer st = new StringTokenizer(inicializacaoTextA.getText(), "\n");
         while (st.hasMoreTokens()) {
             String c = st.nextToken();
             System.out.println(c);
-            iter.interprete(c);
+//            iter.interprete(c);
         }
     }//GEN-LAST:event_okInicializacaoActionPerformed
 
     private void okSolucaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okSolucaoActionPerformed
-
+        StringTokenizer st = new StringTokenizer(solucaoText.getText(), "\n");
+        while (st.hasMoreTokens()) {
+            String c = st.nextToken();
+            System.out.println(c);
+            //iter.interprete(c);
+        }
+    }
+    /* 
         StringTokenizer st = new StringTokenizer(solucaoText.getText(), "\n");         while (st.hasMoreTokens()) {             String c = st.nextToken();             System.out.println(c);             iter.interprete(c);         }     }//GEN-LAST:event_okSolucaoActionPerformed
+     */
 
     public void apagarCampos() {
         comboArea.setSelectedIndex(0);
@@ -743,8 +637,6 @@ StringTokenizer st = new StringTokenizer(inicializacaoTextA.getText(), "\n");
             }
         }
     }
-
-    
 
     public void validarArea() throws CampoObrigatorioException, CampoInvalidoException {
         areaStr = comboArea.getSelectedItem().toString();
@@ -841,7 +733,7 @@ StringTokenizer st = new StringTokenizer(inicializacaoTextA.getText(), "\n");
         return tituloStr;
     }
 
-   protected static String getAutorStr() {
+    protected static String getAutorStr() {
         return autorStr;
     }
 
@@ -852,21 +744,21 @@ StringTokenizer st = new StringTokenizer(inicializacaoTextA.getText(), "\n");
     protected static String getAreaStr() {
         return areaStr;
     }
-    
+
     public static void main(String args[]) {
+        try {
             try {
-                try {
-                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-                } catch (UnsupportedLookAndFeelException ex) {
-                    Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            } catch (UnsupportedLookAndFeelException ex) {
+                Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
             Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
-        
+
         }
 
         /* Create and display the form */
@@ -874,7 +766,7 @@ StringTokenizer st = new StringTokenizer(inicializacaoTextA.getText(), "\n");
 
             public void run() {
                 new TelaCadastroDeTarefaInterno();
-                
+
             }
         });
     }
@@ -905,7 +797,7 @@ StringTokenizer st = new StringTokenizer(inicializacaoTextA.getText(), "\n");
     private javax.swing.JTextArea textTitulo;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
-*/
+     */
     private javax.swing.JLabel area;
     private javax.swing.JLabel autor;
     private javax.swing.JButton botaoCadastrar;
@@ -931,5 +823,4 @@ StringTokenizer st = new StringTokenizer(inicializacaoTextA.getText(), "\n");
     private javax.swing.JTextArea textTitulo;
     private javax.swing.JLabel titulo;
     private javax.swing.JScrollBar jScrollBar1;
-    
 }

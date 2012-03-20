@@ -43,7 +43,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class TelaCadastroDeTarefa extends javax.swing.JFrame {
 
-    Interpretador iter = Interpretador.getInstance();
+    //Interpretador iter = Interpretador.getInstance();
     
     
     /** Creates new form CadastroDeTarefa */
@@ -627,7 +627,7 @@ private void initComponents() {
         while (st.hasMoreTokens()) {
             String c = st.nextToken();
             System.out.println(c);
-            iter.interprete(c);
+//            iter.interprete(c);
         }
     }
 
@@ -636,7 +636,7 @@ private void initComponents() {
         while (st.hasMoreTokens()) {
             String c = st.nextToken();
             System.out.println(c);
-            iter.interprete(c);
+           // iter.interprete(c);
         }
     }
     XmlPersistencia xml = new XmlPersistencia();
@@ -665,7 +665,7 @@ private void initComponents() {
             gt.cadastrar(tarefa);
             
             PortifolioXml.lerXml();
-            AtividadeXml.lerXml(tarefa.getMetadado().getId());
+            AtividadeXml.lerXml(tarefa.getMetadado());
             apagarCampos();
             //lxml.lerXmlTarefa();
             //lxml.lerXmlGerTarefas(tarefas);
