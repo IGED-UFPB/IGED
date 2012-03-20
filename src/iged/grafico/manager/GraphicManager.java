@@ -21,7 +21,7 @@ import javax.swing.JPanel;
 
 public class GraphicManager {
 
-    private static GraphicManager gm = null;
+    private Quadro quadro = null;
     
     private Map<String, WrapperStruct> structs;
     public Stack<WrapperStruct> pilha;
@@ -33,17 +33,19 @@ public class GraphicManager {
     private int nodesSoltos;
     private double boundsBinaryTree;
 
-    public static synchronized GraphicManager getInstance(){
+    /*public static synchronized GraphicManager getInstance(){
         if(gm == null)
             gm = new GraphicManager();
         return gm;
-    }
+    }*/
     
-    private GraphicManager(){
+    public GraphicManager(){
         this.structs = new HashMap<String, WrapperStruct>();
         this.pilha = new Stack<WrapperStruct>();
         this.ints = new Stack<String>();
-        this.vi = VarInteiroManager.getInstance();
+        this.quadro = new Quadro();
+        
+        this.vi = new VarInteiroManager(this.quadro);
         
         this.initPosition();
     }
@@ -58,7 +60,7 @@ public class GraphicManager {
     public void createStruct(int type) {
         switch (type) {
             case IGEDConst.LISTA:
-                LinkedList l = new LinkedList();
+                LinkedList l = new LinkedList(quadro);
                 l.setyBase(YBASE);
 
                 int y = YBASE;
@@ -71,14 +73,14 @@ public class GraphicManager {
                 }
                 l.setyBase(y);
 
-                pilha.push(new WrapperStruct(l, IGEDConst.LISTA));
+                pilha.push(new WrapperStruct(l, IGEDConst.LISTA, quadro));
                 break;
             case IGEDConst.NODE:
 
-                LinkedListNode n = new LinkedListNode(new Point2D.Double(getXNodeSoltos(), YBASE_TRABALHO));
+                LinkedListNode n = new LinkedListNode(new Point2D.Double(getXNodeSoltos(), YBASE_TRABALHO), quadro);
 
-                pilha.push(new WrapperStruct(n, IGEDConst.NODE));
-                Quadro.getInstance().add(n);
+                pilha.push(new WrapperStruct(n, IGEDConst.NODE, quadro));
+                quadro.add(n);
                 this.nodesSoltos++;
                 break;
                 
@@ -91,23 +93,23 @@ public class GraphicManager {
                         }
                     }
                 }
-                Vetor v = new Vetor(y2);
+                Vetor v = new Vetor(y2, quadro);
                 v.setSize(this.regVet);
-                pilha.push(new WrapperStruct(v, IGEDConst.VETOR));
+                pilha.push(new WrapperStruct(v, IGEDConst.VETOR, quadro));
                 break;
                 
            case IGEDConst.NODE_TREE:
                NodeTree nt = new NodeTree(new Point2D.Double(getXNodeSoltos(), 
-            		   this.boundsBinaryTree+ESPACO_ESTRUTURAS));
-               pilha.push(new WrapperStruct(nt, IGEDConst.NODE_TREE));
-               Quadro.getInstance().add(nt);
+            		   this.boundsBinaryTree+ESPACO_ESTRUTURAS), quadro);
+               pilha.push(new WrapperStruct(nt, IGEDConst.NODE_TREE, quadro));
+               quadro.add(nt);
                this.nodesSoltos++;
              
                break;
            case IGEDConst.BINARY_TREE:
-        	   BinaryTree bt = new BinaryTree();
+        	   BinaryTree bt = new BinaryTree(quadro);
         	   
-        	   pilha.push(new WrapperStruct(bt, IGEDConst.BINARY_TREE));
+        	   pilha.push(new WrapperStruct(bt, IGEDConst.BINARY_TREE, quadro));
         	   
         	   break;
 
@@ -120,7 +122,7 @@ public class GraphicManager {
         //feito acho
         if(this.structs.get(reference) != null)
             throw new ReferenceExistingException("Referencia: " + reference + " já foi criada.");
-        WrapperStruct w = new WrapperStruct(null, type);
+        WrapperStruct w = new WrapperStruct(null, type, quadro);
 //        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
         w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), 
         		this.boundsBinaryTree +ESPACO_ESTRUTURAS));
@@ -152,9 +154,9 @@ public class GraphicManager {
         Struct s = wp.getStruct().readField(field);
         WrapperStruct w;
         if(s == null)
-            w = new WrapperStruct(s, IGEDConst.VAZIA);
+            w = new WrapperStruct(s, IGEDConst.VAZIA, quadro);
         else
-            w = new WrapperStruct(s, s.getType());
+            w = new WrapperStruct(s, s.getType(), quadro);
         pilha.push(w);
         //retira o primeiro WrapperStruct da pilha e empilha o campo field como WrapperStruct apenas com esse struct
     }
@@ -282,7 +284,7 @@ public class GraphicManager {
     
 
     public void lixeiro(){
-        Quadro.getInstance().limpar();
+        quadro.limpar();
         for (WrapperStruct w : this.structs.values()) {
             System.out.println(w.getReferencia());
             w.startRepaint();
@@ -358,13 +360,13 @@ public class GraphicManager {
             }
         }
 
-        Quadro.getInstance().atualizar();
+        quadro.atualizar();
         clearStack();
-        vi.getInstance().repintar();
+        this.vi.repintar();
     }
 
-    public JPanel getQuadro() {
-        return Quadro.getInstance();
+    public Quadro getQuadro() {
+        return quadro;
     }
     
     private void calculaBound(Struct s,int type){

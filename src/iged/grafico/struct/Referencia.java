@@ -12,7 +12,8 @@ public class Referencia extends Elemento {
     private Seta ref = null;
     private boolean fixa = false;
 
-    public Referencia(Node n, String nome) {
+    public Referencia(Node n, String nome, Quadro q) {
+        super(q);
         Point2D pn = n.add(this);
         this.setPoint(pn);
 
@@ -22,13 +23,14 @@ public class Referencia extends Elemento {
         
         Point2D pf = new Point2D.Double(n.getPointPI().getX(), n.getPointPI().getY() - 10);
 
-        ref = new Seta(this.pb, pf);
+        ref = new Seta(this.pb, pf, quadro);
         this.elementos.add(ref);
 
         this.setRef(n);
     }
 
-    public Referencia(Node n, String nome, Point2D p) {
+    public Referencia(Node n, String nome, Point2D p, Quadro q) {
+        super(q);
         this.fixa = true;
         Point2D pn = n.add(this);
         this.setPoint(p);
@@ -39,28 +41,28 @@ public class Referencia extends Elemento {
 
         Point2D pf = new Point2D.Double(n.getPInit().getX(), n.getPInit().getY());
 
-        ref = new Seta(this.pb, pf);
+        ref = new Seta(this.pb, pf, quadro);
         this.elementos.add(ref);
 
         this.setRef(n);
     }
 
-    public Referencia(Point2D pn, String nome, boolean fixa) {
+    public Referencia(Point2D pn, String nome, boolean fixa, Quadro q) {
+        super(q);
         this.fixa = fixa;
         this.setPoint(pn);
         label = new Label(nome, pn);
 
 
         this.textos.add(label);
-        Quadro.getInstance();
     }
 
-    public Referencia(Point2D pn, String nome) {
+    public Referencia(Point2D pn, String nome, Quadro q) {
+        super(q);
         this.setPoint(pn);
         label = new Label(nome + ";", pn);
 
         this.textos.add(label);
-        Quadro.getInstance();
     }
 
     public void config(Node n) {
@@ -78,9 +80,9 @@ public class Referencia extends Elemento {
             //Quadro.getInstance().remove(ref);
             //this.elementos.remove(ref);
         } else {
-            ref = new Seta(this.pb, pf);
+            ref = new Seta(this.pb, pf, quadro);
             this.elementos.add(ref);
-            Quadro.getInstance().add(ref);
+            quadro.add(ref);
         }
 
     }
@@ -92,8 +94,8 @@ public class Referencia extends Elemento {
                 //this.label.mover(dx, dy);
                 ref.setPoints(this.pb, node.getPointPI());
             }else{
-                ref = new Seta(this.pb, node.getPointPI());
-                Quadro.getInstance().add(ref);
+                ref = new Seta(this.pb, node.getPointPI(), quadro);
+                quadro.add(ref);
             }
 
         } else {

@@ -2,6 +2,7 @@ package iged.grafico.struct;
 
 import iged.grafico.geometria.Retangulo;
 import iged.grafico.geometria.Label;
+import iged.grafico.manager.Quadro;
 import java.awt.Color;
 import java.awt.geom.Point2D;
 
@@ -11,7 +12,8 @@ public class VarInteiro extends Elemento{
 	Retangulo r = null;
 	Label nome = null;
 
-	public VarInteiro(Point2D p, String n){
+	public VarInteiro(Point2D p, String n, Quadro q){
+                super(q);
 		this.pb = p;
 		this.r = new Retangulo(p, LARGURA, LARGURA);
 		this.conteudo.add(0, this.r);
@@ -28,12 +30,12 @@ public class VarInteiro extends Elemento{
 	}
 
 	public void ler(){
-		this.r.evidencia(Color.blue, 4);
+		this.r.evidencia(Color.blue, 4, quadro);
 	}
 
 	public void setValor(String t){
 		this.valor.setText(t);
-		this.r.evidencia(Color.red, 4);
+		this.r.evidencia(Color.red, 4, quadro);
 	}
 
 	public static final int LARGURA = 60;

@@ -6,6 +6,7 @@ package iged.grafico.struct;
 import iged.grafico.geometria.Poligono;
 import iged.grafico.manager.PoligonoGrafico;
 
+import iged.grafico.manager.Quadro;
 import java.awt.geom.Point2D;
 
 /**
@@ -19,8 +20,9 @@ public class Traco extends Elemento {
     
 	private Poligono linha = null;
 
-	public Traco(Point2D pi, Point2D pf, boolean agrupado){
-				this.agrupado = agrupado;
+	public Traco(Point2D pi, Point2D pf, boolean agrupado, Quadro q){
+            super(q);
+            this.agrupado = agrupado;
 
             this.deltaX = pf.getX() - pi.getX();
             this.deltaY = pf.getY() - pi.getY();
@@ -46,8 +48,8 @@ public class Traco extends Elemento {
 	}
 
 	
-	public Traco(Point2D pi, Point2D pf, boolean f,int t){
-		this(pi, pf, f);
+	public Traco(Point2D pi, Point2D pf, boolean f,int t, Quadro q){
+		this(pi, pf, f, q);
 	}
     
     public void setPoints(Point2D pi, Point2D pf){

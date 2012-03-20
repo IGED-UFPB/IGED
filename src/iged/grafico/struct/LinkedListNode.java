@@ -18,7 +18,8 @@ public class LinkedListNode extends Node {
     private Label valor = null;
     private Elemento next = null;
 
-    public LinkedListNode(Point2D p) {
+    public LinkedListNode(Point2D p, Quadro q) {
+        super(q);
         this.type = IGEDConst.NODE;
         this.pp = new Point2D.Double();
         this.pi = new Point2D.Double();
@@ -43,8 +44,8 @@ public class LinkedListNode extends Node {
 
     public void setValue(String v) {
         this.valor.setText(v);
-        this.rect.evidencia(Color.red, 4);
-        this.rectP.evidencia(Color.red, 4);
+        this.rect.evidencia(Color.red, 4, quadro);
+        this.rectP.evidencia(Color.red, 4, quadro);
     }
 
     public void setPoint(Point2D p) {
@@ -58,7 +59,7 @@ public class LinkedListNode extends Node {
         if (next != null) {
             System.out.println("NODE: clear next");
             this.elementos.remove(next);
-            Quadro.getInstance().remove(next);
+            quadro.remove(next);
             next = null;
             prox = null;
         }
@@ -74,10 +75,10 @@ public class LinkedListNode extends Node {
             this.clearNext();
         }
         prox = n;
-        next = new Seta(this.pp, n.getPointPI(), false);
+        next = new Seta(this.pp, n.getPointPI(), false, quadro);
         this.elementos.add(next);
-        Quadro.getInstance().add(next);
-        Quadro.getInstance().atualizar();
+        quadro.add(next);
+        quadro.atualizar();
     }
 
     public void setNextNull() {
@@ -86,10 +87,10 @@ public class LinkedListNode extends Node {
         }
 
         prox = null;
-        next = new Null(this.pp, false);
+        next = new Null(this.pp, false, quadro);
         this.elementos.add(next);
-        Quadro.getInstance().add(next);
-        Quadro.getInstance().atualizar();
+        quadro.add(next);
+        quadro.atualizar();
     }
 
     @Override
@@ -185,7 +186,7 @@ public class LinkedListNode extends Node {
     public void repintar() {
         if (!this.repintado) {
 
-            Quadro.getInstance().add(this);
+            quadro.add(this);
             this.repintado = true;
             if (this.prox != null && !this.prox.isRepintado()) {
                 this.prox.repintar();

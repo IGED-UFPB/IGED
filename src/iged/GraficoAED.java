@@ -12,12 +12,19 @@ import iged.grafico.manager.Quadro;
 public class GraficoAED {
 
 	
-	private GraphicManager gm = GraphicManager.getInstance();
-	private StructManager sm =  StructManager.getInstance();
-	private Appraiser ap;
+	private GraphicManager gm;
+	private StructManager sm;
+        private Quadro quadro;
 	
         private int mode = IGEDConst.MODE_BOTH;
 	
+        public GraficoAED(){
+            gm = new GraphicManager();
+            sm =  new StructManager();
+            quadro = (Quadro)gm.getQuadro();
+            mode = IGEDConst.MODE_BOTH;
+        }
+        
 	public void createStruct(int tipo){
 		sm.createStruct(tipo);
 		if(mode != IGEDConst.MODE_PROFESSOR)
@@ -122,13 +129,13 @@ public class GraficoAED {
 	}
 	
 	public boolean correctTask(){
-		ap = new Appraiser(sm);
+		Appraiser ap = new Appraiser(sm);
 		return ap.assess();
 	}
 	
-	public List<String> correctStructs(){
+	/*public List<String> correctStructs(){
 		return ap.correct();
-	}
+	}*/
 	
 	public void setPosVector(int pos){
 		sm.setPosVector(pos);
@@ -137,8 +144,8 @@ public class GraficoAED {
                     gm.regVet(pos);
 	}
 	
-	public static Quadro quadro(){
-		return iged.grafico.manager.Quadro.getInstance(); 
+	public Quadro quadro(){
+		return this.quadro; 
 	}
 	
 	public void setMode(int mode){

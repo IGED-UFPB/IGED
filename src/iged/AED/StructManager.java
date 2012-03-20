@@ -6,21 +6,13 @@ public class StructManager {
     StructManagerInstance original;
     StructManagerInstance replica;
     private int mode;
-    private static StructManager sm;
     private StructFactory factory;
 
-    private StructManager() {
+    public StructManager() {
         original = new StructManagerInstance();
         replica = new StructManagerInstance();
         factory = StructFactory.getInstance();
         mode = IGEDConst.MODE_BOTH;
-    }
-
-    public static synchronized StructManager getInstance() {
-        if (sm == null) {
-            sm = new StructManager();
-        }
-        return sm;
     }
 
     public boolean removeStruct(String id) {

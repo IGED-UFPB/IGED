@@ -11,10 +11,10 @@
 package iged.gui;
 
 import iged.Interpretador;
-import iged.gerenciadorTarefa.GerenciadorTarefa;
-import iged.gerenciadorTarefa.MetadadoTarefa;
-import iged.gerenciadorTarefa.Tarefa;
-import iged.gerenciadorTarefa.TarefaXml;
+import iged.gerenciadorAtividade.GerenciadorAtividade;
+import iged.gerenciadorAtividade.MetadadoAtividade;
+import iged.gerenciadorAtividade.AtividadeSubjetiva;
+import iged.gerenciadorAtividade.AtividadeXml;
 import iged.grafico.manager.Quadro;
 import iged.gui.gerenciador.LeitorXmlGerenciador;
 import java.awt.BorderLayout;
@@ -336,8 +336,8 @@ public class TelaExercicio extends javax.swing.JFrame {
     }//GEN-LAST:event_executarBotaoActionPerformed
 
     public void executarTarefa(int id) {
-        GerenciadorTarefa gt = GerenciadorTarefa.getInstance();
-        List<MetadadoTarefa> metadados = gt.listarTarefas();
+        GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
+        List<MetadadoAtividade> metadados = gt.listarTarefas();
         gt.executar(metadados.get(4));
     }
 

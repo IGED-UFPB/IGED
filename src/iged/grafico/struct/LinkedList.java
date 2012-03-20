@@ -15,12 +15,12 @@ public class LinkedList extends Struct {
     private Label l;
     private VarInteiro tam = null;
     private LinkedListNode ini = null;
-    private Quadro quadro = Quadro.getInstance();
     private int yBase = 0;
     private int espaco = 85;
     private Null n;
 
-    public LinkedList(){
+    public LinkedList(Quadro q){
+        super(q);
         this.type = IGEDConst.LISTA;
     }
     
@@ -31,11 +31,11 @@ public class LinkedList extends Struct {
             // desenhar lista vazia "referencia solta"
             if (n == null) {
                 this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
-                        + 10), referencia + ".inicio", true);
+                        + 10), referencia + ".inicio", true, quadro);
 
                 n = new Null(new Point2D.Double(
                         120 + (7 * referencia.length()), yBase + espaco + 5),
-                        true);// apontando para null
+                        true, quadro);// apontando para null
                 quadro.add(n);
                 quadro.add(ref);
                 quadro.atualizar();
@@ -43,11 +43,11 @@ public class LinkedList extends Struct {
                 quadro.remove(ref);
                 quadro.remove(n);
                 this.ref = new Referencia(new Point2D.Double(60, yBase + espaco
-                        + 10), referencia + ".inicio", true);// apontando para
+                        + 10), referencia + ".inicio", true, quadro);// apontando para
                 // null
                 n = new Null(new Point2D.Double(
                         120 + (7 * referencia.length()), yBase + espaco + 5),
-                        true);
+                        true, quadro);
                 quadro.add(n);
                 quadro.add(ref);
                 quadro.atualizar();
@@ -64,7 +64,7 @@ public class LinkedList extends Struct {
             }
 
             ref = new Referencia(ini, referencia + ".inicio",
-                    new Point2D.Double(60, yBase + espaco + 10));
+                    new Point2D.Double(60, yBase + espaco + 10), quadro);
             ref.setFixa(true);
 
             quadro.add(ref);
@@ -74,7 +74,7 @@ public class LinkedList extends Struct {
             quadro.remove(tam);
             quadro.add(tam);
         } else {
-            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), "tamanho");
+            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), "tamanho", quadro);
             tam.setValor(tamanho);
             quadro.add(tam);
         }
@@ -187,11 +187,11 @@ public class LinkedList extends Struct {
         this.tamanho = value;
         if (tam != null) {
             quadro.remove(tam);
-            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), referencia + ".tamanho");
+            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), referencia + ".tamanho", quadro);
             tam.setValor(tamanho);
             quadro.add(tam);
         } else {
-            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), referencia + ".tamanho");
+            tam = new VarInteiro(new Point2D.Double(30, yBase + 100), referencia + ".tamanho", quadro);
             tam.setValor(tamanho);
             quadro.add(tam);
         }
@@ -271,7 +271,7 @@ public class LinkedList extends Struct {
             tam.setValor(tamanho);
         } else {
             tam = new VarInteiro(new Point2D.Double(30, yBase + 100),
-                    referencia + ".tamanho");
+                    referencia + ".tamanho", quadro);
             quadro.add(tam);
             tam.setValor(tamanho);
         }

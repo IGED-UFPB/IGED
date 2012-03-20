@@ -19,20 +19,20 @@ public class Quadro extends JPanel {
 
   private java.util.List<Poligono> desenhaveis = null;
   private java.util.List<Label> textos = null;
-  static private Quadro sc = null;
+  //static private Quadro sc = null;
 
 
 
-  private Quadro(){
+  public Quadro(){
 	  this.desenhaveis = new LinkedList<Poligono>();
 	  this.textos = new LinkedList<Label>();
   }
 
-  public static Quadro getInstance(){
+  /*public static Quadro getInstance(){
       if(sc == null)
       	sc = new Quadro();
       return sc;
-  }
+  }*/
 
   public synchronized void add(Poligono desenhavel){
 		if(!this.desenhaveis.contains(desenhavel))

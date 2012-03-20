@@ -11,6 +11,8 @@ import java.util.concurrent.Semaphore;
 
 public class Elemento {
 
+    protected Quadro quadro;
+    
     protected Point2D pb = null;
     protected List<Poligono> conteudo = new ArrayList<Poligono>();
     protected List<Label> textos = new ArrayList<Label>();
@@ -18,6 +20,10 @@ public class Elemento {
     protected boolean agrupado = false;
     private Semaphore sem = new Semaphore(0, true);
 
+    public Elemento(Quadro q){
+        this.quadro = q;
+    }
+    
     public void bloqueiaMovendo() {
         try {
             sem.acquire();
@@ -91,7 +97,7 @@ public class Elemento {
 
                     e.atualiza(x, y);
 
-                    Quadro.getInstance().atualizar();
+                    quadro.atualizar();
                 }
                 e.liberaMovido();
             }

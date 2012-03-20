@@ -10,14 +10,11 @@
  */
 package iged.gui;
 
-import iged.Interpretador;
-import iged.gerenciadorTarefa.GerenciadorTarefa;
-import iged.gerenciadorTarefa.MetadadoTarefa;
-import iged.gerenciadorTarefa.Tarefa;
-import iged.grafico.manager.Quadro;
+import iged.gerenciadorAtividade.Atividade;
+import iged.gerenciadorAtividade.GerenciadorAtividade;
+import iged.gerenciadorAtividade.MetadadoAtividade;
 import java.io.File;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -33,15 +30,21 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
      public static final File raiz = new File("./Tarefas");
-    Interpretador iter = Interpretador.getInstance();
+     Atividade tf;
+     //Interpretador iter = Interpretador.getInstance();
 
     /** Creates new form TelaExercicioInterno */
     public TelaExercicioInterno() {
+        GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
+        List<MetadadoAtividade> metadados = gt.listarTarefas();
+        this.tf = gt.loadTarefa(metadados.get(8));
+        
+        
         initComponents();
-        executarTarefa(8);
+        executarTarefa();
     }
 
-    private void initLabels(Tarefa tf){
+    private void initLabels(Atividade tf){
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questão: " + tf.getMetadado().getTitulo()));
         descricaoText.setText(tf.getDescricao());
     }
@@ -61,10 +64,9 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
         jMenuPesquisar = new javax.swing.JMenu();
 
 
-        //Tarefa tf = TarefaXml.lerXml(14);
         setTitle("Responder Exercício");
 
-        JPanel panelAnimacao = Quadro.getInstance();
+        JPanel panelAnimacao = this.tf.getQuadro();
         panelAnimacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Animação"));
         jSplitPane1.setLeftComponent(panelAnimacao);
 
@@ -278,27 +280,18 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         pack();
     }// </editor-fold>//GEN-END:initComponents
      */
-    public void executarTarefa(int id) {
-        GerenciadorTarefa gt = GerenciadorTarefa.getInstance();
-        List<MetadadoTarefa> metadados = gt.listarTarefas();
-        Tarefa tf = gt.loadTarefa(metadados.get(id));
-        gt.executar(tf);
-        
-        this.initLabels(tf);
+    public void executarTarefa() {
+        this.tf.inicio();
+        this.initLabels(this.tf);
     }
 
     private void executarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executarBotaoActionPerformed
-
-        StringTokenizer st = new StringTokenizer(jTextArea1.getText(), "\n");
-                    while (st.hasMoreTokens()) {
-                        String c = st.nextToken();
-                        System.out.println(c);
-                        iter.interprete(c);
-                    }  
-                    if(iter.taskIsCorrect())
-                        JOptionPane.showInternalMessageDialog(this, "Tarefa Correta", "Tarefa Correta",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("./imagens/8.png"));
-                    else
-                        JOptionPane.showInternalMessageDialog(this, "Tarefa Incorreta", "Tarefa Incorreta",JOptionPane.PLAIN_MESSAGE, new ImageIcon("./imagens/9.png"));
+        this.tf.resolve(jTextArea1.getText());
+          
+        if(this.tf.estaCorreta())
+            JOptionPane.showInternalMessageDialog(this, "Tarefa Correta", "Tarefa Correta",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("./imagens/8.png"));
+        else
+            JOptionPane.showInternalMessageDialog(this, "Tarefa Incorreta", "Tarefa Incorreta",JOptionPane.PLAIN_MESSAGE, new ImageIcon("./imagens/9.png"));
     }                                             
 /*
     }//GEN-LAST:event_executarBotaoActionPerformed

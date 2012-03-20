@@ -5,13 +5,14 @@ import java.awt.geom.Point2D;
 import iged.grafico.manager.Quadro;
 
 public class WrapperStruct implements Comparable<WrapperStruct> {
-
+    private Quadro quadro;
     private Struct s;
     private Referencia ref;
     private String referencia;
     private int type = -1;
 
-    public WrapperStruct(Struct s, int type) {
+    public WrapperStruct(Struct s, int type, Quadro q) {
+        this.quadro = q;
         this.s = s;
         this.type = type;
         //Quadro.getInstance();
@@ -19,7 +20,8 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
 
     }
 
-    public WrapperStruct(String reference, Struct s, int type) {
+    public WrapperStruct(String reference, Struct s, int type, Quadro q) {
+        this.quadro = q;
         this.s = s;
         this.type = type;
         //this.setReferencia(reference);
@@ -27,8 +29,8 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
 
     public void setReferenciaVazia(String reference, Point2D pn) {
         //lembrar de repintar quando o esta referencia deixar de ser vazia
-        this.ref = new Referencia(pn, reference);
-        Quadro.getInstance().add(this.ref);        
+        this.ref = new Referencia(pn, reference, quadro);
+        quadro.add(this.ref);        
         this.referencia = reference;
     }
 
@@ -48,7 +50,7 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
 
             case IGEDConst.NODE:
                 if (ref != null && ref.getNode() != null) {
-                    Quadro.getInstance().remove(this.ref);
+                    quadro.remove(this.ref);
                     LinkedListNode n = ((LinkedListNode) s);
                     //n.clearNext();
                     n.remove(ref);
@@ -65,7 +67,7 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                 
             case IGEDConst.NODE_TREE:
             	if (ref != null && ref.getNode() != null) {
-                    Quadro.getInstance().remove(this.ref);
+                    quadro.remove(this.ref);
                     NodeTree nt = ((NodeTree) s);
                     nt.remove(ref);
                 }
@@ -119,7 +121,7 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                 
             case IGEDConst.VETOR:
                 if(ref != null){
-                    Quadro.getInstance().remove(ref);
+                    quadro.remove(ref);
                     ref = null;
                 }
                 s.add(this.referencia);
@@ -133,8 +135,8 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                     //n.remove(ref);
                     break;
                 }
-                ref = new Referencia(((LinkedListNode) s), this.referencia);
-                Quadro.getInstance().add(ref);
+                ref = new Referencia(((LinkedListNode) s), this.referencia, quadro);
+                quadro.add(ref);
                 break;
             
             case IGEDConst.NODE_TREE:
@@ -142,14 +144,14 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                     NodeTree nt = ((NodeTree)s);
                     nt.remove(this.ref);
 				}
-				this.ref = new Referencia(((NodeTree)s), this.referencia);
-				Quadro.getInstance().add(this.ref);
+				this.ref = new Referencia(((NodeTree)s), this.referencia, quadro);
+				quadro.add(this.ref);
 				break;
            
             case IGEDConst.BINARY_TREE:
             	((BinaryTree)s).setReferencia(this.referencia);
             	this.s = s;
-            	Quadro.getInstance().remove(this.ref); 
+            	quadro.remove(this.ref); 
             	this.ref = null;
             	break;
 
@@ -173,7 +175,7 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
     public void repintar() {
         if (ref != null) {
         //if (ref != null && this.type != IGEDConst.LISTA) {
-            Quadro.getInstance().add(ref);
+            quadro.add(ref);
         }
         if (s != null) {
             this.s.repintar();

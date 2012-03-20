@@ -1,5 +1,6 @@
 package iged.grafico.struct;
 
+import iged.grafico.manager.Quadro;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,11 @@ public abstract class Struct extends Elemento {
     protected boolean ajustado = false;
     
     public abstract Point2D getPInit();
+    
+    public Struct(Quadro q){
+        super(q);
+    }
+    
     //Ponto de incidência das Referencias
     public Point2D getPointPI() {
         return this.pi;
