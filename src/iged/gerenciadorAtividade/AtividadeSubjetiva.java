@@ -7,47 +7,44 @@ package iged.gerenciadorAtividade;
 import iged.IGEDConst;
 import iged.Interpretador;
 import java.util.StringTokenizer;
+import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 public class AtividadeSubjetiva extends Atividade{
     
     Interpretador iter = null;
     Thread exec = null;
+    Semaphore sem = null;
     
-    private String codInicializacao;
-    private String codSolucao;
-
-    public String getCodInicializacao() {
-        return codInicializacao;
-    }
-
-    public void setCodInicializacao(String codInicializacao) {
-        this.codInicializacao = codInicializacao;
+    public AtividadeSubjetiva(){
+        iter = new Interpretador();
+        sem = new Semaphore(1, true);
     }
     
-    public String getCodSolucao() {
-        return codSolucao;
-    }
-
-    public void setCodSolucao(String codSolucao) {
-        this.codSolucao = codSolucao;
-    }
-
     @Override
     public void inicio() {
-        if(iter == null)
-            iter = new Interpretador();
+        //Bloqueia as outras ações na Atividade, enquanto sua Thread n finaliza.
+        try {
+            sem.acquire();
+        } catch (InterruptedException ex){
+        }
         
         final AtividadeSubjetiva as = (AtividadeSubjetiva)this;
         this.exec = new Thread(){
             public void run(){  
                 as.iter.setMode(IGEDConst.MODE_BOTH);
-                String codigo = as.getCodInicializacao();
+                String codigo = ((AtividadeSubjetivaDAO)as.ativ).getCodInicializacao();
                 as.execute(codigo);
+                as.enviaEventoInicio(new AtividadeEvent(AtividadeEvent.INIT, as));
+                
                 as.iter.setMode(IGEDConst.MODE_PROFESSOR);
-                codigo = as.getCodSolucao();
+                codigo = ((AtividadeSubjetivaDAO)as.ativ).getCodSolucao();
                 as.execute(codigo);
                 as.iter.setMode(IGEDConst.MODE_STUDENT);
+                
+                as.sem.release();
             }
         };
         this.exec.start();
@@ -63,14 +60,38 @@ public class AtividadeSubjetiva extends Atividade{
     }
     
     @Override
-    public void resolve(String response) {
-        this.execute(response);
+    public void resolve(final String response) {
+        //Bloqueia as outras ações na Atividade, enquanto sua Thread n finaliza.
+        try {
+            sem.acquire();
+        } catch (InterruptedException ex){
+        }
+        
+        final AtividadeSubjetiva as = (AtividadeSubjetiva)this;
+        this.exec = new Thread(){
+            public void run(){  
+                as.execute(response);
+                
+                AtividadeEvent e;
+                if(as.estaCorreta()){
+                    e = new AtividadeEvent(AtividadeEvent.SUCCESS, as);
+                }else{
+                    e = new AtividadeEvent(AtividadeEvent.FAIL, as);
+                }
+                as.enviaEventoResolvido(e);
+                
+                as.sem.release();
+            }
+        };
+        this.exec.start();
     }
 
     @Override
     public void reinicio() {
-        if((this.exec != null) && (this.exec.isAlive()))
+        if((this.exec != null) && (this.exec.isAlive())){
             this.exec.interrupt();
+            this.sem = new Semaphore(1, true);
+        }
         
         iter.clear();
         this.inicio();
