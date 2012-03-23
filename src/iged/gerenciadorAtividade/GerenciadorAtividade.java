@@ -16,7 +16,7 @@ public class GerenciadorAtividade {
     }
 
     public void cadastrar(AtividadeSubjetiva t) {
-        portifolio.adicionar(t.getMetadado());
+        portifolio.adicionar(t.getDAO().getMetadado());
         PortifolioXml.criarXml(portifolio);
         AtividadeXml.criarXml(t);
     }

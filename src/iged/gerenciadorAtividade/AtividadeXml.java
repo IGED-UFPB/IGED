@@ -9,9 +9,6 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,7 +27,7 @@ public class AtividadeXml {
 
         String xmlTutorial = xstream.toXML(atividade);
         System.out.println(xmlTutorial);
-        XmlPersistencia.salvarXml(xmlTutorial, "tarefa" + atividade.getMetadado().getId() + ".xml");
+        XmlPersistencia.salvarXml(xmlTutorial, "tarefa" + atividade.getDAO().getMetadado().getId() + ".xml");
     }
 
     static AtividadeSubjetiva lerXmlSubjetiva(int id) {
@@ -40,21 +37,14 @@ public class AtividadeXml {
             // carrega o arquivo XML
             FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS + "tarefa" + id + ".xml"));
             // informa o nome do nó raiz do xml
-            x.alias("atividade", AtividadeSubjetiva.class);
+            x.alias("atividade", AtividadeSubjetivaDAO.class);
             x.alias("metadados", MetadadoAtividade.class);
             // cria um objeto da classe, contendo os dados lidos no xml
-            AtividadeSubjetiva tf = (AtividadeSubjetiva) x.fromXML(input);
+            AtividadeSubjetivaDAO dao = (AtividadeSubjetivaDAO) x.fromXML(input);
+            AtividadeSubjetiva as = new AtividadeSubjetiva();
+            as.setDAO(dao);
 
-            System.out.println("Tarefa");
-            System.out.println("Código de Inicialização: " + tf.getCodInicializacao());
-            System.out.println("Código de Solução: " + tf.getCodSolucao());
-            System.out.println("Descrição: " + tf.getDescricao());
-            System.out.println("Área: " + tf.getMetadado().getArea());
-            System.out.println("Autor: " + tf.getMetadado().getAutor());
-            System.out.println("Título: " + tf.getMetadado().getTitulo());
-            System.out.println("Id: " + tf.getMetadado().getId());
-
-            return tf;
+            return as;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

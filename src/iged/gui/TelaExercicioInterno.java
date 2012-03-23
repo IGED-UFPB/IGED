@@ -11,6 +11,8 @@
 package iged.gui;
 
 import iged.gerenciadorAtividade.Atividade;
+import iged.gerenciadorAtividade.AtividadeEvent;
+import iged.gerenciadorAtividade.AtividadeListener;
 import iged.gerenciadorAtividade.GerenciadorAtividade;
 import iged.gerenciadorAtividade.MetadadoAtividade;
 import java.awt.Color;
@@ -28,7 +30,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  *
  * @author Dorgi
  */
-public class TelaExercicioInterno extends javax.swing.JInternalFrame {
+public class TelaExercicioInterno extends javax.swing.JInternalFrame implements AtividadeListener{
 
 public static final File raiz = new File("./Tarefas");
      Atividade tf;
@@ -40,15 +42,15 @@ public static final File raiz = new File("./Tarefas");
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
         List<MetadadoAtividade> metadados = gt.listarTarefas();
         this.tf = gt.loadTarefa(metadados.get(8));
-        //System.out.print(tp.valorLinha());
-        
+        this.tf.addListener(this);
+
         initComponents();
         executarTarefa();
     }
 
     private void initLabels(Atividade tf){
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questão: " + tf.getMetadado().getTitulo()));
-        descricaoText.setText(tf.getDescricao());
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questão: " + tf.getDAO().getMetadado().getTitulo()));
+        descricaoText.setText(tf.getDAO().getDescricao());
     }
 
         private void initComponents() {
@@ -295,14 +297,6 @@ public static final File raiz = new File("./Tarefas");
 
     private void executarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executarActionPerformed
         this.tf.resolve(jTextArea1.getText());
-          
-        if(this.tf.estaCorreta()){
-            corrigir.setBackground(Color.GREEN);  
-            jLabel1.setText("Correto!");}
-            //JOptionPane.showInternalMessageDialog(this, "Tarefa Correta", "Tarefa Correta",JOptionPane.INFORMATION_MESSAGE, new ImageIcon("./imagens/8.png"));
-        else{
-            corrigir.setBackground(Color.RED); 
-            jLabel1.setText("Incorreto!");}
             //JOptionPane.showInternalMessageDialog(this, "Tarefa Incorreta", "Tarefa Incorreta",JOptionPane.PLAIN_MESSAGE, new ImageIcon("./imagens/9.png"));
     }//GEN-LAST:event_executarActionPerformed
 
@@ -355,5 +349,23 @@ public static final File raiz = new File("./Tarefas");
 
             }
         });
+    }
+
+    @Override
+    public void atividadeIniciada(AtividadeEvent event) {
+        if(event.getStatus() == AtividadeEvent.INIT){
+            System.out.println("Atividade INICIADA");
+        }
+    }
+
+    @Override
+    public void atividadeResolvida(AtividadeEvent event) {
+        if(event.getStatus() == AtividadeEvent.SUCCESS){
+            corrigir.setBackground(Color.GREEN);  
+            jLabel1.setText("Correto!");
+        }else{
+            corrigir.setBackground(Color.RED); 
+            jLabel1.setText("Incorreto!");
+        }
     }
 }
