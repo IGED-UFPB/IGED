@@ -12,20 +12,28 @@ package iged.gui;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
+import iged.gerenciadorAtividade.Atividade;
+import iged.gerenciadorAtividade.AtividadeXml;
+import iged.gerenciadorAtividade.GerenciadorAtividade;
 import iged.gerenciadorAtividade.MetadadoAtividade;
 import iged.gerenciadorAtividade.Portifolio;
 import iged.gerenciadorAtividade.PortifolioXml;
 import iged.gerenciadorAtividade.XmlPersistencia;
+import java.beans.PropertyVetoException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -35,7 +43,9 @@ import javax.swing.table.AbstractTableModel;
 public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
     ArrayList dados = new ArrayList();
-    String[] colunas = new String[]{"Titulo", "Área"};
+    String[] colunas = new String[]{"ID", "Titulo", "Área"};
+    Atividade tf;
+    int id;
 
     /** Creates new form TelaPesquisaInterno */
     public TelaPesquisaInterno() {
@@ -55,7 +65,13 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         pesquisarBotao = new javax.swing.JButton();
 
         jTable1.setModel(new SimpleTableModel(dados, colunas));
-        
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+
         jScrollPane1.setViewportView(jTable1);
 
         idRadio.setText("Id");
@@ -133,6 +149,11 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                 "Resultado da Busca"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         idRadio.setText("Id");
@@ -214,7 +235,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                     .addComponent(idRadio)
                     .addComponent(tituloRadio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -229,15 +250,15 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_todosRadioActionPerformed
 
     private void areaRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areaRadioActionPerformed
-//        buscarArea();
+        //
     }//GEN-LAST:event_areaRadioActionPerformed
 
     private void idRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idRadioActionPerformed
-//        buscarId();
+        //buscarId();
     }//GEN-LAST:event_idRadioActionPerformed
 
     private void tituloRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tituloRadioActionPerformed
-//        buscarTitulo();
+        //buscarTitulo();
     }//GEN-LAST:event_tituloRadioActionPerformed
 
     private void pesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarBotaoActionPerformed
@@ -257,6 +278,52 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_pesquisarBotaoActionPerformed
+
+    public int valorLinha() {
+        GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
+        List<MetadadoAtividade> metadados = gt.listarTarefas();
+        Object valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 0);
+        String valorId = valueLinha.toString();
+        //TelaExercicioInterno te = new TelaExercicioInterno();
+        int i;
+        
+        for (i = 0; i < metadados.size(); i++) {
+            if (valorId.equals(String.valueOf(metadados.get(i).getId()))) {
+                this.tf = gt.loadTarefa(metadados.get(i));
+                System.out.println(">>>>>>>>>>>>>>>>> ENCONTRADO <<<<<<<<<<<<<<<<<<<");
+                //te.executarTarefa();
+            }
+            id = i;
+        }
+        
+        System.out.println(id);
+        return id;
+    }
+    
+    public void abrirTelaExercicioInterno(){
+        TelaExercicioInterno responderExe = new TelaExercicioInterno();
+        JDesktopPane jDesktopPane1 = new javax.swing.JDesktopPane();
+        if (responderExe == null) //instancia a tela de cadastro de clientes
+        {
+            responderExe = new TelaExercicioInterno();
+            jDesktopPane1.add(responderExe);
+            ((BasicInternalFrameUI)responderExe.getUI()).setNorthPane(null);
+            try {
+                responderExe.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            responderExe.show();
+        } else{
+            responderExe.dispose();
+        }
+    }
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        if (evt.getClickCount() > 1) {
+            valorLinha();            
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
     class SimpleTableModel extends AbstractTableModel {
 
@@ -324,35 +391,37 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
     public void buscarTodasTarefa() {
         Portifolio pf = PortifolioXml.lerXml();
+        String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
+            id = String.valueOf(mt.getId());
             if (mt.getArea().equalsIgnoreCase(pesquisaText.getText())) {
-                dados.add(new String[]{mt.getTitulo(), mt.getArea()});
+                dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado área:" + mt.getArea());
             } else {
-                if (mt.getTitulo().equalsIgnoreCase(pesquisaText.getText())) {
-                    dados.add(new String[]{mt.getTitulo(), mt.getArea()});
+                if (mt.getTitulo().contains(pesquisaText.getText())) {
+                    dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                     System.out.println("Encontrado titulo:" + mt.getTitulo());
                 } else {
-                    /*if (mt.getId() == Integer.parseInt(pesquisaText.getText())) {
-                    dados.add(new String[]{mt.getTitulo(), mt.getArea()});
-                    System.out.println("Encontrado id:" + mt.getId());
-                    } else {*/
+                    if (id.equals(pesquisaText.getText())) {
+                        dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
+                        System.out.println("Encontrado id:" + mt.getId());
+                    }
                     System.out.println("Não encontrado!");
                 }
+                SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
+                jTable1.setModel(modelo);
+                jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             }
         }
-        SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
-        jTable1.setModel(modelo);
-        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
     }
 
     public void buscarArea() {
         Portifolio pf = PortifolioXml.lerXml();
-
+        String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
+            id = String.valueOf(mt.getId());
             if (mt.getArea().equalsIgnoreCase(pesquisaText.getText())) {
-                dados.add(new String[]{mt.getTitulo(), mt.getArea()});
+                dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado área:" + mt.getArea());
             } else {
                 System.out.println("Área não encontrada");
@@ -366,10 +435,11 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
     public void buscarId() {
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
-
+        String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
-            if (mt.getId() == Integer.parseInt(pesquisaText.getText())) {
-                dados.add(new String[]{mt.getTitulo(), mt.getArea()});
+            id = String.valueOf(mt.getId());
+            if (id.equals(pesquisaText.getText())) {
+                dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado id:" + mt.getId());
             } else {
                 System.out.println("Id não encontrado");
@@ -382,10 +452,11 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
     public void buscarTitulo() {
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
-
+        String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
+            id = String.valueOf(mt.getId());
             if (mt.getTitulo().contains(pesquisaText.getText())) {
-                dados.add(new String[]{mt.getTitulo(), mt.getArea()});
+                dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado Título:" + mt.getTitulo());
             } else {
                 System.out.println("Título não encontrado");

@@ -32,6 +32,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame {
 
 public static final File raiz = new File("./Tarefas");
      Atividade tf;
+     //TelaPesquisaInterno tp = new TelaPesquisaInterno();
      //Interpretador iter = Interpretador.getInstance();
 
     /** Creates new form TelaExercicioInterno */
@@ -39,7 +40,7 @@ public static final File raiz = new File("./Tarefas");
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
         List<MetadadoAtividade> metadados = gt.listarTarefas();
         this.tf = gt.loadTarefa(metadados.get(8));
-        
+        //System.out.print(tp.valorLinha());
         
         initComponents();
         executarTarefa();
