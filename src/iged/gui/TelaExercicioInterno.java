@@ -32,16 +32,17 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class TelaExercicioInterno extends javax.swing.JInternalFrame implements AtividadeListener{
 
-public static final File raiz = new File("./Tarefas");
+     public static final File raiz = new File("./Tarefas");
      Atividade tf;
-     //TelaPesquisaInterno tp = new TelaPesquisaInterno();
+     TelaPesquisaInterno tp = new TelaPesquisaInterno();
+     
      //Interpretador iter = Interpretador.getInstance();
 
     /** Creates new form TelaExercicioInterno */
     public TelaExercicioInterno() {
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
         List<MetadadoAtividade> metadados = gt.listarTarefas();
-        this.tf = gt.loadTarefa(metadados.get(8));
+        this.tf = gt.loadTarefa(metadados.get(TelaPesquisaInterno.cont));
         this.tf.addListener(this);
 
         initComponents();
@@ -301,7 +302,7 @@ public static final File raiz = new File("./Tarefas");
     }//GEN-LAST:event_executarActionPerformed
 
     private void corrigirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corrigirActionPerformed
-        
+
     }//GEN-LAST:event_corrigirActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -318,13 +319,17 @@ public static final File raiz = new File("./Tarefas");
     private javax.swing.JButton recarregar;
     // End of variables declaration//GEN-END:variables
 
-
+    public int identificador(){
+        TelaPesquisaInterno tp = new TelaPesquisaInterno();
+        int id = tp.getId();
+        return id;
+    }
+    
+    
     public void executarTarefa() {
         this.tf.inicio();
         this.initLabels(this.tf);
     }
-
-                                              
 
     
     public static void main(String args[]) {

@@ -47,7 +47,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         return novaTela;
     }
 
-    public JPanel getPanel() {
+    public static JPanel getPanel() {
         return getInstance().panelPrincipal;
     }
 
@@ -223,7 +223,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             responderExe.setIconifiable(true);
             responderExe.show();
         } else{
-            responderExe.dispose();
+            //responderExe.dispose();
+            jDesktopPane1.moveToFront(responderExe);
         }
         //independente da tela estar visível ou não, a tela é movida para frente
         //jDesktopPane1.remove(responderExe);}
@@ -328,7 +329,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             pesquisarExe.show();
         }
         else{
-            pesquisarExe.dispose();
+         //   pesquisarExe.dispose();
+            jDesktopPane1.moveToFront(pesquisarExe);
         }
     }//GEN-LAST:event_botaoPesquisarExercicioActionPerformed
 

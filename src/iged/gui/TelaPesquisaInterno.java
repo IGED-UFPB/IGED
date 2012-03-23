@@ -30,6 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -45,7 +46,9 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
     ArrayList dados = new ArrayList();
     String[] colunas = new String[]{"ID", "Titulo", "Área"};
     Atividade tf;
-    int id;
+    public static int id;
+    public static int cont;
+    static Object valueLinha;
 
     /** Creates new form TelaPesquisaInterno */
     public TelaPesquisaInterno() {
@@ -263,65 +266,65 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
     private void pesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarBotaoActionPerformed
         if (areaRadio.isSelected()) {
-            buscarArea();
+            try {
+                buscarArea();
+            } catch (TarefaInvalidaException ex) {
+                JOptionPane.showInternalMessageDialog(this, ex.getMessage());
+            }
         } else {
             if (idRadio.isSelected()) {
-                buscarId();
+                try {
+                    buscarId();
+                } catch (TarefaInvalidaException ex) {
+                    JOptionPane.showInternalMessageDialog(this, ex.getMessage());
+                }
             } else {
                 if (tituloRadio.isSelected()) {
-                    buscarTitulo();
+                    try {
+                        buscarTitulo();
+                    } catch (TarefaInvalidaException ex) {
+                        JOptionPane.showInternalMessageDialog(this, ex.getMessage());
+                    }
                 } else {
                     if (todosRadio.isSelected()) {
-                        buscarTodasTarefa();
+                        try {
+                            buscarTodasTarefa();
+                        } catch (TarefaInvalidaException ex) {
+                            JOptionPane.showInternalMessageDialog(this, ex.getMessage());
+                        }
                     }
                 }
             }
         }
     }//GEN-LAST:event_pesquisarBotaoActionPerformed
 
-    public int valorLinha() {
+    public static int valorLinha() throws TarefaInvalidaException{
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
         List<MetadadoAtividade> metadados = gt.listarTarefas();
-        Object valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 0);
+        valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 0);
         String valorId = valueLinha.toString();
-        //TelaExercicioInterno te = new TelaExercicioInterno();
         int i;
-        
+
         for (i = 0; i < metadados.size(); i++) {
             if (valorId.equals(String.valueOf(metadados.get(i).getId()))) {
-                this.tf = gt.loadTarefa(metadados.get(i));
-                System.out.println(">>>>>>>>>>>>>>>>> ENCONTRADO <<<<<<<<<<<<<<<<<<<");
-                //te.executarTarefa();
+                id = i;
+            }  
+            else {
+                throw new TarefaInvalidaException("Tarefa inexistente!");
             }
-            id = i;
         }
-        
-        System.out.println(id);
         return id;
     }
-    
-    public void abrirTelaExercicioInterno(){
-        TelaExercicioInterno responderExe = new TelaExercicioInterno();
-        JDesktopPane jDesktopPane1 = new javax.swing.JDesktopPane();
-        if (responderExe == null) //instancia a tela de cadastro de clientes
-        {
-            responderExe = new TelaExercicioInterno();
-            jDesktopPane1.add(responderExe);
-            ((BasicInternalFrameUI)responderExe.getUI()).setNorthPane(null);
-            try {
-                responderExe.setMaximum(true);
-            } catch (PropertyVetoException ex) {
-                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            responderExe.show();
-        } else{
-            responderExe.dispose();
-        }
-    }
-
+   
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        if (evt.getClickCount() > 1) {
-            valorLinha();            
+        if (evt.getClickCount() >= 2) {
+            try {
+                valorLinha();
+                cont = valorLinha();
+            } catch (TarefaInvalidaException ex) {
+                Logger.getLogger(TelaPesquisaInterno.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -389,7 +392,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         }
     }
 
-    public void buscarTodasTarefa() {
+    public void buscarTodasTarefa() throws TarefaInvalidaException{
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
@@ -406,7 +409,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                         dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                         System.out.println("Encontrado id:" + mt.getId());
                     }
-                    System.out.println("Não encontrado!");
+                    throw new TarefaInvalidaException("Não existe tarefa com o termo pesquisado!");
                 }
                 SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
                 jTable1.setModel(modelo);
@@ -415,7 +418,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         }
     }
 
-    public void buscarArea() {
+    public void buscarArea() throws TarefaInvalidaException{
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
@@ -424,7 +427,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                 dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado área:" + mt.getArea());
             } else {
-                System.out.println("Área não encontrada");
+                throw new TarefaInvalidaException("Não existe tarefa com a área pesquisada!");
             }
             SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
             jTable1.setModel(modelo);
@@ -432,7 +435,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         }
     }
 
-    public void buscarId() {
+    public void buscarId() throws TarefaInvalidaException{
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
         String id;
@@ -442,14 +445,14 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                 dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado id:" + mt.getId());
             } else {
-                System.out.println("Id não encontrado");
+                throw new TarefaInvalidaException("Não existe tarefa com o id pesquisado!");
             }
             jTable1.setModel(modelo);
             jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         }
     }
 
-    public void buscarTitulo() {
+    public void buscarTitulo() throws TarefaInvalidaException{
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
         String id;
@@ -459,7 +462,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                 dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado Título:" + mt.getTitulo());
             } else {
-                System.out.println("Título não encontrado");
+                throw new TarefaInvalidaException("Não existe tarefa com o título pesquisado!");
             }
             jTable1.setModel(modelo);
             jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -482,7 +485,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton autorRadio;
     private javax.swing.JRadioButton idRadio;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable jTable1;
     private javax.swing.JLabel pesquisaLabel;
     private javax.swing.JTextField pesquisaText;
     private javax.swing.JRadioButton todosRadio;
