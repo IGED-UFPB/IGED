@@ -119,11 +119,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         botaoResponderExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2.png"))); // NOI18N
         botaoResponderExercicio.setToolTipText("Responder Exercício");
-        botaoResponderExercicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoResponderExercicioActionPerformed(evt);
-            }
-        });
 
         botaoAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/67.png"))); // NOI18N
         botaoAjuda.setToolTipText("Ajuda");
@@ -183,7 +178,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    JInternalFrame cadTutorial, cadExe, visualizarTut, responderExe, pesquisarExe;
+    static JInternalFrame cadTutorial, cadExe, visualizarTut, responderExe, pesquisarExe;
 
     private void botaoVisualizarTutorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVisualizarTutorialActionPerformed
         if (visualizarTut == null) //instancia a tela de cadastro de clientes
@@ -206,8 +201,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //independente da tela estar visível ou não, a tela é movida para frente
         //jDesktopPane1.moveToFront(visualizarTut);
     }//GEN-LAST:event_botaoVisualizarTutorialActionPerformed
-
-    private void botaoResponderExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoResponderExercicioActionPerformed
+/**/
+    public static void botaoResponderExercicio() {                                                        
         if (responderExe == null) //instancia a tela de cadastro de clientes
         {
             responderExe = new TelaExercicioInterno();
@@ -228,8 +223,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
         //independente da tela estar visível ou não, a tela é movida para frente
         //jDesktopPane1.remove(responderExe);}
-    }//GEN-LAST:event_botaoResponderExercicioActionPerformed
-
+    }
+    
     private void botaoCadastrarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarExercicioActionPerformed
         if (cadExe == null) //instancia a tela de cadastro de clientes
         {
@@ -371,6 +366,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
     }
+    /*
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoAbrir;
     private javax.swing.JButton botaoAjuda;
@@ -382,4 +378,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
+*/
+private javax.swing.JButton botaoAbrir;
+    private javax.swing.JButton botaoAjuda;
+    private javax.swing.JButton botaoCadastrarExercicio;
+    private javax.swing.JButton botaoCadastrarTutorial;
+    private javax.swing.JButton botaoPesquisarExercicio;
+    private javax.swing.JButton botaoResponderExercicio;
+    private javax.swing.JButton botaoVisualizarTutorial;
+    private static javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JPanel panelPrincipal;
 }

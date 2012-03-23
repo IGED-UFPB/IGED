@@ -141,9 +141,6 @@
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Responder Exerc&#xed;cio"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoResponderExercicioActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoAjuda">
       <Properties>

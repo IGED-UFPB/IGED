@@ -266,65 +266,43 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
     private void pesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarBotaoActionPerformed
         if (areaRadio.isSelected()) {
-            try {
-                buscarArea();
-            } catch (TarefaInvalidaException ex) {
-                JOptionPane.showInternalMessageDialog(this, ex.getMessage());
-            }
+            buscarArea();
         } else {
             if (idRadio.isSelected()) {
-                try {
-                    buscarId();
-                } catch (TarefaInvalidaException ex) {
-                    JOptionPane.showInternalMessageDialog(this, ex.getMessage());
-                }
+                buscarId();
             } else {
                 if (tituloRadio.isSelected()) {
-                    try {
                         buscarTitulo();
-                    } catch (TarefaInvalidaException ex) {
-                        JOptionPane.showInternalMessageDialog(this, ex.getMessage());
-                    }
                 } else {
                     if (todosRadio.isSelected()) {
-                        try {
                             buscarTodasTarefa();
-                        } catch (TarefaInvalidaException ex) {
-                            JOptionPane.showInternalMessageDialog(this, ex.getMessage());
-                        }
                     }
                 }
             }
         }
     }//GEN-LAST:event_pesquisarBotaoActionPerformed
 
-    public static int valorLinha() throws TarefaInvalidaException{
+    public static int valorLinha() {//throws TarefaInvalidaException{
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
         List<MetadadoAtividade> metadados = gt.listarTarefas();
         valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 0);
         String valorId = valueLinha.toString();
+        System.out.println(valorId);
         int i;
 
         for (i = 0; i < metadados.size(); i++) {
             if (valorId.equals(String.valueOf(metadados.get(i).getId()))) {
                 id = i;
-            }  
-            else {
-                throw new TarefaInvalidaException("Tarefa inexistente!");
             }
         }
         return id;
     }
-   
+
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         if (evt.getClickCount() >= 2) {
-            try {
-                valorLinha();
-                cont = valorLinha();
-            } catch (TarefaInvalidaException ex) {
-                Logger.getLogger(TelaPesquisaInterno.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
+            valorLinha();
+            cont = valorLinha();
+            TelaPrincipal.botaoResponderExercicio();
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -392,7 +370,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         }
     }
 
-    public void buscarTodasTarefa() throws TarefaInvalidaException{
+    public void buscarTodasTarefa() {
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
@@ -409,7 +387,6 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                         dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                         System.out.println("Encontrado id:" + mt.getId());
                     }
-                    throw new TarefaInvalidaException("Não existe tarefa com o termo pesquisado!");
                 }
                 SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
                 jTable1.setModel(modelo);
@@ -418,24 +395,22 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         }
     }
 
-    public void buscarArea() throws TarefaInvalidaException{
+    public void buscarArea() {
+        SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
-            id = String.valueOf(mt.getId());
             if (mt.getArea().equalsIgnoreCase(pesquisaText.getText())) {
+                id = String.valueOf(mt.getId());
                 dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado área:" + mt.getArea());
-            } else {
-                throw new TarefaInvalidaException("Não existe tarefa com a área pesquisada!");
             }
-            SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
             jTable1.setModel(modelo);
             jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         }
     }
 
-    public void buscarId() throws TarefaInvalidaException{
+    public void buscarId() {
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
         String id;
@@ -444,15 +419,13 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
             if (id.equals(pesquisaText.getText())) {
                 dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado id:" + mt.getId());
-            } else {
-                throw new TarefaInvalidaException("Não existe tarefa com o id pesquisado!");
             }
             jTable1.setModel(modelo);
             jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         }
     }
 
-    public void buscarTitulo() throws TarefaInvalidaException{
+    public void buscarTitulo(){
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
         String id;
@@ -461,9 +434,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
             if (mt.getTitulo().contains(pesquisaText.getText())) {
                 dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
                 System.out.println("Encontrado Título:" + mt.getTitulo());
-            } else {
-                throw new TarefaInvalidaException("Não existe tarefa com o título pesquisado!");
-            }
+            } 
             jTable1.setModel(modelo);
             jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         }
