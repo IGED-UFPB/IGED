@@ -66,7 +66,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         botaoAbrir = new javax.swing.JButton();
         botaoVisualizarTutorial = new javax.swing.JButton();
         botaoCadastrarExercicio = new javax.swing.JButton();
-        botaoResponderExercicio = new javax.swing.JButton();
         botaoAjuda = new javax.swing.JButton();
         botaoPesquisarExercicio = new javax.swing.JButton();
 
@@ -101,7 +100,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botaoVisualizarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/10.png"))); // NOI18N
+        botaoVisualizarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/61.png"))); // NOI18N
         botaoVisualizarTutorial.setToolTipText("Visualizar Tutorial");
         botaoVisualizarTutorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,16 +108,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botaoCadastrarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/37.png"))); // NOI18N
+        botaoCadastrarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/8.png"))); // NOI18N
         botaoCadastrarExercicio.setToolTipText("Cadastrar Exercício");
         botaoCadastrarExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastrarExercicioActionPerformed(evt);
             }
         });
-
-        botaoResponderExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2.png"))); // NOI18N
-        botaoResponderExercicio.setToolTipText("Responder Exercício");
 
         botaoAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/67.png"))); // NOI18N
         botaoAjuda.setToolTipText("Ajuda");
@@ -128,8 +124,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botaoPesquisarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/24.png"))); // NOI18N
-        botaoPesquisarExercicio.setToolTipText("Responder Exercício");
+        botaoPesquisarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/10.png"))); // NOI18N
+        botaoPesquisarExercicio.setToolTipText("Pesquisar Exercício");
         botaoPesquisarExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarExercicioActionPerformed(evt);
@@ -151,10 +147,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoCadastrarExercicio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoResponderExercicio)
-                        .addGap(10, 10, 10)
                         .addComponent(botaoPesquisarExercicio)
-                        .addGap(18, 18, 18)
+                        .addGap(109, 109, 109)
                         .addComponent(botaoAjuda))
                     .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -168,7 +162,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(botaoCadastrarTutorial)
                         .addComponent(botaoVisualizarTutorial)
                         .addComponent(botaoCadastrarExercicio)
-                        .addComponent(botaoResponderExercicio)
                         .addComponent(botaoAjuda))
                     .addComponent(botaoPesquisarExercicio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -373,7 +366,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton botaoCadastrarExercicio;
     private javax.swing.JButton botaoCadastrarTutorial;
     private javax.swing.JButton botaoPesquisarExercicio;
-    private javax.swing.JButton botaoResponderExercicio;
     private javax.swing.JButton botaoVisualizarTutorial;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel panelPrincipal;

@@ -78,7 +78,6 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
         
         jButton3.setText("jButton3");
 
-        corrigir.setText("Corrigir");
         corrigir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 corrigirActionPerformed(evt);
@@ -107,14 +106,16 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        recarregar.setText("Recarregar");
+        //recarregar.setText("Recarregar");
+        recarregar.setIcon(new ImageIcon("./imagens/refresh.png"));
         recarregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 recarregarActionPerformed(evt);
             }
         });
 
-        executar.setText("Executar");
+        //executar.setText("Executar");
+        executar.setIcon(new ImageIcon("./imagens/play.png"));
         executar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 executarActionPerformed(evt);
@@ -319,12 +320,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
     private javax.swing.JButton recarregar;
     // End of variables declaration//GEN-END:variables
 
-    public int identificador(){
-        TelaPesquisaInterno tp = new TelaPesquisaInterno();
-        int id = tp.getId();
-        return id;
-    }
-    
+       
     
     public void executarTarefa() {
         this.tf.inicio();
@@ -366,10 +362,12 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
     @Override
     public void atividadeResolvida(AtividadeEvent event) {
         if(event.getStatus() == AtividadeEvent.SUCCESS){
-            corrigir.setBackground(Color.GREEN);  
+            corrigir.setIcon(new ImageIcon("./imagens/correct.png"));
+            jLabel1.setBackground(Color.GREEN);  
             jLabel1.setText("Correto!");
         }else{
-            corrigir.setBackground(Color.RED); 
+            corrigir.setIcon(new ImageIcon("./imagens/wrong.png"));
+            jLabel1.setBackground(Color.RED); 
             jLabel1.setText("Incorreto!");
         }
     }
