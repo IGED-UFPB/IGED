@@ -90,7 +90,7 @@
     <Component class="javax.swing.JButton" name="botaoCadastrarTutorial">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/8.png"/>
+          <Image iconType="3" name="/63edit.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Cadastrar Tutorial"/>
       </Properties>
@@ -123,7 +123,7 @@
     <Component class="javax.swing.JButton" name="botaoCadastrarExercicio">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/2.png"/>
+          <Image iconType="3" name="/8.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Cadastrar Exerc&#xed;cio"/>
       </Properties>

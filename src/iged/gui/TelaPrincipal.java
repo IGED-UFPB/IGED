@@ -10,6 +10,7 @@
  */
 package iged.gui;
 
+
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GraphicsDevice;
@@ -84,7 +85,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
         );
 
-        botaoCadastrarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/8.png"))); // NOI18N
+        botaoCadastrarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/63edit.png"))); // NOI18N
         botaoCadastrarTutorial.setToolTipText("Cadastrar Tutorial");
         botaoCadastrarTutorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +109,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botaoCadastrarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2.png"))); // NOI18N
+        botaoCadastrarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/8.png"))); // NOI18N
         botaoCadastrarExercicio.setToolTipText("Cadastrar Exercício");
         botaoCadastrarExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -321,8 +322,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             pesquisarExe.show();
         }
         else{
-         //   pesquisarExe.dispose();
-            jDesktopPane1.moveToFront(pesquisarExe);
+         pesquisarExe.dispose();
+            //jDesktopPane1.moveToFront(pesquisarExe);
         }
     }//GEN-LAST:event_botaoPesquisarExercicioActionPerformed
 

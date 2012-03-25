@@ -47,9 +47,10 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
     ArrayList dados = new ArrayList();
     String[] colunas = new String[]{"Titulo", "Área","id"};
     Atividade tf;
-    public static int id;
+     public static int id;
     public static int cont;
     static Object valueLinha;
+    
 
     /** Creates new form TelaPesquisaInterno */
     public TelaPesquisaInterno() {
@@ -133,7 +134,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                         .addComponent(todosRadio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(areaRadio)
-                        .addGap(39, 39, 39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tituloRadio)))
                 .addContainerGap())
         );
@@ -151,7 +152,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                     .addComponent(areaRadio)
                     .addComponent(tituloRadio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pack();
@@ -237,7 +238,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                         .addComponent(todosRadio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(areaRadio)
-                        .addGap(39, 39, 39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(tituloRadio)))
                 .addContainerGap())
         );
@@ -255,7 +256,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                     .addComponent(areaRadio)
                     .addComponent(tituloRadio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -292,21 +293,9 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         }
     }//GEN-LAST:event_pesquisarBotaoActionPerformed
 
-    public static int valorLinha() {
-        GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
-        List<MetadadoAtividade> metadados = gt.listarTarefas();
-        valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 2);
-        String valorId = valueLinha.toString();
-        System.out.println(valorId);
-        int i;
-
-        for (i = 0; i < metadados.size(); i++) {
-            if (valorId.equals(String.valueOf(metadados.get(i).getId()))) {
-                id = i;
-            }
-        }
-        return id;
-    }
+  public String getPesquisaText(){
+      return pesquisaText.getText();
+  }
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         if (evt.getClickCount() >= 2) {
@@ -316,60 +305,60 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
-    class SimpleTableModel extends AbstractTableModel {
+   class SimpleTableModel extends AbstractTableModel {
 
-        ArrayList linhas = null;
-        String[] colunas = null;
+    ArrayList linhas = null;
+    String[] colunas = null;
 
-        public SimpleTableModel(ArrayList dados, String[] colunas) {
-            setLinhas(dados);
-            setColunas(colunas);
-        }
-
-        public String[] getColunas() {
-            return colunas;
-        }
-
-        public ArrayList getLinhas() {
-            return linhas;
-        }
-
-        public void setColunas(String[] strings) {
-            colunas = strings;
-        }
-
-        public void setLinhas(ArrayList list) {
-            linhas = list;
-        }
-
-        @Override
-        public int getRowCount() {
-           return getLinhas().size();
-        }
-        
-        @Override
-        public int getColumnCount() {
-            return getColunas().length;
-        }
-
-        @Override
-        public Object getValueAt(int rowIndex, int columnIndex) {
-            String[] linha = (String[]) getLinhas().get(rowIndex);
-            // Retorna o objeto que esta na coluna  
-            return linha[columnIndex];
-        }
-
-        public void addRow(String[] dadosLinha) {
-            getLinhas().add(dadosLinha);
-            // Informa a jtable de que houve linhas incluidas no modelo  
-            // COmo adicionamos no final, pegamos o tamanho total do modelo  
-            // menos 1 para obter a linha incluida.  
-            int linha = getLinhas().size() - 1;
-            fireTableRowsInserted(linha, linha);
-            return;
-        }
+    public SimpleTableModel(ArrayList dados, String[] colunas) {
+        setLinhas(dados);
+        setColunas(colunas);
     }
 
+    public String[] getColunas() {
+        return colunas;
+    }
+
+    public ArrayList getLinhas() {
+        return linhas;
+    }
+
+    public void setColunas(String[] strings) {
+        colunas = strings;
+    }
+
+    public void setLinhas(ArrayList list) {
+        linhas = list;
+    }
+
+    @Override
+    public int getRowCount() {
+        return getLinhas().size();
+    }
+
+    @Override
+    public int getColumnCount() {
+        return getColunas().length;
+    }
+
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        String[] linha = (String[]) getLinhas().get(rowIndex);
+        // Retorna o objeto que esta na coluna  
+        return linha[columnIndex];
+    }
+
+    public void addRow(String[] dadosLinha) {
+        getLinhas().add(dadosLinha);
+        // Informa a jtable de que houve linhas incluidas no modelo  
+        // COmo adicionamos no final, pegamos o tamanho total do modelo  
+        // menos 1 para obter a linha incluida.  
+        int linha = getLinhas().size() - 1;
+        fireTableRowsInserted(linha, linha);
+        return;
+    }
+}
+   
     public void recuperarDados() {
         int linhas = jTable1.getRowCount();
         int colunas = jTable1.getColumnCount();
@@ -379,7 +368,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
             }
         }
     }
-       
+    
     public void limparTabela(JTable tabela){
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         for (int i=modelo.getRowCount(); i>0;--i){
@@ -394,21 +383,37 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         jTable1.getTableHeader().getColumnModel().getColumn(2).setMinWidth(0);
     }
     
+      public static int valorLinha() {
+        GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
+        List<MetadadoAtividade> metadados = gt.listarTarefas();
+        valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 2);
+        String valorId = valueLinha.toString();
+        System.out.println(valorId);
+        int i;
+
+        for (i = 0; i < metadados.size(); i++) {
+            if (valorId.equals(String.valueOf(metadados.get(i).getId()))) {
+                id = i;
+            }
+        }
+        return id;
+    }
+    
     public void buscarTodasTarefa() {
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
             ocultarColuna();
-            if (mt.getArea().equalsIgnoreCase(pesquisaText.getText())) {
+            if (mt.getArea().equalsIgnoreCase(getPesquisaText())) {
                 dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                 System.out.println("Encontrado área:" + mt.getArea());
             } else {
-                if (mt.getTitulo().contains(pesquisaText.getText())) {
+                if (mt.getTitulo().contains(getPesquisaText())) {
                     dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                     System.out.println("Encontrado titulo:" + mt.getTitulo());
                 } else {
-                    if (id.equals(pesquisaText.getText())) {
+                    if (id.equals(getPesquisaText())) {
                         dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                         System.out.println("Encontrado id:" + mt.getId());
                     }
@@ -427,31 +432,13 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         for (MetadadoAtividade mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
             ocultarColuna();
-            if (mt.getArea().equalsIgnoreCase(pesquisaText.getText())) {
+            if (mt.getArea().equalsIgnoreCase(getPesquisaText())) {
                 dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                 System.out.println("Encontrado área:" + mt.getArea());
             }
-            jTable1.setModel(modelo);
-            jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         }
     }
-    /*
-    public void buscarId() {
-    SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
-    Portifolio pf = PortifolioXml.lerXml();
-    String id;
-    for (MetadadoAtividade mt : pf.getTarefas()) {
-    id = String.valueOf(mt.getId());
-    if (id.equals(pesquisaText.getText())) {
-    dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
-    System.out.println("Encontrado id:" + mt.getId());
-    }
-    jTable1.setModel(modelo);
-    jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    }
-    }
-     */
-
+    
     public void buscarTitulo() {
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
@@ -459,7 +446,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         for (MetadadoAtividade mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
             ocultarColuna();
-            if (mt.getTitulo().contains(pesquisaText.getText())) {
+            if (mt.getTitulo().contains(getPesquisaText())) {
                 dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                 System.out.println("Encontrado Título:" + mt.getTitulo());
             }
@@ -468,7 +455,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         }
     }
 
-    protected void listarTodasTarefas() {
+    public void listarTodasTarefas() {
         ocultarColuna();
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
@@ -481,6 +468,10 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         jTable1.setModel(modelo);
         jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
+
+
+       
+    
     /*
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton areaRadio;
