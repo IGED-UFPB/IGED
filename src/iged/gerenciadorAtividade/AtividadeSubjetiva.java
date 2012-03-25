@@ -88,11 +88,12 @@ public class AtividadeSubjetiva extends Atividade{
 
     @Override
     public void reinicio() {
-        if((this.exec != null) && (this.exec.isAlive())){
-            this.exec.interrupt();
-            this.sem = new Semaphore(1, true);
+        try {
+            sem.acquire();
+            sem.release();
+        } catch (InterruptedException ex){
         }
-        
+                
         iter.clear();
         this.inicio();
     }
