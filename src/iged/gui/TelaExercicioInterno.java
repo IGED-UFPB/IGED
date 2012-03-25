@@ -57,7 +57,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
         private void initComponents() {
 
         jButton3 = new javax.swing.JButton();
-        corrigir = new javax.swing.JButton();
+        corrigir = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descricaoText = new javax.swing.JTextArea();
@@ -78,11 +78,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
         
         jButton3.setText("jButton3");
 
-        corrigir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                corrigirActionPerformed(evt);
-            }
-        });
+        
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questao"));
         jPanel1.setAutoscrolls(true);
@@ -185,7 +181,6 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
     private void initComponents() {
 
         jButton3 = new javax.swing.JButton();
-        corrigir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descricaoText = new javax.swing.JTextArea();
@@ -195,15 +190,9 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
         jSplitPane1 = new javax.swing.JSplitPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        corrigir = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
-
-        corrigir.setText("jButton1");
-        corrigir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                corrigirActionPerformed(evt);
-            }
-        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Questao"));
         jPanel1.setAutoscrolls(true);
@@ -248,6 +237,8 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
 
         jSplitPane1.setRightComponent(jScrollPane2);
 
+        corrigir.setText("jLabel2");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -262,7 +253,7 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(corrigir)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(49, 49, 49)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(recarregar)
@@ -282,10 +273,10 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
                             .addComponent(executar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(corrigir)
-                            .addComponent(jLabel1))))
+                            .addComponent(jLabel1)
+                            .addComponent(corrigir))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -295,19 +286,18 @@ public class TelaExercicioInterno extends javax.swing.JInternalFrame implements 
     private void recarregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recarregarActionPerformed
         this.tf.reinicio();
         jTextArea1.setText("");
+        jLabel1.setText("");
+        corrigir.setVisible(false);
     }//GEN-LAST:event_recarregarActionPerformed
 
     private void executarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_executarActionPerformed
         this.tf.resolve(jTextArea1.getText());
+        corrigir.setVisible(true);
             //JOptionPane.showInternalMessageDialog(this, "Tarefa Incorreta", "Tarefa Incorreta",JOptionPane.PLAIN_MESSAGE, new ImageIcon("./imagens/9.png"));
     }//GEN-LAST:event_executarActionPerformed
 
-    private void corrigirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_corrigirActionPerformed
-
-    }//GEN-LAST:event_corrigirActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton corrigir;
+    private javax.swing.JLabel corrigir;
     private javax.swing.JTextArea descricaoText;
     private javax.swing.JButton executar;
     private javax.swing.JButton jButton3;

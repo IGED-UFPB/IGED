@@ -84,7 +84,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
         );
 
-        botaoCadastrarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/49.png"))); // NOI18N
+        botaoCadastrarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/8.png"))); // NOI18N
         botaoCadastrarTutorial.setToolTipText("Cadastrar Tutorial");
         botaoCadastrarTutorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +108,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        botaoCadastrarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/8.png"))); // NOI18N
+        botaoCadastrarExercicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2.png"))); // NOI18N
         botaoCadastrarExercicio.setToolTipText("Cadastrar Exercício");
         botaoCadastrarExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,10 +300,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_botaoAbrirActionPerformed
 
+    TelaPesquisaInterno tp = new TelaPesquisaInterno();
+    
     private void botaoPesquisarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarExercicioActionPerformed
         if (pesquisarExe == null) //instancia a tela de cadastro de clientes
         {
-            pesquisarExe = new TelaPesquisaInterno();
+            tp.ocultarColuna();
+            pesquisarExe = tp;
+            tp.listarTodasTarefas();
             jDesktopPane1.add(pesquisarExe);
             ((BasicInternalFrameUI)pesquisarExe.getUI()).setNorthPane(null);
             try {

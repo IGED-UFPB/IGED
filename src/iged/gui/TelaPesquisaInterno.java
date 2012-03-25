@@ -31,6 +31,7 @@ import java.util.logging.Logger;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -44,7 +45,7 @@ import javax.swing.table.AbstractTableModel;
 public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
     ArrayList dados = new ArrayList();
-    String[] colunas = new String[]{"ID", "Titulo", "Área"};
+    String[] colunas = new String[]{"Titulo", "Área","id"};
     Atividade tf;
     public static int id;
     public static int cont;
@@ -59,7 +60,6 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        idRadio = new javax.swing.JRadioButton();
         tituloRadio = new javax.swing.JRadioButton();
         areaRadio = new javax.swing.JRadioButton();
         pesquisaLabel = new javax.swing.JLabel();
@@ -76,14 +76,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         });
 
         jScrollPane1.setViewportView(jTable1);
-
-        idRadio.setText("Id");
-        idRadio.addActionListener(new java.awt.event.ActionListener() {
-
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idRadioActionPerformed(evt);
-            }
-        });
+       
 
         tituloRadio.setText("Título");
         tituloRadio.addActionListener(new java.awt.event.ActionListener() {
@@ -119,13 +112,48 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE).addGroup(layout.createSequentialGroup().addComponent(pesquisaLabel).addGap(5, 5, 5).addComponent(pesquisaText, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(pesquisarBotao)))).addGroup(layout.createSequentialGroup().addGap(139, 139, 139).addComponent(todosRadio).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(areaRadio).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(idRadio).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(tituloRadio))).addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(pesquisaLabel)
+                                .addGap(5, 5, 5)
+                                .addComponent(pesquisaText, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pesquisarBotao))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(todosRadio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(areaRadio)
+                        .addGap(39, 39, 39)
+                        .addComponent(tituloRadio)))
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addContainerGap().addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(pesquisaLabel).addComponent(pesquisaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addComponent(pesquisarBotao)).addGap(7, 7, 7).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(todosRadio).addComponent(areaRadio).addComponent(idRadio).addComponent(tituloRadio)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE).addContainerGap()));
-
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pesquisaLabel)
+                    .addComponent(pesquisaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pesquisarBotao))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(todosRadio)
+                    .addComponent(areaRadio)
+                    .addComponent(tituloRadio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                .addContainerGap())
+        );
         pack();
     }
     /*
@@ -134,7 +162,6 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        idRadio = new javax.swing.JRadioButton();
         tituloRadio = new javax.swing.JRadioButton();
         areaRadio = new javax.swing.JRadioButton();
         pesquisaLabel = new javax.swing.JLabel();
@@ -158,13 +185,6 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-
-        idRadio.setText("Id");
-        idRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idRadioActionPerformed(evt);
-            }
-        });
 
         tituloRadio.setText("Título");
         tituloRadio.addActionListener(new java.awt.event.ActionListener() {
@@ -217,9 +237,7 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                         .addComponent(todosRadio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(areaRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(idRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(39, 39, 39)
                         .addComponent(tituloRadio)))
                 .addContainerGap())
         );
@@ -235,10 +253,9 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(todosRadio)
                     .addComponent(areaRadio)
-                    .addComponent(idRadio)
                     .addComponent(tituloRadio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -246,7 +263,6 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
      */
     private void todosRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosRadioActionPerformed
-        idRadio.setEnabled(false);
         tituloRadio.setEnabled(false);
         areaRadio.setEnabled(false);
         //buscarTodasTarefa();
@@ -256,36 +272,30 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         //
     }//GEN-LAST:event_areaRadioActionPerformed
 
-    private void idRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idRadioActionPerformed
-        //buscarId();
-    }//GEN-LAST:event_idRadioActionPerformed
-
     private void tituloRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tituloRadioActionPerformed
         //buscarTitulo();
     }//GEN-LAST:event_tituloRadioActionPerformed
-
+    
     private void pesquisarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisarBotaoActionPerformed
+        limparTabela(jTable1);
+        jTable1.updateUI();
         if (areaRadio.isSelected()) {
             buscarArea();
         } else {
-            if (idRadio.isSelected()) {
-                buscarId();
+            if (tituloRadio.isSelected()) {
+                buscarTitulo();
             } else {
-                if (tituloRadio.isSelected()) {
-                        buscarTitulo();
-                } else {
-                    if (todosRadio.isSelected()) {
-                            buscarTodasTarefa();
-                    }
+                if (todosRadio.isSelected()) {
+                    buscarTodasTarefa();
                 }
             }
         }
     }//GEN-LAST:event_pesquisarBotaoActionPerformed
 
-    public static int valorLinha() {//throws TarefaInvalidaException{
+    public static int valorLinha() {
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
         List<MetadadoAtividade> metadados = gt.listarTarefas();
-        valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 0);
+        valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 2);
         String valorId = valueLinha.toString();
         System.out.println(valorId);
         int i;
@@ -334,9 +344,9 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
         @Override
         public int getRowCount() {
-            return getLinhas().size();
+           return getLinhas().size();
         }
-
+        
         @Override
         public int getColumnCount() {
             return getColunas().length;
@@ -369,22 +379,37 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
             }
         }
     }
-
+       
+    public void limparTabela(JTable tabela){
+        SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
+        for (int i=modelo.getRowCount(); i>0;--i){
+            modelo.linhas.clear();
+        }
+    }
+    
+    public void ocultarColuna(){
+        jTable1.getColumnModel().getColumn(2).setMaxWidth(0);
+        jTable1.getColumnModel().getColumn(2).setMinWidth(0);
+        jTable1.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(0);
+        jTable1.getTableHeader().getColumnModel().getColumn(2).setMinWidth(0);
+    }
+    
     public void buscarTodasTarefa() {
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
+            ocultarColuna();
             if (mt.getArea().equalsIgnoreCase(pesquisaText.getText())) {
-                dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
+                dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                 System.out.println("Encontrado área:" + mt.getArea());
             } else {
                 if (mt.getTitulo().contains(pesquisaText.getText())) {
-                    dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
+                    dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                     System.out.println("Encontrado titulo:" + mt.getTitulo());
                 } else {
                     if (id.equals(pesquisaText.getText())) {
-                        dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
+                        dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                         System.out.println("Encontrado id:" + mt.getId());
                     }
                 }
@@ -400,49 +425,65 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
+            id = String.valueOf(mt.getId());
+            ocultarColuna();
             if (mt.getArea().equalsIgnoreCase(pesquisaText.getText())) {
-                id = String.valueOf(mt.getId());
-                dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
+                dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                 System.out.println("Encontrado área:" + mt.getArea());
             }
             jTable1.setModel(modelo);
             jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         }
     }
-
+    /*
     public void buscarId() {
+    SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
+    Portifolio pf = PortifolioXml.lerXml();
+    String id;
+    for (MetadadoAtividade mt : pf.getTarefas()) {
+    id = String.valueOf(mt.getId());
+    if (id.equals(pesquisaText.getText())) {
+    dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
+    System.out.println("Encontrado id:" + mt.getId());
+    }
+    jTable1.setModel(modelo);
+    jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+    }
+    }
+     */
+
+    public void buscarTitulo() {
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
-            if (id.equals(pesquisaText.getText())) {
-                dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
-                System.out.println("Encontrado id:" + mt.getId());
+            ocultarColuna();
+            if (mt.getTitulo().contains(pesquisaText.getText())) {
+                dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
+                System.out.println("Encontrado Título:" + mt.getTitulo());
             }
             jTable1.setModel(modelo);
             jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         }
     }
 
-    public void buscarTitulo(){
+    protected void listarTodasTarefas() {
+        ocultarColuna();
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
         String id;
         for (MetadadoAtividade mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
-            if (mt.getTitulo().contains(pesquisaText.getText())) {
-                dados.add(new String[]{id, mt.getTitulo(), mt.getArea()});
-                System.out.println("Encontrado Título:" + mt.getTitulo());
-            } 
-            jTable1.setModel(modelo);
-            jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
+            System.out.println("Encontrado área:" + mt.getArea());
         }
+        jTable1.setModel(modelo);
+        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
     /*
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton areaRadio;
-    private javax.swing.JRadioButton idRadio;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel pesquisaLabel;
@@ -454,7 +495,6 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
      */
     private javax.swing.JRadioButton areaRadio;
     private javax.swing.JRadioButton autorRadio;
-    private javax.swing.JRadioButton idRadio;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;
     private javax.swing.JLabel pesquisaLabel;
