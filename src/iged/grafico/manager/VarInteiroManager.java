@@ -99,7 +99,7 @@ public class VarInteiroManager {
     }
     
     static final int INIT_X = 20;
-    static final int INIT_Y = 5;
+    static final int INIT_Y = 25;
     static final int DIST = 10;
 	
 }

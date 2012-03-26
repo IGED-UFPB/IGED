@@ -213,4 +213,11 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
         }
         return 0;
     }
+
+    public boolean isDataStruct() {
+        return (this.getType() != IGEDConst.NODE &&
+                this.getType() != IGEDConst.VAZIA &&
+                this.getType() != IGEDConst.NODE_TREE &&
+                this.getType() != IGEDConst.NODE_TREE_ROOT);
+    }
 }

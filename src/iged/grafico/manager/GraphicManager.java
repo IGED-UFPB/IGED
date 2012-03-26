@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.Stack;
 
 import java.util.concurrent.Semaphore;
-import javax.swing.JPanel;
 
 public class GraphicManager {
 
@@ -32,12 +31,6 @@ public class GraphicManager {
     private int referenciasVazias;
     private int nodesSoltos;
     private double boundsBinaryTree;
-
-    /*public static synchronized GraphicManager getInstance(){
-        if(gm == null)
-            gm = new GraphicManager();
-        return gm;
-    }*/
     
     public GraphicManager(){
         this.structs = new HashMap<String, WrapperStruct>();
@@ -65,7 +58,7 @@ public class GraphicManager {
 
                 int y = YBASE;
                 for (WrapperStruct w : structs.values()) {
-                    if (w.getType() != IGEDConst.NODE && w.getType() != IGEDConst.VAZIA) {
+                    if (w.isDataStruct()) {
                         if (w.getStruct() != null) {
                             y += w.getStruct().getBond() + 35;
                         }
@@ -87,7 +80,7 @@ public class GraphicManager {
             case IGEDConst.VETOR:
                 int y2 = YBASE;
                 for (WrapperStruct w : structs.values()) {
-                    if (w.getType() != IGEDConst.NODE && w.getType() != IGEDConst.VAZIA) {
+                    if(w.isDataStruct()){
                         if (w.getStruct() != null) {
                             y2 += w.getStruct().getBond() + 35;
                         }
@@ -293,7 +286,7 @@ public class GraphicManager {
         //Pintas as Estruturas diferentes de Nodes.
         List<WrapperStruct> nodes = new ArrayList<WrapperStruct>();
         for (WrapperStruct w : this.structs.values()) {
-            if (w.getType() != IGEDConst.NODE && w.getType()!= IGEDConst.NODE_TREE) {
+            if (w.isDataStruct()) {
                 System.out.println("Repintar: " + w.getReferencia());
                
                 /**Devido a particularidade da binarytree em crescer para baixo
@@ -400,7 +393,7 @@ public class GraphicManager {
         this.initPosition();
     }
     
-    static final int YBASE_TRABALHO = 170;
+    static final int YBASE_TRABALHO = 190;
     static final int YBASE = 200;
     static final int ESPACO_NODES = 150;
     static final int ESPACO_ESTRUTURAS = 200;
