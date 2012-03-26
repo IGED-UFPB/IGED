@@ -16,6 +16,7 @@ import iged.gerenciadorAtividade.MetadadoAtividade;
 import iged.gerenciadorAtividade.Portifolio;
 import iged.gerenciadorAtividade.PortifolioXml;
 import iged.gerenciadorAtividade.AtividadeSubjetiva;
+import iged.gerenciadorAtividade.AtividadeSubjetivaDAO;
 import iged.gerenciadorAtividade.AtividadeXml;
 import iged.gerenciadorAtividade.XmlPersistencia;
 import iged.gui.gerenciador.LeitorXmlGerenciador;
@@ -536,14 +537,16 @@ public class TelaCadastroDeTarefaInterno extends javax.swing.JInternalFrame {
             mt.setTitulo(getTituloStr());
             mt.setAutor(getAutorStr());
 
-            AtividadeSubjetiva tarefa = new AtividadeSubjetiva();
+            AtividadeSubjetivaDAO tarefa = new AtividadeSubjetivaDAO();
             tarefa.setMetadado(mt);
             tarefa.setCodInicializacao(inicializacaoStr);
             tarefa.setCodSolucao(solucaoStr);
             tarefa.setDescricao(descricaoStr);
 
+            AtividadeSubjetiva ts = new AtividadeSubjetiva();
+            ts.setDAO(tarefa);
             GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
-            gt.cadastrar(tarefa);
+            gt.cadastrar(ts);
 
             PortifolioXml.lerXml();
             AtividadeXml.lerXml(tarefa.getMetadado());
