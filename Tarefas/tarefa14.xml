@@ -1,4 +1,4 @@
-<tarefa>
+<atividade>
   <metadado>
     <area>Lista</area>
     <autor>Gilberto Farias de Sousa</autor>
@@ -44,5 +44,5 @@ END_COMMAND
 READ_REF l
 WRITE_INFO 2
 END_COMMAND</codSolucao>
-  <descricao>Dada a lista insira um valor no inicio</descricao>
-</tarefa>
+  <descricao>Insira o valor 5 no incicio da lista encadeada l.</descricao>
+</atividade>

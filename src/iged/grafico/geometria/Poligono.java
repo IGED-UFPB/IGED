@@ -20,9 +20,9 @@ public class Poligono extends PoligonoGrafico {
 
     public void evidencia(final Color cor, final float st, final Quadro quadro) {
         final Poligono p = this;
-        new Thread() {
+        //new Thread() {
 
-            public void run() {
+            //public void run() {
                 Color caux = p.getStrokeColor();
                 float staux = p.getStroke();
                 p.setStrokeColor(cor);
@@ -38,8 +38,8 @@ public class Poligono extends PoligonoGrafico {
                 p.setStroke(staux);
                 quadro.atualizar();
 
-            }
-        }.start();
+            //}
+        //}.start();
     }
 
     public void zoom(double z) {

@@ -1,52 +1,10 @@
 <portifolio>
   <tarefas>
     <metadados>
-      <area>Fila</area>
-      <autor>teste1</autor>
-      <id>6</id>
-      <titulo>teste1</titulo>
-    </metadados>
-    <metadados>
-      <area>Pilha</area>
-      <autor>teste2</autor>
-      <id>7</id>
-      <titulo>teste2</titulo>
-    </metadados>
-    <metadados>
-      <area>Lista</area>
-      <autor>asd</autor>
-      <id>8</id>
-      <titulo>dasd</titulo>
-    </metadados>
-    <metadados>
-      <area>Fila</area>
-      <autor>teste</autor>
-      <id>9</id>
-      <titulo>teste</titulo>
-    </metadados>
-    <metadados>
-      <area>Lista</area>
+      <area>Vetor</area>
       <autor>Gilberto Farias de Sousa</autor>
-      <id>10</id>
-      <titulo>Insercao de valor no inicio da lista</titulo>
-    </metadados>
-    <metadados>
-      <area>Lista</area>
-      <autor>Gilberto Farias de Sousa</autor>
-      <id>11</id>
-      <titulo>Insercao de valor no inicio da lista</titulo>
-    </metadados>
-    <metadados>
-      <area>Lista</area>
-      <autor>teste</autor>
-      <id>12</id>
-      <titulo>teste</titulo>
-    </metadados>
-    <metadados>
-      <area>Árvore</area>
-      <autor>sadass</autor>
-      <id>13</id>
-      <titulo>dasd</titulo>
+      <id>0</id>
+      <titulo>Inversão de um vetor</titulo>
     </metadados>
     <metadados>
       <area>Lista</area>

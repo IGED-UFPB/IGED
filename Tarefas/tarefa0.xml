@@ -1,10 +1,67 @@
-<iged.gerenciadorTarefa.Tarefa>
+<atividade>
   <metadado>
-    <area>Fila</area>
-    <autor>sad</autor>
-    <id>0</id>
-    <titulo>asdsd</titulo>
+    <area>Lista</area>
+    <autor>Gilberto Farias de Sousa</autor>
+    <id>14</id>
+    <titulo>Insercao de valor no inicio da lista</titulo>
   </metadado>
-  <codInicializacao>das</codInicializacao>
-  <codSolucao>sad</codSolucao>
-</iged.gerenciadorTarefa.Tarefa>
+  <descricao>Inverta o conteúdo do vetor v.</descricao>
+  <codInicializacao>CREATE_REF VECTOR v
+CREATE_STRUCT VECTOR 4
+WRITE_REF
+END_COMMAND
+READ_REF v
+SET_POS_VET 0
+WRITE_INFO 1
+END_COMMAND
+READ_REF v
+SET_POS_VET 1
+WRITE_INFO 2
+END_COMMAND
+READ_REF v
+SET_POS_VET 2
+WRITE_INFO 3
+END_COMMAND
+READ_REF v
+SET_POS_VET 3
+WRITE_INFO 4
+END_COMMAND</codInicializacao>
+  <codSolucao>CREATE_INT i
+END_COMMAND
+READ_REF v
+SET_POS_VET 0
+READ_INFO
+LOAD_INT i
+WRITE_INT 1
+END_COMMAND
+READ_REF v
+SET_POS_VET 3
+READ_INFO
+READ_REF v
+SET_POS_VET 0
+WRITE_INFO 4
+END_COMMAND
+READ_INT i
+READ_REF v
+SET_POS_VET 3
+WRITE_INFO 1
+END_COMMAND
+READ_REF v
+SET_POS_VET 1
+READ_INFO
+LOAD_INT i
+WRITE_INT 2
+END_COMMAND
+READ_REF v
+SET_POS_VET 2
+READ_INFO
+READ_REF v
+SET_POS_VET 1
+WRITE_INFO 3
+END_COMMAND
+READ_INT i
+READ_REF v
+SET_POS_VET 2
+WRITE_INFO 2
+END_COMMAND</codSolucao>
+</atividade>
