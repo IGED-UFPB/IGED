@@ -19,13 +19,29 @@ public class Quadro extends JPanel {
 
   private java.util.List<Poligono> desenhaveis = null;
   private java.util.List<Label> textos = null;
-  //static private Quadro sc = null;
 
-
-
+  private Poligono linhaNode = null;
+  private Poligono linhaStruct = null;
+  
   public Quadro(){
 	  this.desenhaveis = new LinkedList<Poligono>();
 	  this.textos = new LinkedList<Label>();
+          
+          this.initLinhas();
+  }
+  
+  private void initLinhas(){
+      this.linhaNode = new Poligono();
+      this.linhaNode.add(new Point2D.Double(10, YBASE_NODE));
+      this.linhaNode.add(new Point2D.Double(2000, YBASE_NODE));
+      this.linhaNode.setStroke((float)0.2);
+      this.desenhaveis.add(linhaNode);
+      
+      this.linhaStruct = new Poligono();
+      this.linhaStruct.add(new Point2D.Double(10, YBASE_STRUCT));
+      this.linhaStruct.add(new Point2D.Double(2000, YBASE_STRUCT));
+      this.linhaStruct.setStroke((float)0.2);
+      this.desenhaveis.add(linhaStruct);
   }
 
   /*public static Quadro getInstance(){
@@ -127,5 +143,14 @@ public class Quadro extends JPanel {
   public void limpar(){
 	  this.desenhaveis = new LinkedList<Poligono>();
 	  this.textos = new LinkedList<Label>();
+          
+          this.desenhaveis.add(linhaNode);
+          this.desenhaveis.add(linhaStruct);
   }
+  
+  static final int YBASE_TRABALHO = 190;
+  static final int YBASE = 200;
+  
+  static final int YBASE_NODE = 115;
+  static final int YBASE_STRUCT = 250;
 }

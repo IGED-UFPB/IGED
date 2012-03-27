@@ -54,9 +54,9 @@ public class GraphicManager {
         switch (type) {
             case IGEDConst.LISTA:
                 LinkedList l = new LinkedList(quadro);
-                l.setyBase(YBASE);
+                l.setyBase(Quadro.YBASE);
 
-                int y = YBASE;
+                int y = Quadro.YBASE;
                 for (WrapperStruct w : structs.values()) {
                     if (w.isDataStruct()) {
                         if (w.getStruct() != null) {
@@ -70,7 +70,7 @@ public class GraphicManager {
                 break;
             case IGEDConst.NODE:
 
-                LinkedListNode n = new LinkedListNode(new Point2D.Double(getXNodeSoltos(), YBASE_TRABALHO), quadro);
+                LinkedListNode n = new LinkedListNode(new Point2D.Double(getXNodeSoltos(), Quadro.YBASE_TRABALHO), quadro);
 
                 pilha.push(new WrapperStruct(n, IGEDConst.NODE, quadro));
                 quadro.add(n);
@@ -78,7 +78,7 @@ public class GraphicManager {
                 break;
                 
             case IGEDConst.VETOR:
-                int y2 = YBASE;
+                int y2 = Quadro.YBASE;
                 for (WrapperStruct w : structs.values()) {
                     if(w.isDataStruct()){
                         if (w.getStruct() != null) {
@@ -327,7 +327,7 @@ public class GraphicManager {
         			System.out.println("Noooode: " + count);
         			if(count > 0){
         				Semaphore sem = new Semaphore(0, true);
-        				n.adjust(new Point2D.Double(getXNodeSoltos(), YBASE_TRABALHO), sem);
+        				n.adjust(new Point2D.Double(getXNodeSoltos(), Quadro.YBASE_TRABALHO), sem);
         				try{
         					sem.acquire(count);
         				}catch(InterruptedException ie){}
@@ -393,8 +393,6 @@ public class GraphicManager {
         this.initPosition();
     }
     
-    static final int YBASE_TRABALHO = 190;
-    static final int YBASE = 200;
     static final int ESPACO_NODES = 150;
     static final int ESPACO_ESTRUTURAS = 200;
     
