@@ -10,6 +10,8 @@
  */
 package iged.gui;
 
+
+import iged.gerenciadorApresentacao.TutorialXml;
 import java.awt.FlowLayout;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -39,6 +41,7 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
     /** Creates new form TutorialFrameInterno */
     public TelaTutorialFrameInterno() {
         initComponents();
+        desenharMiniaturaTutorial();
     }
 
     /** This method is called from within the constructor to
@@ -181,8 +184,10 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(imgPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(descPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,10 +196,7 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
     
     public void abrirTocador() {
         if (ts != null) { //se aula for vazio, instanciamos o objeto
-            JInternalFrame toc = new TelaTocadorInterno();
-            //GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-            //gd.setFullScreenWindow(ts);
-            toc.setVisible(true); //mostrar a tela aula
+            TelaPrincipal.botaoAbrirTocador();
         } else {
             System.out.println("erro!");
             ts.setVisible(true);
@@ -217,20 +219,16 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
     static LinkedList<String> selecionado = new LinkedList<String>();
     static File novoRaiz;
     static String nome;
-
-    public static void listarTodosTutoriais() {
-        File raiz = new File("C:\\Tutoriais");
-        lerDiretorio(raiz);
-    }
-
+    File raiz = new File("./Tutoriais");
     
-    public static LinkedList lerDiretorio(File raiz) {
+    public LinkedList lerDiretorio(File raiz) {
 
         String item = raiz.getName();
         System.out.println(item);
 
         for (File f : raiz.listFiles()) {
             if (f.isDirectory()) {
+                String nome = f.getName();
                 novoRaiz = f.getAbsoluteFile();
                 System.out.println("\t" + novoRaiz);
                 for (File f1 : novoRaiz.listFiles()) {
@@ -246,7 +244,7 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
 
     public void desenharMiniaturaTutorial() {
         String dirArquivo;
-        listarTodosTutoriais();
+        lerDiretorio(raiz);
         for (int i = 0; i < itens.size(); i++) {
             dirArquivo = itens.get(i).toString();
             selecionado.add(dirArquivo);
@@ -263,6 +261,7 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
             imgPanel.add(new JLabel(newIcon));
             imgPanel.repaint();
         }
+        
     }
 
 
@@ -296,7 +295,7 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
         }
         return lista;
     }
-    LeitorXML l = new LeitorXML();
+    
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -315,12 +314,12 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
 public void exibirDados() {
-        l.lerXML();
-        conteudoTitulo.setText(l.infoTitulo());
-        conteudoAutor.setText(l.infoAutor());
-        conteudoAno.setText(l.infoAno());
-        conteudoDescricao.setText(l.infoDescricao());
-        conteudoArea.setText(l.infoArea());
+
+        conteudoTitulo.setText(TutorialXml.lerXml().getTitulo());
+        conteudoAutor.setText(TutorialXml.lerXml().getAutor());
+        conteudoAno.setText(TutorialXml.lerXml().getAno());
+        conteudoDescricao.setText(TutorialXml.lerXml().getDescricao());
+        conteudoArea.setText(TutorialXml.lerXml().getArea());
         desenharMiniaturaTutorial();
     }
 

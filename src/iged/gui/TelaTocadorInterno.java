@@ -10,15 +10,32 @@
  */
 package iged.gui;
 
+import java.awt.FlowLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Dorgi
  */
 public class TelaTocadorInterno extends javax.swing.JInternalFrame {
+    int cont = 0;
+    static File novoRaiz;
+    static ArrayList<File> itens = new ArrayList<File>();
+    private static final File raiz = new File("./Tutoriais");
 
     /** Creates new form TocadorInterno */
     public TelaTocadorInterno() {
         initComponents();
+        lerDiretorio(raiz);
     }
 
     /** This method is called from within the constructor to
@@ -37,8 +54,18 @@ public class TelaTocadorInterno extends javax.swing.JInternalFrame {
         setTitle("Exibidor de Apresentação");
 
         ant.setText("Anterior");
+        ant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                antActionPerformed(evt);
+            }
+        });
 
         prox.setText("Próximo");
+        prox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proxActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -58,16 +85,15 @@ public class TelaTocadorInterno extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(ant)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(prox))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(70, 70, 70)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(74, 74, 74))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(368, 368, 368)
+                .addComponent(ant)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(prox)
+                .addContainerGap(345, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,12 +104,81 @@ public class TelaTocadorInterno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ant)
                     .addComponent(prox))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void antActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antActionPerformed
+        try {
+            cont--;
+            desenharProx();
+        } catch (IOException ex) {
+            Logger.getLogger(TelaTocadorInterno.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+    }//GEN-LAST:event_antActionPerformed
+
+    private void proxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proxActionPerformed
+        try {
+            desenharProx();
+            cont++;
+        } catch (IOException ex) {
+            Logger.getLogger(TelaTocadorInterno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_proxActionPerformed
+
+    public ArrayList<File> getItens() {
+        return itens;
+    }
+
+    public int getCont() {
+        return cont;
+    }
+
+    public void desenharProx() throws IOException {
+        File fileImg1;
+        BufferedImage img1 = null;
+        for (int k = getCont(); k < getItens().size(); k++) {
+            jPanel1.removeAll();
+            jPanel1.revalidate();
+            if (getItens().get(k).toString().contains("F:\\Documentos\\NetBeansProjects\\IGED\\.\\Tutoriais\\cont")) {
+                fileImg1 = new File(getItens().get(k).getAbsolutePath());
+                img1 = ImageIO.read(fileImg1);
+                ImageIcon icone = new ImageIcon(img1);
+                Image newimg = icone.getImage().getScaledInstance(800, 600, Image.SCALE_SMOOTH);
+                ImageIcon newIcon = new ImageIcon(newimg);
+                JLabel label1 = new JLabel(newIcon);
+                jPanel1.add(label1);
+                jPanel1.setLayout(new FlowLayout(FlowLayout.CENTER));
+            }
+            break;
+        }
+    }
+
+    public static ArrayList lerDiretorio(File raiz) {
+
+        String item = raiz.getName();
+        System.out.println(item);
+
+        for (File f : raiz.listFiles()) {
+            if (f.isDirectory()) {
+                novoRaiz = f.getAbsoluteFile();
+                System.out.println("\t" + novoRaiz);
+                for (File f1 : novoRaiz.listFiles()) {
+                    if (f1.isFile() && f1.getName().contains("Slide")) {
+                        itens.add(f1);
+                        System.out.println(f1.getName());
+                    }
+                }
+
+            }
+
+        }
+        return itens;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ant;
     private javax.swing.JPanel jPanel1;

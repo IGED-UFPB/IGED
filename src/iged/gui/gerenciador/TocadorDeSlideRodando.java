@@ -17,6 +17,7 @@ import java.awt.FlowLayout;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -25,6 +26,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -44,6 +46,7 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
 
         initComponents();
         desenhar();
+        lerDiretorio(raiz);
         arquivos = new LinkedList<File>();
         indexPicture = 1;
 
@@ -60,19 +63,16 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
         jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+                jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 400, Short.MAX_VALUE));
         jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+                jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 300, Short.MAX_VALUE));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 0));
 
         anterior.setText("<<");
         anterior.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 anteriorActionPerformed(evt);
             }
@@ -80,6 +80,7 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
 
         proximo.setText(">>");
         proximo.addActionListener(new java.awt.event.ActionListener() {
+
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proximoActionPerformed(evt);
             }
@@ -94,46 +95,16 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 584, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 584, Short.MAX_VALUE));
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 352, Short.MAX_VALUE)
-        );
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 352, Short.MAX_VALUE));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(246, 246, 246)
-                .addComponent(anterior)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
-                .addComponent(proximo)
-                .addGap(280, 280, 280))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addGap(246, 246, 246).addComponent(anterior).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE).addComponent(proximo).addGap(280, 280, 280)).addGroup(layout.createSequentialGroup().addContainerGap().addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap()).addGroup(layout.createSequentialGroup().addGap(136, 136, 136).addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap(150, Short.MAX_VALUE)));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(167, 167, 167)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(proximo)
-                    .addComponent(anterior))
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addGap(110, 110, 110).addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(167, 167, 167).addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(20, 20, 20).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(proximo).addComponent(anterior)).addContainerGap()));
 
         pack();
     }
@@ -229,6 +200,7 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
      **/
+    private static final File raiz = new File("./Tutoriais");
     protected static ArrayList<File> itens = new ArrayList<File>();
     static String imagemArray;
     static ArrayList<String> selecionado = new ArrayList<String>();
@@ -240,12 +212,7 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
         return itens;
     }
 
-    public static void listarTodosTutoriais() {
-        File raiz = new File("C:\\Tutoriais");
-        lerDiretorio(raiz);
-    }
-
-    public static void lerDiretorio(File raiz) {
+    public static ArrayList lerDiretorio(File raiz) {
 
         String item = raiz.getName();
         System.out.println(item);
@@ -255,7 +222,7 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
                 novoRaiz = f.getAbsoluteFile();
                 System.out.println("\t" + novoRaiz);
                 for (File f1 : novoRaiz.listFiles()) {
-                    if (f1.isFile()) {
+                    if (f1.isFile() && f1.getName().contains("Slide")) {
                         itens.add(f1);
                         System.out.println(f1.getName());
                     }
@@ -264,67 +231,72 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
             }
 
         }
+        return itens;
     }
 
-    public void desenhar(){
-            setVisible(true);  
-  
-             ImageIcon icone = new ImageIcon("C:\\Tutoriais\\teste1\\Slide0.jpg");  
-             JLabel L1 = new JLabel(icone);  
-             jPanel1.add(L1);
-             getContentPane().setLayout(new FlowLayout());  
-             getContentPane().add(L1);  
+    /*
+    public void reproduzir() throws IOException {
+        String arqSelecionado = null;
+        for (int i = 0; i < lerDiretorio(raiz).size(); i++) {
+            arqSelecionado = lerDiretorio(raiz).get(i).toString();
+            BufferedImage imagem = ImageIO.read(new File(arqSelecionado));
+            System.out.println(arqSelecionado);
+        }
+    }
+    Portifolio pf = PortifolioXml.lerXml();
+    String id;
+    
+    for (MetadadoAtividade mt
+
+    : pf.getTarefas () 
+        ) {
+            id = String.valueOf(mt.getId());
+        dados.add(new String[]{mt.getTitulo(), mt.getArea(), id});
+        System.out.println("Encontrado área:" + mt.getArea());
+    }
+
+    jTable1.setModel (modelo);
+
+    jTable1.setSelectionMode (ListSelectionModel.SINGLE_SELECTION);
+
+    /*
+    ImageIO.write(imagem, "JPG", new File("./Tutoriais/" + getTituloStr() + "\\" + nome));
+    System.out.println(nome);
+    if (nome.equals("Slide1.JPG")) {
+    ImageIcon icone = new ImageIcon("./Tutoriais/" + getTituloStr() + "\\" + nome);
+    Image newimg = icone.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+    ImageIcon newIcon = new ImageIcon(newimg);
+    JLabel L1 = new JLabel(newIcon);
+    imagemPanel.add(L1);
+    imagemPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+    setVisible(true);
+    imagemPanel.repaint();
     }
     
-    public void pintar() {
-        //panelImg.removeAll();
-        for (int i = 0; i < itens.size(); i++) {
-            jPanel1.removeAll();
-            imagemArray = itens.get(i).getAbsolutePath();
-            ImageIcon img = new ImageIcon(imagemArray);
-            Image newimg = img.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-            ImageIcon newIcon = new ImageIcon(newimg);
-            String nomeArquivo = imagemArray;
-            System.out.println(nomeArquivo);
-            jPanel1.add(new JLabel(newIcon));
-            jPanel1.repaint();
-
-            //adiciona o panel no container
-            this.add(jPanel1, BorderLayout.CENTER);
-            jPanel1.repaint();
-            this.pack();
-        }
+    for (int i = 0; i < itens.size(); i++) {
+    imagemArray = itens.get(i).getAbsolutePath();
+    System.out.println(imagemArray);
+    selecionado.add(imagemArray);
+    //labelImg.removeAll();
     }
-
-    public static void listarArray() {
-
-        for (int i = 0; i < itens.size(); i++) {
-            imagemArray = itens.get(i).getAbsolutePath();
-            System.out.println(imagemArray);
-            selecionado.add(imagemArray);
-            //labelImg.removeAll();
-        }
     }
-
-    public void exibir() {
-        
-        //for (int i = 0; i < selecionado.size(); i++) {
-            //ImageIcon imagem = new ImageIcon(selecionado.get(i));
-            ImageIcon imagem = new ImageIcon("C:\\Tutoriais\\tetsnatl\\Slide0.jpg");
-            System.out.println(imagem);
-            Image newimg = imagem.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+     */
+    public void desenhar() {
+        setVisible(true);
+        for (int i = 0; i < getItens().size(); i++) {
+            ImageIcon icone = new ImageIcon(getItens().get(i).getAbsolutePath());
+            Image newimg = icone.getImage().getScaledInstance(800, 600, Image.SCALE_SMOOTH);
             ImageIcon newIcon = new ImageIcon(newimg);
-            jPanel1.add(new JLabel(newIcon));
-            jPanel1.repaint();
-            jFrame1.pack();
-            
-        //}*/
+            JLabel L1 = new JLabel(newIcon);
+            jPanel1.add(L1);
+            jPanel1.setLayout(new FlowLayout(FlowLayout.CENTER));
+        }
     }
 
     private void proximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoActionPerformed
         System.out.println("proximo...");
         //proximo();
-        exibir();
+
         //pintar();
 
     }//GEN-LAST:event_proximoActionPerformed
@@ -336,8 +308,7 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
     }//GEN-LAST:event_anteriorActionPerformed
 
     public void proximo() {
-        listarTodosTutoriais();
-        listarArray();
+        lerDiretorio(raiz);
         //indexPicture++;
         //} catch (IOException ex) {
         //  Logger.getLogger(TocadorDeSlideRodando.class.getName()).log(Level.SEVERE, null, ex);
@@ -345,8 +316,7 @@ public class TocadorDeSlideRodando extends javax.swing.JFrame {
     }
 
     public void anterior() {
-        listarTodosTutoriais();
-        listarArray();
+        lerDiretorio(raiz);
         //} catch (IOException ex) {
         //  Logger.getLogger(TocadorDeSlideRodando.class.getName()).log(Level.SEVERE, null, ex);
         //}

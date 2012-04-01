@@ -11,6 +11,9 @@
 package iged.gui;
 
 import iged.Interpretador;
+import iged.gerenciadorApresentacao.CampoInvalidoException;
+import iged.gerenciadorApresentacao.CampoObrigatorioException;
+import iged.gerenciadorApresentacao.DiretorioExistenteException;
 import iged.gerenciadorAtividade.GerenciadorAtividade;
 import iged.gerenciadorAtividade.MetadadoAtividade;
 import iged.gerenciadorAtividade.Portifolio;
