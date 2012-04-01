@@ -4,6 +4,7 @@ import iged.grafico.geometria.Retangulo;
 import iged.grafico.geometria.Label;
 import iged.grafico.manager.Quadro;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.geom.Point2D;
 
 public class Celula extends Elemento{
@@ -24,6 +25,7 @@ public class Celula extends Elemento{
 
 		Point2D pi = new Point2D.Double(p.getX() + LARGURA/2 - 5, p.getY() + LARGURA + 20);
 		this.indice = new Label(String.valueOf(id), pi);
+                this.indice.setFont(new Font("Serif", Font.PLAIN, 12));
 
 		this.textos.add(this.indice);
 	}
