@@ -1,8 +1,8 @@
-import iged.IGEDConst;
-import iged.Interpretador;
-import iged.grafico.manager.AcaoUsuario;
-import iged.grafico.manager.PaintUI;
-import iged.grafico.manager.Quadro;
+import br.ufpb.iged.IGEDConst;
+import br.ufpb.iged.Interpretador;
+import br.ufpb.iged.grafico.manager.AcaoUsuario;
+import br.ufpb.iged.grafico.manager.PaintUI;
+import br.ufpb.iged.grafico.manager.Quadro;
 import java.util.StringTokenizer;
 
 public class IGED implements AcaoUsuario{
