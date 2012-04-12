@@ -42,7 +42,7 @@
                   <Component id="imgPanel" alignment="0" min="-2" max="-2" attributes="1"/>
                   <Component id="descPanel" alignment="0" min="-2" max="-2" attributes="1"/>
               </Group>
-              <EmptySpace pref="307" max="32767" attributes="0"/>
+              <EmptySpace pref="311" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

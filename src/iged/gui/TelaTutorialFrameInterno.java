@@ -232,7 +232,7 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
                 novoRaiz = f.getAbsoluteFile();
                 System.out.println("\t" + novoRaiz);
                 for (File f1 : novoRaiz.listFiles()) {
-                    if ((f1.isFile()) && (f1.getName().contains("Slide0"))) {
+                    if ((f1.isFile()) && (f1.getName().contains("Slide1"))) {
                         itens.add(f1);
                         System.out.println(f1.getName());
                     }
