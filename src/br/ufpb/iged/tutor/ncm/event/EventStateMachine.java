@@ -6,47 +6,47 @@ package br.ufpb.iged.tutor.ncm.event;
  * @author GILBERTO FARIAS
  */
 public class EventStateMachine {
-    private Event event = null;
+    private EntityEvent event = null;
 
-    public EventStateMachine(Event e){
+    public EventStateMachine(EntityEvent e){
         this.event = e;
     }
     
-    Event getEvent() {
+    EntityEvent getEvent() {
         return event;
     }
 
-    public void setEvent(Event event) {
+    public void setEvent(EntityEvent event) {
         this.event = event;
     }
     
     public void transitionStarts(){
-        if(this.event.getStaus() != Event.OCCURING){
-            this.event.setStaus(Event.OCCURING);
+        if(this.event.getStaus() != EntityEvent.OCCURING){
+            this.event.setStaus(EntityEvent.OCCURING);
         }
     }
     
     public void transitionResumes(){
-        if(this.event.getStaus() == Event.PAUSED){
-            this.event.setStaus(Event.OCCURING);
+        if(this.event.getStaus() == EntityEvent.PAUSED){
+            this.event.setStaus(EntityEvent.OCCURING);
         }
     }
     
     public void transitionPauses(){
-        if(this.event.getStaus() == Event.OCCURING){
-            this.event.setStaus(Event.PAUSED);
+        if(this.event.getStaus() == EntityEvent.OCCURING){
+            this.event.setStaus(EntityEvent.PAUSED);
         }
     }
     
     public void transitionStops(){
-        if(this.event.getStaus() != Event.SLEEPING){
-            this.event.setStaus(Event.SLEEPING);
+        if(this.event.getStaus() != EntityEvent.SLEEPING){
+            this.event.setStaus(EntityEvent.SLEEPING);
         }
     }
     
     public void transitionAborts(){
-        if(this.event.getStaus() != Event.SLEEPING){
-            this.event.setStaus(Event.SLEEPING);
+        if(this.event.getStaus() != EntityEvent.SLEEPING){
+            this.event.setStaus(EntityEvent.SLEEPING);
         }
     }
 }

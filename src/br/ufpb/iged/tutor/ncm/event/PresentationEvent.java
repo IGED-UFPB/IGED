@@ -8,7 +8,7 @@ import br.ufpb.iged.tutor.ncm.entity.ContentNode;
  *
  * @author GILBERTO FARIAS
  */
-public class PresentationEvent extends Event{
+public class PresentationEvent extends EntityEvent{
     private ContentNode source = null;
     private Anchor contentAnchor = null;
     

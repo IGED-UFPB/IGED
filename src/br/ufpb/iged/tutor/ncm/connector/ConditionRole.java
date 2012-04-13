@@ -18,7 +18,7 @@ public class ConditionRole extends Role{
         return condition;
     }
 
-    void setCondition(Condition condition) {
+    public void setCondition(Condition condition) {
         this.condition = condition;
     }
 

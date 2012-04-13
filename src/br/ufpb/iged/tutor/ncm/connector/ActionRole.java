@@ -12,7 +12,7 @@ public class ActionRole extends Role{
         return action;
     }
 
-    void setAction(Action action) {
+    public void setAction(Action action) {
         this.action = action;
     }
 }

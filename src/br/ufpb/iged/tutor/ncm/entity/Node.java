@@ -8,9 +8,12 @@ import java.util.Map;
 /**
  *
  * @author GILBERTO FARIAS
+ * 
+ * Representa todos os nós do NCM, implementando o padrão Observer
+ * para enviar os eventos ocorridos no Nó. 
  */
 public abstract class Node extends Entity{
-    Map<String, Anchor> anchors;
+    private Map<String, Anchor> anchors;
     
     Node(){
         this.anchors = new HashMap<String, Anchor>();

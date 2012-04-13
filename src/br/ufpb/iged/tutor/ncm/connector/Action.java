@@ -12,7 +12,7 @@ public class Action {
         return actionType;
     }
 
-    void setActionType(String actionType) {
+    public void setActionType(String actionType) {
         this.actionType = actionType;
     }
     

@@ -1,14 +1,27 @@
 
 package br.ufpb.iged.tutor.ncm.entity;
 
+import br.ufpb.iged.tutor.ncm.event.EntityEvent;
+import br.ufpb.iged.tutor.ncm.event.EntityListener;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author GILBERTO FARIAS
+ * Representa todas as entidades do NCM, implementando o padrão Observer
+ * para enviar os eventos ocorridos nas entidades.
  */
 public abstract class Entity {
     private String id;
     private String name;
     private String description;
+    
+    private List<EntityListener> listeners = null;
+    
+    Entity(){
+        this.listeners = new LinkedList<EntityListener>();
+    }
 
     public String getDescription() {
         return description;
@@ -32,5 +45,24 @@ public abstract class Entity {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public void add(EntityListener nl){
+        this.listeners.add(nl);
+    }
+    
+    public void remove(EntityListener nl){
+        this.listeners.remove(nl);
+    }
+    
+    void receiveEventStateTransition(final EntityEvent ne){
+        for(final EntityListener nl : this.listeners){
+            new Thread(){
+                @Override
+                public void run(){
+                    nl.stateTransition(ne);
+                }
+            }.start();
+        }
     }
 }

@@ -11,11 +11,20 @@ import java.util.Map;
  * @author GILBERTO FARIAS
  */
 public class HypermediaConnector {
+    private String id;
     private Map<String, Role> roles;
     private Glue glue;
     
     HypermediaConnector(){
         this.roles = new HashMap<String, Role>();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
     public void add(Role r){
@@ -28,6 +37,10 @@ public class HypermediaConnector {
 
     public Collection<Role> getRoles() {
         return roles.values();
+    }
+    
+    public Role getRole(String role) {
+        return roles.get(role);
     }
 
     public Glue getGlue() {

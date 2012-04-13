@@ -5,7 +5,7 @@ package br.ufpb.iged.tutor.ncm.connector;
  *
  * @author GILBERTO FARIAS
  */
-public class SimpleActionExpression{
+public class SimpleActionExpression extends ActionExpression{
     private String actionRole = null;
 
     public String getActionRole() {

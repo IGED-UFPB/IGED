@@ -12,7 +12,7 @@ import java.util.Map;
 public class ContextNode extends CompositeNode{
     private Map<String, Link> links;
     
-    ContextNode(){
+    public ContextNode(){
         this.links = new HashMap<String, Link>();
     }
     

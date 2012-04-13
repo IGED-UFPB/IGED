@@ -1,31 +1,28 @@
 
 package br.ufpb.iged.tutor.ncm.connector;
 
-import br.ufpb.iged.tutor.ncm.entity.Interface;
-import br.ufpb.iged.tutor.ncm.entity.Node;
-
 /**
  *
  * @author GILBERTO FARIAS
  */
 public class Bind {
     private String role = null;
-    private Node component = null;
-    private Interface inter = null;
+    private String component = null;
+    private String inter = null;
 
-    public Node getComponent() {
+    public String getComponent() {
         return component;
     }
 
-    void setComponent(Node component) {
+    public void setComponent(String component) {
         this.component = component;
     }
-    
-    public Interface getInter() {
+
+    public String getInterface() {
         return inter;
     }
 
-    public void setInter(Interface inter) {
+    public void setInterface(String inter) {
         this.inter = inter;
     }
 
