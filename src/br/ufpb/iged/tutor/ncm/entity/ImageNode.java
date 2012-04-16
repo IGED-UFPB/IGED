@@ -9,5 +9,10 @@ package br.ufpb.iged.tutor.ncm.entity;
  * @author GILBERTO FARIAS
  */
 public class ImageNode extends ContentNode{
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }

@@ -25,6 +25,7 @@ public class NCMFormatter {
     public void play(){
         while(!this.stackContext.empty()){
             ContextNode cn = this.stackContext.peek();
+            
             for(Node n : cn.getNodes()){
                 
             }

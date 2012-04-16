@@ -1,19 +1,22 @@
 
 package br.ufpb.iged.tutor.ncm.event;
 
+import br.ufpb.iged.tutor.ncm.entity.CompositeNode;
+
 /**
  *
  * @author GILBERTO FARIAS
  */
 public class CompositionEvent extends EntityEvent{
-    private CompositionEvent source = null;
+    private CompositeNode source = null;
 
-    @Override
-    public CompositionEvent getSource() {
+    public CompositeNode getSource() {
         return source;
     }
 
-    void setSource(CompositionEvent source) {
+    public void setSource(CompositeNode source) {
         this.source = source;
     }
+
+   
 }

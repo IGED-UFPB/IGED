@@ -1,6 +1,8 @@
 
 package br.ufpb.iged.tutor.ncm.event;
 
+import br.ufpb.iged.tutor.ncm.entity.Entity;
+
 /**
  *
  * @author GILBERTO FARIAS
@@ -26,7 +28,7 @@ public abstract class EntityEvent {
         this.staus = staus;
     }
     
-    public abstract Object getSource();
+    public abstract Entity getSource();
     
     
     public static final int SLEEPING = 0;

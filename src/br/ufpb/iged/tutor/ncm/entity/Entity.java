@@ -3,6 +3,7 @@ package br.ufpb.iged.tutor.ncm.entity;
 
 import br.ufpb.iged.tutor.ncm.event.EntityEvent;
 import br.ufpb.iged.tutor.ncm.event.EntityListener;
+import br.ufpb.iged.tutor.ncm.event.EventStateMachine;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -47,15 +48,16 @@ public abstract class Entity {
         this.name = name;
     }
     
-    public void add(EntityListener nl){
-        this.listeners.add(nl);
+        
+    public void addListener(EntityListener el){
+        this.listeners.add(el);
     }
     
-    public void remove(EntityListener nl){
-        this.listeners.remove(nl);
+    public void removeListener(EntityListener el){
+        this.listeners.remove(el);
     }
     
-    void receiveEventStateTransition(final EntityEvent ne){
+    public void receiveEventStateTransition(final EntityEvent ne){
         for(final EntityListener nl : this.listeners){
             new Thread(){
                 @Override

@@ -1,6 +1,8 @@
 
 package br.ufpb.iged.tutor.ncm.entity;
 
+import br.ufpb.iged.tutor.ncm.event.EventStateMachine;
+import br.ufpb.iged.tutor.ncm.event.PresentationEvent;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,10 +16,16 @@ import java.util.Map;
  */
 public abstract class Node extends Entity{
     private Map<String, Anchor> anchors;
+    protected EventStateMachine presetationMachine = null;
     
     Node(){
-        this.anchors = new HashMap<String, Anchor>();
+        this.anchors = new HashMap<String, Anchor>(); 
+        PresentationEvent pe = new PresentationEvent();
+        this.presetationMachine = new EventStateMachine(pe);
     }
+    
+    public abstract void execute(String interfaceID);
+    public abstract void finish();
     
     public void add(Anchor a){
         this.anchors.put(a.getId(), a);
@@ -33,6 +41,10 @@ public abstract class Node extends Entity{
     
     public Collection<Anchor> getAnchors() {
         return anchors.values();
+    }
+    
+    public int getState(){
+        return this.presetationMachine.getStatus();
     }
     
 }
