@@ -1,17 +1,16 @@
-
 package br.ufpb.iged.tutor.ncm;
 
-import br.ufpb.iged.tutor.ncm.connector.*;
 import br.ufpb.iged.tutor.ncm.entity.*;
+import br.ufpb.iged.tutor.ncm.connector.*;
 import java.awt.geom.Point2D;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
 /**
- *
- * @author GILBERTO FARIAS
- */
+*
+* @author GILBERTO FARIAS
+*/
 public class NCMFormatter {
     private ContextNode main = null;
     private Map<String, HypermediaConnector> connectors = null;
