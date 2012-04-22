@@ -41,20 +41,36 @@ public class NCMReadXMLTest {
 
             System.out.println("CausalConnector id: " + id.getNodeValue());
 
+            //DADOS CONDITION ROLE
             NodeList conditionRole = causalConnector.getElementsByTagName("conditionRole");
 
-            Element conditionRoleElemento = (Element) conditionRole.item(0);
-            
-            System.out.println(conditionRoleElemento.getAttribute("id"));
-            System.out.println(conditionRoleElemento.getAttribute("eventType"));
+            Element conditionRoleElement = (Element) conditionRole.item(0);
 
+            System.out.println(conditionRoleElement.getAttribute("id"));
+            System.out.println(conditionRoleElement.getAttribute("eventType"));
 
+            Element eventState = (Element) conditionRoleElement.getElementsByTagName("eventStateTransitionCondition").item(0);
+            System.out.println(eventState.getAttribute("transition"));
+
+            //DADOS ACTION ROLE
             NodeList actionRole = causalConnector.getElementsByTagName("actionRole");
+            Element actionRoleElement = (Element) actionRole.item(0);
+            Element presentationAction = (Element) actionRoleElement.getElementsByTagName("presentationAction").item(0);
+           
+            System.out.println(actionRoleElement.getAttribute("id"));
+            System.out.println(actionRoleElement.getAttribute("eventType"));
 
-            NodeList causalRole = causalConnector.getElementsByTagName("causalRole");
+            System.out.println(presentationAction.getAttribute("actionType"));
 
+            //DADOS CAUSAL ROLE
+            NodeList causalRole = causalConnector.getElementsByTagName("causalGlue");
+            Element causalRoleElement = (Element) causalRole.item(0);
+            
+            Element simpleTriggerExpression = (Element) causalRoleElement.getElementsByTagName("simpleTriggerExpression").item(0);
+            System.out.println(simpleTriggerExpression.getAttribute("conditionRole"));
 
-
+            Element simpleActionExpression = (Element) causalRoleElement.getElementsByTagName("simpleActionExpression").item(0);
+            System.out.println(simpleActionExpression.getAttribute("actionRole"));
 
 
 
