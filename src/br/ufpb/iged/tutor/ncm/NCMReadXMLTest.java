@@ -80,53 +80,112 @@ public class NCMReadXMLTest {
 
         Element bodyElement = (Element) listaBody.item(0);
 
-        //PORT 1
-        Element listPort = (Element) bodyElement.getElementsByTagName("port").item(0);
+        //PORT IN BODY
+        Element portElement = (Element) bodyElement.getElementsByTagName("port").item(0);
 
-        System.out.println(listPort.getAttribute("id"));
-        System.out.println(listPort.getAttribute("component"));
-        System.out.println(listPort.getAttribute("interface"));
-        
-        //CONTEXT 
-        
+        System.out.println(portElement.getAttribute("id"));
+        System.out.println(portElement.getAttribute("component"));
+        System.out.println(portElement.getAttribute("interface"));
+
+        //CONTEXT IN BODY
+
         NodeList listCotext = bodyElement.getElementsByTagName("context");
-        Element contextElement = (Element)listCotext.item(0);
+        Element contextElement = (Element) listCotext.item(0);
         System.out.println(contextElement.getAttribute("id"));
-        
-        NodeList listTrail =  contextElement.getElementsByTagName("trail");
-        
-        Element trailElement = (Element)listTrail.item(0);
-        
-        NodeList mediaElement = trailElement.getElementsByTagName("media");
-        System.out.println(mediaElement.getLength());
-        
+
+        //PORT IN CONTEXT
+        Element portElement2 = (Element) contextElement.getElementsByTagName("port").item(0);
+        System.out.println(portElement2.getAttribute("id"));
+        System.out.println(portElement2.getAttribute("component"));
+        System.out.println(portElement2.getAttribute("interface"));
+
+        //TRAIL IN CONTEXT
+        NodeList listTrail = contextElement.getElementsByTagName("trail");
+        Element trailElement = (Element) listTrail.item(0);
+        System.out.println(trailElement.getAttribute("id"));
 
 
+        //PORT IN TRAIL
+        Element portElement3 = (Element) trailElement.getElementsByTagName("port").item(0);
+        System.out.println(portElement3.getAttribute("id"));
+        System.out.println(portElement3.getAttribute("component"));
+        System.out.println(portElement3.getAttribute("interface"));
+
+        //MEDIA IN TRAIL
+        NodeList mediaElements = trailElement.getElementsByTagName("media");
+
+        for (int i = 0; i < mediaElements.getLength(); i++) {
+
+            Element mediaElement = (Element) mediaElements.item(i);
+
+            System.out.println(mediaElement.getAttribute("type"));
+            System.out.println(mediaElement.getAttribute("id"));
+            System.out.println(mediaElement.getAttribute("src"));
+
+            NodeList listArea = mediaElement.getElementsByTagName("area");
+
+            if (listArea.getLength() > 1) {
+                for (int j = 0; j < listArea.getLength(); j++) {
+                    Element areaElement = (Element) listArea.item(i);
+                    System.out.println(areaElement.getAttribute("id"));
+                    System.out.println(areaElement.getAttribute("x"));
+                    System.out.println(areaElement.getAttribute("y"));
+
+                }
+
+            }
+            if (listArea.getLength() == 1) {
+
+                Element areaElement = (Element) listArea.item(0);
+                System.out.println(areaElement.getAttribute("id"));
+                System.out.println(areaElement.getAttribute("x"));
+                System.out.println(areaElement.getAttribute("y"));
+            }
+        }
+
+        //MEDIA IN CONTEXT DISCUTIR COM O PROFESSOR
+
+        NodeList listLink = contextElement.getElementsByTagName("link");
+
+        for (int i = 0; i < listCotext.getLength(); i++) {
+
+            Element linkElement = (Element) listCotext.item(i);
+            System.out.println(linkElement.getAttribute("id"));
+            System.out.println(linkElement.getAttribute("xconnector"));
+
+            NodeList listBind = linkElement.getElementsByTagName("bind");
+            for (int j = 0; j < listBind.getLength(); j++) {
+                Element bindElement = (Element) listBind.item(j);
+                System.out.println(bindElement.getAttribute("component"));
+                System.out.println(bindElement.getAttribute("interface"));
+                System.out.println(bindElement.getAttribute("role"));
+            }
+        }
     }
-    /*
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();	
-    DocumentBuilder builder = factory.newDocumentBuilder(); 
-
-    Document doc = builder.newDocument();	
-    // Cria o elemento Root pessoa	
-    Element root = doc.createElement("pessoa");	
-    // Cria o elemento nome	
-    Element item = doc.createElement("nome");	
-    item.appendChild(doc.createTextNode("fulado de tal"));	
-    root.appendChild(item);	
-    item = doc.createElement("nascimento");	
-    item.appendChild(doc.createTextNode("22-07-1983"));	
-    root.appendChild(item); 
-    item = doc.createElement("idade");	
-    item.appendChild(doc.createTextNode("28"));	
-    root.appendChild(item);	
-    doc.appendChild(root);	
-    Transformer trans = 
-    TransformerFactory.newInstance().newTransformer();	
-    trans.setOutputProperty(OutputKeys.STANDALONE,"yes");	
-    trans.setOutputProperty(OutputKeys.ENCODING,"ISO-8859-1");	
-    trans.setOutputProperty(OutputKeys.INDENT,"yes");	
-    trans.transform(new javax.xml.transform.dom.DOMSource(doc), 
-    new StreamResult(System.out)); 
-     */
 }
+/*
+DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();	
+DocumentBuilder builder = factory.newDocumentBuilder(); 
+
+Document doc = builder.newDocument();	
+// Cria o elemento Root pessoa	
+Element root = doc.createElement("pessoa");	
+// Cria o elemento nome	
+Element item = doc.createElement("nome");	
+item.appendChild(doc.createTextNode("fulado de tal"));	
+root.appendChild(item);	
+item = doc.createElement("nascimento");	
+item.appendChild(doc.createTextNode("22-07-1983"));	
+root.appendChild(item); 
+item = doc.createElement("idade");	
+item.appendChild(doc.createTextNode("28"));	
+root.appendChild(item);	
+doc.appendChild(root);	
+Transformer trans = 
+TransformerFactory.newInstance().newTransformer();	
+trans.setOutputProperty(OutputKeys.STANDALONE,"yes");	
+trans.setOutputProperty(OutputKeys.ENCODING,"ISO-8859-1");	
+trans.setOutputProperty(OutputKeys.INDENT,"yes");	
+trans.transform(new javax.xml.transform.dom.DOMSource(doc), 
+new StreamResult(System.out)); 
+ */
