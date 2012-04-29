@@ -3,9 +3,15 @@ package br.ufpb.iged.tutor.ncm;
 import br.ufpb.iged.tutor.ncm.entity.*;
 import br.ufpb.iged.tutor.ncm.connector.*;
 import java.awt.geom.Point2D;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 /**
 *
@@ -15,6 +21,19 @@ public class NCMFormatter {
     private ContextNode main = null;
     private Map<String, HypermediaConnector> connectors = null;
     private Stack<ContextNode> stackContext = null;
+    private DocumentBuilderFactory dbf;
+    private DocumentBuilder db;
+    private Document doc;
+    
+    NCMFormatter(String pathXml) throws ParserConfigurationException, SAXException, IOException{
+        
+        dbf = DocumentBuilderFactory.newInstance();
+        db = dbf.newDocumentBuilder();
+        doc = db.parse(pathXml);
+        
+        this.connectors = new HashMap<String, HypermediaConnector>();
+        this.stackContext = new Stack<ContextNode>();
+    }
     
     NCMFormatter(){
         this.connectors = new HashMap<String, HypermediaConnector>();
@@ -31,11 +50,18 @@ public class NCMFormatter {
         }
     }
     
+    //esse método irá preencher os dados do arquivo xml para os objetos
+    public void fillXMLToObject(){
+    }
+    
     private void simulateConnector(){
+        
         HypermediaConnector hc = new CausalConnector();
+        ConditionRole cr = new ConditionRole();
+
+        
         hc.setId("onSelection1Start1");
         
-        ConditionRole cr = new ConditionRole();
         cr.setId("onSelection");
         cr.setEventType("selection");
         EventStateTransitionCondition c = new EventStateTransitionCondition();
