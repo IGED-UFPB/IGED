@@ -1,8 +1,8 @@
 
-import iged.grafico.manager.AcaoUsuario;
-import iged.grafico.manager.PaintUI;
-import iged.grafico.manager.Quadro;
-import iged.grafico.struct.NodeTree;
+import br.ufpb.iged.grafico.manager.AcaoUsuario;
+import br.ufpb.iged.grafico.manager.PaintUI;
+import br.ufpb.iged.grafico.manager.Quadro;
+import br.ufpb.iged.grafico.struct.NodeTree;
 import java.awt.geom.Point2D;
 
 
