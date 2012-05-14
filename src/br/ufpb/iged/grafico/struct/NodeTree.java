@@ -129,6 +129,7 @@ public class NodeTree extends Node {
     }
 
     //----------------------------------------
+    
     public void setRightChield(NodeTree nt) {
         if (nt == null) {
             this.tracoRightChield = null;

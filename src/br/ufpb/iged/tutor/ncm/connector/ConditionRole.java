@@ -18,7 +18,11 @@ public class ConditionRole extends Role{
         return condition;
     }
 
+<<<<<<< HEAD
     void setCondition(Condition condition) {
+=======
+    public void setCondition(Condition condition) {
+>>>>>>> 9aedc6753128e3a6a1af6db5fd1d6cd07efa304b
         this.condition = condition;
     }
 
