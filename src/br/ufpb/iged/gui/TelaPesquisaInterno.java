@@ -45,7 +45,7 @@ import javax.swing.table.AbstractTableModel;
 public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
     ArrayList dados = new ArrayList();
-    String[] colunas = new String[]{"Titulo", "Área"};
+    String[] colunas = new String[]{"Titulo", "Área", "ID"};
     IGEDlet tf;
      public static int id;
     public static int cont;
@@ -395,7 +395,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
       public static int valorLinha() {
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
         List<Metadado> metadados = gt.listarTarefas();
-        valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), id);
+        valueLinha = jTable1.getValueAt(jTable1.getSelectedRow(), 2);
         String valorId = valueLinha.toString();
         System.out.println(valorId);
         int i;

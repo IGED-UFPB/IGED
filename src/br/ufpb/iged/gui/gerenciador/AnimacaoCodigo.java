@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufpb.iged.gui.gerenciador;
 
 import br.ufpb.iged.Interpretador;
@@ -24,7 +20,7 @@ import javax.swing.JTextArea;
  */
 public class AnimacaoCodigo {
 
-    Interpretador iter = Interpretador.getInstance();
+    Interpretador iter = new Interpretador();
     
     public AnimacaoCodigo() {
     }
@@ -37,7 +33,7 @@ public class AnimacaoCodigo {
         //remove toda a decoração de um frame
         horizontalFrame.setUndecorated(true);
 
-        JPanel panelAnimacao = Quadro.getInstance();
+        JPanel panelAnimacao = new Quadro();
         JPanel panelCodigo = new JPanel();
         final JTextArea text = new JTextArea();
         JButton executar = new JButton("Executar");

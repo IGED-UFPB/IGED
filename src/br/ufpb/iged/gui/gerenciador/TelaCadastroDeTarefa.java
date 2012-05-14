@@ -10,7 +10,6 @@
  */
 package br.ufpb.iged.gui.gerenciador;
 
-import br.ufpb.iged.gerenciadorIGEDlet.DiretorioExistenteException;
 import br.ufpb.iged.gerenciadorIGEDlet.CampoObrigatorioException;
 import br.ufpb.iged.gerenciadorIGEDlet.CampoInvalidoException;
 import br.ufpb.iged.Interpretador;
@@ -64,7 +63,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
         textTitulo = new javax.swing.JTextArea();
         botaoCadastrar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
-        panelAnimacao = Quadro.getInstance();
+        panelAnimacao = new Quadro();
         panelCodigoSol = new javax.swing.JPanel();
         panelSolucao = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();

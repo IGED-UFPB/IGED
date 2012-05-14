@@ -25,7 +25,7 @@ public class MainTree implements AcaoUsuario {
 	    
 	    
 	    public MainTree(){
-	    	this.quadro = Quadro.getInstance();
+	    	this.quadro = new Quadro();
 	    	
 	    }
 	    
