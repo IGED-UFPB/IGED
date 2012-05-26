@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 /**
@@ -261,4 +262,160 @@ public class NCMFormatter {
         this.main.add(cn);
         this.stackContext.push(this.main);
     }
+    
+        public static SimpleCondition createSimpleCondition(Element element){
+        
+        return null;
+    
+    }
+    
+    
+    public static Role createRole(Element element){
+        
+        return null;
+    
+    }
+    
+    public static IGEDletNode  createIGEDletNode(Element element){
+        
+        return null;
+    
+    } 
+    
+    public static Glue createGlue(Element element){
+        
+        return null;
+    
+    }
+    
+    public static Trail createTrail(Element element){
+        Trail trail = new Trail();
+        trail.setId(element.getAttribute("id"));
+        return trail;
+        
+    }
+    
+    public static ContextNode createContextNode(Element element){
+        
+        ContextNode cn = new ContextNode();
+        cn.setId(element.getAttribute("id"));
+        
+        return cn;
+    } 
+    
+    public static CausalLink createCausalLink(Element element){
+    
+        return null;
+    }
+    
+    //verificar
+    public static Link createLink(Element element){
+        Link link = null;
+        link.setId(null);    
+     
+        link.setConnector(null);
+        return null;
+    }
+    
+    public static Bind createBind(Element element){
+        Bind b = new Bind();
+        
+        b.setComponent(element.getAttribute("component"));
+        b.setRole(element.getAttribute("role"));
+        b.setInterface(element.getAttribute("interface"));
+
+        return b;     
+    }
+    
+    
+    public static CausalConnector createCausalConnector(Element element){
+        
+        CausalConnector c = new CausalConnector();
+        
+        c.setId(element.getAttribute("id"));
+    
+        return c;
+    }
+    
+    public static ConditionRole createConditionRole(Element element){
+        
+        ConditionRole c = new ConditionRole();
+        
+        c.setId(element.getAttribute("id"));
+        c.setEventType(element.getAttribute("eventType"));
+    
+        return c;
+    }
+    
+    public static EventStateTransitionCondition createEventStateTransitionCondition(Element element){
+        EventStateTransitionCondition e = new EventStateTransitionCondition();
+        
+        e.setTransitionName(element.getAttribute("starts"));
+        return e;
+    }
+    
+    public static ActionRole createActionRole(Element element){
+        
+        ActionRole ar = new ActionRole();
+        
+        ar.setId(element.getAttribute("id"));
+        ar.setEventType(element.getAttribute("eventType"));
+    
+        return ar;
+    }
+    
+    //public static PresentationAction 
+    
+  
+            
+    
+    public static CausalGlue createCausalGlue(Element element){
+    
+        CausalGlue cg = new CausalGlue();
+        return cg;
+    }
+    
+    public static SimpleTriggerExpression createSimpleTriggerExpression(Element element){
+        SimpleTriggerExpression ste = new SimpleTriggerExpression();
+        
+        ste.setConditionRole(element.getAttribute("conditionRole"));
+        
+        return ste;
+    
+    }
+    
+    public static SimpleActionExpression createSimpleActionExpression(Element element){
+        SimpleActionExpression sae = new SimpleActionExpression();
+        sae.setActionRole(element.getAttribute("actionRole"));        
+        return sae;
+    
+    }
+    
+    public static ContentNode createMedia(Element media) {
+        ContentNode cn = null;
+        if (media.getAttribute("type").equals("imagem")) {
+            cn = new ImageNode();
+            cn.setId(media.getAttribute("id"));
+            cn.setSource(media.getAttribute("src"));
+            return cn;
+        }else if(media.getAttribute("type").equals("igedlet")){
+            cn = new IGEDletNode();
+            
+            
+        }
+        return cn;
+    }
+    
+    //falta a interface
+    public static Port createPort(Element element){
+    
+        Port p = new Port();
+        p.setId(element.getAttribute("id"));
+        p.setComponent(element.getAttribute("component"));
+        p.setIp(element.getAttribute("interface"));
+        
+        return p;
+    
+    }
+    
 }
