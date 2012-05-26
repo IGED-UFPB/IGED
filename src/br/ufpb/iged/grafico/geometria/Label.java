@@ -1,3 +1,4 @@
+
 package br.ufpb.iged.grafico.geometria;
 
 import java.awt.geom.Point2D;
@@ -43,4 +44,5 @@ public class Label{
 	public void mover(double dx, double dy) {
 		this.pb.setLocation(pb.getX() + dx, pb.getY() + dy);
 	}
+
 }

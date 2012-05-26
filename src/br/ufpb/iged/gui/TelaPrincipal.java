@@ -38,6 +38,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /** Creates new form TelaPrincipal */
     private TelaPrincipal() {
         initComponents();
+//        tp.ocultarColuna();
         
     }
 
@@ -199,11 +200,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    static JInternalFrame cadTutorial, cadExe, visualizarTut, responderExe, pesquisarExe, cadExeObj, responderExeObj, abrirTocador;
+    static JInternalFrame abrir, cadTutorial, cadExe, visualizarTut, responderExe, pesquisarExe, cadExeObj, responderExeObj, abrirTocador;
 
     private void botaoPesquisarTutorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarTutorialActionPerformed
-        if (visualizarTut == null) //instancia a tela de cadastro de clientes
-        {
+       // if (visualizarTut == null) //instancia a tela de cadastro de clientes
+        //{
             visualizarTut = new TelaTutorialFrameInterno();
             //visualizarTut = new TelaTutorialFrameInterno();
             jDesktopPane1.add(visualizarTut);
@@ -217,16 +218,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             visualizarTut.setMaximizable(true);
             visualizarTut.setIconifiable(true);
             visualizarTut.show();
-        } else{
-            visualizarTut.dispose();
-        }
+        //} else{
+            
+        //}
         //independente da tela estar visível ou não, a tela é movida para frente
         //jDesktopPane1.moveToFront(visualizarTut);
     }//GEN-LAST:event_botaoPesquisarTutorialActionPerformed
 /**/
     public static void botaoResponderExercicio() {                                                        
-        if (responderExe == null) //instancia a tela de cadastro de clientes
-        {
+        //if (responderExe == null) //instancia a tela de cadastro de clientes
+        //{
             responderExe = new TelaExercicioInterno();
             jDesktopPane1.add(responderExe);
             ((BasicInternalFrameUI)responderExe.getUI()).setNorthPane(null);
@@ -239,17 +240,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             responderExe.setMaximizable(true);
             responderExe.setIconifiable(true);
             responderExe.show();
-        } else{
+       // } else{
             //responderExe.dispose();
-            jDesktopPane1.moveToFront(responderExe);
-        }
+          //  jDesktopPane1.moveToFront(responderExe);
+       // }
         //independente da tela estar visível ou não, a tela é movida para frente
         //jDesktopPane1.remove(responderExe);}
     }
     
     public static void botaoAbrirTocador() {                                                        
-        if (abrirTocador == null) //instancia a tela de cadastro de clientes
-        {
+        //if (abrirTocador == null) //instancia a tela de cadastro de clientes
+       // {
             abrirTocador = new TelaTocadorInterno();
             jDesktopPane1.add(abrirTocador);
             ((BasicInternalFrameUI)abrirTocador.getUI()).setNorthPane(null);
@@ -262,15 +263,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             abrirTocador.setMaximizable(true);
             abrirTocador.setIconifiable(true);
             abrirTocador.show();
-        } else{
+       // } else{
             //TelaPrincipal.botaoResponderExercicio();.dispose();
-        }
+        //}
         
     }
     
     private void botaoCadastrarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarExercicioActionPerformed
-        if (cadExe == null) //instancia a tela de cadastro de clientes
-        {
+        //if (cadExe == null) //instancia a tela de cadastro de clientes
+        //{
             cadExe = new TelaCadastroDeTarefaInterno();
             jDesktopPane1.add(cadExe);
             ((BasicInternalFrameUI)cadExe.getUI()).setNorthPane(null);
@@ -283,17 +284,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadExe.setMaximizable(true);
             cadExe.setIconifiable(true);
             cadExe.show();
-        }
-        else{
-            cadExe.dispose();
-        }
+        //}
+        //else{
+          //  cadExe.dispose();
+        //}
         //independente da tela estar visível ou não, a tela é movida para frente
         //jDesktopPane1.remove(cadExe);}
     }//GEN-LAST:event_botaoCadastrarExercicioActionPerformed
 
     private void botaoCadastrarTutorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarTutorialActionPerformed
-        if (cadTutorial == null) //instancia a tela de cadastro de clientes
-        {
+     //   if (cadTutorial == null) //instancia a tela de cadastro de clientes
+       // {
             cadTutorial = new TelaCadastroDeTutorialInterno();
             jDesktopPane1.add(cadTutorial);
             ((BasicInternalFrameUI)cadTutorial.getUI()).setNorthPane(null);
@@ -306,16 +307,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadTutorial.setMaximizable(true);
             cadTutorial.setIconifiable(true);
             cadTutorial.show();
-        }
-        else{
-            cadTutorial.dispose();
-        }
+        //}
+        //else{
+//            cadTutorial.dispose();
+  //      }
         //independente da tela estar visível ou não, a tela é movida para frente
         //jDesktopPane1.moveToFront(cadTutorial);
     }//GEN-LAST:event_botaoCadastrarTutorialActionPerformed
 
     private void botaoAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAjudaActionPerformed
-        JOptionPane.showMessageDialog(this, "Ajuda Indisponível!");
+        JOptionPane.showInternalMessageDialog(jDesktopPane1, "Ajuda Indisponível!");
     }//GEN-LAST:event_botaoAjudaActionPerformed
 
     private void botaoAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAbrirActionPerformed
@@ -345,9 +346,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //jfc.showSaveDialog(this);
         //Alterar o título da janela
         jfc.setDialogTitle("Abrir apresentacao");
-
-        jfc.showOpenDialog(null);
-        
+        jDesktopPane1.add(jfc);
+        jfc.showOpenDialog(this);
     }//GEN-LAST:event_botaoAbrirActionPerformed
 
     TelaPesquisaInterno tp = new TelaPesquisaInterno();
@@ -355,10 +355,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoPesquisarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarExercicioActionPerformed
         if (pesquisarExe == null) //instancia a tela de cadastro de clientes
         {
-            tp.ocultarColuna();
             pesquisarExe = tp;
-            tp.listarTodasTarefas();
+//            tp.ocultarColuna();
             jDesktopPane1.add(pesquisarExe);
+            tp.listarTodasTarefas();
             ((BasicInternalFrameUI)pesquisarExe.getUI()).setNorthPane(null);
             try {
                 pesquisarExe.setMaximum(true);
@@ -369,16 +369,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
             pesquisarExe.setMaximizable(true);
             pesquisarExe.setIconifiable(true);
             pesquisarExe.show();
+            
         }
         else{
-         pesquisarExe.dispose();
-            //jDesktopPane1.moveToFront(pesquisarExe);
+            tp.limparTabela(tp.jTable1);
+            pesquisarExe = new TelaPesquisaInterno();
+            jDesktopPane1.add(pesquisarExe);
+            tp.listarTodasTarefas();
+            ((BasicInternalFrameUI)pesquisarExe.getUI()).setNorthPane(null);
+            try {
+                pesquisarExe.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            pesquisarExe.show();
         }
     }//GEN-LAST:event_botaoPesquisarExercicioActionPerformed
 
     private void botaoCadastrarObjetivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarObjetivaActionPerformed
-        if (cadExeObj == null) //instancia a tela de cadastro de clientes
-        {
+        //if (cadExeObj == null) //instancia a tela de cadastro de clientes
+        //{
             cadExeObj = new TelaCadastroTarefaObjetivaInterno();
             jDesktopPane1.add(cadExeObj);
             ((BasicInternalFrameUI)cadExeObj.getUI()).setNorthPane(null);
@@ -392,15 +402,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadExeObj.setMaximizable(true);
             cadExeObj.setIconifiable(true);
             cadExeObj.show();
-       }
-        else{
-            cadExeObj.dispose();
-        }
+       //}
+        //else{
+          //  cadExeObj.dispose();
+        //}
     }//GEN-LAST:event_botaoCadastrarObjetivaActionPerformed
 
     private void botaoExecutarObjetivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExecutarObjetivaActionPerformed
-        if (responderExeObj == null) //instancia a tela de cadastro de clientes
-        {
+        //if (responderExeObj == null) //instancia a tela de cadastro de clientes
+        //{
             responderExeObj = new TelaTarefaObjetivaInterno();
             jDesktopPane1.add(responderExeObj);
             ((BasicInternalFrameUI)responderExeObj.getUI()).setNorthPane(null);
@@ -414,10 +424,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             responderExeObj.setMaximizable(true);
             responderExeObj.setIconifiable(true);
             responderExeObj.show();
-        }
-        else{
-            responderExeObj.dispose();
-        }
+        //}
+        //else{
+          //  responderExeObj.dispose();
+        //}
     }//GEN-LAST:event_botaoExecutarObjetivaActionPerformed
 
     /**

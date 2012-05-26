@@ -1,3 +1,4 @@
+
 package br.ufpb.iged.grafico.geometria;
 
 import br.ufpb.iged.grafico.manager.Quadro;
@@ -62,4 +63,5 @@ public class Poligono extends PoligonoGrafico {
             p.setLocation(p.getX() + dx, p.getY() + dy);
         }
     }
+
 }

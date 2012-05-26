@@ -23,6 +23,7 @@ import java.awt.Insets;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.logging.Level;
@@ -43,6 +44,8 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class TelaCadastroDeTutorialInterno extends javax.swing.JInternalFrame {
 
+     int cont = 0;
+     
     /** Creates new form TelaCadastroDeTutorialInterno */
     public TelaCadastroDeTutorialInterno() {
         initComponents();
@@ -511,7 +514,7 @@ public class TelaCadastroDeTutorialInterno extends javax.swing.JInternalFrame {
 
     private void botaoOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoOkActionPerformed
         Object[] opcoes = {"Sim", "Não"};
-        int opcao = JOptionPane.showOptionDialog(null, "Tem certeza que os campos estão preenchidos corretamente?", "Saída", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        int opcao = JOptionPane.showInternalOptionDialog(this, "Tem certeza que os campos estão preenchidos corretamente?", "Saída", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
         do {
             if (opcao == JOptionPane.YES_OPTION) {
                 try {
@@ -725,11 +728,22 @@ public class TelaCadastroDeTutorialInterno extends javax.swing.JInternalFrame {
     //LeitorXML l = new LeitorXML();
 
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
-        desenhar();
+         try {
+            cont--;
+            desenharProx();
+        } catch (IOException ex) {
+            Logger.getLogger(TelaTocadorInterno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_anteriorActionPerformed
 
     private void proximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoActionPerformed
-        desenhar();
+          try {
+            desenharProx();
+            cont++;
+        } catch (IOException ex) {
+            Logger.getLogger(TelaTocadorInterno.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_proximoActionPerformed
 
     private void botaoSelecionarActionPerformed(java.awt.event.ActionEvent evt) throws br.ufpb.iged.gerenciadorApresentacao.CampoObrigatorioException {
@@ -745,12 +759,12 @@ public class TelaCadastroDeTutorialInterno extends javax.swing.JInternalFrame {
             Logger.getLogger(TelaCadastroDeTutorialInterno.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    protected static LinkedList<File> itens = new LinkedList<File>();
+    protected static ArrayList<File> itens = new ArrayList<File>();
     static String imagemArray;
     static LinkedList<String> selecionado = new LinkedList<String>();
     static File novoRaiz = new File("./Tutoriais");
     TelaTutorialFrameInterno tt;
-
+/*
     public void desenhar() {
         String dirArquivo;
         itens = tt.lerDiretorio(novoRaiz);
@@ -771,6 +785,34 @@ public class TelaCadastroDeTutorialInterno extends javax.swing.JInternalFrame {
             panelTocador.repaint();
         }
     }
+  */  
+     public ArrayList<File> getItens() {
+        return itens;
+    }
+
+    public int getCont() {
+        return cont;
+    }
+    public void desenharProx() throws IOException {
+        File fileImg1;
+        BufferedImage img1 = null;
+        for (int k = getCont(); k < getItens().size(); k++) {
+            panelTocador.removeAll();
+            panelTocador.revalidate();
+            if (getItens().get(k).toString().contains("F:\\Documentos\\NetBeansProjects\\IGED\\.\\Tutoriais\\Introdução a lista")) {
+                fileImg1 = new File(getItens().get(k).getAbsolutePath());
+                img1 = ImageIO.read(fileImg1);
+                ImageIcon icone = new ImageIcon(img1);
+                Image newimg = icone.getImage().getScaledInstance(800, 600, Image.SCALE_SMOOTH);
+                ImageIcon newIcon = new ImageIcon(newimg);
+                JLabel label1 = new JLabel(newIcon);
+                panelTocador.add(label1);
+                panelTocador.setLayout(new FlowLayout(FlowLayout.CENTER));
+            }
+            break;
+        }
+    }
+
 
     public static void main(String args[]) {
 

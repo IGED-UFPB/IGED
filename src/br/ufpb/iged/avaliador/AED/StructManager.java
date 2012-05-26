@@ -1,3 +1,4 @@
+
 package br.ufpb.iged.avaliador.AED;
 
 import br.ufpb.iged.IGEDConst;
@@ -246,3 +247,4 @@ public class StructManager {
         replica.clear();
     }
 }
+

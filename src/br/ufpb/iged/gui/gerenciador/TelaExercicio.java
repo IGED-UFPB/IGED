@@ -63,6 +63,7 @@ public class TelaExercicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         
         JPanel panelAnimacao = iter.getQuadro();
+
         JPanel panelCodigo = new JPanel();
         panelCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Código"));
         panelAnimacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Animação"));

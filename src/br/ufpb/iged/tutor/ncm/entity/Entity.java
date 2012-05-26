@@ -46,8 +46,7 @@ public abstract class Entity {
 
     public void setName(String name) {
         this.name = name;
-    }
-    
+    }   
         
     public void addListener(EntityListener el){
         this.listeners.add(el);

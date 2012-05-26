@@ -5,7 +5,7 @@ import br.ufpb.iged.IGEDConst;
 public class LinkedListNode extends Node{
 
 	private LinkedListNode next;
-	
+
 	public LinkedListNode() {
 		super(IGEDConst.NODE);
 	}
@@ -13,24 +13,24 @@ public class LinkedListNode extends Node{
 	public void setNext(LinkedListNode nodeNext){
 		this.next = nodeNext;
 	}
-	
+
 	public LinkedListNode next(){
 		return this.next;
 	}
-	
+
 	@Override
 	public Node readField(int field) {
-		
+
 		switch(field){
-		
+
 			case IGEDConst.NODE_PROX:
-				
+
 				return this.next;
-		
-				
+
+
 			default:
 				break;
-		
+
 		}
 		return null;
 	}
@@ -41,7 +41,7 @@ public class LinkedListNode extends Node{
 			this.next = (LinkedListNode)n;
 		}
 	}
-	
+
     @Override
 	public boolean compare(Struct node){
                 if(node instanceof LinkedListNode)
@@ -53,12 +53,12 @@ public class LinkedListNode extends Node{
 	@Override
 	public void writeInfo(int value) {
 		this.content = value;
-		
+
 	}
 
 	@Override
 	public int readInfo() {
 		return this.content;
 	}
-	
+
 }

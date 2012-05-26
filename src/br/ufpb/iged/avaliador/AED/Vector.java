@@ -1,3 +1,4 @@
+
 package br.ufpb.iged.avaliador.AED;
 
 public class Vector extends Struct {
@@ -72,3 +73,4 @@ public class Vector extends Struct {
 	
 	
 }
+

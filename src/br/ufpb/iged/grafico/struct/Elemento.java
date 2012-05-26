@@ -122,4 +122,5 @@ public class Elemento {
     public Point2D getPB(){
     	return this.pb;
     }
+
 }

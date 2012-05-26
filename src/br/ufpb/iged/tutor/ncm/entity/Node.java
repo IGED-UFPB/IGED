@@ -27,6 +27,7 @@ public abstract class Node extends Entity{
     public abstract void execute(String interfaceID);
     public abstract void finish();
     
+
     public void add(Anchor a){
         this.anchors.put(a.getId(), a);
     }

@@ -25,7 +25,7 @@ public class MainTree implements AcaoUsuario {
 	    
 	    
 	    public MainTree(){
-	    	this.quadro = Quadro.getInstance();
+	    	this.quadro = new Quadro();
 	    	
 	    }
 	    
@@ -121,7 +121,7 @@ public class MainTree implements AcaoUsuario {
 	    }
 	    
 	   public void passo0(){
-		   node = new NodeTree(this.pi);
+		   node = new NodeTree(this.pi,quadro);
 	    	
 		   this.quadro.add(node);
 		   this.quadro.atualizar();
@@ -142,7 +142,7 @@ public class MainTree implements AcaoUsuario {
 	   }
 	    
 	   public void passo3(){
-		   node2 = new NodeTree(pi);
+		   node2 = new NodeTree(pi,quadro);
 		   
 		   this.quadro.add(node2);
 		   this.quadro.atualizar();
@@ -164,7 +164,7 @@ public class MainTree implements AcaoUsuario {
 	   
 	   public void passo6(){
 		   //node.repintarSetas();
-		   node3 = new NodeTree(pi);
+		   node3 = new NodeTree(pi,quadro);
 		 
 		   this.quadro.add(node3);
 		   this.quadro.atualizar();
@@ -187,7 +187,7 @@ public class MainTree implements AcaoUsuario {
 	   
 	   public void passo9(){
 		   //node.repintarSetas();
-		   node4 = new NodeTree(pi);
+		   node4 = new NodeTree(pi,quadro);
 			 
 		   this.quadro.add(node4);
 		   this.quadro.atualizar();
@@ -209,7 +209,7 @@ public class MainTree implements AcaoUsuario {
 	   
 	   public void passo12(){
 		   //node.repintarSetas();
-		   node5 = new NodeTree(pi);
+		   node5 = new NodeTree(pi,quadro);
 			 
 		   this.quadro.add(node5);
 		   this.quadro.atualizar();
@@ -231,7 +231,7 @@ public class MainTree implements AcaoUsuario {
 
 	   public void passo15(){
 		   //node.repintarSetas();
-		   node6 = new NodeTree(pi);
+		   node6 = new NodeTree(pi,quadro);
 			 
 		   this.quadro.add(node6);
 		   this.quadro.atualizar();
@@ -252,7 +252,7 @@ public class MainTree implements AcaoUsuario {
 	   
 	   public void passo18(){
 		   //node.repintarSetas();
-		   node7 = new NodeTree(pi);
+		   node7 = new NodeTree(pi,quadro);
 		   
 		   this.quadro.add(node7);
 		   this.quadro.atualizar();

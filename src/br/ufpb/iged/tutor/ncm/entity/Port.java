@@ -26,7 +26,5 @@ public class Port extends Interface{
 
     public void setIp(String ip) {
         this.ip = ip;
-    }
-
-   
+    }   
 }

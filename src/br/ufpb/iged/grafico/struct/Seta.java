@@ -24,7 +24,7 @@ public class Seta extends Traco{
                     double h = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
                     double sen = deltaX / h;
                     double cos = deltaY / h;
-	
+
                     double dx = 5 * sen;
                     double dy = 5 * cos;
 
@@ -41,7 +41,7 @@ public class Seta extends Traco{
 		this(pi, pf, true, type, q);
 	}
         
-	
+
 	public Seta(Point2D pi, Point2D pf, Quadro q){
 		this(pi, pf, Seta.FRENTE, q);
 	}
@@ -60,7 +60,7 @@ public class Seta extends Traco{
                     double h = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
                     double sen = deltaX / h;
                     double cos = deltaY / h;
-	
+
                     double dx = 5 * sen;
                     double dy = 5 * cos;
 

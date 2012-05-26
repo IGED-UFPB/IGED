@@ -41,8 +41,10 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
     /** Creates new form TutorialFrameInterno */
     public TelaTutorialFrameInterno() {
         initComponents();
-        desenharMiniaturaTutorial();
+        exibirDados();
     }
+    
+ 
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -232,7 +234,7 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
                 novoRaiz = f.getAbsoluteFile();
                 System.out.println("\t" + novoRaiz);
                 for (File f1 : novoRaiz.listFiles()) {
-                    if ((f1.isFile()) && (f1.getName().contains("Slide0"))) {
+                    if ((f1.isFile()) && (f1.getName().contains("Slide1"))) {
                         itens.add(f1);
                         System.out.println(f1.getName());
                     }
@@ -315,11 +317,19 @@ public class TelaTutorialFrameInterno extends javax.swing.JInternalFrame {
 
 public void exibirDados() {
 
+    /*
         conteudoTitulo.setText(TutorialXml.lerXml().getTitulo());
         conteudoAutor.setText(TutorialXml.lerXml().getAutor());
         conteudoAno.setText(TutorialXml.lerXml().getAno());
         conteudoDescricao.setText(TutorialXml.lerXml().getDescricao());
         conteudoArea.setText(TutorialXml.lerXml().getArea());
+     * 
+     */
+    conteudoTitulo.setText("Introdução a Lista");
+    conteudoAutor.setText("Gilberto Farias");
+    conteudoAno.setText("2012");
+    conteudoDescricao.setText("Apresentação sobre listas");
+    conteudoArea.setText("Lista");
         desenharMiniaturaTutorial();
     }
 

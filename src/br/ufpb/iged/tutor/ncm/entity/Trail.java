@@ -69,8 +69,7 @@ public class Trail extends CompositeNode{
     
     public void next() throws NoSuchElementException{
         Node last = currentNode;
-        currentNode = iNode.next();
-        
+        currentNode = iNode.next();        
         this.changeExecution(currentNode, last);
             
     }
@@ -78,7 +77,6 @@ public class Trail extends CompositeNode{
     public void previus() throws NoSuchElementException{
         Node last = currentNode;
         currentNode = iNode.previous();
-        
         this.changeExecution(currentNode, last);
     }
     

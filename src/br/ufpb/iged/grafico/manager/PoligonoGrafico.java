@@ -1,3 +1,4 @@
+
 package br.ufpb.iged.grafico.manager;
 
 import java.awt.Color;
@@ -116,5 +117,6 @@ public class PoligonoGrafico{
 	public Point2D getBasePoint(){
 		return this.points.get(0);
 	}
+
 
 }

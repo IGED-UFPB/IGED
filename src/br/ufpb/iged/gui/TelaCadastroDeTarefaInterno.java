@@ -15,6 +15,7 @@ import br.ufpb.iged.gerenciadorApresentacao.CampoInvalidoException;
 import br.ufpb.iged.gerenciadorApresentacao.CampoObrigatorioException;
 import br.ufpb.iged.gerenciadorApresentacao.DiretorioExistenteException;
 import br.ufpb.iged.gerenciadorIGEDlet.GerenciadorAtividade;
+import br.ufpb.iged.gerenciadorIGEDlet.IGEDlet;
 import br.ufpb.iged.gerenciadorIGEDlet.Metadado;
 import br.ufpb.iged.gerenciadorIGEDlet.Portifolio;
 import br.ufpb.iged.gerenciadorIGEDlet.PortifolioXml;
@@ -41,6 +42,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class TelaCadastroDeTarefaInterno extends javax.swing.JInternalFrame {
 
+    IGEDlet tf;
     //Interpretador iter = Interpretador.getInstance();
     /** Creates new form TelaCadastroDeTarefaInterno */
     public TelaCadastroDeTarefaInterno() {
@@ -76,6 +78,8 @@ public class TelaCadastroDeTarefaInterno extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cadastro de Exercício");
+        
+//        panelAnimacao = this.tf.getQuadro();
         
         area.setText("Área");
 
@@ -559,7 +563,7 @@ public class TelaCadastroDeTarefaInterno extends javax.swing.JInternalFrame {
             //pxml.atualizar();
             //xml.salvarPortifolioXmlAtualizado();
         } catch (CampoObrigatorioException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showInternalMessageDialog(this, ex.getMessage());
         }
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 

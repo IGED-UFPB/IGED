@@ -1,3 +1,4 @@
+
 package br.ufpb.iged.grafico.geometria;
 
 import java.awt.geom.Point2D;
@@ -20,4 +21,5 @@ public class Retangulo extends Poligono{
 		this.add(new Point2D.Double(xb, yb + h));
 
 	}
+
 }

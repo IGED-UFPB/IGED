@@ -1,3 +1,4 @@
+
 package br.ufpb.iged.grafico.geometria;
 
 import java.awt.geom.Point2D;
@@ -38,4 +39,5 @@ public class Circulo extends Poligono{
 
 		this.createCirclePoints();
 	}
+
 }

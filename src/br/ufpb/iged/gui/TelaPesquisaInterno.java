@@ -45,7 +45,7 @@ import javax.swing.table.AbstractTableModel;
 public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
 
     ArrayList dados = new ArrayList();
-    String[] colunas = new String[]{"Titulo", "Área","id"};
+    String[] colunas = new String[]{"Titulo", "Área", "ID"};
     IGEDlet tf;
      public static int id;
     public static int cont;
@@ -69,6 +69,8 @@ public class TelaPesquisaInterno extends javax.swing.JInternalFrame {
         pesquisarBotao = new javax.swing.JButton();
 
         jTable1.setModel(new SimpleTableModel(dados, colunas));
+           
+        
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
 
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -341,6 +343,13 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         return getColunas().length;
     }
 
+    
+        @Override
+   public String getColumnName(int arg0) {  
+        return colunas[arg0];  
+    }  
+  
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         String[] linha = (String[]) getLinhas().get(rowIndex);
@@ -376,12 +385,12 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         }
     }
     
-    public void ocultarColuna(){
+   /* public void ocultarColuna(){
         jTable1.getColumnModel().getColumn(2).setMaxWidth(0);
         jTable1.getColumnModel().getColumn(2).setMinWidth(0);
         jTable1.getTableHeader().getColumnModel().getColumn(2).setMaxWidth(0);
         jTable1.getTableHeader().getColumnModel().getColumn(2).setMinWidth(0);
-    }
+    }*/
     
       public static int valorLinha() {
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
@@ -404,7 +413,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         String id;
         for (Metadado mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
-            ocultarColuna();
+           // ocultarColuna();
             if (mt.getArea().equalsIgnoreCase(getPesquisaText())) {
                 dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                 System.out.println("Encontrado área:" + mt.getArea());
@@ -431,7 +440,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         String id;
         for (Metadado mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
-            ocultarColuna();
+           // ocultarColuna();
             if (mt.getArea().equalsIgnoreCase(getPesquisaText())) {
                 dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                 System.out.println("Encontrado área:" + mt.getArea());
@@ -445,7 +454,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         String id;
         for (Metadado mt : pf.getTarefas()) {
             id = String.valueOf(mt.getId());
-            ocultarColuna();
+            //ocultarColuna();
             if (mt.getTitulo().contains(getPesquisaText())) {
                 dados.add(new String[]{mt.getTitulo(), mt.getArea(),id});
                 System.out.println("Encontrado Título:" + mt.getTitulo());
@@ -456,7 +465,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     }
 
     public void listarTodasTarefas() {
-        ocultarColuna();
+        //ocultarColuna();
         SimpleTableModel modelo = new SimpleTableModel(dados, colunas);
         Portifolio pf = PortifolioXml.lerXml();
         String id;
@@ -487,7 +496,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     private javax.swing.JRadioButton areaRadio;
     private javax.swing.JRadioButton autorRadio;
     private javax.swing.JScrollPane jScrollPane1;
-    private static javax.swing.JTable jTable1;
+    public static javax.swing.JTable jTable1;
     private javax.swing.JLabel pesquisaLabel;
     private javax.swing.JTextField pesquisaText;
     private javax.swing.JRadioButton todosRadio;

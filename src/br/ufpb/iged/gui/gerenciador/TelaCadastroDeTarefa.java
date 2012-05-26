@@ -63,7 +63,9 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
         textTitulo = new javax.swing.JTextArea();
         botaoCadastrar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
+        
         panelAnimacao = iter.getQuadro();
+        
         panelCodigoSol = new javax.swing.JPanel();
         panelSolucao = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();

@@ -1,3 +1,4 @@
+
 package br.ufpb.iged.grafico.manager;
 
 import br.ufpb.iged.grafico.struct.Elemento;
@@ -154,3 +155,4 @@ public class Quadro extends JPanel {
   static final int YBASE_NODE = 115;
   static final int YBASE_STRUCT = 250;
 }
+

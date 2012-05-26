@@ -27,6 +27,7 @@ import javax.swing.JLabel;
  * @author Dorgi
  */
 public class TelaTocadorInterno extends javax.swing.JInternalFrame {
+
     int cont = 0;
     static File novoRaiz;
     static ArrayList<File> itens = new ArrayList<File>();
@@ -109,7 +110,7 @@ public class TelaTocadorInterno extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void antActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_antActionPerformed
         try {
             cont--;
@@ -144,7 +145,7 @@ public class TelaTocadorInterno extends javax.swing.JInternalFrame {
         for (int k = getCont(); k < getItens().size(); k++) {
             jPanel1.removeAll();
             jPanel1.revalidate();
-            if (getItens().get(k).toString().contains("F:\\Documentos\\NetBeansProjects\\IGED\\.\\Tutoriais\\cont")) {
+            if (getItens().get(k).toString().contains("F:\\Documentos\\NetBeansProjects\\IGED\\.\\Tutoriais\\Introdução a lista")) {
                 fileImg1 = new File(getItens().get(k).getAbsolutePath());
                 img1 = ImageIO.read(fileImg1);
                 ImageIcon icone = new ImageIcon(img1);
