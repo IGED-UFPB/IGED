@@ -10,7 +10,6 @@
  */
 package br.ufpb.iged.gui.gerenciador;
 
-import br.ufpb.iged.gerenciadorIGEDlet.DiretorioExistenteException;
 import br.ufpb.iged.gerenciadorIGEDlet.CampoObrigatorioException;
 import br.ufpb.iged.gerenciadorIGEDlet.CampoInvalidoException;
 import br.ufpb.iged.Interpretador;
@@ -64,7 +63,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
         textTitulo = new javax.swing.JTextArea();
         botaoCadastrar = new javax.swing.JButton();
         botaoCancelar = new javax.swing.JButton();
-        panelAnimacao = Quadro.getInstance();
+        panelAnimacao = iter.getQuadro();
         panelCodigoSol = new javax.swing.JPanel();
         panelSolucao = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -586,12 +585,12 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
             mt.setAutor(getAutorStr());
             
             IGEDletSubjetiva tarefa = new IGEDletSubjetiva();
-            tarefa.setMetadado(mt);
-            tarefa.setCodInicializacao(inicializacaoStr);
-            tarefa.setCodSolucao(solucaoStr);
+            //tarefa.setMetadado(mt);
+            //tarefa.setCodInicializacao(inicializacaoStr);
+            //tarefa.setCodSolucao(solucaoStr);
             
             GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
-            gt.cadastrarTarefa(tarefa);
+            //gt.cadastrarTarefa(tarefa);
             
             
             apagarCampos();
@@ -664,7 +663,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
     public void validarCodInicializacao() throws CampoObrigatorioException {
         inicializacaoStr = inicializacaoTextA.getText();
         if (inicializacaoStr.isEmpty()) {
-            throw new CampoObrigatorioException("O campo Código de Inicialização é obrigatório! Preencha-o!");
+            //throw new CampoObrigatorioException("O campo Código de Inicialização é obrigatório! Preencha-o!");
         } else {
             System.out.println(getCodigoInicializacao().toString());
         }
@@ -678,7 +677,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
     public void validarCodSolucao() throws CampoObrigatorioException {
         solucaoStr = solucaoText.getText();
         if (solucaoStr.isEmpty()) {
-            throw new CampoObrigatorioException("O campo Código de Inicialização é obrigatório! Preencha-o!");
+            //throw new CampoObrigatorioException("O campo Código de Inicialização é obrigatório! Preencha-o!");
         } else {
             System.out.println(solucaoStr);
         }
@@ -687,7 +686,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
     public void validarTitulo() throws CampoObrigatorioException, CampoInvalidoException {
         tituloStr = textTitulo.getText();
         if (tituloStr.isEmpty()) {
-            throw new CampoObrigatorioException("O campo " + titulo.getText() + " é obrigatório! Preencha-o!");
+            //throw new CampoObrigatorioException("O campo " + titulo.getText() + " é obrigatório! Preencha-o!");
         } else {
             Pattern p = Pattern.compile("[a-zA-Z0-9áÁàÀãÃçÇéÉêÊíÍôÔúÚ,.;+=^~<>:!@#$%¨&*(){}\\s]+");
             Matcher m = p.matcher(tituloStr);
@@ -704,7 +703,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
     public void validarID() throws CampoObrigatorioException, CampoInvalidoException, DiretorioExistenteException {
         idStr = fieldId.getText();
         if (idStr.isEmpty()) {
-            throw new CampoObrigatorioException("O campo " + id.getText() + " é obrigatório! Preencha-o!");
+            //throw new CampoObrigatorioException("O campo " + id.getText() + " é obrigatório! Preencha-o!");
         } else {
             Pattern p = Pattern.compile("[0-9\\s]+");
             Matcher m = p.matcher(idStr);
@@ -723,7 +722,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
         areaStr = comboArea.getSelectedItem().toString();
         if (areaStr == comboArea.getItemAt(0)) {
             comboArea.setSelectedIndex(0);
-            throw new CampoObrigatorioException("O Campo" + area.getText() + " é Obrigatório! Selecione uma área!");
+            //throw new CampoObrigatorioException("O Campo" + area.getText() + " é Obrigatório! Selecione uma área!");
         } else {
             if (areaStr == comboArea.getItemAt(1)) {
                 System.out.println("Área: Árvore!");
@@ -754,7 +753,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
     public void validarAutor() throws CampoObrigatorioException, CampoInvalidoException {
         autorStr = fieldAutor.getText();
         if (autorStr.isEmpty()) {
-            throw new CampoObrigatorioException("O campo " + autor.getText() + " é obrigatório! Preencha-o!");
+            //throw new CampoObrigatorioException("O campo " + autor.getText() + " é obrigatório! Preencha-o!");
         } else {
             Pattern p = Pattern.compile("[a-zA-Z0-9áÁàÀãÃçÇéÉêÊíÍôÔúÚ,.;+=^~<>:!@#$%¨&*(){}\\s]+");
             Matcher m = p.matcher(autorStr);
@@ -772,7 +771,7 @@ public class TelaCadastroDeTarefa extends javax.swing.JFrame {
     public void validarDescricao() throws CampoObrigatorioException, CampoInvalidoException {
         descricaoStr = textDescricao.getText();
         if (descricaoStr.isEmpty()) {
-            throw new CampoObrigatorioException("O campo " + textDescricao.getText() + " é obrigatório! Preencha-o!");
+            //throw new CampoObrigatorioException("O campo " + textDescricao.getText() + " é obrigatório! Preencha-o!");
         } else {
             Pattern p = Pattern.compile("[a-zA-Z0-9áÁàÀãÃçÇéÉêÊíÍôÔúÚ,.;+=^~<>:!@#$%¨&*(){}\\s]+");
             Matcher m = p.matcher(descricaoStr);

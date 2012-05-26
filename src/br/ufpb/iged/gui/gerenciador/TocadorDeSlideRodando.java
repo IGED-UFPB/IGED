@@ -10,7 +10,7 @@
  */
 package br.ufpb.iged.gui.gerenciador;
 
-import iged.gui.*;
+import br.ufpb.iged.gui.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;

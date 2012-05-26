@@ -539,7 +539,7 @@ public class TelaCadastradorXML extends javax.swing.JFrame {
                 //validarArea();
                 cXml.criarDiretorio();
                 cXml.converterStringXML();
-                cXml.salvar();
+                //cXml.salvar();
             } catch (CampoObrigatorioException ex) {
              JOptionPane.showMessageDialog(null, ex.getMessage());
             }

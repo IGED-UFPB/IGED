@@ -1,5 +1,7 @@
 package br.ufpb.iged.tutor.ncm;
 
+import br.ufpb.iged.tutor.ncm.entity.ContentNode;
+import br.ufpb.iged.tutor.ncm.entity.ImageNode;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -81,6 +83,10 @@ public class NCMReadXMLTest {
         Element bodyElement = (Element) listaBody.item(0);
 
         //PORT IN BODY
+        System.out.println("SIZE: " + bodyElement.getChildNodes().getLength());
+        NodeList nl = bodyElement.getChildNodes();
+        for(int i=0; i<nl.getLength(); ++i)
+            System.out.println("N: " + nl.item(i).getNodeName());
         Element portElement = (Element) bodyElement.getElementsByTagName("port").item(0);
 
         System.out.println(portElement.getAttribute("id"));
@@ -89,7 +95,7 @@ public class NCMReadXMLTest {
 
         //CONTEXT IN BODY
 
-        NodeList listCotext = bodyElement.getElementsByTagName("context");
+        /*NodeList listCotext = bodyElement.getElementsByTagName("context");
         Element contextElement = (Element) listCotext.item(0);
         System.out.println(contextElement.getAttribute("id"));
 
@@ -162,6 +168,23 @@ public class NCMReadXMLTest {
             }
         }
     }
+    public static ContentNode createMedia(Element media){
+    
+        if(media.getAttribute("type").equals("imagem")){
+            ImageNode in = new ImageNode();
+            in.setId(media.getAttribute("id"));
+            in.setSource(media.getAttribute("src"));
+            return in;
+        }
+        return null;*/
+    }
+    
+    /*public static Port createPort(Element port){
+        Port p = new Port();
+        p.setId(port.getAttribute("id"));
+        p.setComponent(port.getAttribute("id"));
+        p.setIp(port.getAttribute("id"));
+    }*/
 }
 /*
 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();	

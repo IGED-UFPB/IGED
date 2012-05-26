@@ -657,15 +657,15 @@ private void initComponents() {
             mt.setAutor(getAutorStr());
             
             IGEDletSubjetiva tarefa = new IGEDletSubjetiva();
-            tarefa.setMetadado(mt);
-            tarefa.setCodInicializacao(inicializacaoStr);
-            tarefa.setCodSolucao(solucaoStr);
+            //tarefa.setMetadado(mt);
+            //tarefa.setCodInicializacao(inicializacaoStr);
+            //tarefa.setCodSolucao(solucaoStr);
             
             GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
             gt.cadastrar(tarefa);
             
             PortifolioXml.lerXml();
-            IGEDletXml.lerXml(tarefa.getMetadado());
+            //IGEDletXml.lerXml(tarefa.getMetadado());
             apagarCampos();
             //lxml.lerXmlTarefa();
             //lxml.lerXmlGerTarefas(tarefas);

@@ -43,7 +43,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class TelaExercicio extends javax.swing.JFrame {
 
-    Interpretador iter = Interpretador.getInstance();
+    Interpretador iter = new Interpretador();
 
     /** Creates new form TelaExercicio */
     public TelaExercicio() {
@@ -72,7 +72,7 @@ public class TelaExercicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        JPanel panelAnimacao = Quadro.getInstance();
+        JPanel panelAnimacao = this.iter.getQuadro();
         JPanel panelCodigo = new JPanel();
         panelCodigo.setBorder(javax.swing.BorderFactory.createTitledBorder("Código"));
         panelAnimacao.setBorder(javax.swing.BorderFactory.createTitledBorder("Animação"));
@@ -338,7 +338,7 @@ public class TelaExercicio extends javax.swing.JFrame {
     public void executarTarefa(int id) {
         GerenciadorAtividade gt = GerenciadorAtividade.getInstance();
         List<Metadado> metadados = gt.listarTarefas();
-        gt.executar(metadados.get(4));
+        //gt.executar(metadados.get(4));
     }
 
     /**

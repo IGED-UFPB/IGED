@@ -23,15 +23,25 @@ public abstract class ContentNode extends Node implements Runnable{
         this.exec.start();
     }
     
+    public void pause(){
+        this.presetationMachine.transitionPauses();
+    }
+    
+    public void resume(){
+        this.presetationMachine.transitionResumes();
+    }
+    
     @Override
     public void execute(String interfaceID) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
+    @Override
     public void finish(){
         if(this.exec != null){
             this.presetationMachine.transitionStops();
             this.exec.interrupt();
+            this.exec = null;
         }
     }
     

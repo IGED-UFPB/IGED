@@ -1,5 +1,7 @@
 package br.ufpb.iged.tutor.ncm.entity;
 
+import br.ufpb.iged.tutor.ncm.connector.ActionRole;
+import br.ufpb.iged.tutor.ncm.connector.ConditionRole;
 import br.ufpb.iged.tutor.ncm.connector.Glue;
 import br.ufpb.iged.tutor.ncm.connector.Role;
 import java.util.Collection;
@@ -49,6 +51,22 @@ public class HypermediaConnector {
 
     public void setGlue(Glue glue) {
         this.glue = glue;
+    }
+
+    ConditionRole getConditionRole(String role) {
+        Role r = this.getRole(role);
+        if((r != null) && (r instanceof ConditionRole))
+            return (ConditionRole)r;
+        else
+            return null;
+    }
+    
+    ActionRole getActionRole(String role) {
+        Role r = this.getRole(role);
+        if((r != null) && (r instanceof ActionRole))
+            return (ActionRole)r;
+        else
+            return null;
     }
     
 }

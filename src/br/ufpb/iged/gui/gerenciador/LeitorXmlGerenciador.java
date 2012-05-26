@@ -100,10 +100,10 @@ public class LeitorXmlGerenciador {
             // cria um objeto da classe, contendo os dados lidos no xml
             tar = (Metadado) x.fromXML(input);
             // imprime os dados
-            cont = tar.getCont();
+            //cont = tar.getCont();
             titulo = tar.getTitulo();
             area = tar.getArea();
-            id = tar.getId();
+            //id = tar.getId();
             autor = tar.getAutor();
 
             System.out.println("Contador: " + cont);

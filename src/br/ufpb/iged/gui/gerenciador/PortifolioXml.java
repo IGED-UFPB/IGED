@@ -44,7 +44,7 @@ public class PortifolioXml {
 
         //metadado.setCont(Integer.parseInt(tc.getIdStr()));
         metadado.setTitulo(tc.getTituloStr());
-        metadado.setId(tc.getIdStr());
+        //metadado.setId(tc.getIdStr());
         metadado.setAutor(tc.getAutorStr());
         metadado.setArea(tc.getAreaStr());
 

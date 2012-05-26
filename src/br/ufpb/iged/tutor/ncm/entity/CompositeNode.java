@@ -5,7 +5,6 @@ import br.ufpb.iged.tutor.ncm.event.EntityListener;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Semaphore;
 
 /**
  *
@@ -14,12 +13,26 @@ import java.util.concurrent.Semaphore;
 public abstract class CompositeNode extends Node implements EntityListener{
     protected Map<String, Port> ports;
     protected Map<String, Node> nodes;
-    private Semaphore sem = null;
     
     CompositeNode(){
         this.ports = new HashMap<String, Port>();
         this.nodes = new HashMap<String, Node>();
-        this.sem = new Semaphore(0, true);
+    }
+    
+    @Override
+    Entity getComponentByInterface(String aInterface) {
+        Port p = this.ports.get(aInterface);
+        if(p != null){
+            Node n = this.nodes.get(p.getComponent());
+            if(n != null){  
+                if(p.getIp() != null){
+                    return n.getComponentByInterface(p.getIp());
+                }else
+                    return n;
+            }else
+                return null;
+        }
+        return super.getComponentByInterface(aInterface);
     }
     
     @Override

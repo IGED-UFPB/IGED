@@ -5,7 +5,7 @@ package br.ufpb.iged.tutor.ncm.connector;
  *
  * @author GILBERTO FARIAS
  */
-public class CausalGlue extends Glue{
+public class CausalGlue implements Glue{
     private TriggerExpression trigger;
     private ActionExpression action;
 

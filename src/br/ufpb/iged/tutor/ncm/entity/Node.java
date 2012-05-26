@@ -46,5 +46,9 @@ public abstract class Node extends Entity{
     public int getState(){
         return this.presetationMachine.getStatus();
     }
+
+    Entity getComponentByInterface(String aInterface) {
+        return this.anchors.get(aInterface);
+    }
     
 }

@@ -1,6 +1,7 @@
 
 package br.ufpb.iged.tutor.ncm.entity;
 
+import br.ufpb.iged.tutor.ncm.event.EntityEvent;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
@@ -20,6 +21,9 @@ public class Trail extends CompositeNode{
         return this.currentNode;
     }
     
+    /*
+     * Coloca como no corrente, o elemento que tenha o id passado como parametro.
+     */
     public void home(String componentID){
         if(this.nodes.size() > 0){
             if(this.lista == null)
@@ -45,20 +49,37 @@ public class Trail extends CompositeNode{
         this.execute(p);
     }
     
+    @Override
+    public void finish(){
+        if(currentNode != null){
+            if(currentNode.getState() != EntityEvent.SLEEPING)
+                currentNode.finish();
+        }
+    }
+    
+    private void changeExecution(Node current, Node last){
+        if(current != null){
+            if(current instanceof ContentNode)
+                ((ContentNode)current).execute();
+        }
+        
+        if(last != null)
+            last.finish();
+    }
+    
     public void next() throws NoSuchElementException{
         Node last = currentNode;
         currentNode = iNode.next();
         
-        if(currentNode != null){
-            if(currentNode instanceof ContentNode)
-                ((ContentNode)currentNode).execute();
-        }
-        last.finish();
+        this.changeExecution(currentNode, last);
             
     }
     
     public void previus() throws NoSuchElementException{
+        Node last = currentNode;
         currentNode = iNode.previous();
+        
+        this.changeExecution(currentNode, last);
     }
     
     @Override
