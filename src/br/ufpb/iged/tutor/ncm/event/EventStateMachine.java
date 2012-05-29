@@ -27,7 +27,11 @@ public class EventStateMachine {
      */
     private void sendEvent(){
         Entity e = this.event.getSource();
-        e.receiveEventStateTransition(this.event);
+        e.receiveEventStateTransition(this.event.getCopy());
+        //Se o evento for SelectionEvent, sua transição para o estado
+        //SLEEPING deve ser imediata
+        if(this.event instanceof SelectionEvent)
+            this.transitionStops();
     }
     
     public void transitionStarts(){

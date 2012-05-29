@@ -94,17 +94,17 @@ public class ContextNode extends CompositeNode {
                                 //Testa se o evento eh do tipo selection
                                 if ((conditionRole.getEventType().equals("selection")
                                         && (e instanceof SelectionEvent))
-                                     || (conditionRole.getEventType().equals("presentation")
-                                        && (e instanceof PresentationEvent)))  {
-                                    
+                                        || (conditionRole.getEventType().equals("presentation")
+                                        && (e instanceof PresentationEvent))) {
+
                                     if (conditionRole.getCondition() instanceof EventStateTransitionCondition) {
                                         EventStateTransitionCondition condition = (EventStateTransitionCondition) conditionRole.getCondition();
                                         //Se a transicao do evento for "starts" testar se o evento esta ocorrendo
                                         //ou se a transicao do evento for "stopss" testar se o evento esta ocorrendo
                                         if ((condition.getTransitionName().equals("starts")
-                                                    && (e.getStaus() == EntityEvent.OCCURING))
-                                                ||(condition.getTransitionName().equals("stops")
-                                                    && (e.getStaus() == EntityEvent.SLEEPING))){
+                                                && (e.getStaus() == EntityEvent.OCCURING))
+                                                || (condition.getTransitionName().equals("stops")
+                                                && (e.getStaus() == EntityEvent.SLEEPING))) {
                                             Glue g = hc.getGlue();
                                             if (g instanceof CausalGlue) {
                                                 context.processCausalGlue(l, conditionRole, component);
@@ -119,8 +119,8 @@ public class ContextNode extends CompositeNode {
         }
     }
 
-    public void processCausalGlue(Link l, ConditionRole conditionRole, Entity component) {
-        CausalGlue glue = (CausalGlue)(l.getConnector()).getGlue();
+    void processCausalGlue(Link l, ConditionRole conditionRole, Entity component) {
+        CausalGlue glue = (CausalGlue) (l.getConnector()).getGlue();
         TriggerExpression t = glue.getTrigger();
         if (t instanceof SimpleTriggerExpression) {
             SimpleTriggerExpression trigger = (SimpleTriggerExpression) t;
@@ -136,7 +136,7 @@ public class ContextNode extends CompositeNode {
                         return;
                     }
                     Action a = ar.getAction();
-                    if(ar.getEventType().equals("presentation")) {
+                    if (ar.getEventType().equals("presentation")) {
                         //Pausar componente atual se estiver rodando
                         Node nlast = null;
                         if (component instanceof Anchor) {
@@ -144,38 +144,46 @@ public class ContextNode extends CompositeNode {
                         } else {
                             nlast = (Node) component;
                         }
-                        if(nlast.getState() == EntityEvent.OCCURING)
+                        if (nlast.getState() == EntityEvent.OCCURING) {
                             nlast.pause();
-                        
-                        System.out.println("Action: "+ a.getActionType());
-                        if (a.getActionType().equals("start")) {
-                            for (Bind ba : l.getBindsForRole(ar.getId())) {
-                                Node n = this.nodes.get(ba.getComponent());
-                                if (n != null) { 
-                                    if (ba.getInterface() == null) {
-                                        ((ContentNode) n).execute();
-                                    } else {
-                                        n.execute(ba.getInterface());
-                                    }
-                                }
-                            }
-                        }else{
-                            if (a.getActionType().equals("resume")) {
-                                for (Bind ba : l.getBindsForRole(ar.getId())) {
-                                    System.out.println("Component: " + ba.getComponent());
-                                    System.out.println("Interface: " + ba.getInterface());
-                                    Node n = this.nodes.get(ba.getComponent());
-                                    if (n != null) {
-                                        Node nn = n;
-                                        if (ba.getInterface() != null) {
-                                            n.resume(ba.getInterface());
-                                        }else
-                                            n.resume();
-                                    }
-                                }
-                            }
+                        }
+
+                        System.out.println("Action: " + a.getActionType());
+                        for (Bind ba : l.getBindsForRole(ar.getId())) {
+                            this.processAction(a, ba);
                         }
                     }
+                }
+            }
+        }
+    }
+
+    void processAction(Action a, Bind ba) {
+        Node n = this.nodes.get(ba.getComponent());
+        if (n != null) {
+            if (a.getActionType().equals("start")) {
+                if (ba.getInterface() == null) {
+                    ((ContentNode) n).execute();
+                } else {
+                    n.execute(ba.getInterface());
+                }
+            } else if (a.getActionType().equals("resume")) {
+                if (ba.getInterface() != null) {
+                    n.resume(ba.getInterface());
+                } else {
+                    n.resume();
+                }
+            } else if (a.getActionType().equals("pause")) {
+                if (ba.getInterface() != null) {
+                    //n.pause(ba.getInterface());
+                } else {
+                    n.pause();
+                }
+            } else if (a.getActionType().equals("stop")) {
+                if (ba.getInterface() != null) {
+                    //n.pause(ba.getInterface());
+                } else {
+                    n.finish();
                 }
             }
         }

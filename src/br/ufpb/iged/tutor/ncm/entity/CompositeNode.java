@@ -66,6 +66,10 @@ public abstract class CompositeNode extends Node implements EntityListener{
     
     @Override
     public void pause(){
+        if(this.getState() != EntityEvent.OCCURING)
+            return;
+        
+        this.presetationMachine.transitionPauses();
         for(Node n : this.getNodes())
             n.pause();
     }
@@ -73,13 +77,21 @@ public abstract class CompositeNode extends Node implements EntityListener{
     
     @Override
     public void finish(){
-        for(Node n : this.getNodes())
+        if(this.getState() == EntityEvent.SLEEPING)
+            return;
+        
+        this.presetationMachine.transitionStops();
+        for(Node n : this.getNodes()){
+            n.removeListener(this);
             n.finish();
+        }
     }
     
     protected void execute(Port p){
-        System.out.println("Init execute CompositeNode: " + this.getId());
+        if(this.getState() == EntityEvent.OCCURING)
+            return;
         
+        System.out.println("Init execute CompositeNode: " + this.getId());
         this.presetationMachine.transitionStarts();
         //Registrando escutadores em todos Nodes do CompositeNode.
         for(Node n : nodes.values())
@@ -98,8 +110,10 @@ public abstract class CompositeNode extends Node implements EntityListener{
     }
     
     protected void resume(Port p){
-        System.out.println("Resume execute CompositeNode: " + this.getId());
+        if(this.getState() == EntityEvent.OCCURING)
+            return;
         
+        System.out.println("Resume execute CompositeNode: " + this.getId());
         this.presetationMachine.transitionResumes();
         
         //Executando o Node referenciado pela porta indicada por parâmetro
