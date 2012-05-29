@@ -19,12 +19,13 @@ public abstract class Node extends Entity{
     protected EventStateMachine presetationMachine = null;
     
     Node(){
-        this.anchors = new HashMap<String, Anchor>(); 
-        PresentationEvent pe = new PresentationEvent();
-        this.presetationMachine = new EventStateMachine(pe);
+        this.anchors = new HashMap<String, Anchor>();
     }
     
     public abstract void execute(String interfaceID);
+    public abstract void pause();
+    public abstract void resume();
+    public abstract void resume(String portID);
     public abstract void finish();
     
 

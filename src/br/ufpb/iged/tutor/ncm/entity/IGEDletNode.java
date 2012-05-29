@@ -1,23 +1,37 @@
 
 package br.ufpb.iged.tutor.ncm.entity;
 
+import java.io.IOException;
+
 /**
  *
  * @author GILBERTO FARIAS
  */
 public class IGEDletNode extends ContentNode{
-    private String source;
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        System.out.println("Iniciado IGEDlet: " + this.getId());
+        
+        try {
+            System.out.println("Digite IGED");
+            System.in.read();
+        } catch (IOException ex) {
+        }
+        final IGEDletNode iged = this;
+        new Thread(){
+            public void run(){
+                iged.finish();
+            }
+        }.start();
+        
+        try {
+            while(true){
+                Thread.sleep(1000);
+            }
+        } catch (Exception ex) {
+            System.out.println("Fim IGElet");
+            //ex.printStackTrace();
+        }
+        
     }
 }

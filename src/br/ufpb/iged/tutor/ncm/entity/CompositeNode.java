@@ -1,11 +1,12 @@
 package br.ufpb.iged.tutor.ncm.entity;
 
+import br.ufpb.iged.tutor.ncm.event.CompositionEvent;
 import br.ufpb.iged.tutor.ncm.event.EntityEvent;
 import br.ufpb.iged.tutor.ncm.event.EntityListener;
+import br.ufpb.iged.tutor.ncm.event.EventStateMachine;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Semaphore;
 
 /**
  *
@@ -14,12 +15,15 @@ import java.util.concurrent.Semaphore;
 public abstract class CompositeNode extends Node implements EntityListener{
     protected Map<String, Port> ports;
     protected Map<String, Node> nodes;
-    private Semaphore sem = null;
     
     CompositeNode(){
+        super();
         this.ports = new HashMap<String, Port>();
         this.nodes = new HashMap<String, Node>();
 
+        CompositionEvent ce = new CompositionEvent();
+        ce.setSource(this);
+        this.presetationMachine = new EventStateMachine(ce);
     }
     
     @Override
@@ -41,26 +45,70 @@ public abstract class CompositeNode extends Node implements EntityListener{
     @Override
     public void execute(String portID){
         Port p = this.getPort(portID);
+        if(p == null)
+            return;//lançar excessão
         this.execute(p);
     }
     
+    @Override
+    public void resume(){
+        for(Node n : this.getNodes())
+            n.resume();
+    }
+    
+    @Override
+    public void resume(String portID){
+        Port p = this.getPort(portID);
+        if(p == null)
+            return;//lançar excessão
+        this.resume(p);
+    }
+    
+    @Override
+    public void pause(){
+        for(Node n : this.getNodes())
+            n.pause();
+    }
+     
+    
+    @Override
     public void finish(){
         for(Node n : this.getNodes())
             n.finish();
     }
     
     protected void execute(Port p){
+        System.out.println("Init execute CompositeNode: " + this.getId());
+        
+        this.presetationMachine.transitionStarts();
         //Registrando escutadores em todos Nodes do CompositeNode.
         for(Node n : nodes.values())
             n.addListener(this);
         
         //Executando o Node referenciado pela porta indicada por parâmetro
         Node n = this.getNode(p.getComponent());
-        if(p.getIp() != null){
-            n.execute(p.getIp());
+        if(n instanceof ContentNode){
+            ((ContentNode)n).execute();
         }else{
-            if(n instanceof ContentNode)
-                ((ContentNode)n).execute();
+            if(p.getIp() != null){
+                n.execute(p.getIp());
+            }
+        }
+        
+    }
+    
+    protected void resume(Port p){
+        System.out.println("Resume execute CompositeNode: " + this.getId());
+        
+        this.presetationMachine.transitionResumes();
+        
+        //Executando o Node referenciado pela porta indicada por parâmetro
+        Node n = this.getNode(p.getComponent());
+        if(n instanceof ContentNode){
+            ((ContentNode)n).resume();
+        }else{
+            if(p.getIp() != null)
+                n.resume(p.getIp());
         }
         
     }

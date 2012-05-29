@@ -3,7 +3,6 @@ package br.ufpb.iged.tutor.ncm.entity;
 
 import br.ufpb.iged.tutor.ncm.event.EntityEvent;
 import br.ufpb.iged.tutor.ncm.event.EntityListener;
-import br.ufpb.iged.tutor.ncm.event.EventStateMachine;
 import java.util.LinkedList;
 import java.util.List;
 

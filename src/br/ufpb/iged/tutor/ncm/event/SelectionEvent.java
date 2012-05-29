@@ -1,31 +1,23 @@
 
 package br.ufpb.iged.tutor.ncm.event;
 
-import br.ufpb.iged.tutor.ncm.entity.Anchor;
-import br.ufpb.iged.tutor.ncm.entity.ContentNode;
+import br.ufpb.iged.tutor.ncm.entity.Entity;
 
 /**
  *
  * @author GILBERTO FARIAS
  */
 public class SelectionEvent extends EntityEvent{
-    private ContentNode source = null;
-    private Anchor contentAnchor = null;
+    private Entity source = null;
     
-    public Anchor getContentAnchor() {
-        return contentAnchor;
-    }
-
-    void setContentAnchor(Anchor contentAnchor) {
-        this.contentAnchor = contentAnchor;
-    }
+    
 
     @Override
-    public ContentNode getSource() {
+    public Entity getSource() {
         return source;
     }
 
-    void setSource(ContentNode source) {
+    public void setSource(Entity source) {
         this.source = source;
     }
 }

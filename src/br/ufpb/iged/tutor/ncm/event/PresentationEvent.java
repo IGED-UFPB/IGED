@@ -27,7 +27,7 @@ public class PresentationEvent extends EntityEvent{
         return source;
     }
 
-    void setSource(ContentNode source) {
+    public void setSource(ContentNode source) {
         this.source = source;
     }
     

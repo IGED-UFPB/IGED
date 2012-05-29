@@ -42,13 +42,12 @@ public class NCMFormatter {
     }
     
     public void play(){
-        while(!this.stackContext.empty()){
+        //while(!this.stackContext.empty()){
             ContextNode cn = this.stackContext.peek();
-            
-            for(Node n : cn.getNodes()){
-                
-            }
-        }
+            //for(Node n : cn.getNodes()){
+                cn.execute("pInicio");
+            //}
+        //}
     }
     
     //esse método irá preencher os dados do arquivo xml para os objetos
@@ -124,7 +123,7 @@ public class NCMFormatter {
     
     private void simulateNCL(){
         this.main = new ContextNode();
-        this.main.setName("main");
+        this.main.setId("main");
         //Porta inicial
         Port p = new Port();
         p.setId("pInicio");
@@ -148,28 +147,44 @@ public class NCMFormatter {
         //Porta pVetor
         p = new Port();
         p.setId("pVetor");
-        p.setComponent("slide1");
+        p.setComponent("slide2");
+        t.add(p);
+        
+        p = new Port();
+        p.setId("pAtiv1");
+        p.setComponent("slide2");
+        p.setIp("aAtividade1");
+        t.add(p);
+        
+        p = new Port();
+        p.setId("pAtiv2");
+        p.setComponent("slide2");
+        p.setIp("aAtividade2");
+        t.add(p);
+        
+        p = new Port();
+        p.setId("pAnim1");
+        p.setComponent("slide4");
+        p.setIp("aAnimacao1");
         t.add(p);
         
         //Medias
         ImageNode in = new ImageNode();
         in.setId("slide1");
         in.setSource("vetor/press/slide1.jpg");
-        //Ancora
-        ContentAnchor a = new ContentAnchor();
-        a.setId("aAnimacao1");
-        a.setPoint(new Point2D.Double(100, 200));
-        in.add(a);
         t.add(in);
         
         in = new ImageNode();
         in.setId("slide2");
         in.setSource("vetor/press/slide2.jpg");
         //Ancora
+        //Ancora
+        ContentAnchor a = new ContentAnchor();        
         a = new ContentAnchor();
         a.setId("aAtividade1");
         a.setPoint(new Point2D.Double(100, 200));
         in.add(a);
+        
         a = new ContentAnchor();
         a.setId("aAtividade2");
         a.setPoint(new Point2D.Double(100, 230));
@@ -184,6 +199,11 @@ public class NCMFormatter {
         in = new ImageNode();
         in.setId("slide4");
         in.setSource("vetor/press/slide4.jpg");
+        //Ancora
+        a = new ContentAnchor();
+        a.setId("aAnimacao1");
+        a.setPoint(new Point2D.Double(100, 200));
+        in.add(a);
         t.add(in);
         
         cn.add(t);
@@ -205,38 +225,12 @@ public class NCMFormatter {
         cn.add(ig);
         
         //Link do contexto
+        //IGED Atividade 1
         Link l = new CausalLink(this.connectors.get("onSelection1Start1"));
-        l.setId("lSlide1IGEDlet1Start2");
-        Bind b = new Bind();
-        b.setComponent("slide1");
-        b.setInterface("aAnimacao1");
-        b.setRole("onSelection");
-        l.add(b);
-        
-        b = new Bind();
-        b.setComponent("animaca1");
-        b.setRole("start");
-        l.add(b);
-        cn.add(l);
-        
-        l = new CausalLink(this.connectors.get("onStop1Resume1"));
-        l.setId("lIGEDlet1Slide1Resume2");
-        b = new Bind();
-        b.setComponent("slide1");
-        b.setRole("resume");
-        l.add(b);
-        
-        b = new Bind();
-        b.setComponent("animaca1");
-        b.setRole("OnStop");
-        l.add(b);
-        cn.add(l);
-        
-        l = new CausalLink(this.connectors.get("onSelection1Start1"));
         l.setId("lSlide1IGEDlet1Start1");
-        b = new Bind();
-        b.setComponent("slide2");
-        b.setInterface("aAtividade1");
+        Bind b = new Bind();
+        b.setComponent("vetor");
+        b.setInterface("pAtiv1");
         b.setRole("onSelection");
         l.add(b);
         
@@ -249,13 +243,72 @@ public class NCMFormatter {
         l = new CausalLink(this.connectors.get("onStop1Resume1"));
         l.setId("lIGEDlet1Slide1Resume1");
         b = new Bind();
-        b.setComponent("slide2");
+        b.setComponent("vetor");
+        b.setInterface("pAtiv1");
         b.setRole("resume");
         l.add(b);
         
         b = new Bind();
         b.setComponent("atividade1");
-        b.setRole("OnStop");
+        b.setRole("onStop");
+        l.add(b);
+        cn.add(l);
+        
+        //IGED Atividade 2
+        l = new CausalLink(this.connectors.get("onSelection1Start1"));
+        l.setId("lSlide1IGEDlet1Start2");
+        b = new Bind();
+        b.setComponent("vetor");
+        b.setInterface("pAtiv2");
+        b.setRole("onSelection");
+        l.add(b);
+        
+        b = new Bind();
+        b.setComponent("atividade2");
+        b.setRole("start");
+        l.add(b);
+        cn.add(l);
+        
+        l = new CausalLink(this.connectors.get("onStop1Resume1"));
+        l.setId("lIGEDlet1Slide1Resume2");
+        b = new Bind();
+        b.setComponent("vetor");
+        b.setInterface("pAtiv2");
+        b.setRole("resume");
+        l.add(b);
+        
+        b = new Bind();
+        b.setComponent("atividade2");
+        b.setRole("onStop");
+        l.add(b);
+        cn.add(l);
+        
+        //IGED Animação 1
+        l = new CausalLink(this.connectors.get("onSelection1Start1"));
+        l.setId("lSlide1IGEDlet1Start2");
+        b = new Bind();
+        b.setComponent("vetor");
+        b.setInterface("pAnim1");
+        b.setRole("onSelection");
+        l.add(b);
+        
+        b = new Bind();
+        b.setComponent("animacao1");
+        b.setRole("start");
+        l.add(b);
+        cn.add(l);
+        
+        l = new CausalLink(this.connectors.get("onStop1Resume1"));
+        l.setId("lIGEDlet1Slide1Resume3");
+        b = new Bind();
+        b.setComponent("vetor");
+        b.setInterface("pAnim1");
+        b.setRole("resume");
+        l.add(b);
+        
+        b = new Bind();
+        b.setComponent("animacao1");
+        b.setRole("onStop");
         l.add(b);
         cn.add(l);
         
@@ -263,7 +316,7 @@ public class NCMFormatter {
         this.stackContext.push(this.main);
     }
     
-        public static SimpleCondition createSimpleCondition(Element element){
+    public static SimpleCondition createSimpleCondition(Element element){
         
         return null;
     
@@ -416,6 +469,14 @@ public class NCMFormatter {
         
         return p;
     
+    }
+    
+    public static void main(String arg[])
+    {
+        NCMFormatter ncm = new NCMFormatter();
+        ncm.simulateConnector();
+        ncm.simulateNCL();
+        ncm.play();
     }
     
 }

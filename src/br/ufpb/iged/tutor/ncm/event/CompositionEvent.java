@@ -10,6 +10,7 @@ import br.ufpb.iged.tutor.ncm.entity.CompositeNode;
 public class CompositionEvent extends EntityEvent{
     private CompositeNode source = null;
 
+    @Override
     public CompositeNode getSource() {
         return source;
     }
