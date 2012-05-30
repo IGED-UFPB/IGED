@@ -39,7 +39,7 @@ public class ReportGraph {
 	
 	public void showSeries(){
 		
-		JFreeChart chart = ChartFactory.createXYLineChart ("Grafico", "X", "Y", dataSet, PlotOrientation.VERTICAL, true, true, false);
+		JFreeChart chart = ChartFactory.createXYLineChart ("Grafico", "n", "T(n)", dataSet, PlotOrientation.VERTICAL, true, true, false);
 
 		ChartFrame chartFrame = new ChartFrame("Test", chart);
 		
