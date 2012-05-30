@@ -1,8 +1,6 @@
-package gui;
+package br.ufpb.iged.avaliador.medidorEficiencia.gui;
 
-import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
-import java.util.List;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
@@ -11,8 +9,8 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 //import org.jfree.data.xy.XYSeries;
 
-import efficiency.TableMeter;
-import efficiency.XYSeries;
+import br.ufpb.iged.avaliador.medidorEficiencia.efficiency.TableMeter;
+import br.ufpb.iged.avaliador.medidorEficiencia.efficiency.XYSeries;
 
 public class ReportGraph {
 
@@ -41,7 +39,7 @@ public class ReportGraph {
 	
 	public void showSeries(){
 		
-		JFreeChart chart = ChartFactory.createXYLineChart ("Gráfico", "X", "Y", dataSet, PlotOrientation.VERTICAL, true, true, false);
+		JFreeChart chart = ChartFactory.createXYLineChart ("Grafico", "X", "Y", dataSet, PlotOrientation.VERTICAL, true, true, false);
 
 		ChartFrame chartFrame = new ChartFrame("Test", chart);
 		

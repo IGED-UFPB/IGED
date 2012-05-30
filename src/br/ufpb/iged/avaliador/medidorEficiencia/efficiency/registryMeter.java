@@ -1,4 +1,5 @@
-package efficiency;
+package br.ufpb.iged.avaliador.medidorEficiencia.efficiency;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,11 +9,11 @@ public class registryMeter {
 	
 	
 			
-	 int id; //Identificador único do algoritmo;
+	 int id; //Identificador ï¿½nico do algoritmo;
 	 int id_exerc; //Identificador unico do exercicio;
-	 String id_function; //Identificador único da função;
-	 int dimension; //Dimensão da entrada de dados;
-	 //efficiencyMeter meter; //Objeto resultante da medição do algoritmo;
+	 String id_function; //Identificador ï¿½nico da funï¿½ï¿½o;
+	 int dimension; //Dimensï¿½o da entrada de dados;
+	 //efficiencyMeter meter; //Objeto resultante da mediï¿½ï¿½o do algoritmo;
 	 	public long processingTotal;
 		//static int totalMemory;
 	 	public long temporaryMemory;

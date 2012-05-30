@@ -1,6 +1,6 @@
-package efficiency;
+package br.ufpb.iged.avaliador.medidorEficiencia.efficiency;
 
-import gui.ReportGraph;
+import br.ufpb.iged.avaliador.medidorEficiencia.gui.ReportGraph;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class mainTest {
 			}
 			System.out.println("");
 			System.out.println("");
-			System.out.println("Tabela de medição");
+			System.out.println("Tabela de medicao");
 			// System.out.println("");
 			// System.out.println(meter.toString());
 			// System.out.println("");
@@ -77,7 +77,7 @@ public class mainTest {
 			}
 			System.out.println("");
 			System.out.println("");
-			System.out.println("Tabela de medição");
+			System.out.println("Tabela de medicao");
 			// System.out.println("");
 			// System.out.println(meter.toString());
 			// System.out.println("");
@@ -132,73 +132,73 @@ public class mainTest {
 
 	public static int[] bublleSort(int[] vetor, efficiencyMeter medidor) {
 
-		// Código simulador do interpretador.
-		// inicialização de i
+		// Cï¿½digo simulador do interpretador.
+		// inicializaï¿½ï¿½o de i
 		medidor.simpleVariableAllocation();
 		medidor.attributionVariable();
 		for (int k = 0; k < vetor.length; ++k) {
-			// comparação de i com v.lenght
+			// comparaï¿½ï¿½o de i com v.lenght
 			medidor.operation();
 
-			// inicialização de j
+			// inicializaï¿½ï¿½o de j
 			medidor.simpleVariableAllocation();
 			medidor.attributionVariable();
 			for (int l = k + 1; l < vetor.length; ++l) {
-				// comparação de j com v.lenght
+				// comparaï¿½ï¿½o de j com v.lenght
 				medidor.operation();
 
-				// Indexação de v[i]
+				// Indexaï¿½ï¿½o de v[i]
 				medidor.indexArray();
-				// Indexação de v[j]
+				// Indexaï¿½ï¿½o de v[j]
 				medidor.indexArray();
-				// Comparação de v[i] com v[j]
+				// Comparaï¿½ï¿½o de v[i] com v[j]
 				medidor.operation();
 
-				// medidor.operacaoAritmetica; Fazer alterções
-				// medidor.operacaoLogica; Fazer alterções
+				// medidor.operacaoAritmetica; Fazer alterï¿½ï¿½es
+				// medidor.operacaoLogica; Fazer alterï¿½ï¿½es
 
 				if (vetor[k] > vetor[l]) {
 					int aux = vetor[k];
 					// Inicializacao de aux
 					medidor.simpleVariableAllocation();
-					// Indexação de v[k]
+					// Indexaï¿½ï¿½o de v[k]
 					medidor.indexArray();
-					// Atribuição
+					// Atribuiï¿½ï¿½o
 					medidor.attributionArray();
 
 					vetor[k] = vetor[l];
-					// Indexação v[k]
+					// Indexaï¿½ï¿½o v[k]
 					medidor.indexArray();
-					// Indexação v[l]
+					// Indexaï¿½ï¿½o v[l]
 					medidor.indexArray();
-					// Atribuição
+					// Atribuiï¿½ï¿½o
 					medidor.attributionArray();
 
 					vetor[l] = aux;
-					// Indexação v[k]
+					// Indexaï¿½ï¿½o v[k]
 					medidor.indexArray();
-					// Atribuição
+					// Atribuiï¿½ï¿½o
 					medidor.attributionArray();
 					medidor.simpleVariableDeAllocation();
 				}
 
-				// Adição j+1
-				// atribuição de j
+				// Adiï¿½ï¿½o j+1
+				// atribuiï¿½ï¿½o de j
 				medidor.attributionVariable();
 				medidor.operation();
 			}
-			// comparação de j com v.lenght (esta última comparação dará false e
-			// sairá do for interno)
+			// comparaï¿½ï¿½o de j com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+			// sairï¿½ do for interno)
 			medidor.operation();
 			medidor.simpleVariableDeAllocation();
 
-			// Adição i+1
-			// atribuição de i
+			// Adiï¿½ï¿½o i+1
+			// atribuiï¿½ï¿½o de i
 			medidor.operation();
 			medidor.attributionVariable();
 		}
-		// comparação de i com v.lenght (esta última comparação dará false e
-		// sairá do for externo)
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// sairï¿½ do for externo)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
 
@@ -213,51 +213,51 @@ public class mainTest {
 		medidor.arrayAllocation(vetor.length);
 
 		// procurando o maior elemento
-		// Alocação Simples "maior";
+		// Alocaï¿½ï¿½o Simples "maior";
 		int maior = 0;
 		medidor.simpleVariableAllocation();
 
-		// Alocação Simples "i" do for
+		// Alocaï¿½ï¿½o Simples "i" do for
 		medidor.simpleVariableAllocation();
 		medidor.attributionVariable();
 		for (int i = 0; i < vetor.length; ++i) {
-			// Comparação i com o tamanho do vetor;
+			// Comparaï¿½ï¿½o i com o tamanho do vetor;
 			medidor.operationLogic();
 
-			// Indexação e comparação do vetor com a variavel;
+			// Indexaï¿½ï¿½o e comparaï¿½ï¿½o do vetor com a variavel;
 			medidor.indexArray();
 			medidor.operationLogic();
 			if (vetor[i] > maior)
 
 				maior = vetor[i];
-			// atribição da variável com a indexação do vetor;
+			// atribiï¿½ï¿½o da variï¿½vel com a indexaï¿½ï¿½o do vetor;
 			medidor.attributionVariable();
 			medidor.indexArray();
 
-			// Adição i+1
-			// atribuição de i
+			// Adiï¿½ï¿½o i+1
+			// atribuiï¿½ï¿½o de i
 			medidor.attributionVariable();
 			medidor.operation();
 		}
 
-		// comparação de i com v.lenght (esta última comparação dará false e
-		// sairá do for interno)
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// sairï¿½ do for interno)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
 
-		// Alocação de Vetor de contagens
+		// Alocaï¿½ï¿½o de Vetor de contagens
 		int C[] = new int[maior + 1];
 		medidor.arrayAllocation(maior + 1);
 
-		// Alocação Simples "i" do for
+		// Alocaï¿½ï¿½o Simples "i" do for
 		medidor.simpleVariableAllocation();
 		medidor.attributionVariable();
 		for (int i = 0; i < vetor.length; ++i) {
-			// Comparação i com o tamanho do vetor;
+			// Comparaï¿½ï¿½o i com o tamanho do vetor;
 			medidor.operationLogic();
 
 			C[vetor[i]] = C[vetor[i]] + 1;
-			// Indexações e atribuições
+			// Indexaï¿½ï¿½es e atribuiï¿½ï¿½es
 			medidor.indexArray();
 			medidor.indexArray();
 			medidor.indexArray();
@@ -265,25 +265,25 @@ public class mainTest {
 			medidor.operationAritimetic();
 			medidor.attributionArray();
 
-			// Adição i+1
-			// atribuição de i
+			// Adiï¿½ï¿½o i+1
+			// atribuiï¿½ï¿½o de i
 			medidor.attributionVariable();
 			medidor.operation();
 		}
-		// comparação de i com v.lenght (esta última comparação dará false e
-		// sairá do for interno)
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// sairï¿½ do for interno)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
 
-		// Alocação Simples "i" do for
+		// Alocaï¿½ï¿½o Simples "i" do for
 		medidor.simpleVariableAllocation();
 		medidor.attributionVariable();
 		for (int i = 1; i < C.length; ++i) {
-			// Comparação i com o tamanho do vetor;
+			// Comparaï¿½ï¿½o i com o tamanho do vetor;
 			medidor.operationLogic();
 
 			C[i] = C[i] + C[i - 1];
-			// indexações atribuições e operações
+			// indexaï¿½ï¿½es atribuiï¿½ï¿½es e operaï¿½ï¿½es
 			medidor.indexArray();
 			medidor.indexArray();
 			medidor.indexArray();
@@ -291,26 +291,26 @@ public class mainTest {
 			medidor.operationAritimetic();
 			medidor.operationAritimetic();
 
-			// Adição i+1
-			// atribuição de i
+			// Adiï¿½ï¿½o i+1
+			// atribuiï¿½ï¿½o de i
 			medidor.attributionVariable();
 			medidor.operation();
 		}
 
-		// comparação de i com v.lenght (esta última comparação dará false e
-		// sairá do for interno)
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// sairï¿½ do for interno)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
 
-		// Alocação Simples "i" do for
+		// Alocaï¿½ï¿½o Simples "i" do for
 		medidor.simpleVariableAllocation();
 		medidor.attributionVariable();
 		for (int i = vetor.length - 1; i >= 0; --i) {
-			// Comparação i com o tamanho do vetor;
+			// Comparaï¿½ï¿½o i com o tamanho do vetor;
 			medidor.operationLogic();
 
 			B[C[vetor[i]] - 1] = vetor[i];
-			// Indexações operações atribuiçoes
+			// Indexaï¿½ï¿½es operaï¿½ï¿½es atribuiï¿½oes
 			medidor.indexArray();
 			medidor.indexArray();
 			medidor.indexArray();
@@ -319,7 +319,7 @@ public class mainTest {
 			medidor.attributionArray();
 
 			C[vetor[i]] = C[vetor[i]] - 1;
-			// Indexações operações atribuiçoes
+			// Indexaï¿½ï¿½es operaï¿½ï¿½es atribuiï¿½oes
 			medidor.indexArray();
 			medidor.indexArray();
 			medidor.indexArray();
@@ -327,21 +327,21 @@ public class mainTest {
 			medidor.operationAritimetic();
 			medidor.attributionArray();
 
-			// Adição i+1
-			// atribuição de i
+			// Adiï¿½ï¿½o i+1
+			// atribuiï¿½ï¿½o de i
 			medidor.attributionVariable();
 			medidor.operation();
 		}
 
-		// comparação de i com v.lenght (esta última comparação dará false e
-		// sairá do for interno)
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// sairï¿½ do for interno)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
 
-		// Desalocação maior
+		// Desalocaï¿½ï¿½o maior
 		medidor.simpleVariableDeAllocation();
 
-		// desalocação dos vetores;
+		// desalocaï¿½ï¿½o dos vetores;
 		medidor.arrayDeAllocation(maior + 1);
 		medidor.arrayDeAllocation(vetor.length);
 

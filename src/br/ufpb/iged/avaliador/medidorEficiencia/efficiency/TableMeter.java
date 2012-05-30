@@ -1,4 +1,4 @@
-package efficiency;
+package br.ufpb.iged.avaliador.medidorEficiencia.efficiency;
 
 import java.util.LinkedList;
 import java.util.List;

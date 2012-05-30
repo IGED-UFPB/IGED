@@ -1,11 +1,9 @@
-package efficiency;
-
-
+package br.ufpb.iged.avaliador.medidorEficiencia.efficiency;
 
 public class efficiencyMeter {
 
 	
-	//Definir as variáveis que faltam.
+	//Definir as variï¿½veis que faltam.
 	
 	
 	public registryMeter registerMeter;
@@ -51,9 +49,9 @@ public class efficiencyMeter {
 	}
 	
 
-	//Alocação
+	//Alocaï¿½ï¿½o
 	
-	// Variável simples
+	// Variï¿½vel simples
 	public final void simpleVariableAllocation(){
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
@@ -65,7 +63,7 @@ public class efficiencyMeter {
 			}
 	}
 	
-	//Referência
+	//Referï¿½ncia
 	public final void referenceAllocation(){
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
@@ -103,9 +101,9 @@ public class efficiencyMeter {
 	}
 	
 	
-	//Desalocação 
+	//Desalocaï¿½ï¿½o 
 	
-	//Variável simples
+	//Variï¿½vel simples
 	public final void simpleVariableDeAllocation(){	
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
@@ -118,7 +116,7 @@ public class efficiencyMeter {
 		
 	}
 	
-	//Referência
+	//Referï¿½ncia
 	public final void referenceDeAllocation(){
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
@@ -155,9 +153,9 @@ public class efficiencyMeter {
 	}
 	
 	
-	//Operações (variáveis, referências ou objetos)
+	//Operaï¿½ï¿½es (variï¿½veis, referï¿½ncias ou objetos)
 	
-	//Atribuição
+	//Atribuiï¿½ï¿½o
 	public final void attributionVariable(){
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
@@ -175,9 +173,9 @@ public class efficiencyMeter {
 	}
 	
 	
-	//Operações (vetor)
+	//Operaï¿½ï¿½es (vetor)
 	
-	//Atribuição
+	//Atribuiï¿½ï¿½o
 	public final void attributionArray(){
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
@@ -193,7 +191,7 @@ public class efficiencyMeter {
 		registerMeter.operatingArray +=1;
 	}
 	
-	//Indexação
+	//Indexaï¿½ï¿½o
 	public final void indexArray(){
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
@@ -204,7 +202,7 @@ public class efficiencyMeter {
 	
 	//Metodos
 	
-	//Invocação
+	//Invocaï¿½ï¿½o
 	public final void methodInvocation(){
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
@@ -229,7 +227,7 @@ public class efficiencyMeter {
 	}
 	
 	
-	//Operações
+	//Operaï¿½ï¿½es
 	
 	public final void operation(){
 		registerMeter.processingTotal += 1;
@@ -242,7 +240,7 @@ public class efficiencyMeter {
 			}
 	}
 	
-	//Operações Logicas
+	//Operaï¿½ï¿½es Logicas
 	public final void operationLogic(){
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
