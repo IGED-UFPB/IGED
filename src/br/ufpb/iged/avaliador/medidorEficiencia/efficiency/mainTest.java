@@ -8,11 +8,12 @@ public class mainTest {
 
 	public static void main(String[] args) {
 
-		int n[] = {10,20,30,40,50,60,70,80,90,100};
+		int n[] = { 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000 };
 
 		// tableMeter table = new tableMeter();
 
-		// Test Simples
+		// Test Simples Bublle Sort
+		
 		for (int k = 0; k < n.length; ++k) {
 			System.out.println("Test Simples");
 			int[] vetor1 = new int[n[k]];
@@ -55,7 +56,7 @@ public class mainTest {
 
 		}
 
-		// Teste Simples
+		// Teste Simples Count Sort
 
 		for (int k = 0; k < n.length; ++k) {
 			System.out.println("Test Simples");
@@ -72,6 +73,7 @@ public class mainTest {
 			System.out.println("");
 
 			vetor2 = countSort(vetor2, meter);
+			
 			for (int i = 0; i < vetor2.length; ++i) {
 				System.out.print(vetor2[i] + " ");
 			}
@@ -85,6 +87,41 @@ public class mainTest {
 			meter.finalizador(0, 0, "Count Sort", n[k], meter);
 		}
 
+		
+		// Teste Simples Count Sort
+
+				for (int k = 0; k < n.length; ++k) {
+					System.out.println("Test Simples");
+					int[] vetor3 = new int[n[k]];
+					for (int i = 0; i < vetor3.length; ++i) {
+						vetor3[i] = (int) (Math.random() * 100);
+					}
+
+					efficiencyMeter meter = new efficiencyMeter();
+
+					for (int i = 0; i < vetor3.length; ++i) {
+						System.out.print(vetor3[i] + " ");
+					}
+					System.out.println("");
+
+					mergeSort(vetor3, 0, vetor3.length-1, meter);
+					
+					for (int i = 0; i < vetor3.length; ++i) {
+						System.out.print(vetor3[i] + " ");
+					}
+					System.out.println("");
+					System.out.println("");
+					System.out.println("Tabela de medicao");
+					// System.out.println("");
+					// System.out.println(meter.toString());
+					// System.out.println("");
+
+					meter.finalizador(0, 0, "Merge Sort", n[k], meter);
+				}
+		
+		
+		
+		
 		TableMeter table1;
 		System.out.println(" ");
 
@@ -103,7 +140,8 @@ public class mainTest {
 
 		ReportGraph reportGraph = new ReportGraph();
 
-		reportGraph.addSeries("Bublle Sort");
+		reportGraph.addSeries("Merge Sort");
+		//reportGraph.addSeries("Bublle Sort");
 		reportGraph.addSeries("Count Sort");
 		reportGraph.showSeries();
 
@@ -187,7 +225,8 @@ public class mainTest {
 				medidor.attributionVariable();
 				medidor.operation();
 			}
-			// comparaï¿½ï¿½o de j com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+			// comparaï¿½ï¿½o de j com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o
+			// darï¿½ false e
 			// sairï¿½ do for interno)
 			medidor.operation();
 			medidor.simpleVariableDeAllocation();
@@ -197,7 +236,8 @@ public class mainTest {
 			medidor.operation();
 			medidor.attributionVariable();
 		}
-		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½
+		// false e
 		// sairï¿½ do for externo)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
@@ -240,7 +280,8 @@ public class mainTest {
 			medidor.operation();
 		}
 
-		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½
+		// false e
 		// sairï¿½ do for interno)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
@@ -270,7 +311,8 @@ public class mainTest {
 			medidor.attributionVariable();
 			medidor.operation();
 		}
-		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½
+		// false e
 		// sairï¿½ do for interno)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
@@ -297,7 +339,8 @@ public class mainTest {
 			medidor.operation();
 		}
 
-		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½
+		// false e
 		// sairï¿½ do for interno)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
@@ -333,7 +376,8 @@ public class mainTest {
 			medidor.operation();
 		}
 
-		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½ false e
+		// comparaï¿½ï¿½o de i com v.lenght (esta ï¿½ltima comparaï¿½ï¿½o darï¿½
+		// false e
 		// sairï¿½ do for interno)
 		medidor.operation();
 		medidor.simpleVariableDeAllocation();
@@ -348,5 +392,364 @@ public class mainTest {
 		return B;
 
 	}
+
+	// Merge Sort
+	private static int[] mergeSort(int[] vetor, int inicio, int fim, efficiencyMeter medidor ) {
+
+		medidor.operationLogic();
+		if (inicio < fim) {
+			
+			medidor.simpleVariableAllocation();
+			medidor.attributionVariable();
+			medidor.operationAritimetic();
+			medidor.operationAritimetic();
+			medidor.operationAritimetic();
+			int meio = (inicio + fim - 1) / 2;
+			
+			medidor.methodInvocation();
+			mergeSort(vetor, inicio, meio,medidor);
+			
+			medidor.methodInvocation();
+			medidor.operationAritimetic();
+			mergeSort(vetor, meio + 1, fim, medidor);
+			
+			medidor.methodInvocation();
+			merge(vetor, inicio, meio, fim, medidor);
+			
+			medidor.simpleVariableDeAllocation();
+		}
+		
+
+		medidor.methodReturn();
+		
+		return vetor;
+
+	}
+	
+	/* 
+	 * Ordena dois trechos ordenados e adjacente de vetores e ordena-os
+	 * conjuntamente
+	 */
+		private static void merge(int[]vetor,int inicio, int meio, int fim, efficiencyMeter medidor ) {
+	 
+			medidor.simpleVariableDeAllocation();
+			medidor.attributionVariable();
+			medidor.operationAritimetic();
+			medidor.operationAritimetic();
+	        int tamanho = fim - inicio + 1;
+	        
+	 
+	        /*
+	         * Inicialização de um vetor temporario para auxiliar na ordenação O
+	         * vetor temporário é uma cópia do trecho que será ordenado
+	         */
+	 
+	        
+	        medidor.arrayAllocation(tamanho);
+	        int[] temp = new int[tamanho];
+	 
+	        
+	        //Como contar o array copy;;
+	        medidor.simpleVariableAllocation();
+	        medidor.simpleVariableAllocation();
+	        medidor.attributionVariable();
+	        medidor.attributionVariable();
+	        
+	        for(int i = inicio, j=0; i<=fim; ++i, ++j){
+	        	medidor.operationLogic();
+	        	
+	        	medidor.indexArray();
+	        	medidor.indexArray();
+	        	medidor.attributionVariable();
+	        	temp[j] = vetor[i];
+	        
+	        medidor.attributionVariable();
+			medidor.operationAritimetic();
+			medidor.attributionVariable();
+			medidor.operationAritimetic();
+	        }
+	        
+	        medidor.operationLogic();
+			medidor.simpleVariableDeAllocation();
+			medidor.simpleVariableDeAllocation();
+	        
+	        //System.arraycopy(vetor, inicio, temp, 0, tamanho);
+	 
+	   
+	        /*
+	         * Laço para ordenação do vetor, utilizando o vetor temporário, usando
+	         * índices i e j para cada trecho de vetor da mesclagem
+	         */
+	 
+	        medidor.simpleVariableAllocation();
+	        medidor.attributionVariable();
+	        int i = 0;
+	        
+
+	        medidor.simpleVariableAllocation();
+	        medidor.attributionVariable();
+	        medidor.operationAritimetic();
+	        medidor.operationAritimetic();
+	        int j = meio - inicio + 1;
+	 
+	        //A depender das condições, recebe um elemento de um trecho ou outro
+	        medidor.simpleVariableAllocation();
+			medidor.attributionVariable();
+	        for (int posicao = 0; posicao < tamanho; posicao++) {
+	        medidor.operationLogic();	
+	        	
+	        		medidor.operationAritimetic();
+	        		medidor.operationLogic();
+	                if (j <= tamanho - 1) {
+	                	
+	                		medidor.operationAritimetic();	                		
+	                		medidor.operationLogic();
+	                        if (i <= meio - inicio) {
+	                        	
+	                        		medidor.operationAritimetic();
+	                        		medidor.indexArray();
+	                        		medidor.indexArray();
+	                                if (temp[i] < temp[j]) {
+	                                	
+	                                		medidor.indexArray();
+	                                		medidor.indexArray();
+	                                		medidor.operationAritimetic();
+	                                		medidor.attributionArray();
+	                                        vetor[inicio + posicao] = temp[i++];
+	                                } else {
+	                                	
+	                                		medidor.indexArray();
+	                                		medidor.indexArray();
+	                                		medidor.operationAritimetic();
+	                                		medidor.operationAritimetic();
+	                                		medidor.attributionArray();
+	                                        vetor[inicio + posicao] = temp[j++];
+	                                }
+	                        } else {
+	                        	
+	                        		medidor.indexArray();
+	                        		medidor.indexArray();
+	                        		medidor.operationAritimetic();
+	                        		medidor.operationAritimetic();
+	                        		medidor.attributionArray();
+	                                vetor[inicio + posicao] = temp[j++];
+	                        }
+	                } else {
+	                	
+	                		medidor.indexArray();
+	                		medidor.indexArray();
+	                		medidor.operationAritimetic();
+	                		medidor.operationAritimetic();
+	                		medidor.attributionArray();
+	                        vetor[inicio + posicao] = temp[i++];
+	                }
+	                
+	                medidor.attributionVariable();
+	    			medidor.operation();       
+	        }
+	        
+	        medidor.operation();
+			medidor.simpleVariableDeAllocation();
+	        
+			
+			medidor.simpleVariableDeAllocation();
+			medidor.simpleVariableDeAllocation();
+			medidor.simpleVariableDeAllocation();
+			medidor.arrayDeAllocation(tamanho);
+	        
+		}
+	
+		
+		//Quick Sort
+		public static void quickSort(int[] vetor,int inicio, int fim,efficiencyMeter medidor  ){
+		
+			medidor.operationLogic();
+			if(inicio<fim){
+				
+				medidor.simpleVariableAllocation();
+				medidor.attributionVariable();
+				medidor.methodInvocation();
+				int q = Partition(vetor,inicio,fim, medidor);
+				
+				medidor.methodInvocation();
+				medidor.operationAritimetic();
+				quickSort(vetor,inicio,q-1, medidor);
+				
+				medidor.methodInvocation();
+				medidor.operationAritimetic();
+				quickSort(vetor,q+1,fim, medidor);
+			}
+			
+			medidor.simpleVariableDeAllocation();
+			medidor.methodReturn();
+		}
+		
+		//Patition
+		public static int Partition(int[] vetor, int inicio, int fim, efficiencyMeter medidor){
+			
+			medidor.simpleVariableAllocation();
+			medidor.attributionVariable();
+			medidor.indexArray();
+			int x = vetor[inicio];
+			
+
+			medidor.simpleVariableAllocation();
+			medidor.attributionVariable();
+			medidor.operationAritimetic();
+			int a = inicio+1;
+			
+
+			medidor.simpleVariableAllocation();
+			medidor.attributionVariable();
+			int b = fim;
+			
+			
+			while(true){
+				medidor.operationLogic();
+				
+				while((a <= fim) && (vetor[a] <= x) ){
+					medidor.operationLogic();
+					medidor.operationLogic();
+					medidor.operationLogic();
+					//medidor.operationLogic();
+					medidor.indexArray();
+					
+					medidor.operationAritimetic();
+					medidor.attributionVariable();
+					++a;
+				}
+				medidor.operationLogic();
+				
+				while( (b >= inicio+1) && (vetor[b] >= x)){
+					medidor.operationLogic();
+					medidor.operationLogic();
+					medidor.operationLogic();
+					medidor.operationAritimetic();
+					medidor.indexArray();
+					
+					medidor.operationAritimetic();
+					medidor.attributionVariable();
+					--b;
+				}
+				medidor.operationLogic();
+				
+				
+				medidor.operationLogic();
+				if(a<=b){
+					
+					medidor.methodInvocation();
+					swap(vetor,a,b, medidor);
+					
+				}else{
+					
+					medidor.methodInvocation();
+					swap(vetor,inicio,b, medidor);
+					
+					
+					medidor.methodReturn();
+					return b;
+				}
+			}
+		}
+		
+		
+		//Swap
+		private static void swap(int[] vetor,int a, int b, efficiencyMeter medidor) {
+			
+			medidor.simpleVariableAllocation();
+			medidor.indexArray();
+			medidor.attributionVariable();
+			int tmp = vetor[a];
+			
+			medidor.indexArray();
+			medidor.indexArray();
+			medidor.attributionVariable();
+			vetor[a] = vetor[b];
+			
+			medidor.indexArray();
+			medidor.attributionVariable();
+			vetor[b] = tmp;
+			
+			
+			medidor.simpleVariableDeAllocation();
+			
+			medidor.methodReturn();
+		}
+		
+		//Merge Sort
+				private static int[] mergeSort1(int[] vetor ,int inicio, int fim) {
+			 
+			        if (inicio < fim) {
+			                int meio = (inicio + fim) / 2;
+			                mergeSort1(vetor,inicio, meio);
+			                mergeSort1(vetor,meio + 1, fim);
+			                merge1(vetor,inicio, meio, fim);
+			        }
+			        return vetor;
+			 
+				}
+			 
+			/* 
+			 * Ordena dois trechos ordenados e adjacente de vetores e ordena-os
+			 * conjuntamente
+			 */
+				private static void merge1(int[]vetor,int inicio, int meio, int fim) {
+			 
+			        int tamanho = fim - inicio + 1;
+			 
+			        /*
+			         * Inicialização de um vetor temporario para auxiliar na ordenação O
+			         * vetor temporário é uma cópia do trecho que será ordenado
+			         */
+			 
+			        int[] temp = new int[tamanho];
+			 
+			        
+			        for(int i = inicio, j=0; i<=fim; ++i, ++j){
+			        	//medidor.operationLogic();
+			        	
+			        	//medidor.indexArray();
+			        	//medidor.indexArray();
+			        	//medidor.attributionVariable();
+			        	temp[j] = vetor[i];
+			        
+			      //  medidor.attributionVariable();
+			//		medidor.operationAritimetic();
+				//	medidor.attributionVariable();
+					//medidor.operationAritimetic();
+			        }
+			        
+			      //  medidor.operationLogic();
+				//	medidor.simpleVariableDeAllocation();
+				//	medidor.simpleVariableDeAllocation();
+			      //  System.arraycopy(vetor, inicio, temp, 0, tamanho);
+			 
+			   
+			        /*
+			         * Laço para ordenação do vetor, utilizando o vetor temporário, usando
+			         * índices i e j para cada trecho de vetor da mesclagem
+			         */
+			 
+			        int i = 0;
+			        int j = meio - inicio + 1;
+			 
+			        //A depender das condições, recebe um elemento de um trecho ou outro
+			        for (int posicao = 0; posicao < tamanho; posicao++) {
+			                if (j <= tamanho - 1) {
+			                        if (i <= meio - inicio) {
+			                                if (temp[i] < temp[j]) {
+			                                        vetor[inicio + posicao] = temp[i++];
+			                                } else {
+			                                        vetor[inicio + posicao] = temp[j++];
+			                                }
+			                        } else {
+			                                vetor[inicio + posicao] = temp[j++];
+			                        }
+			                } else {
+			                        vetor[inicio + posicao] = temp[i++];
+			                }
+			        }
+				}
+			
 
 }
