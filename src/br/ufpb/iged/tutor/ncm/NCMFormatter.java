@@ -61,7 +61,6 @@ public class NCMFormatter {
 
         
         hc.setId("onSelection1Start1");
-        
         cr.setId("onSelection");
         cr.setEventType("selection");
         EventStateTransitionCondition c = new EventStateTransitionCondition();
