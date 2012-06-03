@@ -1,5 +1,7 @@
 package br.ufpb.iged.tutor.ncm;
 
+import br.ufpb.iged.tutor.ncm.entity.CausalConnector;
+import br.ufpb.iged.tutor.ncm.entity.HypermediaConnector;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import javax.xml.parsers.DocumentBuilder;
@@ -8,7 +10,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -21,7 +22,8 @@ public class NCMWriteXML {
     
     public static void main(String args[]) throws ParserConfigurationException, TransformerConfigurationException, TransformerException, FileNotFoundException {
 
-
+        
+        
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
@@ -30,9 +32,11 @@ public class NCMWriteXML {
         Element root = doc.createElement("document");                       
         doc.appendChild(root);
         
-        Element item1 = doc.createElement("causalConnector");       
-        item1.setAttribute("id", "carai");
+        CausalConnector c = new CausalConnector();
+        c.setId("test");
+        
         Element item3 = doc.createElement("causalConnector");       
+        Element item1 = c.toXML(doc);
         
         root.appendChild(item1);
         item1.appendChild(item3);
