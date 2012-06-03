@@ -82,6 +82,7 @@ public class NCMWriteXML {
 
         causalConnector.appendChild(causalGlue);        
         root.appendChild(causalConnector);
+        connectors.put(hc.getId(), hc);
         
         //Causal Connector II        
 
@@ -133,6 +134,8 @@ public class NCMWriteXML {
         causalConnector.appendChild(causalGlue);
         
         root.appendChild(causalConnector);
+        connectors.put(hc.getId(), hc);
+
 
 
     }
@@ -272,7 +275,7 @@ public class NCMWriteXML {
 
         //Link do contexto
         //IGED Atividade 1
-        CausalLink l = new CausalLink(null);
+        CausalLink l = new CausalLink(connectors.get("onSelection1Start1"));
         l.setId("lSlide1IGEDlet1Start1");
         Element causalLink = l.toXML(doc);
         
@@ -289,7 +292,7 @@ public class NCMWriteXML {
         causalLink.appendChild(b.toXML(doc));
         contextNode.appendChild(causalLink);
 
-        l = new CausalLink(null);
+        l = new CausalLink(connectors.get("onStop1Resume1"));
         l.setId("lIGEDlet1Slide1Resume1");
         causalLink = l.toXML(doc);
         
@@ -308,7 +311,7 @@ public class NCMWriteXML {
         contextNode.appendChild(causalLink);
 
         //IGED Atividade 2
-        l = new CausalLink(null);
+        l = new CausalLink(connectors.get("onSelection1Start1"));
         l.setId("lSlide1IGEDlet1Start2");
         causalLink = l.toXML(doc);
         
@@ -327,7 +330,7 @@ public class NCMWriteXML {
         contextNode.appendChild(causalLink);
 
 
-        l = new CausalLink(null);
+        l = new CausalLink(connectors.get("onStop1Resume1"));
         l.setId("lIGEDlet1Slide1Resume2");
         causalLink = l.toXML(doc);
         
@@ -346,7 +349,7 @@ public class NCMWriteXML {
         contextNode.appendChild(causalLink);
 
         //IGED Animação 1
-        l = new CausalLink(null);
+        l = new CausalLink(connectors.get("onSelection1Start1"));
         l.setId("lSlide1IGEDlet1Start2");
         causalLink = l.toXML(doc);
         
@@ -363,7 +366,7 @@ public class NCMWriteXML {
         causalLink.appendChild(b.toXML(doc));
         contextNode.appendChild(causalLink);
 
-        l = new CausalLink(null);
+        l = new CausalLink(connectors.get("onStop1Resume1"));
         l.setId("lIGEDlet1Slide1Resume3");
         causalLink = l.toXML(doc);
         

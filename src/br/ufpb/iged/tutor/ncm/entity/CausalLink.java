@@ -17,7 +17,7 @@ public class CausalLink extends Link{
     
         Element element = doc.createElement("link");       
         element.setAttribute("id", getId());
-        element.setAttribute("xconnector", getDescription());
+        element.setAttribute("xconnector", super.getConnector().getId());
     
         return element;
     
