@@ -43,7 +43,7 @@ public class ContentAnchor extends Anchor{
     
     public Element toXML(Document doc){
     
-        Element element = doc.createElement("contentAnchor");       
+        Element element = doc.createElement("area");       
         element.setAttribute("id", getId());
         element.setAttribute("x", String.valueOf(getPoint().getX()));
         element.setAttribute("y", String.valueOf(getPoint().getY()));

@@ -15,8 +15,9 @@ public class CausalLink extends Link{
     
     public Element toXML(Document doc){
     
-        Element element = doc.createElement("causalLink");       
+        Element element = doc.createElement("link");       
         element.setAttribute("id", getId());
+        element.setAttribute("xconnector", getDescription());
     
         return element;
     

@@ -5,6 +5,8 @@ import br.ufpb.iged.tutor.ncm.entity.*;
 import java.awt.geom.Point2D;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.HashMap;
+import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,9 +17,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- * pensar em um método genérico
  *
- * @author darkolyver
+ * @author Renan Oliveira
  */
 public class NCMWriteXML {
     
@@ -26,10 +27,13 @@ public class NCMWriteXML {
     private static Document doc;
     private static Element root;
     private static Element body;
+    private static Map<String, HypermediaConnector> connectors = null;
+
 
 
     private static void simulateConnector() {
-
+        
+        connectors = new HashMap<String, HypermediaConnector>();        
         HypermediaConnector hc = new CausalConnector();
         ConditionRole cr = new ConditionRole();
 
@@ -133,199 +137,251 @@ public class NCMWriteXML {
 
     }
 
-    /*
-    private static void simulateNCL() {
-        this.main = new ContextNode();
-        this.main.setId("main");
+  
+    private static void simulateNCL() {  
+        
         //Porta inicial
         Port p = new Port();
         p.setId("pInicio");
         p.setComponent("ctxVetor");
         p.setIp("pInicio");
-        this.main.add(p);
+        
+        Element port = p.toXML(doc);
+        body.appendChild(port);
+        
 
         //Contexto vetor
         ContextNode cn = new ContextNode();
         cn.setId("ctxVetor");
+        Element contextNode = cn.toXML(doc);
+        
         //Porta ctxVetor
         p = new Port();
         p.setId("pInicio");
         p.setComponent("vetor");
         p.setIp("pVetor");
-        cn.add(p);
+        contextNode.appendChild(p.toXML(doc));
 
         //Trail
         Trail t = new Trail();
         t.setId("vetor");
+        Element trail = t.toXML(doc);
+        
         //Porta pVetor
         p = new Port();
         p.setId("pVetor");
         p.setComponent("slide2");
-        t.add(p);
-
+        
+        trail.appendChild(p.toXML(doc));
+        
+        
         p = new Port();
         p.setId("pAtiv1");
         p.setComponent("slide2");
         p.setIp("aAtividade1");
-        t.add(p);
+        
+        trail.appendChild(p.toXML(doc));
 
         p = new Port();
         p.setId("pAtiv2");
         p.setComponent("slide2");
         p.setIp("aAtividade2");
-        t.add(p);
+        
+        trail.appendChild(p.toXML(doc));
 
         p = new Port();
         p.setId("pAnim1");
         p.setComponent("slide4");
         p.setIp("aAnimacao1");
-        t.add(p);
+        
+        trail.appendChild(p.toXML(doc));
 
         //Medias
         ImageNode in = new ImageNode();
         in.setId("slide1");
         in.setSource("vetor/press/slide1.jpg");
-        t.add(in);
+        
+        trail.appendChild(in.toXML(doc));
 
         in = new ImageNode();
         in.setId("slide2");
-        in.setSource("vetor/press/slide2.jpg");
-        //Ancora
+        in.setSource("vetor/press/slide2.jpg");        
+        
+        Element imageNode = in.toXML(doc);
+        trail.appendChild(imageNode);
+        
+        
         //Ancora
         ContentAnchor a = new ContentAnchor();
         a = new ContentAnchor();
         a.setId("aAtividade1");
         a.setPoint(new Point2D.Double(100, 200));
-        in.add(a);
+        
+        Element contentAnchor = a.toXML(doc);
+        imageNode.appendChild(contentAnchor);
+        
 
         a = new ContentAnchor();
         a.setId("aAtividade2");
         a.setPoint(new Point2D.Double(100, 230));
-        in.add(a);
-        t.add(in);
+        
+        contentAnchor = a.toXML(doc);
+        imageNode.appendChild(contentAnchor);                       
+        trail.appendChild(imageNode);
 
         in = new ImageNode();
         in.setId("slide3");
         in.setSource("vetor/press/slide3.jpg");
-        t.add(in);
+        
+        trail.appendChild(in.toXML(doc));
 
         in = new ImageNode();
         in.setId("slide4");
         in.setSource("vetor/press/slide4.jpg");
+        imageNode = in.toXML(doc);
+        
         //Ancora
         a = new ContentAnchor();
         a.setId("aAnimacao1");
         a.setPoint(new Point2D.Double(100, 200));
-        in.add(a);
-        t.add(in);
-
-        cn.add(t);
+        
+        imageNode.appendChild(a.toXML(doc));
+        trail.appendChild(imageNode);
+        contextNode.appendChild(trail);
 
         //IGEDlets do contexto
         IGEDletNode ig = new IGEDletNode();
         ig.setId("atividade1");
         ig.setSource("vetor/iged/vetorAtiv1.igedlet");
-        cn.add(ig);
+        Element igedlet = ig.toXML(doc);
+        contextNode.appendChild(igedlet);
 
         ig = new IGEDletNode();
         ig.setId("animacao1");
         ig.setSource("vetor/iged/vetorAnima.igedlet");
-        cn.add(ig);
+        
+        igedlet = ig.toXML(doc);
+        contextNode.appendChild(igedlet);
 
         ig = new IGEDletNode();
         ig.setId("atividade2");
         ig.setSource("vetor/iged/vetorAtiv2.igedlet");
-        cn.add(ig);
+        
+        igedlet = ig.toXML(doc);
+        contextNode.appendChild(igedlet);
 
         //Link do contexto
         //IGED Atividade 1
-        Link l = new CausalLink(this.connectors.get("onSelection1Start1"));
+        CausalLink l = new CausalLink(null);
         l.setId("lSlide1IGEDlet1Start1");
+        Element causalLink = l.toXML(doc);
+        
         Bind b = new Bind();
         b.setComponent("vetor");
         b.setInterface("pAtiv1");
-        b.setRole("onSelection");
-        l.add(b);
+        b.setRole("onSelection");        
+        causalLink.appendChild(b.toXML(doc));
 
         b = new Bind();
         b.setComponent("atividade1");
         b.setRole("start");
-        l.add(b);
-        cn.add(l);
+        
+        causalLink.appendChild(b.toXML(doc));
+        contextNode.appendChild(causalLink);
 
-        l = new CausalLink(this.connectors.get("onStop1Resume1"));
+        l = new CausalLink(null);
         l.setId("lIGEDlet1Slide1Resume1");
+        causalLink = l.toXML(doc);
+        
         b = new Bind();
         b.setComponent("vetor");
         b.setInterface("pAtiv1");
         b.setRole("resume");
-        l.add(b);
+        
+        causalLink.appendChild(b.toXML(doc));
 
         b = new Bind();
         b.setComponent("atividade1");
         b.setRole("onStop");
-        l.add(b);
-        cn.add(l);
+        
+        causalLink.appendChild(b.toXML(doc));
+        contextNode.appendChild(causalLink);
 
         //IGED Atividade 2
-        l = new CausalLink(this.connectors.get("onSelection1Start1"));
+        l = new CausalLink(null);
         l.setId("lSlide1IGEDlet1Start2");
+        causalLink = l.toXML(doc);
+        
         b = new Bind();
         b.setComponent("vetor");
         b.setInterface("pAtiv2");
         b.setRole("onSelection");
-        l.add(b);
+        
+        causalLink.appendChild(b.toXML(doc));
 
         b = new Bind();
         b.setComponent("atividade2");
         b.setRole("start");
-        l.add(b);
-        cn.add(l);
+        
+        causalLink.appendChild(b.toXML(doc));
+        contextNode.appendChild(causalLink);
 
-        l = new CausalLink(this.connectors.get("onStop1Resume1"));
+
+        l = new CausalLink(null);
         l.setId("lIGEDlet1Slide1Resume2");
+        causalLink = l.toXML(doc);
+        
         b = new Bind();
         b.setComponent("vetor");
         b.setInterface("pAtiv2");
         b.setRole("resume");
-        l.add(b);
+        
+        causalLink.appendChild(b.toXML(doc));
 
         b = new Bind();
         b.setComponent("atividade2");
         b.setRole("onStop");
-        l.add(b);
-        cn.add(l);
+        
+        causalLink.appendChild(b.toXML(doc));
+        contextNode.appendChild(causalLink);
 
         //IGED Animação 1
-        l = new CausalLink(this.connectors.get("onSelection1Start1"));
+        l = new CausalLink(null);
         l.setId("lSlide1IGEDlet1Start2");
+        causalLink = l.toXML(doc);
+        
         b = new Bind();
         b.setComponent("vetor");
         b.setInterface("pAnim1");
         b.setRole("onSelection");
-        l.add(b);
+        causalLink.appendChild(b.toXML(doc));
 
         b = new Bind();
         b.setComponent("animacao1");
         b.setRole("start");
-        l.add(b);
-        cn.add(l);
+        
+        causalLink.appendChild(b.toXML(doc));
+        contextNode.appendChild(causalLink);
 
-        l = new CausalLink(this.connectors.get("onStop1Resume1"));
+        l = new CausalLink(null);
         l.setId("lIGEDlet1Slide1Resume3");
+        causalLink = l.toXML(doc);
+        
         b = new Bind();
         b.setComponent("vetor");
         b.setInterface("pAnim1");
         b.setRole("resume");
-        l.add(b);
+        causalLink.appendChild(b.toXML(doc));
 
         b = new Bind();
         b.setComponent("animacao1");
         b.setRole("onStop");
-        l.add(b);
-        cn.add(l);
-
-    }*/
+        
+        causalLink.appendChild(b.toXML(doc));
+        contextNode.appendChild(causalLink);
+        
+        body.appendChild(contextNode);
+    }
 
     public static void main(String args[]) throws ParserConfigurationException,
             TransformerConfigurationException, TransformerException, FileNotFoundException {
@@ -337,24 +393,14 @@ public class NCMWriteXML {
         
         doc.appendChild(root);
 
+        //adicionando os dados do head
         simulateConnector();        
         
         body = doc.createElement("body");
         root.appendChild(body);
         
-        /*
-        CausalConnector c = new CausalConnector();
-        c.setId("test");
-
-        Element item3 = doc.createElement("causalConnector");
-        Element item1 = c.toXML(doc);
-
-        root.appendChild(item1);
-        item1.appendChild(item3);
-
-        Element item2 = doc.createElement("causalConnector");
-        item2.setAttribute("id", "carai");
-        root.appendChild(item2);*/
+        simulateNCL();
+        //adicionando os dados do body
 
         StreamResult result = new StreamResult(new FileOutputStream("vetorTest.xml"));
         Transformer trans = TransformerFactory.newInstance().newTransformer();

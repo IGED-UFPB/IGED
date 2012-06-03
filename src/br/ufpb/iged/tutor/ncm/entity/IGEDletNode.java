@@ -2,6 +2,8 @@
 package br.ufpb.iged.tutor.ncm.entity;
 
 import java.io.IOException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -33,5 +35,16 @@ public class IGEDletNode extends ContentNode{
             //ex.printStackTrace();
         }
         
+    }
+    
+    public Element toXML(Document doc){
+    
+        Element element = doc.createElement("media");       
+        element.setAttribute("id", getId());
+        element.setAttribute("src", getSource());
+        element.setAttribute("type", getType());
+        
+        return element;
+    
     }
 }

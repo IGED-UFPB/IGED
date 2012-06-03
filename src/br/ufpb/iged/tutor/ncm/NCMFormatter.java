@@ -22,16 +22,9 @@ public class NCMFormatter {
     private ContextNode main = null;
     private Map<String, HypermediaConnector> connectors = null;
     private Stack<ContextNode> stackContext = null;
-    private DocumentBuilderFactory dbf;
-    private DocumentBuilder db;
-    private Document doc;
     
-    NCMFormatter(String pathXml) throws ParserConfigurationException, SAXException, IOException{
-        
-        dbf = DocumentBuilderFactory.newInstance();
-        db = dbf.newDocumentBuilder();
-        doc = db.parse(pathXml);
-        
+    NCMFormatter(String pathXml) throws ParserConfigurationException, SAXException, IOException{        
+       
         this.connectors = new HashMap<String, HypermediaConnector>();
         this.stackContext = new Stack<ContextNode>();
     }
