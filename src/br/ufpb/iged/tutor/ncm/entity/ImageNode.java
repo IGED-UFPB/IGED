@@ -32,4 +32,22 @@ public class ImageNode extends ContentNode{
         }
     }
     
+    @Override
+    public void pause(){
+        //Pausar a exibição do Image
+        super.pause();
+    }
+    
+    @Override
+    public void resume(){
+        //Retomar a exibição do Image
+        super.resume();
+    }
+    
+    @Override
+    public void finish(){
+        //Finalizar a exibição do Image
+        super.finish();
+    }
+    
 }
