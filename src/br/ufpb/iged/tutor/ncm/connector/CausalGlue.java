@@ -1,6 +1,9 @@
 
 package br.ufpb.iged.tutor.ncm.connector;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 /**
  *
  * @author GILBERTO FARIAS
@@ -23,6 +26,14 @@ public class CausalGlue implements Glue{
 
     public void setTrigger(TriggerExpression trigger) {
         this.trigger = trigger;
+    }
+    
+    public Element toXML(Document doc){
+    
+        Element element = doc.createElement("causalGlue");       
+        
+        return element;
+    
     }
     
 }

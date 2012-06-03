@@ -7,6 +7,8 @@ package br.ufpb.iged.tutor.ncm.entity;
 import br.ufpb.iged.tutor.ncm.event.EventStateMachine;
 import br.ufpb.iged.tutor.ncm.event.SelectionEvent;
 import java.awt.geom.Point2D;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -37,5 +39,16 @@ public class ContentAnchor extends Anchor{
 
     public void setPoint(Point2D p) {
         this.p = p;
+    }
+    
+    public Element toXML(Document doc){
+    
+        Element element = doc.createElement("contentAnchor");       
+        element.setAttribute("id", getId());
+        element.setAttribute("x", String.valueOf(getPoint().getX()));
+        element.setAttribute("y", String.valueOf(getPoint().getY()));
+    
+        return element;
+    
     }
 }

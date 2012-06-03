@@ -4,6 +4,9 @@
  */
 package br.ufpb.iged.tutor.ncm.connector;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 /**
  *
  * @author GILBERTO FARIAS
@@ -28,6 +31,15 @@ public class ConditionRole extends Role{
 
     void setKey(String key) {
         this.key = key;
+    }
+    
+    public Element toXML(Document doc){
+        
+        Element element = doc.createElement("conditionRole");       
+        element.setAttribute("id", getId());
+        element.setAttribute("eventType", getEventType());
+    
+        return element;
     }
     
 }

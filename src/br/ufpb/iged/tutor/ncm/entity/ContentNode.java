@@ -11,6 +11,7 @@ import br.ufpb.iged.tutor.ncm.event.PresentationEvent;
 public abstract class ContentNode extends Node implements Runnable{
     protected String source;
     protected Thread exec = null;
+    protected String type;
     
     ContentNode(){
         super();
@@ -18,6 +19,7 @@ public abstract class ContentNode extends Node implements Runnable{
         pe.setSource(this);
         this.presetationMachine = new EventStateMachine(pe);
     }
+    
     
     @Override
     public void add(Anchor a){
@@ -35,6 +37,16 @@ public abstract class ContentNode extends Node implements Runnable{
     public void setSource(String source) {
         this.source = source;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
+    
 
     public void execute(){
         System.out.println("Init PresentationMachine: " + this.getId());

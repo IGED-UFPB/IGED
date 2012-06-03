@@ -1,6 +1,9 @@
 
 package br.ufpb.iged.tutor.ncm.connector;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 /**
  *
  * @author GILBERTO FARIAS
@@ -14,5 +17,15 @@ public class ActionRole extends Role{
 
     public void setAction(Action action) {
         this.action = action;
+    }
+    
+    public Element toXML(Document doc){
+    
+        Element element = doc.createElement("actionRole");       
+        element.setAttribute("id", getId());
+        element.setAttribute("eventType", getEventType());
+    
+        return element;
+    
     }
 }

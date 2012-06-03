@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -83,5 +85,14 @@ public class Trail extends CompositeNode{
     @Override
     public void add(Node n){
         this.nodes.put(n.getId(), n);
+    }
+    
+    public Element toXML(Document doc){
+    
+        Element element = doc.createElement("trail");       
+        element.setAttribute("id", getId());
+    
+        return element;
+    
     }
 }

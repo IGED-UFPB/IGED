@@ -18,6 +18,8 @@ import br.ufpb.iged.tutor.ncm.event.SelectionEvent;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -187,5 +189,14 @@ public class ContextNode extends CompositeNode {
                 }
             }
         }
+    }
+       
+    public Element toXML(Document doc){
+    
+        Element element = doc.createElement("context");       
+        element.setAttribute("id", getId());
+    
+        return element;
+    
     }
 }

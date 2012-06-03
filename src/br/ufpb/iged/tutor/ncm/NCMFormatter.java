@@ -1,7 +1,7 @@
 package br.ufpb.iged.tutor.ncm;
 
-import br.ufpb.iged.tutor.ncm.entity.*;
 import br.ufpb.iged.tutor.ncm.connector.*;
+import br.ufpb.iged.tutor.ncm.entity.*;
 import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.util.HashMap;
@@ -451,9 +451,7 @@ public class NCMFormatter {
             cn.setSource(media.getAttribute("src"));
             return cn;
         }else if(media.getAttribute("type").equals("igedlet")){
-            cn = new IGEDletNode();
-            
-            
+            cn = new IGEDletNode();           
         }
         return cn;
     }

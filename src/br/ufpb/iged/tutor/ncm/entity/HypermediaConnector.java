@@ -7,6 +7,8 @@ import br.ufpb.iged.tutor.ncm.connector.Role;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -68,5 +70,15 @@ public class HypermediaConnector {
         else
             return null;
     }
+    
+    public Element toXML(Document doc){
+    
+        Element element = doc.createElement("causalConnector");       
+        element.setAttribute("id", getId());
+    
+        return element;
+    
+    }
+    
     
 }

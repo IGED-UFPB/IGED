@@ -1,6 +1,9 @@
 
 package br.ufpb.iged.tutor.ncm.connector;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 /**
  *
  * @author GILBERTO FARIAS
@@ -34,4 +37,14 @@ public class Bind {
         this.role = role;
     }
     
+    public Element toXML(Document doc){
+    
+        Element element = doc.createElement("bind");       
+        element.setAttribute("component", getComponent());
+        element.setAttribute("role", getRole());
+        element.setAttribute("interface", getInterface());
+    
+        return element;
+    
+    }
 }
