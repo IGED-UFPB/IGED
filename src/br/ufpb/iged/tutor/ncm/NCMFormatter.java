@@ -363,7 +363,7 @@ public class NCMFormatter {
     
     //verificar
     public static Link createLink(Element element){
-        Link link = null;
+        Link link = new CausalLink(null);
         link.setId(null);    
      
         link.setConnector(null);
@@ -459,7 +459,6 @@ public class NCMFormatter {
         return cn;
     }
     
-    //falta a interface
     public static Port createPort(Element element){
     
         Port p = new Port();
