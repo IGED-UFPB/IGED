@@ -25,7 +25,7 @@ public abstract class Player {
         this.listeners.remove(el);
     }
     
-    public void receiveEventStateTransition(final PlayerEvent ne){
+    public void sendEvent(final PlayerEvent ne){
         for(final PlayerListener nl : this.listeners){
             new Thread(){
                 @Override
