@@ -51,12 +51,6 @@ public abstract class CompositeNode extends Node implements EntityListener{
     }
     
     @Override
-    public void resume(){
-        for(Node n : this.getNodes())
-            n.resume();
-    }
-    
-    @Override
     public void resume(String portID){
         Port p = this.getPort(portID);
         if(p == null)
@@ -106,6 +100,16 @@ public abstract class CompositeNode extends Node implements EntityListener{
                 n.execute(p.getIp());
             }
         }
+        
+    }
+    
+    @Override
+    public void resume(){
+        if(this.getState() == EntityEvent.OCCURING)
+            return;
+        
+        System.out.println("Resume execute CompositeNode: " + this.getId());
+        this.presetationMachine.transitionResumes();
         
     }
     

@@ -207,6 +207,7 @@ public class efficiencyMeter {
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
 		registerMeter.temporaryMemory += 1;
+                registerMeter.finalAllocation +=1;
 		registerMeter.operatingMethod +=1;
 		
 			if(registerMeter.temporaryMemory > registerMeter.peakMemory){
@@ -219,6 +220,7 @@ public class efficiencyMeter {
 		registerMeter.processingTotal += 1;
 		//this.totalMemory += 1;
 		registerMeter.temporaryMemory -= 1;
+                registerMeter.finalDesallocation +=1;
 		registerMeter.operatingMethod +=1;
 		
 			if(registerMeter.temporaryMemory > registerMeter.peakMemory){
