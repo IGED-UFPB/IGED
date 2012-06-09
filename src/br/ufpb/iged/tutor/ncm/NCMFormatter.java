@@ -354,11 +354,12 @@ public class NCMFormatter {
     }
     
     //verificar
-    public static Link createLink(Element element){
-        Link link = new CausalLink(null);
-        link.setId(null);    
-     
-        link.setConnector(null);
+    public static Link createLink(Element element, Element causalConnector){
+        HypermediaConnector hc = new CausalConnector();
+        hc.setId(causalConnector.getAttribute("id"));
+        Link link = new CausalLink(hc);
+        link.setId(element.getAttribute("id"));              
+        
         return null;
     }
     
@@ -409,7 +410,13 @@ public class NCMFormatter {
         return ar;
     }
     
-    //public static PresentationAction 
+    public static Action createAction(Element element){
+        
+        Action action = new Action();
+        action.setActionType(element.getAttribute("actionType"));
+        return action;
+    
+    }
     
   
             
@@ -458,7 +465,8 @@ public class NCMFormatter {
         
         return p;
     
-    }
+    }    
+   
     
     public static void main(String arg[])
     {

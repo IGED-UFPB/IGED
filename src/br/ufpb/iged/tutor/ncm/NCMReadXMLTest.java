@@ -1,12 +1,9 @@
 package br.ufpb.iged.tutor.ncm;
 
-import br.ufpb.iged.tutor.ncm.entity.ContentNode;
-import br.ufpb.iged.tutor.ncm.entity.ImageNode;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -34,46 +31,52 @@ public class NCMReadXMLTest {
         //Passo 2: localizar os elementos filhos da agenda
         NodeList listaCausalConnector = raiz.getElementsByTagName("causalConnector");
 
-
+        
+        System.out.println(listaCausalConnector.getLength());
+        
+        
+        
+        
         for (int i = 0; i < listaCausalConnector.getLength(); i++) {
 
             //como cada elemento do NodeList é um nó, precisamos fazer o cast
             Element causalConnector = (Element) listaCausalConnector.item(i);
             //Passo 4: obter o atributo id do contato
-            Attr id = causalConnector.getAttributeNode("id");
-
-            System.out.println("CausalConnector id: " + id.getNodeValue());
-
+            
+            NCMFormatter.createCausalConnector(causalConnector);
+            
             //DADOS CONDITION ROLE
             NodeList conditionRole = causalConnector.getElementsByTagName("conditionRole");
-
+            
             Element conditionRoleElement = (Element) conditionRole.item(0);
-
-            System.out.println(conditionRoleElement.getAttribute("id"));
-            System.out.println(conditionRoleElement.getAttribute("eventType"));
+            
+            NCMFormatter.createConditionRole(conditionRoleElement);     
 
             Element eventState = (Element) conditionRoleElement.getElementsByTagName("eventStateTransitionCondition").item(0);
-            System.out.println(eventState.getAttribute("transition"));
+            
+            NCMFormatter.createEventStateTransitionCondition(eventState);     
+            
 
             //DADOS ACTION ROLE
             NodeList actionRole = causalConnector.getElementsByTagName("actionRole");
+            
             Element actionRoleElement = (Element) actionRole.item(0);
             Element presentationAction = (Element) actionRoleElement.getElementsByTagName("presentationAction").item(0);
-
-            System.out.println(actionRoleElement.getAttribute("id"));
-            System.out.println(actionRoleElement.getAttribute("eventType"));
-
-            System.out.println(presentationAction.getAttribute("actionType"));
+            
+            NCMFormatter.createActionRole(actionRoleElement);            
+            NCMFormatter.createAction(presentationAction);            
 
             //DADOS CAUSAL ROLE
-            NodeList causalRole = causalConnector.getElementsByTagName("causalGlue");
-            Element causalRoleElement = (Element) causalRole.item(0);
-
-            Element simpleTriggerExpression = (Element) causalRoleElement.getElementsByTagName("simpleTriggerExpression").item(0);
-            System.out.println(simpleTriggerExpression.getAttribute("conditionRole"));
-
-            Element simpleActionExpression = (Element) causalRoleElement.getElementsByTagName("simpleActionExpression").item(0);
-            System.out.println(simpleActionExpression.getAttribute("actionRole"));
+            NodeList causalGlue = causalConnector.getElementsByTagName("causalGlue");
+            Element causalGlueElement = (Element) causalGlue.item(0);
+            Element simpleTriggerExpression = (Element) causalGlueElement.getElementsByTagName("simpleTriggerExpression").item(0);
+            Element simpleActionExpression = (Element) causalGlueElement.getElementsByTagName("simpleActionExpression").item(0);
+            
+            
+            NCMFormatter.createCausalGlue(causalGlueElement);
+            NCMFormatter.createSimpleTriggerExpression(simpleTriggerExpression);
+            NCMFormatter.createSimpleActionExpression(simpleActionExpression);
+            
 
         }
 
@@ -85,14 +88,14 @@ public class NCMReadXMLTest {
         //PORT IN BODY
         System.out.println("SIZE: " + bodyElement.getChildNodes().getLength());
         NodeList nl = bodyElement.getChildNodes();
+        
         for(int i=0; i<nl.getLength(); ++i)
             System.out.println("N: " + nl.item(i).getNodeName());
+        
         Element portElement = (Element) bodyElement.getElementsByTagName("port").item(0);
 
-        System.out.println(portElement.getAttribute("id"));
-        System.out.println(portElement.getAttribute("component"));
-        System.out.println(portElement.getAttribute("interface"));
 
+        
         //CONTEXT IN BODY
 
         /*NodeList listCotext = bodyElement.getElementsByTagName("context");
