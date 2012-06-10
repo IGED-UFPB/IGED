@@ -4,15 +4,20 @@
  */
 package br.ufpb.iged.tutor.ncm.entity;
 
+import br.ufpb.iged.tutor.players.ApressPlayer;
 import java.io.IOException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import br.ufpb.iged.tutor.players.event.ActionUserEvent;
+import br.ufpb.iged.tutor.players.event.PlayerEvent;
+import br.ufpb.iged.tutor.players.event.PlayerListener;
 
 /**
  *
  * @author GILBERTO FARIAS
  */
-public class ImageNode extends ContentNode{
+public class ImageNode extends ContentNode implements PlayerListener{
 
     @Override
     public void run() {
@@ -61,5 +66,20 @@ public class ImageNode extends ContentNode{
     
         return element;
     
+    }
+    
+    @Override
+    public void receiveEvent(PlayerEvent e) {
+        if(e instanceof ActionUserEvent){
+            ActionUserEvent aue = (ActionUserEvent)e;
+            switch(aue.getAction()){    
+                case ActionUserEvent.SELECT_ANCHOR: 
+                    if(aue.getSource() instanceof ApressPlayer){
+                        ApressPlayer ap = (ApressPlayer) aue.getSource(); 
+                        ((ContentAnchor)this.anchors.get(ap.getSelectAnchor())).selects();
+                    }
+                    break;
+            }
+        }
     }
 }
