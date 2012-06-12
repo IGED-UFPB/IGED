@@ -128,6 +128,14 @@ public class Trail extends CompositeNode implements PlayerListener{
         return element;
     
     }
+    
+    public Trail toReadXML(Element element){
+    
+        this.setId(element.getAttribute("id"));
+        
+        return this;
+    
+    }
 
     @Override
     public void receiveEvent(PlayerEvent e) {

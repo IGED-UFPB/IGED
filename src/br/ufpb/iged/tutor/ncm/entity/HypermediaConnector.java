@@ -80,5 +80,13 @@ public class HypermediaConnector {
     
     }
     
+    public HypermediaConnector toReadXML(Element element){
+    
+        this.setId(element.getAttribute("id"));
+        
+        return this;
+    
+    }
+    
     
 }

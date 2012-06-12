@@ -28,4 +28,12 @@ public class Action {
     
     }
     
+    public Action toReadXML(Element element){
+    
+        this.setActionType(element.getAttribute("actionType"));
+        
+        return this;
+    
+    }
+    
 }

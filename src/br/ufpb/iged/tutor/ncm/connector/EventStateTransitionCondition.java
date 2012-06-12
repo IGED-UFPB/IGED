@@ -28,4 +28,12 @@ public class EventStateTransitionCondition extends SimpleCondition{
     
     }
     
+    public EventStateTransitionCondition toReadXML(Element element){
+    
+        this.setTransitionName(element.getAttribute("transition"));
+        
+        return this;
+    
+    }
+    
 }

@@ -62,4 +62,14 @@ public class ImageNode extends ContentNode{
         return element;
     
     }
+    
+    public ImageNode toReadXML(Element element){
+    
+        this.setId(element.getAttribute("id"));
+        this.setSource(element.getAttribute("src"));
+        this.setType(element.getAttribute("type"));
+        
+        return this;
+    
+    }
 }

@@ -22,4 +22,12 @@ public class CausalLink extends Link{
         return element;
     
     }
+    
+    public CausalLink toReadXML(Element element){
+        
+        this.setId(element.getAttribute("id"));        
+        
+        return this;
+    
+    }
 }

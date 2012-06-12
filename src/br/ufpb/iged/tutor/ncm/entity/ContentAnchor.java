@@ -51,4 +51,14 @@ public class ContentAnchor extends Anchor{
         return element;
     
     }
+    
+    public ContentAnchor toReadXML(Element element){
+        
+        p = new Point2D.Double(Double.parseDouble(element.getAttribute("x")), Double.parseDouble(element.getAttribute("y")));
+        this.setId(element.getAttribute("id"));
+        this.setPoint(p);      
+        
+        return this;
+    
+    }
 }

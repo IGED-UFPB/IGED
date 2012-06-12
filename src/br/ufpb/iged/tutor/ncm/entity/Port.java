@@ -36,9 +36,19 @@ public class Port extends Interface{
         Element element = doc.createElement("port");       
         element.setAttribute("id", getId());    
         element.setAttribute("component", getComponent());
-        element.setAttribute("ip", getIp());
+        element.setAttribute("interface", getIp());
 
         return element;
+    
+    }
+    
+    public Port toReadXML(Element element){
+    
+        this.setId(element.getAttribute("id"));
+        this.setComponent(element.getAttribute("component"));
+        this.setIp(element.getAttribute("interface"));
+        
+        return this;
     
     }
 }

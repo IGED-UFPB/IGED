@@ -40,4 +40,12 @@ public class SimpleTriggerExpression extends TriggerExpression{
     
     }
     
+    public SimpleTriggerExpression toReadXML(Element element){
+    
+        this.setConditionRole(element.getAttribute("conditionRole"));
+        
+        return this;
+    
+    }
+    
 }

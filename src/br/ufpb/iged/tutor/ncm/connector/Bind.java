@@ -47,4 +47,16 @@ public class Bind {
         return element;
     
     }
+    
+    public Bind toReadXML(Element element){
+        
+   
+        this.setComponent(element.getAttribute("component"));
+        this.setRole(element.getAttribute("role"));
+        this.setInterface(element.getAttribute("interface"));
+   
+        
+        return this;
+    
+    }
 }

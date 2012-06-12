@@ -1,16 +1,6 @@
 package br.ufpb.iged.tutor.ncm.entity;
 
-import br.ufpb.iged.tutor.ncm.connector.Action;
-import br.ufpb.iged.tutor.ncm.connector.ActionExpression;
-import br.ufpb.iged.tutor.ncm.connector.ActionRole;
-import br.ufpb.iged.tutor.ncm.connector.Bind;
-import br.ufpb.iged.tutor.ncm.connector.CausalGlue;
-import br.ufpb.iged.tutor.ncm.connector.ConditionRole;
-import br.ufpb.iged.tutor.ncm.connector.EventStateTransitionCondition;
-import br.ufpb.iged.tutor.ncm.connector.Glue;
-import br.ufpb.iged.tutor.ncm.connector.SimpleActionExpression;
-import br.ufpb.iged.tutor.ncm.connector.SimpleTriggerExpression;
-import br.ufpb.iged.tutor.ncm.connector.TriggerExpression;
+import br.ufpb.iged.tutor.ncm.connector.*;
 import br.ufpb.iged.tutor.ncm.event.EntityEvent;
 import br.ufpb.iged.tutor.ncm.event.EntityListener;
 import br.ufpb.iged.tutor.ncm.event.PresentationEvent;
@@ -197,6 +187,14 @@ public class ContextNode extends CompositeNode {
         element.setAttribute("id", getId());
     
         return element;
+    
+    }
+    
+    public ContextNode toReadXML(Element element){
+    
+        this.setId(element.getAttribute("id"));
+        
+        return this;
     
     }
 }

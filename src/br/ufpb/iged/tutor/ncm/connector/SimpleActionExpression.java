@@ -28,4 +28,12 @@ public class SimpleActionExpression extends ActionExpression{
     
     }
     
+    public SimpleActionExpression toReadXML(Element element){
+    
+        this.setActionRole(element.getAttribute("actionRole"));
+        
+        return this;
+    
+    }
+    
 }

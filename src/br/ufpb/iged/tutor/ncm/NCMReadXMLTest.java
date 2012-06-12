@@ -1,5 +1,6 @@
 package br.ufpb.iged.tutor.ncm;
 
+import br.ufpb.iged.tutor.ncm.connector.ConditionRole;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -47,8 +48,13 @@ public class NCMReadXMLTest {
             
             //DADOS CONDITION ROLE
             NodeList conditionRole = causalConnector.getElementsByTagName("conditionRole");
-            
             Element conditionRoleElement = (Element) conditionRole.item(0);
+            ConditionRole c = new ConditionRole();
+            c.toReadXML(conditionRoleElement);
+            
+            System.out.println("TO STRING > "+c.toString());
+            
+            
             
             NCMFormatter.createConditionRole(conditionRoleElement);     
 

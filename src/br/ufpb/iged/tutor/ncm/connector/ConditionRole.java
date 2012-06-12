@@ -42,4 +42,20 @@ public class ConditionRole extends Role{
         return element;
     }
     
+    public ConditionRole toReadXML(Element element){
+    
+        this.setId(element.getAttribute("id"));
+        this.setEventType(element.getAttribute("eventType"));
+        
+        return this;
+    
+    }
+
+    @Override
+    public String toString() {
+        return "id "+getId();
+    }
+    
+    
+    
 }

@@ -32,7 +32,13 @@ public class CausalGlue implements Glue{
     
         Element element = doc.createElement("causalGlue");       
         
-        return element;
+        return element;      
+    
+    }
+    
+    public CausalGlue toReadXML(Element element){
+            
+        return this;
     
     }
     

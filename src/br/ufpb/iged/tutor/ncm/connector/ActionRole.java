@@ -28,4 +28,13 @@ public class ActionRole extends Role{
         return element;
     
     }
+    
+    public ActionRole toReadXML(Element element){
+    
+        this.setId(element.getAttribute("id"));
+        this.setEventType(element.getAttribute("eventType"));
+        
+        return this;
+    
+    }
 }

@@ -47,4 +47,14 @@ public class IGEDletNode extends ContentNode{
         return element;
     
     }
+    
+    public IGEDletNode toReadXML(Element element){
+        
+        this.setId(element.getAttribute("id"));
+        this.setSource(element.getAttribute("source"));
+        this.setType(element.getAttribute("type"));        
+        
+        return this;
+    
+    }
 }
