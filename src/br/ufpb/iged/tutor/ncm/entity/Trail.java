@@ -53,8 +53,9 @@ public class Trail extends CompositeNode implements PlayerListener{
     @Override
     public void execute(String portID){
         //if(this.player == null)
-        //    this.player = new SlidePlayer();
-        player.init();
+        //    this.player = ApressPlayer.getInstance();
+        this.player.addListener(this);
+        this.player.init();
         Port p = this.getPort(portID);
         this.home(p.getComponent());
         this.execute(p);
@@ -88,6 +89,7 @@ public class Trail extends CompositeNode implements PlayerListener{
         
         if(this.getState() != EntityEvent.SLEEPING){
                 this.player.finish();
+                this.player.removeListener(this);
                 super.finish();
         }
     }

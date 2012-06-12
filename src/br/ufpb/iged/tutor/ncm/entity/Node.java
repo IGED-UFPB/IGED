@@ -2,7 +2,6 @@
 package br.ufpb.iged.tutor.ncm.entity;
 
 import br.ufpb.iged.tutor.ncm.event.EventStateMachine;
-import br.ufpb.iged.tutor.ncm.event.PresentationEvent;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +14,7 @@ import java.util.Map;
  * para enviar os eventos ocorridos no Nó. 
  */
 public abstract class Node extends Entity{
-    private Map<String, Anchor> anchors;
+    protected Map<String, Anchor> anchors;
     protected EventStateMachine presetationMachine = null;
     
     Node(){

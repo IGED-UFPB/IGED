@@ -40,4 +40,8 @@ public class ApressPlayer extends Player {
 		
 	}
 
+    public String getSelectAnchor() {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
 }
