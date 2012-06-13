@@ -1,7 +1,14 @@
 package br.ufpb.iged.tutor.ncm;
 
-import br.ufpb.iged.tutor.ncm.connector.ConditionRole;
+import br.ufpb.iged.tutor.ncm.connector.*;
+import br.ufpb.iged.tutor.ncm.entity.CausalConnector;
+import br.ufpb.iged.tutor.ncm.entity.ContextNode;
+import br.ufpb.iged.tutor.ncm.entity.HypermediaConnector;
+import br.ufpb.iged.tutor.ncm.entity.Port;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -29,195 +36,153 @@ public class NCMReadXMLTest {
         Element raiz = doc.getDocumentElement();
         System.out.println("O elemento raiz é: " + raiz.getNodeName());
 
-        //Passo 2: localizar os elementos filhos da agenda
         NodeList listaCausalConnector = raiz.getElementsByTagName("causalConnector");
 
-        
-        System.out.println(listaCausalConnector.getLength());
-        
-        
-        
-        
+        Map<String, HypermediaConnector> connectors = new HashMap<String, HypermediaConnector>();
+        HypermediaConnector hc = new CausalConnector();
+        ConditionRole cr = new ConditionRole();
+
+
+
+
         for (int i = 0; i < listaCausalConnector.getLength(); i++) {
 
             //como cada elemento do NodeList é um nó, precisamos fazer o cast
             Element causalConnector = (Element) listaCausalConnector.item(i);
             //Passo 4: obter o atributo id do contato
-            
+
             NCMFormatter.createCausalConnector(causalConnector);
-            
+
             //DADOS CONDITION ROLE
             NodeList conditionRole = causalConnector.getElementsByTagName("conditionRole");
             Element conditionRoleElement = (Element) conditionRole.item(0);
-            ConditionRole c = new ConditionRole();
-            c.toReadXML(conditionRoleElement);
-            
-            System.out.println("TO STRING > "+c.toString());
-            
-            
-            
-            NCMFormatter.createConditionRole(conditionRoleElement);     
+
+
+            hc.toReadXML(causalConnector);
+
+            cr.toReadXML(conditionRoleElement);
 
             Element eventState = (Element) conditionRoleElement.getElementsByTagName("eventStateTransitionCondition").item(0);
-            
-            NCMFormatter.createEventStateTransitionCondition(eventState);     
-            
+
+
+            EventStateTransitionCondition c = new EventStateTransitionCondition();
+            c.toReadXML(eventState);
+            cr.setCondition(c);
+            hc.add(cr);
+
 
             //DADOS ACTION ROLE
             NodeList actionRole = causalConnector.getElementsByTagName("actionRole");
-            
+
             Element actionRoleElement = (Element) actionRole.item(0);
             Element presentationAction = (Element) actionRoleElement.getElementsByTagName("presentationAction").item(0);
-            
-            NCMFormatter.createActionRole(actionRoleElement);            
-            NCMFormatter.createAction(presentationAction);            
+
+            ActionRole ar = new ActionRole();
+            ar.toReadXML(actionRoleElement);
+            Action a = new Action();
+            a.toReadXML(presentationAction);
+            ar.setAction(a);
+            hc.add(ar);
+
+
 
             //DADOS CAUSAL ROLE
             NodeList causalGlue = causalConnector.getElementsByTagName("causalGlue");
             Element causalGlueElement = (Element) causalGlue.item(0);
             Element simpleTriggerExpression = (Element) causalGlueElement.getElementsByTagName("simpleTriggerExpression").item(0);
             Element simpleActionExpression = (Element) causalGlueElement.getElementsByTagName("simpleActionExpression").item(0);
-            
-            
-            NCMFormatter.createCausalGlue(causalGlueElement);
-            NCMFormatter.createSimpleTriggerExpression(simpleTriggerExpression);
-            NCMFormatter.createSimpleActionExpression(simpleActionExpression);
-            
+
+            CausalGlue g = new CausalGlue();
+            SimpleTriggerExpression ste = new SimpleTriggerExpression();
+            ste.toReadXML(simpleTriggerExpression);
+            g.setTrigger(ste);
+
+            SimpleActionExpression sae = new SimpleActionExpression();
+            sae.toReadXML(simpleActionExpression);
+            g.setAction(sae);
+
+            hc.setGlue(g);
+            connectors.put(hc.getId(), hc);
 
         }
+
+        Stack<ContextNode> stackContext = new Stack<ContextNode>();
+        //ContextNode cn = stackContext.peek();
+        //cn.execute("pInicio");
+        ContextNode main = new ContextNode();
 
         //BODY
         NodeList listaBody = raiz.getElementsByTagName("body");
-
         Element bodyElement = (Element) listaBody.item(0);
 
-        //PORT IN BODY
+
         System.out.println("SIZE: " + bodyElement.getChildNodes().getLength());
+
+        Port p = new Port();
+
+        //LEITURA DOS FILHOS DO BODY
         NodeList nl = bodyElement.getChildNodes();
-        
-        for(int i=0; i<nl.getLength(); ++i)
-            System.out.println("N: " + nl.item(i).getNodeName());
-        
-        Element portElement = (Element) bodyElement.getElementsByTagName("port").item(0);
+        for (int i = 0; i < nl.getLength(); ++i) {
+            
+            if (!nl.item(i).getNodeName().equals("#text")) {
+                System.out.println("Body: "+ i + nl.item(i).getNodeName());
+            }
+            
+            if (nl.item(i).getNodeName().equals("port")) {
+                //PORT IN BODY                
+                System.out.println("passou ak"+i);                
+                Element portElement = (Element) bodyElement.getElementsByTagName("port").item(0);
+                p.toReadXML(portElement);
+                
+            }
+        }
+
+        System.out.println(p.getComponent() + p.getId() + p.getIp());
 
 
+        //CONTEXT IN BODY        
+        NodeList listCotext = bodyElement.getElementsByTagName("context");       
         
-        //CONTEXT IN BODY
-
-        /*NodeList listCotext = bodyElement.getElementsByTagName("context");
         Element contextElement = (Element) listCotext.item(0);
-        System.out.println(contextElement.getAttribute("id"));
 
-        //PORT IN CONTEXT
-        Element portElement2 = (Element) contextElement.getElementsByTagName("port").item(0);
-        System.out.println(portElement2.getAttribute("id"));
-        System.out.println(portElement2.getAttribute("component"));
-        System.out.println(portElement2.getAttribute("interface"));
+        NodeList teste = contextElement.getChildNodes();
 
-        //TRAIL IN CONTEXT
+        System.out.println(teste.getLength());
+        
+        for (int i = 0; i < teste.getLength(); i++) {          
+            
+            
+            if (teste.item(i).getNodeName().equals("port")) {
+                System.out.println("Context port > " + teste.item(i).getNodeName());
+                System.out.println(teste.item(i).getAttributes().getNamedItem("id"));    
+                        
+            }
+            
+            if (teste.item(i).getNodeName().equals("trail")) {
+                System.out.println("Context trail > " + teste.item(i).getNodeName());
+            }        
+            
+            if (teste.item(i).getNodeName().equals("link")) {
+                System.out.println("Context link > " + teste.item(i).getNodeName());
+            }
+
+        }
+
         NodeList listTrail = contextElement.getElementsByTagName("trail");
         Element trailElement = (Element) listTrail.item(0);
-        System.out.println(trailElement.getAttribute("id"));
 
+        NodeList listaTrail = trailElement.getChildNodes();
 
-        //PORT IN TRAIL
-        Element portElement3 = (Element) trailElement.getElementsByTagName("port").item(0);
-        System.out.println(portElement3.getAttribute("id"));
-        System.out.println(portElement3.getAttribute("component"));
-        System.out.println(portElement3.getAttribute("interface"));
+        for (int i = 0; i < listaTrail.getLength(); i++) {
 
-        //MEDIA IN TRAIL
-        NodeList mediaElements = trailElement.getElementsByTagName("media");
-
-        for (int i = 0; i < mediaElements.getLength(); i++) {
-
-            Element mediaElement = (Element) mediaElements.item(i);
-
-            System.out.println(mediaElement.getAttribute("type"));
-            System.out.println(mediaElement.getAttribute("id"));
-            System.out.println(mediaElement.getAttribute("src"));
-
-            NodeList listArea = mediaElement.getElementsByTagName("area");
-
-            if (listArea.getLength() > 1) {
-                for (int j = 0; j < listArea.getLength(); j++) {
-                    Element areaElement = (Element) listArea.item(i);
-                    System.out.println(areaElement.getAttribute("id"));
-                    System.out.println(areaElement.getAttribute("x"));
-                    System.out.println(areaElement.getAttribute("y"));
-
-                }
-
+            if (!listaTrail.item(i).getNodeName().equals("#text")) {
+                System.out.println("Trail > " + listaTrail.item(i).getNodeName());
             }
-            if (listArea.getLength() == 1) {
 
-                Element areaElement = (Element) listArea.item(0);
-                System.out.println(areaElement.getAttribute("id"));
-                System.out.println(areaElement.getAttribute("x"));
-                System.out.println(areaElement.getAttribute("y"));
-            }
         }
 
-        //MEDIA IN CONTEXT DISCUTIR COM O PROFESSOR
 
-        NodeList listLink = contextElement.getElementsByTagName("link");
 
-        for (int i = 0; i < listCotext.getLength(); i++) {
 
-            Element linkElement = (Element) listCotext.item(i);
-            System.out.println(linkElement.getAttribute("id"));
-            System.out.println(linkElement.getAttribute("xconnector"));
-
-            NodeList listBind = linkElement.getElementsByTagName("bind");
-            for (int j = 0; j < listBind.getLength(); j++) {
-                Element bindElement = (Element) listBind.item(j);
-                System.out.println(bindElement.getAttribute("component"));
-                System.out.println(bindElement.getAttribute("interface"));
-                System.out.println(bindElement.getAttribute("role"));
-            }
-        }
     }
-    public static ContentNode createMedia(Element media){
-    
-        if(media.getAttribute("type").equals("imagem")){
-            ImageNode in = new ImageNode();
-            in.setId(media.getAttribute("id"));
-            in.setSource(media.getAttribute("src"));
-            return in;
-        }
-        return null;*/
-    }
-    
-    /*public static Port createPort(Element port){
-        Port p = new Port();
-        p.setId(port.getAttribute("id"));
-        p.setComponent(port.getAttribute("id"));
-        p.setIp(port.getAttribute("id"));
-    }*/
 }
-/*
-DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();	
-DocumentBuilder builder = factory.newDocumentBuilder(); 
-
-Document doc = builder.newDocument();	
-// Cria o elemento Root pessoa	
-Element root = doc.createElement("pessoa");	
-// Cria o elemento nome	
-Element item = doc.createElement("nome");	
-item.appendChild(doc.createTextNode("fulado de tal"));	
-root.appendChild(item);	
-item = doc.createElement("nascimento");	
-item.appendChild(doc.createTextNode("22-07-1983"));	
-root.appendChild(item); 
-item = doc.createElement("idade");	
-item.appendChild(doc.createTextNode("28"));	
-root.appendChild(item);	
-doc.appendChild(root);	
-Transformer trans = 
-TransformerFactory.newInstance().newTransformer();	
-trans.setOutputProperty(OutputKeys.STANDALONE,"yes");	
-trans.setOutputProperty(OutputKeys.ENCODING,"ISO-8859-1");	
-trans.setOutputProperty(OutputKeys.INDENT,"yes");	
-trans.transform(new javax.xml.transform.dom.DOMSource(doc), 
-new StreamResult(System.out)); 
- */

@@ -46,7 +46,7 @@ public class Port extends Interface{
     
         this.setId(element.getAttribute("id"));
         this.setComponent(element.getAttribute("component"));
-        this.setIp(element.getAttribute("interface"));
+        this.setIp(element.getAttribute("ip"));
         
         return this;
     
