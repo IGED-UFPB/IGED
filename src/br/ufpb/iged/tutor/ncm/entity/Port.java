@@ -6,6 +6,7 @@ package br.ufpb.iged.tutor.ncm.entity;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -42,11 +43,11 @@ public class Port extends Interface{
     
     }
     
-    public Port toReadXML(Element element){
+    public Port toReadXML(NamedNodeMap nameNode){
     
-        this.setId(element.getAttribute("id"));
-        this.setComponent(element.getAttribute("component"));
-        this.setIp(element.getAttribute("ip"));
+        this.setId(nameNode.getNamedItem("id").getNodeValue());
+        this.setComponent(nameNode.getNamedItem("component").getNodeValue());
+        this.setIp(nameNode.getNamedItem("ip").getNodeValue());
         
         return this;
     

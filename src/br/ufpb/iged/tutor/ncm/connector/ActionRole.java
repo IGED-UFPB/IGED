@@ -3,6 +3,7 @@ package br.ufpb.iged.tutor.ncm.connector;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -29,10 +30,10 @@ public class ActionRole extends Role{
     
     }
     
-    public ActionRole toReadXML(Element element){
+    public ActionRole toReadXML(NamedNodeMap nameNode){
     
-        this.setId(element.getAttribute("id"));
-        this.setEventType(element.getAttribute("eventType"));
+        this.setId(nameNode.getNamedItem("id").getNodeValue());
+        this.setEventType(nameNode.getNamedItem("eventType").getNodeValue());
         
         return this;
     

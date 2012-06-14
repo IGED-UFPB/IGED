@@ -6,6 +6,7 @@ package br.ufpb.iged.tutor.ncm.connector;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -40,9 +41,9 @@ public class SimpleTriggerExpression extends TriggerExpression{
     
     }
     
-    public SimpleTriggerExpression toReadXML(Element element){
+    public SimpleTriggerExpression toReadXML(NamedNodeMap nameNode){
     
-        this.setConditionRole(element.getAttribute("conditionRole"));
+        this.setConditionRole(nameNode.getNamedItem("conditionRole").getNodeValue());
         
         return this;
     

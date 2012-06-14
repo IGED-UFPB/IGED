@@ -3,6 +3,7 @@ package br.ufpb.iged.tutor.ncm.connector;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -28,9 +29,9 @@ public class EventStateTransitionCondition extends SimpleCondition{
     
     }
     
-    public EventStateTransitionCondition toReadXML(Element element){
+    public EventStateTransitionCondition toReadXML(NamedNodeMap nameNode){
     
-        this.setTransitionName(element.getAttribute("transition"));
+        this.setTransitionName(nameNode.getNamedItem("transition").getNodeValue());
         
         return this;
     

@@ -35,78 +35,90 @@ public class NCMReadXMLTest {
         //Passo 1: obter o elemento raiz
         Element raiz = doc.getDocumentElement();
         System.out.println("O elemento raiz é: " + raiz.getNodeName());
-
-        NodeList listaCausalConnector = raiz.getElementsByTagName("causalConnector");
-
+                
+        
         Map<String, HypermediaConnector> connectors = new HashMap<String, HypermediaConnector>();
-        HypermediaConnector hc = new CausalConnector();
-        ConditionRole cr = new ConditionRole();
+        HypermediaConnector hc = null;
+        ConditionRole cr = null;       
+        EventStateTransitionCondition c = null;
+        
+        NodeList document = raiz.getChildNodes();
+        
+        //CABECALHO
+        for(int i = 0; i < document.getLength();i++){          
+            
+            hc = new CausalConnector();
+            
+            //DADOS CAUSAL CONNECTOR          
+            if(document.item(i).getNodeName().equals("causalConnector")){
+                               
+                hc.toReadXML(document.item(i).getAttributes());
+                
+                NodeList causalConnectorNodes = document.item(i).getChildNodes();               
+                
+                for(int j = 0; j < causalConnectorNodes.getLength(); j++){
+                    //CONDITION ROLE
+                    System.out.println(causalConnectorNodes.item(i).getNodeName());
+                    
+                    if (causalConnectorNodes.item(i).getNodeName().equals("conditionRole")) {
+                        
+                        NodeList nodesConnectors = causalConnectorNodes.item(i).getChildNodes();
+                    //system.out.println(causalConnectorNodes.item(i).getChildNodes());
+                        cr = new ConditionRole();
+                        cr.toReadXML(causalConnectorNodes.item(i).getAttributes());
+                        c = new EventStateTransitionCondition();
+                        if(nodesConnectors.item(i).equals("eventStateTransitionCondition"))
+                            c.toReadXML(nodesConnectors.item(i).getAttributes());
+                        cr.setCondition(c);
+                        hc.add(cr);   
+                        
+                    }
+                    
+                    //ACTION ROLE
+                    if (causalConnectorNodes.item(i).getNodeName().equals("actionRole")) {
+                        ActionRole ar = new ActionRole();                        
+                        ar.toReadXML(causalConnectorNodes.item(i).getAttributes());                        
+                        Action a = new Action();
+                        if(causalConnectorNodes.item(i).getChildNodes().equals("presentationAction"))
+                            a.toReadXML(causalConnectorNodes.item(i).getChildNodes().item(i).getAttributes());                        
+                        ar.setAction(a);
+                        hc.add(ar);
+                    }
+                    //CAUSAL GLUE
+                    if (causalConnectorNodes.item(i).getNodeName().equals("causalGlue")) {
+                        NodeList nodesCausalGlue = causalConnectorNodes.item(i).getChildNodes();
+                        CausalGlue g = new CausalGlue();
+                        
+                        SimpleTriggerExpression ste = new SimpleTriggerExpression();
+                        if(nodesCausalGlue.equals("simpleTriggerExpression")){
+                            ste.toReadXML(nodesCausalGlue.item(i).getAttributes());
+                        }
+                        g.setTrigger(ste);
+                        SimpleActionExpression sae = new SimpleActionExpression();
+                        
+                        if(nodesCausalGlue.equals("simpleActionExpression")){
+                            sae.toReadXML(nodesCausalGlue.item(i).getAttributes());
+                        }
+                        
+                        g.setAction(sae);
 
-
-
-
-        for (int i = 0; i < listaCausalConnector.getLength(); i++) {
-
-            //como cada elemento do NodeList é um nó, precisamos fazer o cast
-            Element causalConnector = (Element) listaCausalConnector.item(i);
-            //Passo 4: obter o atributo id do contato
-
-            NCMFormatter.createCausalConnector(causalConnector);
-
-            //DADOS CONDITION ROLE
-            NodeList conditionRole = causalConnector.getElementsByTagName("conditionRole");
-            Element conditionRoleElement = (Element) conditionRole.item(0);
-
-
-            hc.toReadXML(causalConnector);
-
-            cr.toReadXML(conditionRoleElement);
-
-            Element eventState = (Element) conditionRoleElement.getElementsByTagName("eventStateTransitionCondition").item(0);
-
-
-            EventStateTransitionCondition c = new EventStateTransitionCondition();
-            c.toReadXML(eventState);
-            cr.setCondition(c);
-            hc.add(cr);
-
-
-            //DADOS ACTION ROLE
-            NodeList actionRole = causalConnector.getElementsByTagName("actionRole");
-
-            Element actionRoleElement = (Element) actionRole.item(0);
-            Element presentationAction = (Element) actionRoleElement.getElementsByTagName("presentationAction").item(0);
-
-            ActionRole ar = new ActionRole();
-            ar.toReadXML(actionRoleElement);
-            Action a = new Action();
-            a.toReadXML(presentationAction);
-            ar.setAction(a);
-            hc.add(ar);
-
-
-
-            //DADOS CAUSAL ROLE
-            NodeList causalGlue = causalConnector.getElementsByTagName("causalGlue");
-            Element causalGlueElement = (Element) causalGlue.item(0);
-            Element simpleTriggerExpression = (Element) causalGlueElement.getElementsByTagName("simpleTriggerExpression").item(0);
-            Element simpleActionExpression = (Element) causalGlueElement.getElementsByTagName("simpleActionExpression").item(0);
-
-            CausalGlue g = new CausalGlue();
-            SimpleTriggerExpression ste = new SimpleTriggerExpression();
-            ste.toReadXML(simpleTriggerExpression);
-            g.setTrigger(ste);
-
-            SimpleActionExpression sae = new SimpleActionExpression();
-            sae.toReadXML(simpleActionExpression);
-            g.setAction(sae);
-
-            hc.setGlue(g);
-            connectors.put(hc.getId(), hc);
-
+                        hc.setGlue(g);
+                        
+                    }
+                    
+                    connectors.put(hc.getId(), hc);             
+                }               
+                
+            }             
+                               
         }
 
-        Stack<ContextNode> stackContext = new Stack<ContextNode>();
+        System.out.println("connectos  >  "+connectors.size());
+        System.out.println("//BODY\\");
+
+        //--- BODY ---
+        
+       Stack<ContextNode> stackContext = new Stack<ContextNode>();
         //ContextNode cn = stackContext.peek();
         //cn.execute("pInicio");
         ContextNode main = new ContextNode();
@@ -131,8 +143,7 @@ public class NCMReadXMLTest {
             if (nl.item(i).getNodeName().equals("port")) {
                 //PORT IN BODY                
                 System.out.println("passou ak"+i);                
-                Element portElement = (Element) bodyElement.getElementsByTagName("port").item(0);
-                p.toReadXML(portElement);
+                p.toReadXML(nl.item(i).getAttributes());
                 
             }
         }
@@ -154,7 +165,7 @@ public class NCMReadXMLTest {
             
             if (teste.item(i).getNodeName().equals("port")) {
                 System.out.println("Context port > " + teste.item(i).getNodeName());
-                System.out.println(teste.item(i).getAttributes().getNamedItem("id"));    
+                System.out.println(teste.item(i).getAttributes().getNamedItem("id").getNodeName());    
                         
             }
             

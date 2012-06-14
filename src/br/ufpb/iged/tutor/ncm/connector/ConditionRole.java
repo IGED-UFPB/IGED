@@ -6,6 +6,7 @@ package br.ufpb.iged.tutor.ncm.connector;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -42,10 +43,10 @@ public class ConditionRole extends Role{
         return element;
     }
     
-    public ConditionRole toReadXML(Element element){
+    public ConditionRole toReadXML(NamedNodeMap namedNode){
     
-        this.setId(element.getAttribute("id"));
-        this.setEventType(element.getAttribute("eventType"));
+        this.setId(namedNode.getNamedItem("id").getNodeValue());
+        this.setEventType(namedNode.getNamedItem("eventType").getNodeValue());
         
         return this;
     

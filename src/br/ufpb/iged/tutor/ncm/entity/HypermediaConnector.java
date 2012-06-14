@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -80,9 +81,9 @@ public class HypermediaConnector {
     
     }
     
-    public HypermediaConnector toReadXML(Element element){
+    public HypermediaConnector toReadXML(NamedNodeMap nameNode){
     
-        this.setId(element.getAttribute("id"));
+        this.setId(nameNode.getNamedItem("id").getNodeValue());
         
         return this;
     

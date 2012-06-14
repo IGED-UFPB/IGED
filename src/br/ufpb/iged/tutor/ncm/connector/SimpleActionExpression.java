@@ -3,6 +3,7 @@ package br.ufpb.iged.tutor.ncm.connector;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -28,9 +29,9 @@ public class SimpleActionExpression extends ActionExpression{
     
     }
     
-    public SimpleActionExpression toReadXML(Element element){
+    public SimpleActionExpression toReadXML(NamedNodeMap nameNode){
     
-        this.setActionRole(element.getAttribute("actionRole"));
+        this.setActionRole(nameNode.getNamedItem("actionRole").getNodeValue());
         
         return this;
     
