@@ -38,14 +38,14 @@ public class TelaIGEDlet extends javax.swing.JFrame implements IGEDletListener{
     }
     
     public void init(){
-        try {
+        /*try {
 
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 
         } catch (Exception ex) {
             ex.printStackTrace();
             return;
-        }
+        }*/
         this.initComponents();
     }
     
