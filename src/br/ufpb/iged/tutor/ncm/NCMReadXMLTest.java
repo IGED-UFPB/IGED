@@ -35,90 +35,85 @@ public class NCMReadXMLTest {
         //Passo 1: obter o elemento raiz
         Element raiz = doc.getDocumentElement();
         System.out.println("O elemento raiz é: " + raiz.getNodeName());
-                
-        
+
+
         Map<String, HypermediaConnector> connectors = new HashMap<String, HypermediaConnector>();
         HypermediaConnector hc = null;
-        ConditionRole cr = null;       
+        ConditionRole cr = null;
         EventStateTransitionCondition c = null;
-        
+
         NodeList document = raiz.getChildNodes();
-        
+
         //CABECALHO
-        for(int i = 0; i < document.getLength();i++){          
+        
+        for (int i = 0; i < document.getLength(); i++) {
             
+            //System.out.println("TAM DOC > "+document.getLength());
             hc = new CausalConnector();
-            
-            //DADOS CAUSAL CONNECTOR          
-            if(document.item(i).getNodeName().equals("causalConnector")){
-                               
+
+            //DADOS CAUSAL CONNECTOR                      
+            if (document.item(i).getNodeName().equals("causalConnector")) {
+
                 hc.toReadXML(document.item(i).getAttributes());
+
+                NodeList causalConnectorNodes = document.item(i).getChildNodes();
                 
-                NodeList causalConnectorNodes = document.item(i).getChildNodes();               
+                System.out.println("ID Causal > "+hc.getId());
                 
-                for(int j = 0; j < causalConnectorNodes.getLength(); j++){
+                System.out.println(causalConnectorNodes.getLength());
+                
+                for (int j = 0; j < causalConnectorNodes.getLength(); j++) {
+                    
                     //CONDITION ROLE
-                    System.out.println(causalConnectorNodes.item(i).getNodeName());
+                    if(!causalConnectorNodes.item(j).getNodeName().equals("#text"))
+                        System.out.println(causalConnectorNodes.item(j).getNodeName());                    
                     
-                    if (causalConnectorNodes.item(i).getNodeName().equals("conditionRole")) {
+                    /*                   
+                     //ACTION ROLE
+                    if (causalConnectorNodes.item(j).getNodeName().equals("actionRole")) {
                         
-                        NodeList nodesConnectors = causalConnectorNodes.item(i).getChildNodes();
-                    //system.out.println(causalConnectorNodes.item(i).getChildNodes());
-                        cr = new ConditionRole();
-                        cr.toReadXML(causalConnectorNodes.item(i).getAttributes());
-                        c = new EventStateTransitionCondition();
-                        if(nodesConnectors.item(i).equals("eventStateTransitionCondition"))
-                            c.toReadXML(nodesConnectors.item(i).getAttributes());
-                        cr.setCondition(c);
-                        hc.add(cr);   
-                        
-                    }
-                    
-                    //ACTION ROLE
-                    if (causalConnectorNodes.item(i).getNodeName().equals("actionRole")) {
-                        ActionRole ar = new ActionRole();                        
-                        ar.toReadXML(causalConnectorNodes.item(i).getAttributes());                        
+                        ActionRole ar = new ActionRole();
+                        ar.toReadXML(causalConnectorNodes.item(j).getAttributes());
                         Action a = new Action();
-                        if(causalConnectorNodes.item(i).getChildNodes().equals("presentationAction"))
-                            a.toReadXML(causalConnectorNodes.item(i).getChildNodes().item(i).getAttributes());                        
+                        if (causalConnectorNodes.item(j).getChildNodes().equals("presentationAction")) {
+                            a.toReadXML(causalConnectorNodes.item(j).getChildNodes().item(j).getAttributes());
+                        }
                         ar.setAction(a);
                         hc.add(ar);
                     }
+                    
                     //CAUSAL GLUE
-                    if (causalConnectorNodes.item(i).getNodeName().equals("causalGlue")) {
-                        NodeList nodesCausalGlue = causalConnectorNodes.item(i).getChildNodes();
+                    if (causalConnectorNodes.item(j).getNodeName().equals("causalGlue")) {
+                        NodeList nodesCausalGlue = causalConnectorNodes.item(j).getChildNodes();
                         CausalGlue g = new CausalGlue();
-                        
+
                         SimpleTriggerExpression ste = new SimpleTriggerExpression();
-                        if(nodesCausalGlue.equals("simpleTriggerExpression")){
-                            ste.toReadXML(nodesCausalGlue.item(i).getAttributes());
+                        if (nodesCausalGlue.equals("simpleTriggerExpression")) {
+                            ste.toReadXML(nodesCausalGlue.item(j).getAttributes());
                         }
                         g.setTrigger(ste);
                         SimpleActionExpression sae = new SimpleActionExpression();
-                        
-                        if(nodesCausalGlue.equals("simpleActionExpression")){
-                            sae.toReadXML(nodesCausalGlue.item(i).getAttributes());
+
+                        if (nodesCausalGlue.equals("simpleActionExpression")) {
+                            sae.toReadXML(nodesCausalGlue.item(j).getAttributes());
                         }
-                        
+
                         g.setAction(sae);
 
                         hc.setGlue(g);
-                        
+                        */
                     }
-                    
-                    connectors.put(hc.getId(), hc);             
-                }               
-                
-            }             
-                               
-        }
 
-        System.out.println("connectos  >  "+connectors.size());
-        System.out.println("//BODY\\");
+                    connectors.put(hc.getId(), hc);
+                }
 
-        //--- BODY ---
+            }
+
         
-       Stack<ContextNode> stackContext = new Stack<ContextNode>();
+        System.out.println("//--BODY--\\");
+        //--- BODY ---
+
+        Stack<ContextNode> stackContext = new Stack<ContextNode>();
         //ContextNode cn = stackContext.peek();
         //cn.execute("pInicio");
         ContextNode main = new ContextNode();
@@ -135,16 +130,16 @@ public class NCMReadXMLTest {
         //LEITURA DOS FILHOS DO BODY
         NodeList nl = bodyElement.getChildNodes();
         for (int i = 0; i < nl.getLength(); ++i) {
-            
+
             if (!nl.item(i).getNodeName().equals("#text")) {
-                System.out.println("Body: "+ i + nl.item(i).getNodeName());
+                System.out.println("Body: " + i + nl.item(i).getNodeName());
             }
-            
+
             if (nl.item(i).getNodeName().equals("port")) {
                 //PORT IN BODY                
-                System.out.println("passou ak"+i);                
+                System.out.println("passou ak" + i);
                 p.toReadXML(nl.item(i).getAttributes());
-                
+
             }
         }
 
@@ -152,27 +147,27 @@ public class NCMReadXMLTest {
 
 
         //CONTEXT IN BODY        
-        NodeList listCotext = bodyElement.getElementsByTagName("context");       
-        
+        NodeList listCotext = bodyElement.getElementsByTagName("context");
+
         Element contextElement = (Element) listCotext.item(0);
 
         NodeList teste = contextElement.getChildNodes();
 
         System.out.println(teste.getLength());
-        
-        for (int i = 0; i < teste.getLength(); i++) {          
-            
-            
+
+        for (int i = 0; i < teste.getLength(); i++) {
+
+
             if (teste.item(i).getNodeName().equals("port")) {
                 System.out.println("Context port > " + teste.item(i).getNodeName());
-                System.out.println(teste.item(i).getAttributes().getNamedItem("id").getNodeName());    
-                        
+                System.out.println(teste.item(i).getAttributes().getNamedItem("id").getNodeName());
+
             }
-            
+
             if (teste.item(i).getNodeName().equals("trail")) {
                 System.out.println("Context trail > " + teste.item(i).getNodeName());
-            }        
-            
+            }
+
             if (teste.item(i).getNodeName().equals("link")) {
                 System.out.println("Context link > " + teste.item(i).getNodeName());
             }
