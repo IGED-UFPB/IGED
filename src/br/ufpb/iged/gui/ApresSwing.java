@@ -87,7 +87,7 @@ public class ApresSwing extends JFrame {
 				System.out.print("NEXT");
 				ApresSwingEvent ase = new ApresSwingEvent();
 				ase.setAction(ApresSwingEvent.SELECT_NEXT_NODE);
-				this
+				
 		}
 		 		 
 	 }
@@ -106,7 +106,7 @@ public class ApresSwing extends JFrame {
         }
 		
 		private void sendEvent(final TelaIGEDletEvent tie){
-            for(final TelaIGEDletListener tl : listeners){
+          //  for(final TelaIGEDletListener tl : listeners){
                 new Thread(){
                     @Override
                     public void run(){
