@@ -27,7 +27,15 @@ public class GerenciadorAtividade {
     
     public IGEDlet loadTarefa(Metadado mt){
         return IGEDletXml.lerXml(mt);
-    }   
+    }
+    
+    public IGEDlet loadTarefa(int igedID) {
+        Metadado m = this.portifolio.getTarefa(igedID);
+        if(m != null)
+            return this.loadTarefa(m);
+        else
+            return null;
+    }
 
     public static GerenciadorAtividade getInstance() {
         if (ger == null) {
@@ -35,4 +43,5 @@ public class GerenciadorAtividade {
         }
         return ger;
     }
+
 }

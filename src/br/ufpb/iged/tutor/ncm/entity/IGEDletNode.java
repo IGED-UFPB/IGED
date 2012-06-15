@@ -1,7 +1,10 @@
 
 package br.ufpb.iged.tutor.ncm.entity;
 
-import java.io.IOException;
+import br.ufpb.iged.tutor.players.IGEDletPlayer;
+import br.ufpb.iged.tutor.players.event.ActionUserEvent;
+import br.ufpb.iged.tutor.players.event.PlayerEvent;
+import br.ufpb.iged.tutor.players.event.PlayerListener;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -9,32 +12,39 @@ import org.w3c.dom.Element;
  *
  * @author GILBERTO FARIAS
  */
-public class IGEDletNode extends ContentNode{
+public class IGEDletNode extends ContentNode implements PlayerListener{
+    IGEDletPlayer player = null;
+    
     @Override
     public void run() {
-        System.out.println("Iniciado IGEDlet: " + this.getId());
+        this.player = IGEDletPlayer.getInstance();
         
-        try {
-            System.out.println("Digite IGED");
-            System.in.read();
-        } catch (IOException ex) {
+        if(!this.player.isRunning()){
+            this.player.init();
+            this.player.execute();
         }
-        final IGEDletNode iged = this;
-        new Thread(){
-            public void run(){
-                iged.finish();
-            }
-        }.start();
+        this.player.addListener(this);
+        this.player.play(this);
         
-        try {
-            while(true){
-                Thread.sleep(1000);
-            }
-        } catch (Exception ex) {
-            System.out.println("Fim IGElet");
-            //ex.printStackTrace();
-        }
-        
+    }
+    
+    @Override
+    public void pause(){
+        //Pausar a exibição do IGEDlet
+        super.pause();
+    }
+    
+    @Override
+    public void resume(){
+        //Retomar a exibição do IGEDlet
+        super.resume();
+    }
+    
+    @Override
+    public void finish(){
+        super.finish();
+        this.player.finish();
+        this.player.removeListener(this);
     }
     
     public Element toXML(Document doc){
@@ -56,5 +66,24 @@ public class IGEDletNode extends ContentNode{
         
         return this;
     
+    }
+    
+    public static void main(String argv[]){
+        IGEDletPlayer ip = new IGEDletPlayer();
+        ip.init();
+        ip.execute();
+        
+        IGEDletNode img = new IGEDletNode();
+        img.setSource("0");
+        ip.play(img);
+    }
+
+    @Override
+    public void receiveEvent(PlayerEvent e) {
+        if(e instanceof ActionUserEvent){
+            ActionUserEvent ae = (ActionUserEvent)e;
+            if(ae.getAction() == ActionUserEvent.CLOSE_PLAYER)
+                this.finish();
+        }
     }
 }

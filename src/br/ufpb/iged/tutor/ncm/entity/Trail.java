@@ -54,8 +54,8 @@ public class Trail extends CompositeNode implements PlayerListener{
     public void execute(String portID){
         //if(this.player == null)
         //    this.player = ApressPlayer.getInstance();
-        this.player.addListener(this);
-        this.player.init();
+        //this.player.addListener(this);
+        //this.player.init();
         Port p = this.getPort(portID);
         this.home(p.getComponent());
         this.execute(p);

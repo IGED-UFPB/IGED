@@ -92,7 +92,8 @@ public abstract class ContentNode extends Node implements Runnable{
         System.out.println("Finish PresentationMachine: " + this.getId());
         if(this.exec != null){
             this.presetationMachine.transitionStops();
-            this.exec.interrupt();
+            if(this.exec.isAlive())
+                this.exec.interrupt();
             this.exec = null;
         }
     }
