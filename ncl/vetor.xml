@@ -61,11 +61,11 @@
 				
 		</trail>
 	
-		<media type="igedlet" id="atividade1" src="vetor/iged/vetorAtiv1.igedlet"/>
+		<media type="igedlet" id="atividade1" src="0"/>
 
-		<media type="igedlet" id="animacao1" src="vetor/iged/vetorAnima.igedlet"/>
+		<media type="igedlet" id="animacao1" src="14"/>
 
-		<media type="igedlet" id="atividade2" src="vetor/iged/vetorAtivi2.igedlet"/>
+		<media type="igedlet" id="atividade2" src="0"/>
 	
 	
 		<link id="lSlide1IGEDlet1Start1" xconnector="onSelection1Start1">
