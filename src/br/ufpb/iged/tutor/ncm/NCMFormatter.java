@@ -203,17 +203,17 @@ public class NCMFormatter {
         //IGEDlets do contexto
         IGEDletNode ig = new IGEDletNode();
         ig.setId("atividade1");
-        ig.setSource("vetor/iged/vetorAtiv1.igedlet");
+        ig.setSource("14");
         cn.add(ig);
         
         ig = new IGEDletNode();
         ig.setId("animacao1");
-        ig.setSource("vetor/iged/vetorAnima.igedlet");
+        ig.setSource("0");
         cn.add(ig);
         
         ig = new IGEDletNode();
         ig.setId("atividade2");
-        ig.setSource("vetor/iged/vetorAtiv2.igedlet");
+        ig.setSource("14");
         cn.add(ig);
         
         //Link do contexto

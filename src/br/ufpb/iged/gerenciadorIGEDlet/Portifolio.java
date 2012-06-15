@@ -22,6 +22,15 @@ public class Portifolio {
     public LinkedList<Metadado> getTarefas() {
         return tarefas;
     }
+    
+    public Metadado getTarefa(int id){
+        Metadado tf = null;
+        for(Metadado m : tarefas){
+            if(m.getId() == id)
+                tf = m;
+        }
+        return tf;
+    }
 
     public void setTarefas(LinkedList<Metadado> tarefas) {
         this.tarefas = tarefas;
@@ -35,8 +44,5 @@ public class Portifolio {
 
     public int getCont() {
         return cont;
-    }
-
-    
-    
+    }    
 }

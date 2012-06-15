@@ -3,6 +3,7 @@ package br.ufpb.iged.tutor.players;
 import br.ufpb.iged.tutor.players.event.PlayerListener;
 import br.ufpb.iged.tutor.players.event.PlayerEvent;
 import br.ufpb.iged.tutor.ncm.entity.Node;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -36,5 +37,5 @@ public abstract class Player {
         }
     }
     
-    private List<PlayerListener> listeners = null;
+    private List<PlayerListener> listeners = new LinkedList<PlayerListener>();
 }
