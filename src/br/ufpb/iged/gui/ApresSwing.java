@@ -16,8 +16,10 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import br.ufpb.iged.gui.event.ApresSwingEvent;
 import br.ufpb.iged.gui.event.ClosedTelaIGEDletEvent;
 import br.ufpb.iged.gui.event.TelaIGEDletEvent;
+import br.ufpb.iged.gui.event.TelaIGEDletListener;
 
 
 
@@ -83,6 +85,9 @@ public class ApresSwing extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 				System.out.print("NEXT");
+				ApresSwingEvent ase = new ApresSwingEvent();
+				ase.setAction(ApresSwingEvent.SELECT_NEXT_NODE);
+				this
 		}
 		 		 
 	 }
@@ -98,6 +103,17 @@ public class ApresSwing extends JFrame {
 		public void windowClosing(WindowEvent evt) {
 				System.out.println("Window Closed!");
             
+        }
+		
+		private void sendEvent(final TelaIGEDletEvent tie){
+            for(final TelaIGEDletListener tl : listeners){
+                new Thread(){
+                    @Override
+                    public void run(){
+                        tl.receiveEvent(tie);
+                    }
+                }.start();
+            }
         }
 		
 	}
