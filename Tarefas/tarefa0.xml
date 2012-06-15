@@ -3,7 +3,7 @@
     <area>Lista</area>
     <autor>Gilberto Farias de Sousa</autor>
     <id>14</id>
-    <titulo>Insercao de valor no inicio da lista</titulo>
+    <titulo>Inversão de um vetor</titulo>
   </metadado>
   <descricao>Inverta o conteúdo do vetor v.</descricao>
   <codInicializacao>CREATE_REF VECTOR v
@@ -63,5 +63,6 @@ READ_INT i
 READ_REF v
 SET_POS_VET 2
 WRITE_INFO 2
-END_COMMAND</codSolucao>
+END_COMMAND
+DELETE_INT i</codSolucao>
 </atividade>

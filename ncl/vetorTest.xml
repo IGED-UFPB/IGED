@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<document>
+	<causalConnector id="onSelection1Start1">
+		<conditionRole eventType="selection" id="onSelection">
+			<eventStateTransitionCondition transition="starts"/>
+		</conditionRole>
+		<actionRole eventType="presentation" id="start">
+			<presentationAction actionType="start"/>
+		</actionRole>
+		<causalGlue>
+			<simpleTriggerExpression conditionRole="onSelection"/>
+			<simpleActionExpression actionRole="start"/>
+		</causalGlue>
+	</causalConnector>
+
+	<causalConnector id="onStop1Resume1">
+		<conditionRole eventType="presentation" id="onStop">
+			<eventStateTransitionCondition transition="stops"/>
+			<actionRole eventType="presentation" id="resume">
+				<presentationAction actionType="resume"/>
+			</actionRole>
+		</conditionRole>
+		<causalGlue>
+			<simpleTriggerExpression conditionRole="onStop"/>
+			<simpleActionExpression actionRole="resume"/>
+		</causalGlue>
+	</causalConnector>
+
+<body>
+	<port component="ctxVetor" id="pInicio" ip="pInicio"/>
+	<context id="ctxVetor">
+		<port component="vetor" id="pInicio" ip="pVetor"/>
+		<trail id="vetor">
+			<port component="slide2" id="pVetor" ip=""/>
+			<port component="slide2" id="pAtiv1" ip="aAtividade1"/>
+			<port component="slide2" id="pAtiv2" ip="aAtividade2"/>
+			<port component="slide4" id="pAnim1" ip="aAnimacao1"/>
+			<media id="slide1" src="vetor/press/slide1.jpg" type=""/>
+			<media id="slide2" src="vetor/press/slide2.jpg" type="">
+				<area id="aAtividade1" x="100.0" y="200.0"/>
+				<area id="aAtividade2" x="100.0" y="230.0"/>
+			</media>
+			<media id="slide3" src="vetor/press/slide3.jpg" type=""/>
+			<media id="slide4" src="vetor/press/slide4.jpg" type="">
+				<area id="aAnimacao1" x="100.0" y="200.0"/>
+			</media>
+		</trail>
+		<media id="atividade1" src="vetor/iged/vetorAtiv1.igedlet" type=""/>
+		<media id="animacao1" src="vetor/iged/vetorAnima.igedlet" type=""/>
+		<media id="atividade2" src="vetor/iged/vetorAtiv2.igedlet" type=""/>
+
+		<link id="lSlide1IGEDlet1Start1" xconnector="onSelection1Start1">
+			<bind component="vetor" interface="pAtiv1" role="onSelection"/>
+			<bind component="atividade1" interface="" role="start"/>
+		</link>
+		<link id="lIGEDlet1Slide1Resume1" xconnector="onStop1Resume1">
+			<bind component="vetor" interface="pAtiv1" role="resume"/>
+			<bind component="atividade1" interface="" role="onStop"/>
+		</link>
+		<link id="lSlide1IGEDlet1Start2" xconnector="onSelection1Start1">
+			<bind component="vetor" interface="pAtiv2" role="onSelection"/>
+			<bind component="atividade2" interface="" role="start"/>
+		</link>
+		<link id="lIGEDlet1Slide1Resume2" xconnector="onStop1Resume1">
+			<bind component="vetor" interface="pAtiv2" role="resume"/>
+			<bind component="atividade2" interface="" role="onStop"/>
+		</link>
+		<link id="lSlide1IGEDlet1Start2" xconnector="onSelection1Start1">
+			<bind component="vetor" interface="pAnim1" role="onSelection"/>
+			<bind component="animacao1" interface="" role="start"/>
+		</link>
+		<link id="lIGEDlet1Slide1Resume3" xconnector="onStop1Resume1">
+			<bind component="vetor" interface="pAnim1" role="resume"/>
+			<bind component="animacao1" interface="" role="onStop"/>
+		</link>
+	</context>
+</body>
+</document>
