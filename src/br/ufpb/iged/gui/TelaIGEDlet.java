@@ -1,42 +1,23 @@
 package br.ufpb.iged.gui;
 
-import br.ufpb.iged.gui.event.ClosedTelaIGEDletEvent;
-import br.ufpb.iged.gui.event.OpenedTelaIGEDletEvent;
-import br.ufpb.iged.gui.event.TelaIGEDletListener;
-import br.ufpb.iged.gui.event.TelaIGEDletEvent;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDlet;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletEvent;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletListener;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.util.LinkedList;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.UIManager;
 
 /**
  *
  * @author GILBERTO FARIAS
  */
-public class TelaIGEDlet extends javax.swing.JFrame implements IGEDletListener{
+public class TelaIGEDlet extends TelaPlayer implements IGEDletListener{
 
-     //public static final File raiz = new File("./Tarefas");
      private IGEDlet tf;
-     private WindowEventHandler wa;
-     
-     //Interpretador iter = Interpretador.getInstance();
-
-    /** Creates new form TelaExercicioInterno */
-    public TelaIGEDlet(){
-        this.wa = new WindowEventHandler(this);
-    }
-    
+         
     public void init(){
         /*try {
 
@@ -269,46 +250,5 @@ public class TelaIGEDlet extends javax.swing.JFrame implements IGEDletListener{
             jLabel1.setBackground(Color.RED); 
             jLabel1.setText("Incorreto!");
         }
-    }
-
-    class WindowEventHandler extends WindowAdapter {
-        List<TelaIGEDletListener> listeners = new LinkedList<TelaIGEDletListener>();
-        TelaIGEDlet ti = null;
-        
-        WindowEventHandler(TelaIGEDlet ti){
-            this.ti = ti;
-            this.ti.addWindowListener(this);
-        }
-        
-        @Override
-        public void windowOpened(WindowEvent evt) {
-            System.out.println("Window Opened!");
-            TelaIGEDletEvent ev = new OpenedTelaIGEDletEvent(this.ti);
-            this.sendEvent(ev);
-        }
-        
-        @Override
-        public void windowClosing(WindowEvent evt) {
-            System.out.println("Window Closed!");
-            TelaIGEDletEvent ev = new ClosedTelaIGEDletEvent(this.ti);
-            this.sendEvent(ev);
-        }
-        
-        private void sendEvent(final TelaIGEDletEvent tie){
-            for(final TelaIGEDletListener tl : listeners){
-                new Thread(){
-                    @Override
-                    public void run(){
-                        tl.receiveEvent(tie);
-                    }
-                }.start();
-            }
-        }
-    }
-    public void addListener(TelaIGEDletListener til){
-        this.wa.listeners.add(til);
-    }
-    public void removeListener(TelaIGEDletListener til){
-        this.wa.listeners.remove(til);
     }
 }
