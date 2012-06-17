@@ -31,9 +31,9 @@ public class PearsonCorrelation {
     }
     
     private void initSeries(){
-        this.T = new double[8][this.nsize];
+        this.T = new double[NUM_T][this.nsize];
         
-        for(int t=0; t < 8; ++t){
+        for(int t=0; t < NUM_T; ++t){
             for(int i=0; i < this.nsize; ++i){
                 switch(t){
                     case T_1:
@@ -89,8 +89,8 @@ public class PearsonCorrelation {
     }
     
     public int getCategory(double T[]){
-        double PC[] = new double[8];
-        for(int t = 0; t < 8; ++t){
+        double PC[] = new double[NUM_T];
+        for(int t = 0; t < NUM_T; ++t){
             PC[t] = PearsonCorrelation.getPearsonCorrelation(T, this.T[t]);
             if(PC[t] == Double.NaN)
                 PC[t] = 0;
@@ -99,7 +99,7 @@ public class PearsonCorrelation {
         
         int category = UNKNOWN;
         double maxValue = -1;
-        for(int t=0; t < 8; ++t){
+        for(int t=0; t < NUM_T; ++t){
             if(maxValue < PC[t]){
                 maxValue = PC[t];
                 category = t;
@@ -107,6 +107,8 @@ public class PearsonCorrelation {
         }
         return category;
     }
+    
+    private static final int NUM_T = 8;
     
     public static final int UNKNOWN = -1;
     
