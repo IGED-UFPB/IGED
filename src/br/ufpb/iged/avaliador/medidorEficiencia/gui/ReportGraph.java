@@ -21,9 +21,11 @@ public class ReportGraph {
 	public void addSeries(String id_function){
 		
 		XYSeries XY =  tableMeter.getXYSeries(id_function);
+	
 		
 		//XYSeries series1 = new XYSeries(id_function);
 		org.jfree.data.xy.XYSeries serie = new  org.jfree.data.xy.XYSeries(XY.title);
+
 		
 		serie.add(0,0);
 		

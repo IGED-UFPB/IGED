@@ -10,6 +10,9 @@ public class mainTest {
 
         int n[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
 
+        //Meter usado na busca binária!!!
+        efficiencyMeter meter1 = new efficiencyMeter();
+        
         // tableMeter table = new tableMeter();
 
         // Test Simples Bublle Sort
@@ -29,6 +32,8 @@ public class mainTest {
             System.out.println("");
 
             vetor1 = bublleSort(vetor1, meter);
+            binarySearch(vetor1, 80, meter1);
+            
             for (int i = 0; i < vetor1.length; ++i) {
                 System.out.print(vetor1[i] + " ");
             }
@@ -40,6 +45,7 @@ public class mainTest {
             // System.out.println("");
 
             meter.finalizador(0, 0, "Bublle Sort", n[k], meter);
+            meter1.finalizador(0, 0, "Busca Binária", n[k], meter1);
         }
 
         TableMeter table;
@@ -141,32 +147,78 @@ public class mainTest {
         ReportGraph reportGraph = new ReportGraph();
 
         reportGraph.addSeries("Merge Sort");
-        //reportGraph.addSeries("Bublle Sort");
+        reportGraph.addSeries("Bublle Sort");
         reportGraph.addSeries("Count Sort");
+        reportGraph.addSeries("Busca Binária");
         reportGraph.showSeries();
 
     }
 
-    //
-    //
-    //
-    //
-    // //Bubble Sort
-    // public static int[] bubbleSort(int aux[]){
-    // int tmp;
-    // int Parada = aux.length;
-    // for(int i=0 ; i < Parada; ++i ){
-    // for(int j=i+1 ; j < Parada; ++j){
-    // if(aux[i] > aux[j]){
-    // tmp = aux[i];
-    // aux[i] = aux[j];
-    // aux[j] = tmp;
-    // }
-    // }
-    // }
-    // return aux;
-    // }
-    //
+
+  public static final int NOT_FOUND = -1;
+    
+    /**
+     * @return posição onde o item foi encontrado, ou não.
+     */
+    public static int binarySearch( int [ ] a, int x, efficiencyMeter medidor)
+    {
+        int low = 0;
+        medidor.simpleVariableAllocation();
+        
+        int high = a.length - 1;
+        medidor.simpleVariableAllocation();
+        
+        int mid;
+
+        medidor.simpleVariableAllocation();
+        
+
+        while( low <= high )
+        {
+            mid = ( low + high ) / 2;
+            medidor.attributionVariable();
+            medidor.operationAritimetic();
+            medidor.operationLogic();
+
+            //Promeiro IF
+            medidor.operationLogic();
+            medidor.indexArray();
+            medidor.operationLogic();
+            medidor.operationAritimetic();
+            	
+            //Primeiro ELSE
+            medidor.operationLogic();
+            medidor.indexArray();
+            medidor.operationLogic();
+            medidor.operationAritimetic();
+            
+            //Segundo ELSE
+            medidor.operationLogic();
+            
+          if( a[ mid ] > x ){
+                low = mid + 1;
+          		medidor.operationAritimetic();
+          		medidor.attributionVariable();
+          }else if( a[ mid ] < x ){
+                high = mid - 1;
+          		medidor.attributionVariable();
+          		medidor.operationLogic();
+          }else
+              
+        	  medidor.methodReturn();
+        	  return mid;
+        }
+        medidor.operationLogic();
+
+        medidor.simpleVariableDeAllocation();
+        medidor.simpleVariableDeAllocation();
+        medidor.simpleVariableDeAllocation();
+        
+        medidor.methodReturn();
+        return NOT_FOUND;     // NOT_FOUND = -1
+    }
+
+
     public static int[] bublleSort(int[] vetor, efficiencyMeter medidor) {
 
         // Cï¿½digo simulador do interpretador.
