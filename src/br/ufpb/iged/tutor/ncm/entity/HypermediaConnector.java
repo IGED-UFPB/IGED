@@ -88,6 +88,13 @@ public class HypermediaConnector {
         return this;
     
     }
+
+    @Override
+    public String toString() {
+        return "ID: "+this.getId();
+    }
+    
+    
     
     
 }

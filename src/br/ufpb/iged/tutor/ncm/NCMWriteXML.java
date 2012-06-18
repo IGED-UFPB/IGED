@@ -117,7 +117,7 @@ public class NCMWriteXML {
         action = a.toXML(doc);      
         actionRole.appendChild(action);
         
-        conditionRole.appendChild(actionRole);
+        causalConnector.appendChild(actionRole);
         
         g = new CausalGlue();
         causalGlue = g.toXML(doc);
@@ -405,7 +405,7 @@ public class NCMWriteXML {
         simulateNCL();
         //adicionando os dados do body
 
-        StreamResult result = new StreamResult(new FileOutputStream("vetorTest.xml"));
+        StreamResult result = new StreamResult(new FileOutputStream("vetor.xml"));
         Transformer trans = TransformerFactory.newInstance().newTransformer();
         trans.setOutputProperty(OutputKeys.STANDALONE, "yes");
         trans.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");
