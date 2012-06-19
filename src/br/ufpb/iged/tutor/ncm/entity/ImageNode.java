@@ -12,6 +12,7 @@ import org.w3c.dom.Element;
 import br.ufpb.iged.tutor.players.event.ActionUserEvent;
 import br.ufpb.iged.tutor.players.event.PlayerEvent;
 import br.ufpb.iged.tutor.players.event.PlayerListener;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -68,11 +69,11 @@ public class ImageNode extends ContentNode implements PlayerListener{
     
     }
     
-    public ImageNode toReadXML(Element element){
+    public ImageNode toReadXML(NamedNodeMap namedNode){
     
-        this.setId(element.getAttribute("id"));
-        this.setSource(element.getAttribute("src"));
-        this.setType(element.getAttribute("type"));
+        this.setId(namedNode.getNamedItem("id").getNodeValue());
+        this.setSource(namedNode.getNamedItem("src").getNodeValue());
+        this.setType(namedNode.getNamedItem("type").getNodeValue());
         
         return this;
     

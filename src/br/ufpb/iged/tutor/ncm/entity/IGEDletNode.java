@@ -7,6 +7,7 @@ import br.ufpb.iged.tutor.players.event.PlayerEvent;
 import br.ufpb.iged.tutor.players.event.PlayerListener;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -58,11 +59,11 @@ public class IGEDletNode extends ContentNode implements PlayerListener{
     
     }
     
-    public IGEDletNode toReadXML(Element element){
+    public IGEDletNode toReadXML(NamedNodeMap namedNode){
         
-        this.setId(element.getAttribute("id"));
-        this.setSource(element.getAttribute("source"));
-        this.setType(element.getAttribute("type"));        
+        this.setId(namedNode.getNamedItem("id").getNodeValue());        
+        this.setSource(namedNode.getNamedItem("src").getNodeValue());
+        this.setType(namedNode.getNamedItem("type").getNodeValue());        
         
         return this;
     

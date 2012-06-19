@@ -12,6 +12,7 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -131,9 +132,9 @@ public class Trail extends CompositeNode implements PlayerListener{
     
     }
     
-    public Trail toReadXML(Element element){
+     public Trail toReadXML(NamedNodeMap namedNode){
     
-        this.setId(element.getAttribute("id"));
+        this.setId(namedNode.getNamedItem("id").getNodeValue());
         
         return this;
     

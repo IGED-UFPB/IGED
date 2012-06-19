@@ -3,6 +3,7 @@ package br.ufpb.iged.tutor.ncm.connector;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -48,15 +49,13 @@ public class Bind {
     
     }
     
-    public Bind toReadXML(Element element){
+    public Bind toReadXML(NamedNodeMap namedNode){
         
-   
-        this.setComponent(element.getAttribute("component"));
-        this.setRole(element.getAttribute("role"));
-        this.setInterface(element.getAttribute("interface"));
-   
-        
-        return this;
+       this.setComponent(namedNode.getNamedItem("component").getNodeValue());  
+       this.setInterface(namedNode.getNamedItem("role").getNodeValue());  
+       this.setRole(namedNode.getNamedItem("interface").getNodeValue());  
+       
+       return this;
     
     }
 }

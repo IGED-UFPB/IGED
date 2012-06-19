@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -190,9 +191,9 @@ public class ContextNode extends CompositeNode {
     
     }
     
-    public ContextNode toReadXML(Element element){
+    public ContextNode toReadXML(NamedNodeMap nameNode){
     
-        this.setId(element.getAttribute("id"));
+        this.setId(nameNode.getNamedItem("id").getNodeValue());
         
         return this;
     

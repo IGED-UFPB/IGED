@@ -3,6 +3,7 @@ package br.ufpb.iged.tutor.ncm.entity;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -21,13 +22,12 @@ public class CausalLink extends Link{
     
         return element;
     
-    }
-    
-    public CausalLink toReadXML(Element element){
+    }    
+  
+    @Override
+    public Link toReadXML(NamedNodeMap namedNode){
         
-        this.setId(element.getAttribute("id"));        
-        
+        setId(namedNode.getNamedItem("id").getNodeValue());  
         return this;
-    
     }
 }

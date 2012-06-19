@@ -1,10 +1,7 @@
 package br.ufpb.iged.tutor.ncm;
 
 import br.ufpb.iged.tutor.ncm.connector.*;
-import br.ufpb.iged.tutor.ncm.entity.CausalConnector;
-import br.ufpb.iged.tutor.ncm.entity.ContextNode;
-import br.ufpb.iged.tutor.ncm.entity.HypermediaConnector;
-import br.ufpb.iged.tutor.ncm.entity.Port;
+import br.ufpb.iged.tutor.ncm.entity.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +22,7 @@ public class NCMReadXMLTest {
 
     public static void main(String args[]) throws ParserConfigurationException, SAXException, IOException {
 
-        String pathXml = "vetor.xml";
+        String pathXml = "connectors.xml";
 
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -39,17 +36,18 @@ public class NCMReadXMLTest {
 
 
         Map<String, HypermediaConnector> connectors = new HashMap<String, HypermediaConnector>();
-        HypermediaConnector hc = new CausalConnector();;
+        HypermediaConnector hc = null;
         ConditionRole cr = null;
 
         NodeList document = raiz.getChildNodes();
 
-        //CABECALHO
-        
+        //CABECALHO        
         for (int i = 0; i < document.getLength(); i++) {            
             
             //DADOS CAUSAL CONNECTOR                      
             if (document.item(i).getNodeName().equals("causalConnector")) {
+                
+                hc = new CausalConnector();
 
                 hc.toReadXML(document.item(i).getAttributes());                
 
@@ -124,95 +122,159 @@ public class NCMReadXMLTest {
                         hc.setGlue(g);
                         
                     }
-
-                    connectors.put(hc.getId(), hc);
+                    
+                    
                 }
-
+                
+                connectors.put(hc.getId(), hc);
             }
         }
         
-        System.out.println(connectors.toString());
+        System.out.println(connectors.get("onSelection1Start1"));
+        System.out.println(connectors.get("onStop1Resume1"));
+        
+        System.out.println("CABECALHO - FINALIZADO");
+        System.out.println("");
+        
         
         System.out.println("//--BODY--\\");
         //--- BODY ---
-
-        Stack<ContextNode> stackContext = new Stack<ContextNode>();
-        //ContextNode cn = stackContext.peek();
-        //cn.execute("pInicio");
-        ContextNode main = new ContextNode();
-
-        //BODY
-        NodeList listaBody = raiz.getElementsByTagName("body");
-        Element bodyElement = (Element) listaBody.item(0);
-
-
-        System.out.println("SIZE: " + bodyElement.getChildNodes().getLength());
-
-        Port p = new Port();
-
-        //LEITURA DOS FILHOS DO BODY
-        NodeList nl = bodyElement.getChildNodes();
         
-        for (int i = 0; i < nl.getLength(); ++i) {
+        pathXml = "vetor.xml";
 
-            if (!nl.item(i).getNodeName().equals("#text")) {
-                System.out.println("Body: " + i + nl.item(i).getNodeName());
+        
+        dbf = DocumentBuilderFactory.newInstance();
+        db = dbf.newDocumentBuilder();
+        doc = db.parse(pathXml);
+        
+        raiz = doc.getDocumentElement();
+        
+        Stack<ContextNode> stackContext = new Stack<ContextNode>();
+        ContextNode main = new ContextNode();
+        ContextNode cn = null;
+        main.setId("main");
+        
+        NodeList body = raiz.getChildNodes();
+        
+        Port port = null;
+        
+        for(int i = 0; i < body.getLength();i++){
+        
+            if(body.item(i).getNodeName().equals("port")){
+                port = new Port();
+                port.toReadXML(body.item(i).getAttributes());
+                main.add(port);
             }
+            
+            if(body.item(i).getNodeName().equals("context")){
+                
+                cn = new ContextNode();
+                cn.toReadXML(body.item(i).getAttributes());
+                
+                NodeList contexts = body.item(i).getChildNodes();
+                for(int j = 0; j < contexts.getLength();j++){
+                    
+                    if(contexts.item(j).getNodeName().equals("port")){
+                        port = new Port();
+                        port.toReadXML(contexts.item(j).getAttributes());
+                        cn.add(port);
+                    }
+                    
+                    
+                    if(contexts.item(j).getNodeName().equals("trail")){
+                        
+                        Trail t = new Trail();                        
+                        t.toReadXML(contexts.item(j).getAttributes());
+                        
+                        NodeList trails = contexts.item(j).getChildNodes();
+                        
+                        for(int k = 0; k < trails.getLength();k++){
+                            
+                            if(trails.item(k).getNodeName().equals("port")){
+                                
+                                port = new Port();
+                                port.toReadXML(trails.item(k).getAttributes());
+                                t.add(port);
+                                
+                            }
+                            
+                            if(trails.item(k).getNodeName().equals("media")){
+                                
+                                ImageNode in = new ImageNode();
+                                in.toReadXML(trails.item(k).getAttributes());
+                                
+                                NodeList listaNodesArea = trails.item(k).getChildNodes();
+                                
+                                for(int l = 0; l < listaNodesArea.getLength();l++){
+                                    
+                                    if(listaNodesArea.item(l).getNodeName().equals("area")){
+                                        
+                                        ContentAnchor a = new ContentAnchor();
+                                        a.toReadXML(listaNodesArea.item(l).getAttributes());
+                                        in.add(a);                                                                          
+                                    }
+                                
+                                }
+                                
+                                t.add(in);
+                                
+                            }
+                            
+                        }           
+                        
+                       cn.add(t);
+                    }
+                    
+                    
+                    if(contexts.item(j).getNodeName().equals("media")){
+                        
+                        IGEDletNode ig = new IGEDletNode();
+                        ig.toReadXML(contexts.item(j).getAttributes());
+                        cn.add(ig);
 
-            if (nl.item(i).getNodeName().equals("port")) {
-                //PORT IN BODY                
-                System.out.println("passou ak" + i);
-                p.toReadXML(nl.item(i).getAttributes());
-
-            }
-        }
-
-        System.out.println(p.getComponent() + p.getId() + p.getIp());
-
-
-        //CONTEXT IN BODY        
-        NodeList listCotext = bodyElement.getElementsByTagName("context");
-
-        Element contextElement = (Element) listCotext.item(0);
-
-        NodeList teste = contextElement.getChildNodes();
-
-        System.out.println(teste.getLength());
-
-        for (int i = 0; i < teste.getLength(); i++) {
-
-
-            if (teste.item(i).getNodeName().equals("port")) {
-                System.out.println("Context port > " + teste.item(i).getNodeName());
-                System.out.println(teste.item(i).getAttributes().getNamedItem("id").getNodeName());
-
-            }
-
-            if (teste.item(i).getNodeName().equals("trail")) {
-                System.out.println("Context trail > " + teste.item(i).getNodeName());
-            }
-
-            if (teste.item(i).getNodeName().equals("link")) {
-                System.out.println("Context link > " + teste.item(i).getNodeName());
-            }
-
-        }
-
-        NodeList listTrail = contextElement.getElementsByTagName("trail");
-        Element trailElement = (Element) listTrail.item(0);
-
-        NodeList listaTrail = trailElement.getChildNodes();
-
-        for (int i = 0; i < listaTrail.getLength(); i++) {
-
-            if (!listaTrail.item(i).getNodeName().equals("#text")) {
-                System.out.println("Trail > " + listaTrail.item(i).getNodeName());
-            }
-
-        }
-
-
-
-
+                    }
+                    
+                    
+                    if(contexts.item(j).getNodeName().equals("link")){                        
+                        
+                        Link l = new CausalLink(connectors.get("onSelection1Start1"));
+                        l.toReadXML(contexts.item(j).getAttributes());
+                        
+                        NodeList listaBinds = contexts.item(j).getChildNodes();
+                        for(int k = 0; k < listaBinds.getLength();k++){
+                            
+                            if(listaBinds.item(k).getNodeName().equals("bind")){
+                                Bind b = new Bind();
+                                b.toReadXML(listaBinds.item(k).getAttributes());
+                                l.add(b);
+                            }
+                            
+                        }
+                            
+                        cn.add(l);
+                    }
+                    
+                    
+                }
+                
+            }       
+        }    
+        
+        
+            System.out.println(cn.getLinks().size());
+            System.out.println(cn.getAnchors().size());
+            System.out.println(cn.getId());
+            System.out.println(cn.getPorts().size());
+            main.add(cn);            
+            stackContext.push(main); 
+            
+            ContextNode cns = stackContext.peek();
+            cns.execute("pInicio");
     }
+    
+    
+    public static void readConnectors(){}
+    public static void readBody(){ 
+    }
+    
 }

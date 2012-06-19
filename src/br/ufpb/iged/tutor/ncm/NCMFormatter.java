@@ -7,10 +7,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
@@ -81,6 +78,7 @@ public class NCMFormatter {
         hc.setGlue(g);
         this.connectors.put(hc.getId(), hc);
         
+        //PARTE II - CONNECTORS
         hc = new CausalConnector();
         hc.setId("onStop1Resume1");
         

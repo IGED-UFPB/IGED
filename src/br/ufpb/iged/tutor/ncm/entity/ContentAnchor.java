@@ -9,6 +9,7 @@ import br.ufpb.iged.tutor.ncm.event.SelectionEvent;
 import java.awt.geom.Point2D;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
 
 /**
  *
@@ -52,10 +53,10 @@ public class ContentAnchor extends Anchor{
     
     }
     
-    public ContentAnchor toReadXML(Element element){
+    public ContentAnchor toReadXML(NamedNodeMap namedNode){
         
-        p = new Point2D.Double(Double.parseDouble(element.getAttribute("x")), Double.parseDouble(element.getAttribute("y")));
-        this.setId(element.getAttribute("id"));
+        p = new Point2D.Double(Double.parseDouble(namedNode.getNamedItem("x").getNodeValue()), Double.parseDouble(namedNode.getNamedItem("y").getNodeValue()));
+        this.setId(namedNode.getNamedItem("id").getNodeValue());
         this.setPoint(p);      
         
         return this;
