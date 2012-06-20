@@ -47,7 +47,9 @@ public class Port extends Interface{
     
         this.setId(nameNode.getNamedItem("id").getNodeValue());
         this.setComponent(nameNode.getNamedItem("component").getNodeValue());
-        this.setIp(nameNode.getNamedItem("interface").getNodeValue());
+
+        if(nameNode.getNamedItem("interface") != null)
+            this.setIp(nameNode.getNamedItem("interface").getNodeValue());
         
         return this;
     

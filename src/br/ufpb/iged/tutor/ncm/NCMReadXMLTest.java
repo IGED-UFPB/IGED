@@ -252,8 +252,7 @@ public class NCMReadXMLTest {
                         }
                             
                         cn.add(l);
-                    }
-                    
+                    }                   
                     
                 }
                 
@@ -274,7 +273,6 @@ public class NCMReadXMLTest {
     
     
     public static void readConnectors(){}
-    public static void readBody(){ 
-    }
+    public static void readBody(){}
     
 }

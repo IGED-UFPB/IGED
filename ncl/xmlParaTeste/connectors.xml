@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<document>
+    
+    <causalConnector id="onSelection1Start1">
+        <conditionRole eventType="selection" id="onSelection">
+            <eventStateTransitionCondition transition="starts"/>
+        </conditionRole>
+        <actionRole eventType="presentation" id="start">
+            <presentationAction actionType="start"/>
+        </actionRole>
+        <causalGlue>
+            <simpleTriggerExpression conditionRole="onSelection"/>
+            <simpleActionExpression actionRole="start"/>
+        </causalGlue>
+    </causalConnector>
+    <causalConnector id="onStop1Resume1">
+        <conditionRole eventType="presentation" id="onStop">
+            <eventStateTransitionCondition transition="stops"/>
+            <actionRole eventType="presentation" id="resume">
+                <presentationAction actionType="resume"/>
+            </actionRole>
+        </conditionRole>
+        <causalGlue>
+            <simpleTriggerExpression conditionRole="onStop"/>
+            <simpleActionExpression actionRole="resume"/>
+        </causalGlue>
+    </causalConnector> 
+
+</document>

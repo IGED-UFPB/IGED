@@ -53,7 +53,8 @@ public class Bind {
         
        this.setComponent(namedNode.getNamedItem("component").getNodeValue());  
        this.setInterface(namedNode.getNamedItem("role").getNodeValue());  
-       this.setRole(namedNode.getNamedItem("interface").getNodeValue());  
+       if(namedNode.getNamedItem("interface") != null)
+        this.setRole(namedNode.getNamedItem("interface").getNodeValue());  
        
        return this;
     
