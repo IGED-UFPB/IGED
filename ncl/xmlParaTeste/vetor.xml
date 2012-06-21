@@ -24,11 +24,11 @@
 				
 		</trail>
 	
-		<media type="igedlet" id="atividade1" src="0"/>
+		<media type="igedlet" id="atividade1" src="14"/>
 
-		<media type="igedlet" id="animacao1" src="14"/>
+		<media type="igedlet" id="animacao1" src="0"/>
 
-		<media type="igedlet" id="atividade2" src="0"/>
+		<media type="igedlet" id="atividade2" src="14"/>
 	
 	
 		<link id="lSlide1IGEDlet1Start1" xconnector="onSelection1Start1">

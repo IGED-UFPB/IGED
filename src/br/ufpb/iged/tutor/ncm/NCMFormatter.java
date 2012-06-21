@@ -304,6 +304,12 @@ public class NCMFormatter {
         
         this.main.add(cn);
         this.stackContext.push(this.main);
+        
+        System.out.println(cn.getLinks().size());
+        System.out.println(cn.getAnchors().toString());
+        System.out.println(cn.getId());
+        System.out.println(cn.getPorts().size());
+        System.out.println(cn.getNodes().size());
     }
     
     public static SimpleCondition createSimpleCondition(Element element){
@@ -468,9 +474,12 @@ public class NCMFormatter {
     
     public static void main(String arg[])
     {
+        
         NCMFormatter ncm = new NCMFormatter();
+        
         ncm.simulateConnector();
         ncm.simulateNCL();
+        
         ncm.play();
     }
     

@@ -48,5 +48,12 @@ public class SimpleTriggerExpression extends TriggerExpression{
         return this;
     
     }
+
+    @Override
+    public String toString() {
+        return "SimpleTriggerExpression{" + "conditionRole=" + conditionRole + ", roleQualifier=" + roleQualifier + '}';
+    }
+    
+    
     
 }

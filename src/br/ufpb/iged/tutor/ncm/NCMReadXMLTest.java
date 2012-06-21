@@ -105,6 +105,9 @@ public class NCMReadXMLTest {
 
                             if (nodesCausalGlue.item(k).getNodeName().equals("simpleTriggerExpression")) {
                                 ste.toReadXML(nodesCausalGlue.item(k).getAttributes());
+                                g.setTrigger(ste);
+
+                                System.out.println(ste.toString());
                             }
 
                             
@@ -112,12 +115,15 @@ public class NCMReadXMLTest {
 
                             if (nodesCausalGlue.item(k).getNodeName().equals("simpleActionExpression")) {
                                 sae.toReadXML(nodesCausalGlue.item(k).getAttributes());
+                                g.setAction(sae);
+                                System.out.println(sae.toString());
                             }
                         
+                            
+                            
                         }
                         
-                        g.setTrigger(ste);
-                        g.setAction(sae);
+        
 
                         hc.setGlue(g);
                         
@@ -127,8 +133,11 @@ public class NCMReadXMLTest {
                 }
                 
                 connectors.put(hc.getId(), hc);
+                System.out.println(hc.getGlue().toString());
             }
         }
+       
+        
         
         System.out.println(connectors.get("onSelection1Start1"));
         System.out.println(connectors.get("onStop1Resume1"));
@@ -237,7 +246,7 @@ public class NCMReadXMLTest {
                     
                     if(contexts.item(j).getNodeName().equals("link")){                        
                         
-                        Link l = new CausalLink(connectors.get("onSelection1Start1"));
+                        Link l = new CausalLink(connectors.get(contexts.item(j).getAttributes().getNamedItem("xconnector").getNodeValue()));
                         l.toReadXML(contexts.item(j).getAttributes());
                         
                         NodeList listaBinds = contexts.item(j).getChildNodes();
@@ -261,9 +270,10 @@ public class NCMReadXMLTest {
         
         
             System.out.println(cn.getLinks().size());
-            System.out.println(cn.getAnchors().size());
+            System.out.println(cn.getAnchors().toString());
             System.out.println(cn.getId());
             System.out.println(cn.getPorts().size());
+            System.out.println(cn.getNodes().size());
             main.add(cn);            
             stackContext.push(main); 
             

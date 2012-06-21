@@ -203,12 +203,14 @@ public class NCMWriteXML {
         ImageNode in = new ImageNode();
         in.setId("slide1");
         in.setSource("vetor/press/slide1.jpg");
+        in.setType("imagem");
         
         trail.appendChild(in.toXML(doc));
 
         in = new ImageNode();
         in.setId("slide2");
-        in.setSource("vetor/press/slide2.jpg");        
+        in.setSource("vetor/press/slide2.jpg");
+        in.setType("imagem");
         
         Element imageNode = in.toXML(doc);
         trail.appendChild(imageNode);
@@ -235,13 +237,16 @@ public class NCMWriteXML {
         in = new ImageNode();
         in.setId("slide3");
         in.setSource("vetor/press/slide3.jpg");
+        in.setType("imagem");
         
         trail.appendChild(in.toXML(doc));
 
         in = new ImageNode();
         in.setId("slide4");
         in.setSource("vetor/press/slide4.jpg");
+        in.setType("imagem");
         imageNode = in.toXML(doc);
+        
         
         //Ancora
         a = new ContentAnchor();
@@ -256,11 +261,13 @@ public class NCMWriteXML {
         IGEDletNode ig = new IGEDletNode();
         ig.setId("atividade1");
         ig.setSource("vetor/iged/vetorAtiv1.igedlet");
+        ig.setType("igedlet");
         Element igedlet = ig.toXML(doc);
         contextNode.appendChild(igedlet);
 
         ig = new IGEDletNode();
         ig.setId("animacao1");
+        ig.setType("igedlet");
         ig.setSource("vetor/iged/vetorAnima.igedlet");
         
         igedlet = ig.toXML(doc);
@@ -268,6 +275,7 @@ public class NCMWriteXML {
 
         ig = new IGEDletNode();
         ig.setId("atividade2");
+        ig.setType("igedlet");
         ig.setSource("vetor/iged/vetorAtiv2.igedlet");
         
         igedlet = ig.toXML(doc);
@@ -378,9 +386,9 @@ public class NCMWriteXML {
 
         b = new Bind();
         b.setComponent("animacao1");
-        b.setRole("onStop");
-        
+        b.setRole("onStop");        
         causalLink.appendChild(b.toXML(doc));
+        
         contextNode.appendChild(causalLink);
         
         body.appendChild(contextNode);
@@ -405,7 +413,7 @@ public class NCMWriteXML {
         simulateNCL();
         //adicionando os dados do body
 
-        StreamResult result = new StreamResult(new FileOutputStream("vetor.xml"));
+        StreamResult result = new StreamResult(new FileOutputStream("vetorNovo.xml"));
         Transformer trans = TransformerFactory.newInstance().newTransformer();
         trans.setOutputProperty(OutputKeys.STANDALONE, "yes");
         trans.setOutputProperty(OutputKeys.ENCODING, "ISO-8859-1");

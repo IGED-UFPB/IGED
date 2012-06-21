@@ -41,5 +41,12 @@ public class CausalGlue implements Glue{
         return this;
     
     }
+
+    @Override
+    public String toString() {
+        return "CausalGlue{" + "trigger=" + trigger + ", action=" + action + '}';
+    }
+    
+    
     
 }

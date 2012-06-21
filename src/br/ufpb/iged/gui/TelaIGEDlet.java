@@ -3,6 +3,7 @@ package br.ufpb.iged.gui;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDlet;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletEvent;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletListener;
+import br.ufpb.iged.tutor.players.IGEDletPlayer;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;

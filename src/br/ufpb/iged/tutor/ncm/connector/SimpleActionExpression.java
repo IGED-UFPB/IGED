@@ -36,5 +36,12 @@ public class SimpleActionExpression extends ActionExpression{
         return this;
     
     }
+
+    @Override
+    public String toString() {
+        return "SimpleActionExpression{" + "actionRole=" + actionRole + '}';
+    }
+    
+    
     
 }

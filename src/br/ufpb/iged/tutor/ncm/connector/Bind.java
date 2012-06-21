@@ -52,9 +52,9 @@ public class Bind {
     public Bind toReadXML(NamedNodeMap namedNode){
         
        this.setComponent(namedNode.getNamedItem("component").getNodeValue());  
-       this.setInterface(namedNode.getNamedItem("role").getNodeValue());  
+       this.setRole(namedNode.getNamedItem("role").getNodeValue());           
        if(namedNode.getNamedItem("interface") != null)
-        this.setRole(namedNode.getNamedItem("interface").getNodeValue());  
+           this.setInterface(namedNode.getNamedItem("interface").getNodeValue());
        
        return this;
     
