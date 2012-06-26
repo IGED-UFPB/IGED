@@ -3,9 +3,8 @@ package br.ufpb.iged.tutor.players;
 import br.ufpb.iged.gerenciadorIGEDlet.GerenciadorAtividade;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDlet;
 import br.ufpb.iged.gui.TelaIGEDlet;
-import br.ufpb.iged.gui.event.ClosedTelaIGEDletEvent;
-import br.ufpb.iged.gui.event.TelaIGEDletEvent;
-import br.ufpb.iged.gui.event.TelaIGEDletListener;
+import br.ufpb.iged.gui.event.TelaPlayerEvent;
+import br.ufpb.iged.gui.event.TelaPlayerListener;
 import br.ufpb.iged.tutor.ncm.entity.IGEDletNode;
 import br.ufpb.iged.tutor.ncm.entity.Node;
 import br.ufpb.iged.tutor.players.event.ActionUserEvent;
@@ -14,7 +13,7 @@ import br.ufpb.iged.tutor.players.event.ActionUserEvent;
  *
  * @author GILBERTO FARIAS
  */
-public class IGEDletPlayer extends Player implements TelaIGEDletListener{
+public class IGEDletPlayer extends Player implements TelaPlayerListener{
 
     private boolean isRunning = false;
     private TelaIGEDlet ti = null;
@@ -75,8 +74,8 @@ public class IGEDletPlayer extends Player implements TelaIGEDletListener{
     }
 
     @Override
-    public void receiveEvent(TelaIGEDletEvent ev) {
-        if(ev instanceof ClosedTelaIGEDletEvent){
+    public void receiveEvent(TelaPlayerEvent ev) {
+        if(ev.getAction() == TelaPlayerEvent.CLOSE_PLAYER){
             ActionUserEvent aue = new ActionUserEvent();
             aue.setAction(ActionUserEvent.CLOSE_PLAYER);
             this.sendEvent(aue);
