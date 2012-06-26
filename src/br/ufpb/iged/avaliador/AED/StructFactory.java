@@ -21,15 +21,21 @@ public class StructFactory {
         
 	public Struct createStruct(int type) {
 		Struct s;
-                switch (type) {
-                    case IGEDConst.LISTA:
+		switch (type) {
+		case IGEDConst.LISTA:
 			s = new LinkedList();
 			break;
-                    case IGEDConst.VETOR:
+		case IGEDConst.VETOR:
 			s = new Vector(lengthStruct);
 			break;
-                    case IGEDConst.NODE:
+		case IGEDConst.NODE:
 			s = new LinkedListNode();
+			break;
+		case IGEDConst.NODE_TREE:
+			s = new NodeTree();
+			break;
+		case IGEDConst.BINARY_TREE:
+			s = new BinaryTree();
 			break;
                     default:
                         return null;

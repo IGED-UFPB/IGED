@@ -58,28 +58,31 @@ public class Interpretador {
     		String tipo = st.nextToken();
     		if (tipo.equals("NODE")) {
     			con.createStruct(IGEDConst.NODE);
-    		}if(tipo.equals("NODE_TREE")){ 
-    			con.createStruct(IGEDConst.NODE_TREE);
-    		}else {
-    			if (tipo.equals("VECTOR")) {
-    				String s = st.nextToken();
-    				if ((s == null) || s.isEmpty()) {
-    					return;
-    				}
-    				try {
-    					int size = Integer.parseInt(s);
-    					con.setPosVector(size);
-    					con.createStruct(IGEDConst.VETOR);
-    				} catch (Exception e) {
-    				}
-    			} else {
-    				if (tipo.equals("LIST")) {
-    					con.createStruct(IGEDConst.LISTA);
-    				}
-    				if(tipo.equals("BINARY_TREE")){
-    					con.createStruct(IGEDConst.BINARY_TREE);
-    				}
+    		}else{
+    			if(tipo.equals("NODE_TREE")){ 
+    				con.createStruct(IGEDConst.NODE_TREE);
+    			}else {
+    				if (tipo.equals("VECTOR")) {
+    					String s = st.nextToken();
+    					if ((s == null) || s.isEmpty()) {
+    						return;
+    					}
+    					try {
+    						int size = Integer.parseInt(s);
+    						con.setPosVector(size);
+    						con.createStruct(IGEDConst.VETOR);
+    					} catch (Exception e) {
+    					}
+    				}else {
+    					if (tipo.equals("LIST")) {
+    						con.createStruct(IGEDConst.LISTA);
+    					}else{
+    						if(tipo.equals("BINARY_TREE")){
+    							con.createStruct(IGEDConst.BINARY_TREE);
+    						}
+    					}
 
+    				}
     			}
     		}
     	} else {
