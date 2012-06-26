@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-
-<tutorial titulo="Unidade II - Listas" dir="lista" autor="Joelson Nogueira" data="03/11/2009" descricao="Conceitos de listas e representação de listas sequencial">
-    <exercicio id="0" slide="20" atividade="lista1.iged"/>
-    <exercicio id="1" slide="31" atividade="lista2.iged"/>
-    <exercicio id="2" slide="39" atividade="revisao.iged"/>
-</tutorial>
