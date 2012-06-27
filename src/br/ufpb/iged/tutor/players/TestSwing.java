@@ -11,7 +11,7 @@ public class TestSwing {
 		
 		ApresSwing s = new ApresSwing();
 		
-		s.initSwing();
+		s.init();
 
 	}
 
