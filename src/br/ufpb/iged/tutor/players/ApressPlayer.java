@@ -1,6 +1,7 @@
 package br.ufpb.iged.tutor.players;
 
 import br.ufpb.iged.gui.ApresSwing;
+import br.ufpb.iged.gui.TelaIGEDlet;
 import br.ufpb.iged.gui.event.TelaPlayerEvent;
 import br.ufpb.iged.gui.event.TelaPlayerListener;
 import br.ufpb.iged.tutor.ncm.entity.Node;
@@ -8,47 +9,73 @@ import br.ufpb.iged.tutor.players.event.ActionUserEvent;
 
 public class ApressPlayer extends Player implements TelaPlayerListener {
 	
-	ApresSwing apreSwing = new ApresSwing();
 	
+	 private boolean isRunning = false;
+	 private ApresSwing ti = null;
+	 private static ApressPlayer player = null;
 	
+	private ApressPlayer(){
+		
+	}
+	
+	public static synchronized ApressPlayer getInstance(){
+	       if(player == null)
+	            player = new ApressPlayer();
+	       
+	        return player;
+	}
 
 	@Override
 	public void init() {
-		// TODO Auto-generated method stub
-	
-		this.apreSwing.addListener(this);
-		
+		if(!this.isRunning){
+            this.ti = new ApresSwing();
+            this.ti.addListener(this);
+        }
 	}
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-	
-		this.apreSwing.init();
-		
+		  if(!this.isRunning){
+	            this.ti.init();
+	            this.isRunning = true;
+	      }
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
-		
+		if(this.isRunning){
+            //this.finish();
+            //this.ti.removeListener(this);
+            this.ti.setVisible(true);
+            this.isRunning = false;
+        }
 	}
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
+		if(this.isRunning){
+            //this.finish();
+            this.ti.removeListener(this);
+            this.ti.setVisible(false);
+            this.isRunning = false;
+        }
 		
 	}
 
 	@Override
 	public void finish() {
-		// TODO Auto-generated method stub
-		
+		if(this.isRunning){
+            //this.finish();
+			this.ti.remove(ti);
+            this.ti.removeListener(this);
+            this.isRunning = false;
+        }
 	}
 
 	@Override
 	public void play(Node n) {
-		// TODO Auto-generated method stub
+		
+		
 		
 		
 	}
