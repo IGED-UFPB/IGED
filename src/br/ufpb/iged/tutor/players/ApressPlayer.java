@@ -23,6 +23,8 @@ public class ApressPlayer extends Player implements TelaPlayerListener {
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
+	
+		this.apreSwing.init();
 		
 	}
 
@@ -47,6 +49,7 @@ public class ApressPlayer extends Player implements TelaPlayerListener {
 	@Override
 	public void play(Node n) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 

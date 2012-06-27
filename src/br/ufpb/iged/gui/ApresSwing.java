@@ -1,23 +1,29 @@
 package br.ufpb.iged.gui;
 
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
+
 
 import br.ufpb.iged.gui.event.TelaPlayerEvent;
+import javax.swing.*;
 
-public class ApresSwing extends TelaPlayer implements ActionListener {
+import java.awt.*;
+import java.awt.event.*;
 
-    JButton buttonNext;
+public class ApresSwing extends TelaPlayer implements ActionListener,KeyListener {
+
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	JButton buttonNext;
     JButton buttonPrevius;
 
     public ApresSwing() {
         super();
         buttonNext = new JButton();
         buttonPrevius = new JButton();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
     }
 
     public void init() {
@@ -47,12 +53,14 @@ public class ApresSwing extends TelaPlayer implements ActionListener {
 
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         gd.setFullScreenWindow(this);
+        addKeyListener(this);
         this.setVisible(true);
     }
 
     private void initEvent() {
         this.buttonNext.addActionListener(this);
         this.buttonPrevius.addActionListener(this);
+        
     }
 
     @Override
@@ -69,6 +77,45 @@ public class ApresSwing extends TelaPlayer implements ActionListener {
         }
         this.peh.sendEvent(ev);
     }
+    
+    //@Override
+    public void keyPressed(KeyEvent ke){
+    	
+    	System.out.println("TTTTTTTT");
+    	
+    	TelaPlayerEvent ev = new TelaPlayerEvent(this);
+    	
+    	if(ke.getKeyCode() == KeyEvent.VK_ESCAPE){
+    		System.out.println("Window Closed");
+    		
+    		ev.setAction(TelaPlayerEvent.CLOSE_PLAYER);
+    		
+    	}else if(ke.getKeyCode() == KeyEvent.VK_LEFT){
+    		System.out.println("PREVIUS");
+    		
+    		ev.setAction(TelaPlayerEvent.SELECT_PREVIUS_NODE);
+    		
+    	}else if(ke.getKeyCode() == KeyEvent.VK_RIGHT){
+    		System.out.println("NEXT");
+    		
+    		ev.setAction(TelaPlayerEvent.SELECT_NEXT_NODE);
+    	}
+    	
+    	this.peh.sendEvent(ev);
+    }
+    
+
+	//@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	//@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
     
     public static void main(String arg[]){
         ApresSwing as = new ApresSwing();
