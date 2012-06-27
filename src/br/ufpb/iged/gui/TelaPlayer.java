@@ -7,8 +7,6 @@ package br.ufpb.iged.gui;
 import br.ufpb.iged.gui.event.TelaPlayerEvent;
 import br.ufpb.iged.gui.event.TelaPlayerListener;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.LinkedList;
@@ -23,7 +21,7 @@ public abstract class TelaPlayer extends javax.swing.JFrame {
     protected PlayerEventHandler peh = null;
     
     public TelaPlayer(){
-    	super();
+    	super("Teste");
         this.peh = new PlayerEventHandler(this);
        
     }
