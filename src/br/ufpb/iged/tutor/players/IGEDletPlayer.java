@@ -19,6 +19,9 @@ public class IGEDletPlayer extends Player implements TelaPlayerListener{
     private TelaIGEDlet ti = null;
     private static IGEDletPlayer player = null;
     
+    private IGEDletPlayer(){
+    }
+    
     public static synchronized IGEDletPlayer getInstance(){
         if(player == null)
             player = new IGEDletPlayer();
@@ -55,6 +58,7 @@ public class IGEDletPlayer extends Player implements TelaPlayerListener{
     public void finish() {
         if(this.isRunning){
             this.ti.finish();
+            this.ti.removeListener(this);
             this.isRunning = false;
         }
     }

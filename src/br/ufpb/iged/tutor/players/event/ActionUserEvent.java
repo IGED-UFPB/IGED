@@ -6,6 +6,10 @@ package br.ufpb.iged.tutor.players.event;
  */
 public class ActionUserEvent extends PlayerEvent{
 
+    public ActionUserEvent(){
+        this.action = ActionUserEvent.UNKNOWN;
+    }
+    
     public int getAction() {
         return action;
     }
