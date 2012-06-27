@@ -94,7 +94,7 @@ public class PearsonCorrelation {
             PC[t] = PearsonCorrelation.getPearsonCorrelation(T, this.T[t]);
             if(PC[t] == Double.NaN)
                 PC[t] = 0;
-            //System.out.println("PC[" + t+"]: " + PC[t]);
+            System.out.println("PC[" + t+"]: " + PC[t]);
         }
         
         int category = UNKNOWN;

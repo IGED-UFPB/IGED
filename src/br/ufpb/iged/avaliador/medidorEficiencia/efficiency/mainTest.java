@@ -10,13 +10,13 @@ public class mainTest {
 
         int n[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
 
-        //Meter usado na busca binária!!!
+        //Meter usado na busca binï¿½ria!!!
         efficiencyMeter meter1 = new efficiencyMeter();
         
         // tableMeter table = new tableMeter();
 
         // Test Simples Bublle Sort
-
+        double bb[] = new double[n.length];
         for (int k = 0; k < n.length; ++k) {
             System.out.println("Test Simples");
             int[] vetor1 = new int[n[k]];
@@ -45,8 +45,10 @@ public class mainTest {
             // System.out.println("");
 
             meter.finalizador(0, 0, "Bublle Sort", n[k], meter);
-            meter1.finalizador(0, 0, "Busca Binária", n[k], meter1);
+            meter1.finalizador(0, 0, "Busca Binaria", n[k], meter1);
+            bb[k] = meter1.registerMeter.processingTotal;
         }
+        
 
         TableMeter table;
         System.out.println(" ");
@@ -95,15 +97,18 @@ public class mainTest {
 
 
         // Teste Simples Count Sort
-
+double qs[] = new double[n.length];
         for (int k = 0; k < n.length; ++k) {
             System.out.println("Test Simples");
             int[] vetor3 = new int[n[k]];
+            int[] vetor4 = new int[n[k]];
             for (int i = 0; i < vetor3.length; ++i) {
                 vetor3[i] = (int) (Math.random() * 100);
+                vetor4[i] = (int) vetor3[i];
             }
 
             efficiencyMeter meter = new efficiencyMeter();
+            efficiencyMeter meter2 = new efficiencyMeter();
 
             for (int i = 0; i < vetor3.length; ++i) {
                 System.out.print(vetor3[i] + " ");
@@ -111,6 +116,7 @@ public class mainTest {
             System.out.println("");
 
             mergeSort(vetor3, 0, vetor3.length - 1, meter);
+            quickSort(vetor4, 0, vetor4.length-1, meter2);
 
             for (int i = 0; i < vetor3.length; ++i) {
                 System.out.print(vetor3[i] + " ");
@@ -123,6 +129,8 @@ public class mainTest {
             // System.out.println("");
 
             meter.finalizador(0, 0, "Merge Sort", n[k], meter);
+            meter2.finalizador(0, 0, "Quick Sort", n[k], meter2);
+            qs[k] = meter2.registerMeter.processingTotal;
         }
 
 
@@ -149,8 +157,19 @@ public class mainTest {
         reportGraph.addSeries("Merge Sort");
         reportGraph.addSeries("Bublle Sort");
         reportGraph.addSeries("Count Sort");
-        reportGraph.addSeries("Busca Binária");
+        reportGraph.addSeries("Busca Binaria");
+        reportGraph.addSeries("Quick Sort");
         reportGraph.showSeries();
+        
+        PearsonCorrelation c = PearsonCorrelation.getInstance();
+        System.out.println("Busca Binaria:");
+        for(int i=0; i<bb.length;++i)
+            System.out.println(bb[i]);
+        System.out.println("Cat: " + c.getCategory(bb));
+        System.out.println("QS: ");
+        for(int i=0; i<qs.length;++i)
+            System.out.println(qs[i]);
+        System.out.println("Cat: " + c.getCategory(qs));
 
     }
 
@@ -158,7 +177,7 @@ public class mainTest {
   public static final int NOT_FOUND = -1;
     
     /**
-     * @return posição onde o item foi encontrado, ou não.
+     * @return posiï¿½ï¿½o onde o item foi encontrado, ou nï¿½o.
      */
     public static int binarySearch( int [ ] a, int x, efficiencyMeter medidor)
     {
@@ -167,6 +186,7 @@ public class mainTest {
         
         int high = a.length - 1;
         medidor.simpleVariableAllocation();
+        medidor.operationAritimetic();
         
         int mid;
 

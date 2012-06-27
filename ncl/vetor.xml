@@ -1,40 +1,4 @@
 <document>
-<causalConnector id="onSelection1Start1">
-
-	<conditionRole id="onSelection" eventType="selection">
-		<eventStateTransitionCondition transition="starts"/>
-	</conditionRole>
-
-	<actionRole id="start" eventType="presentation">
-		<presentationAction actionType="start"/>
-	</actionRole>
-
-	<causalGlue>
-		<simpleTriggerExpression conditionRole="onSelection"/>
-		<simpleActionExpression actionRole="start"/>
-	</causalGlue>
-
-</causalConnector>
-
-<causalConnector id="onStop1Resume1">
-
-	<conditionRole id="onStop" eventType="presentation">
-		<eventStateTransitionCondition transition="stops"/>
-	</conditionRole>
-
-	<actionRole id="resume" eventType="presentation">
-		<presentationAction actionType="resume"/>
-	</actionRole>
-
-	<causalGlue>
-		<simpleTriggerExpression conditionRole="onStop"/>
-		<simpleActionExpression actionRole="resume"/>
-	</causalGlue>
-
-</causalConnector>
-
-
-
 <body>
 	<port id="pInicio" component="ctxVetor" interface="pInicio"></port>	
 	<context id="ctxVetor">
