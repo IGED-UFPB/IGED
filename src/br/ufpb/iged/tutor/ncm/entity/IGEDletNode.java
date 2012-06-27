@@ -70,7 +70,7 @@ public class IGEDletNode extends ContentNode implements PlayerListener{
     }
     
     public static void main(String argv[]){
-        IGEDletPlayer ip = new IGEDletPlayer();
+        IGEDletPlayer ip = IGEDletPlayer.getInstance();
         ip.init();
         ip.execute();
         
