@@ -43,6 +43,7 @@ public class TelaIGEDlet extends TelaPlayer implements IGEDletListener{
             //lancar exceção de falha do player.
         }
         this.setVisible(true);
+        this.requestFocus();
         this.setExtendedState(MAXIMIZED_BOTH);
     }
     
