@@ -9,7 +9,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,8 +38,7 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
     }
 
     public void init() {
-
-        initComponente();
+        initComponent();
         initEvent();
         this.requestFocus();
 
@@ -56,9 +54,7 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
     	}
     }  
 
-    private void initComponente() {
-      
-    	
+    private void initComponent() {    	
     	this.setTitle("IGED");
         this.setLayout(null);
         this.setUndecorated(true);
@@ -78,8 +74,8 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
         GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
         gd.setFullScreenWindow(this);
         
-       // this.changeImage("TESTE.jpg");
-        this.getContentPane().add(this.img);
+        this.img.init();
+        
         this.setVisible(true);
         
         
@@ -109,24 +105,21 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
     @Override
     public void keyPressed(KeyEvent ke) {
 
-      //  System.out.println("TTTTTTTT");
-
         TelaPlayerEvent ev = new TelaPlayerEvent(this);
 
-        if (ke.getKeyCode() == KeyEvent.VK_ESCAPE) {
-            System.out.println("Window Closed");
-
-            ev.setAction(TelaPlayerEvent.CLOSE_PLAYER);
-
-        } else if (ke.getKeyCode() == KeyEvent.VK_LEFT) {
-            System.out.println("PREVIUS");
-
-            ev.setAction(TelaPlayerEvent.SELECT_PREVIUS_NODE);
-
-        } else if (ke.getKeyCode() == KeyEvent.VK_RIGHT) {
-            System.out.println("NEXT");
-
-            ev.setAction(TelaPlayerEvent.SELECT_NEXT_NODE);
+        switch(ke.getKeyCode()){
+            case KeyEvent.VK_ESCAPE:
+                System.out.println("Window Closed");
+                ev.setAction(TelaPlayerEvent.CLOSE_PLAYER);
+                break;
+            case KeyEvent.VK_LEFT:
+                System.out.println("PREVIUS");
+                ev.setAction(TelaPlayerEvent.SELECT_PREVIUS_NODE);
+                break;
+            case KeyEvent.VK_RIGHT:
+                System.out.println("NEXT");
+                ev.setAction(TelaPlayerEvent.SELECT_NEXT_NODE);
+                break;
         }
 
         this.peh.sendEvent(ev);
@@ -143,58 +136,51 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
     }
 
    
-    class ImagePanel extends JPanel {
+    class ImagePanel{
 
-    	  private Image img = null;
+    	  private JLabel img = null;
     	  private JFrame pai = null;
 
     	  public ImagePanel(JFrame pai) {
     		  this.pai = pai;
-    		  setLayout(null);
+          }
+          
+          public void init(){
+    		  this.img = new JLabel(); 
+                  this.pai.add(this.img, new Integer(0), 0);
       	  }
     	  
     	  public void setImage(String i) {
-    	    this.img = new ImageIcon(i).getImage();
-    	        
-    	    Dimension size = new Dimension(this.img.getWidth(null), this.img.getHeight(null));
-   	    	setPreferredSize((size));
-    	    setMinimumSize(size);
-    	    setMaximumSize(size);
-    	    setSize(size);
     	    
-    	    this.centralizarContainer(this.pai, this);
+            ImageIcon ii = new ImageIcon(i);
+    	        
+    	    Dimension size = new Dimension(ii.getImage().getWidth(null), ii.getImage().getHeight(null));
+   	    this.img.setPreferredSize((size));
+    	    this.img.setMinimumSize(size);
+    	    this.img.setMaximumSize(size);
+    	    this.img.setSize(size);
+            this.img.setIcon(ii);
+    	    
+    	    this.centralizarContainer(this.pai, this.img);
     	      	    
-    	  }
-
-    	  public void paintComponent(Graphics g) {
-    	    if(img != null)
-    	    	g.drawImage(img, 0, 0, null);
     	  }
     	  
     	  public void centralizarContainer(Component pai, Component filho){  
         	  
-    	        // obter dimensões do pai  
+    	        // obter dimensï¿½es do pai  
     	        int larguraPai = pai.getWidth();  
     	        int alturaPai = pai.getHeight();  
     	  
-    	        // obter dimensões do filho  
+    	        // obter dimensï¿½es do filho  
     	        int larguraFilho = filho.getWidth();  
     	        int alturaFilho = filho.getHeight();  
-    	        
-    	        System.out.println(larguraPai);
-    	        System.out.println(larguraFilho);
-    	        System.out.println("-------");
-    	        System.out.println(alturaPai);
-    	        System.out.println(alturaFilho);
     	        
     	        // calcular novas coordenadas do filho    
     	        int novoX = (larguraPai - larguraFilho) /2 ;   
     	        int novoY = (alturaPai -alturaFilho) /2 ;  
     	  
-    	        // centralizar filho  
-    	        filho.getParent().setLayout(new GridBagLayout());  
-    	        filho.setLocation(novoX, novoY);  
-    	        filho.repaint();  
+    	        // centralizar filho   
+    	        filho.setLocation(novoX, novoY);    
     	    }
 
     }
@@ -204,13 +190,13 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
         as.init();
         
         ImageNode in = new ImageNode();
-        in.setSource("TESTE.jpg");
+        in.setSource("proinfo3.jpg");
         
         as.setImage(in);
         
         Thread.sleep(3000);
         
-        in.setSource("image_preview.jpg");
+        in.setSource("brasil.png");
         as.setImage(in);
     }
     
