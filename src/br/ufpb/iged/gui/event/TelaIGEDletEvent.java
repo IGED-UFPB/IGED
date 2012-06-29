@@ -6,15 +6,14 @@ import br.ufpb.iged.gui.TelaIGEDlet;
  *
  * @author GILBERTO FARIAS
  */
-public class TelaIGEDletEvent {
-    public TelaIGEDlet source = null;
+public class TelaIGEDletEvent extends TelaPlayerEvent{
     
     TelaIGEDletEvent(TelaIGEDlet ti){
-        this.source = ti;
+        super(ti);
     }
 
     public TelaIGEDlet getSource() {
-        return source;
+        return (TelaIGEDlet)source;
     }
 
     public void setSource(TelaIGEDlet source) {
