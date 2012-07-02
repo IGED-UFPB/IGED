@@ -9,6 +9,12 @@
     <metadados>
       <area>Lista</area>
       <autor>Gilberto Farias de Sousa</autor>
+      <id>1</id>
+      <titulo>Inversão de uma lista encadeada</titulo>
+    </metadados>
+    <metadados>
+      <area>Lista</area>
+      <autor>Gilberto Farias de Sousa</autor>
       <id>14</id>
       <titulo>Insercao de valor no inicio da lista</titulo>
     </metadados>

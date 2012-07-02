@@ -1,0 +1,53 @@
+<document>
+	<port id="pInicio" component="ctxVetor" interface="pInicio"></port>	
+	<context id="ctxVetor">
+		<port id="pInicio" component="vetor" interface="pVetor"></port>	
+     
+     		<trail id="vetor">
+     			<port id="pVetor" component="slide1" />
+			<port id="pAtiv1" component="slide2" interface="aAtividade1" />
+			<port id="pAtiv2" component="slide2" interface="aAtividade2" />
+			<port id="pAnim1" component="slide4" interface="aAnimacao1" />
+			
+			<media type="imagem" id="slide1" src="ncl/lista/press/slide01.jpg"/>
+
+			<media type="imagem" id="slide2" src="ncl/lista/press/slide02.jpg">
+				<area id="aAtividade1" x="800" y="300"/>
+				<area id="aAtividade2" x="800" y="400"/>
+			</media>
+
+			<media type="imagem" id="slide3" src="ncl/lista/press/slide03.jpg"/>
+
+			<media type="imagem" id="slide4" src="ncl/lista/press/slide04.jpg">
+				<area id="aAnimacao1" x="800" y="400"/>
+			</media>
+				
+		</trail>
+	
+		<media type="igedlet" id="atividade1" src="14"/>
+
+		<media type="igedlet" id="animacao1" src="1"/>
+
+		<media type="igedlet" id="atividade2" src="0"/>
+	
+	
+		<link id="lSlide1IGEDlet1Start1" xconnector="onSelection1Start1">
+			<bind component="vetor" interface="pAtiv1" role="onSelection" />
+			<bind component="atividade1" role="start" />
+		</link>
+                
+		<link id="lIGEDlet1Slide1Resume1" xconnector="onStop1Resume1">
+			<bind component="vetor" interface="pAtiv1" role="resume" />
+			<bind component="atividade1" role="onStop" />
+		</link>	
+		<link id="lSlide1IGEDlet1Start2" xconnector="onSelection1Start1">
+			<bind component="vetor" interface="pAnim1" role="onSelection" />
+			<bind component="animacao1" role="start" />
+		</link>
+                <link id="lIGEDlet1Slide1Resume2" xconnector="onStop1Resume1">
+			<bind component="vetor" interface="pAtiv1" role="resume" />
+			<bind component="animacao1" role="onStop" />
+		</link>
+		
+	</context>
+</document>
