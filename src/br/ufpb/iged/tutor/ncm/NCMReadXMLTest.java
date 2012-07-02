@@ -149,7 +149,7 @@ public class NCMReadXMLTest {
         System.out.println("//--BODY--\\");
         //--- BODY ---
         
-        pathXml = "vetor.xml";
+        pathXml = "ncl/lista/lista.xml";
 
         
         dbf = DocumentBuilderFactory.newInstance();

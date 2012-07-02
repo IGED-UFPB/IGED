@@ -19,24 +19,31 @@ import javax.swing.JLabel;
 public class AnchorIcon extends TelaPlayer implements MouseListener
 {
     private JLabel anchor;
-    private double x, y;
+    private int x, y;
     
-    public AnchorIcon(double x, double y)
+    public AnchorIcon(int x, int y)
     {
         this.setXY(x, y);
         this.anchor = new JLabel();
         ImageIcon i = new ImageIcon("imagens/play.png");
         this.anchor.setIcon(i);
         this.anchor.setSize(new Dimension(i.getImage().getWidth(null), i.getImage().getHeight(null))); 
-        this.anchor.setLocation((int)this.x, (int)this.y);
         this.anchor.addMouseListener(this);
     }
 
     public AnchorIcon(Point2D point) {
-        this(point.getX(), point.getY());
+        this((int)point.getX(), (int)point.getY());
     }
     
-    public void setXY(double x, double y) {
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+    
+    public void setXY(int x, int y) {
         this.x = x;
         this.y = y;
     }

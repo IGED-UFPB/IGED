@@ -81,6 +81,7 @@ public abstract class CompositeNode extends Node implements EntityListener{
             if(n.getState() != EntityEvent.SLEEPING)
                 n.finish();
         }
+        System.out.println("Finish CompositeNode: " + this.getId());
     }
     
     protected void execute(Port p){

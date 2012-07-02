@@ -94,6 +94,7 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
     
     public void add(AnchorIcon ai){
         this.anchors.add(ai);
+        ai.getIcon().setLocation(ai.getX() + this.img.x, ai.getY() + this.img.y);
         this.add(ai.getIcon(), new Integer(1), 0);
         this.repaint();
     }
@@ -192,6 +193,7 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
 
     	  private JLabel img = null;
     	  private JFrame pai = null;
+          private int x, y;
 
     	  public ImagePanel(JFrame pai) {
     		  this.pai = pai;
@@ -229,11 +231,11 @@ public class ApresSwing extends TelaPlayer implements ActionListener, KeyListene
     	        int alturaFilho = filho.getHeight();  
     	        
     	        // calcular novas coordenadas do filho    
-    	        int novoX = (larguraPai - larguraFilho) /2 ;   
-    	        int novoY = (alturaPai -alturaFilho) /2 ;  
+    	        this.x = (larguraPai - larguraFilho) /2 ;   
+    	        this.y = (alturaPai -alturaFilho) /2 ;  
     	  
     	        // centralizar filho   
-    	        filho.setLocation(novoX, novoY);    
+    	        filho.setLocation(this.x, this.y);    
     	 } 
 
     }
