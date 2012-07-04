@@ -36,5 +36,12 @@ public class EventStateTransitionCondition extends SimpleCondition{
         return this;
     
     }
+
+    @Override
+    public String toString() {
+        return "EventStateTransitionCondition{" + "transitionName=" + transitionName + '}';
+    }
+    
+    
     
 }

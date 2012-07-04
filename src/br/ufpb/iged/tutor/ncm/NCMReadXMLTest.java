@@ -61,8 +61,12 @@ public class NCMReadXMLTest {
                         cr = new ConditionRole();
                         cr.toReadXML(causalConnectorNodes.item(j).getAttributes());
                         
+                        System.out.println(cr.toString());
+                        
                         EventStateTransitionCondition c = new EventStateTransitionCondition();
                         c.toReadXML(causalConnectorNodes.item(j).getChildNodes().item(j).getAttributes());
+                        
+                        System.out.println(c.toString());
                         cr.setCondition(c);
                         hc.add(cr);          
                         
@@ -245,7 +249,7 @@ public class NCMReadXMLTest {
                     
                     
                     if(contexts.item(j).getNodeName().equals("link")){                        
-                        
+                        System.out.println("XCONNECTOR "+connectors.get(contexts.item(j).getAttributes().getNamedItem("xconnector").getNodeValue()));
                         Link l = new CausalLink(connectors.get(contexts.item(j).getAttributes().getNamedItem("xconnector").getNodeValue()));
                         l.toReadXML(contexts.item(j).getAttributes());
                         
