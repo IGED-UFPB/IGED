@@ -39,6 +39,7 @@ public class MainUI extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(500, 450));
 
         jButton1.setText("BTN1");
+        jButton1.setBorder(new org.jdesktop.swingx.border.DropShadowBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
