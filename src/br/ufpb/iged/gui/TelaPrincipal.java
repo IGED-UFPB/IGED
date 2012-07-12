@@ -76,7 +76,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setEnabled(false);
         setFocusableWindowState(false);
         setMaximumSize(new java.awt.Dimension(0, 0));
-        setPreferredSize(new java.awt.Dimension(700, 690));
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
