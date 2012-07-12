@@ -65,7 +65,8 @@ public abstract class CompositeNode extends Node implements EntityListener{
         
         this.presetationMachine.transitionPauses();
         for(Node n : this.getNodes())
-            n.pause();
+            if(n.getState() == EntityEvent.OCCURING)
+                n.pause();
     }
      
     
@@ -77,8 +78,10 @@ public abstract class CompositeNode extends Node implements EntityListener{
         this.presetationMachine.transitionStops();
         for(Node n : this.getNodes()){
             n.removeListener(this);
-            n.finish();
+            if(n.getState() != EntityEvent.SLEEPING)
+                n.finish();
         }
+        System.out.println("Finish CompositeNode: " + this.getId());
     }
     
     protected void execute(Port p){
@@ -118,7 +121,7 @@ public abstract class CompositeNode extends Node implements EntityListener{
             return;
         
         System.out.println("Resume execute CompositeNode: " + this.getId());
-        this.presetationMachine.transitionResumes();
+        this.resume();
         
         //Executando o Node referenciado pela porta indicada por parâmetro
         Node n = this.getNode(p.getComponent());
@@ -133,8 +136,15 @@ public abstract class CompositeNode extends Node implements EntityListener{
     
     @Override
     public void stateTransition(EntityEvent e) {
+        System.out.println("Event: " + e.getSource().getId());
         synchronized(this){
             switch(e.getStaus()){
+                 case EntityEvent.OCCURING:
+                    if(this.getState() != EntityEvent.OCCURING){
+                        this.resume();
+                        //this.presetationMachine.transitionResumes();
+                    }
+                    break;
                 //Se n houver nenhum node executanto, lança transicao de PAUSED
                 case EntityEvent.PAUSED:
                     boolean isOccuring = false;
@@ -142,8 +152,10 @@ public abstract class CompositeNode extends Node implements EntityListener{
                         if(n.getState() == EntityEvent.OCCURING)
                             isOccuring = true;
                     }
-                    if(!isOccuring)
-                        this.presetationMachine.transitionPauses();
+                    if((!isOccuring) && (this.getState() == EntityEvent.OCCURING)){
+                            this.pause();
+                            //this.presetationMachine.transitionPauses();
+                    }
                     break;
                 //Se todos os nodes estiverem parados,lança transicao de SLEEPING
                 case EntityEvent.SLEEPING:
@@ -153,12 +165,14 @@ public abstract class CompositeNode extends Node implements EntityListener{
                                 || (n.getState() == EntityEvent.PAUSED))
                             isSleeping = false;
                     }
-                    if(!isSleeping){
-                        this.presetationMachine.transitionStops();
+                    if((isSleeping) && (this.getState() != EntityEvent.SLEEPING)){
+                        this.finish();
+                        //this.presetationMachine.transitionStops();
                         for(Node n : nodes.values())
                             n.removeListener(this);
                     }
                     break;
+                //Se
             }
         }
     }

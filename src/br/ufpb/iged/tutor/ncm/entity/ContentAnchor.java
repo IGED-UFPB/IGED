@@ -4,6 +4,9 @@
  */
 package br.ufpb.iged.tutor.ncm.entity;
 
+import br.ufpb.iged.gui.event.AnchorIconEvent;
+import br.ufpb.iged.gui.event.TelaPlayerEvent;
+import br.ufpb.iged.gui.event.TelaPlayerListener;
 import br.ufpb.iged.tutor.ncm.event.EventStateMachine;
 import br.ufpb.iged.tutor.ncm.event.SelectionEvent;
 import java.awt.geom.Point2D;
@@ -15,7 +18,7 @@ import org.w3c.dom.NamedNodeMap;
  *
  * @author GILBERTO FARIAS
  */
-public class ContentAnchor extends Anchor{
+public class ContentAnchor extends Anchor implements TelaPlayerListener{
     Point2D p = null;
     EventStateMachine selectionMachine = null;
 
@@ -61,5 +64,13 @@ public class ContentAnchor extends Anchor{
         
         return this;
     
+    }
+
+    @Override
+    public void receiveEvent(TelaPlayerEvent ev) {
+        if(ev instanceof AnchorIconEvent){
+            if(ev.getAction() == AnchorIconEvent.SELECT_ANCHOR)
+                this.selects();
+        }
     }
 }

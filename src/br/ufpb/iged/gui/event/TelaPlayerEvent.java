@@ -33,8 +33,9 @@ public class TelaPlayerEvent {
     
     public static final int UNKNOWN = -1;
     public static final int CLOSE_PLAYER = 0;
-    public static final int INIT_PLAYER = 1;
-    public static final int SELECT_NEXT_NODE = 2;
-    public static final int SELECT_PREVIUS_NODE = 3;
-    public static final int SELECT_ANCHOR = 4;
+    public static final int SELECT_NEXT_NODE = 1;
+    public static final int SELECT_PREVIUS_NODE = 2;
+    public static final int SELECT_ANCHOR = 3;
+    public static final int INIT_PLAYER = 4;
+    
 }

@@ -153,7 +153,7 @@ public class NCMReadXMLTest {
         System.out.println("//--BODY--\\");
         //--- BODY ---
         
-        pathXml = "vetor.xml";
+        pathXml = "ncl/lista/lista.xml";
 
         
         dbf = DocumentBuilderFactory.newInstance();
@@ -215,7 +215,6 @@ public class NCMReadXMLTest {
                                 
                                 ImageNode in = new ImageNode();
                                 in.toReadXML(trails.item(k).getAttributes());
-                                
                                 NodeList listaNodesArea = trails.item(k).getChildNodes();
                                 
                                 for(int l = 0; l < listaNodesArea.getLength();l++){

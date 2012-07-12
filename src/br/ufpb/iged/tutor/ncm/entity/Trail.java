@@ -2,6 +2,7 @@
 package br.ufpb.iged.tutor.ncm.entity;
 
 import br.ufpb.iged.tutor.ncm.event.EntityEvent;
+import br.ufpb.iged.tutor.players.ApressPlayer;
 import br.ufpb.iged.tutor.players.Player;
 import br.ufpb.iged.tutor.players.event.ActionUserEvent;
 import br.ufpb.iged.tutor.players.event.PlayerEvent;
@@ -19,12 +20,20 @@ import org.w3c.dom.NamedNodeMap;
  * @author GILBERTO FARIAS
  */
 public class Trail extends CompositeNode implements PlayerListener{
+    
     List<Node> lista = null;
     ListIterator<Node> iNode = null;
     Node currentNode = null;
     
     //Player de slides
-    Player player = null;  
+    Player player = null;
+    
+    public int direction;
+    
+    public Trail()
+    {
+        this.lista = new LinkedList<Node>();
+    }
     
     public Node getCurrentNode() {
         return this.currentNode;
@@ -34,29 +43,31 @@ public class Trail extends CompositeNode implements PlayerListener{
      * Coloca como no corrente, o elemento que tenha o id passado como parametro.
      */
     public void home(String componentID){
-        if(this.nodes.size() > 0){
-            if(this.lista == null)
-                this.lista = new LinkedList<Node>(this.nodes.values());
+        if(this.nodes.size() > 0){    
             iNode = this.lista.listIterator();
-            while(true){
+            while(iNode.hasNext()){
                 currentNode = iNode.next();
-                if(currentNode == null){
-                    //lancar exception
-                    return;
-                }
-                if(currentNode.getId().equals(componentID))
+                System.out.println("MEDIA: " + currentNode.getId());
+                if(currentNode.getId().equals(componentID)){
+                    iNode.set(currentNode);
                     break;
+                }
             }
-            
         }
+        this.direction = Trail.NEXT;
     }
     
     @Override
     public void execute(String portID){
-        //if(this.player == null)
-        //    this.player = ApressPlayer.getInstance();
-        //this.player.addListener(this);
-        //this.player.init();
+        if(this.player == null){
+            this.player = ApressPlayer.getInstance();
+            this.player.addListener(this);
+        }
+        this.player.init();
+        this.player.execute();
+        
+        
+        System.out.println("Execute TRAIL - Port : " + portID);
         Port p = this.getPort(portID);
         this.home(p.getComponent());
         this.execute(p);
@@ -73,13 +84,14 @@ public class Trail extends CompositeNode implements PlayerListener{
     
     @Override
     public void resume() {
+        System.out.println("RESUME TRAIL");
+        
+        this.player.resume();
+        super.resume();
+        
         if((currentNode != null)
                     && (currentNode.getState() != EntityEvent.OCCURING))
                 currentNode.resume();
-        if(this.getState() != EntityEvent.OCCURING){
-                this.player.resume();
-                super.resume();
-        }
     }
     
     @Override
@@ -97,8 +109,9 @@ public class Trail extends CompositeNode implements PlayerListener{
     
     private void changeExecution(Node current, Node last){
         if(current != null){
-            if(current instanceof ContentNode)
-                ((ContentNode)current).execute();
+            //if(current instanceof ContentNode)
+            System.out.println("Change: " + current.getId());
+            ((ContentNode)current).execute();
         }
         
         if(last != null)
@@ -106,21 +119,36 @@ public class Trail extends CompositeNode implements PlayerListener{
     }
     
     public void next() throws NoSuchElementException{
-        Node last = currentNode;
-        currentNode = iNode.next();        
-        this.changeExecution(currentNode, last);
-            
+        
+        if(iNode.hasNext()){
+            if(this.direction == PREVIOUS)
+                iNode.next();
+            Node last = currentNode;
+            currentNode = iNode.next();
+            //iNode.set(currentNode);
+            this.changeExecution(currentNode, last);
+            this.direction = Trail.NEXT;
+        }else
+            throw new NoSuchElementException("Fim do trail.");
     }
     
     public void previus() throws NoSuchElementException{
-        Node last = currentNode;
-        currentNode = iNode.previous();
-        this.changeExecution(currentNode, last);
+        if(iNode.hasPrevious()){
+            if(this.direction == NEXT)
+                iNode.previous();
+            Node last = currentNode;
+            currentNode = iNode.previous();
+            //iNode.set(currentNode);
+            this.changeExecution(currentNode, last);
+            this.direction = Trail.PREVIOUS;
+        }else
+            throw new NoSuchElementException("Fim do trail.");
     }
     
     @Override
     public void add(Node n){
         this.nodes.put(n.getId(), n);
+        this.lista.add(n);
     }
     
     public Element toXML(Document doc){
@@ -144,6 +172,7 @@ public class Trail extends CompositeNode implements PlayerListener{
     public void receiveEvent(PlayerEvent e) {
         if(e instanceof ActionUserEvent){
             ActionUserEvent aue = (ActionUserEvent)e;
+            System.out.println("---------Trail receive Event: " + aue.getAction());
             switch(aue.getAction()){
                 case ActionUserEvent.CLOSE_PLAYER:
                     this.finish();
@@ -159,4 +188,7 @@ public class Trail extends CompositeNode implements PlayerListener{
             }
         }
     }
+    
+    private static final int NEXT = 0;
+    private static final int PREVIOUS = 1;
 }

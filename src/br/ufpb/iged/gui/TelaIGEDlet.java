@@ -4,6 +4,8 @@ import br.ufpb.iged.gerenciadorIGEDlet.IGEDlet;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletEvent;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletListener;
 import java.awt.Color;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -19,14 +21,6 @@ public class TelaIGEDlet extends TelaPlayer implements IGEDletListener{
      private IGEDlet tf;
          
     public void init(){
-        /*try {
-
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return;
-        }*/
         this.initComponents();
     }
     
@@ -179,7 +173,6 @@ public class TelaIGEDlet extends TelaPlayer implements IGEDletListener{
                 .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
         pack();
         
     }

@@ -69,16 +69,7 @@ public class IGEDletNode extends ContentNode implements PlayerListener{
     
     }
     
-    public static void main(String argv[]){
-        IGEDletPlayer ip = IGEDletPlayer.getInstance();
-        ip.init();
-        ip.execute();
-        
-        IGEDletNode img = new IGEDletNode();
-        img.setSource("0");
-        ip.play(img);
-    }
-
+  
     @Override
     public void receiveEvent(PlayerEvent e) {
         if(e instanceof ActionUserEvent){

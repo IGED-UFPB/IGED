@@ -60,20 +60,20 @@ public abstract class ContentNode extends Node implements Runnable{
     @Override
     public void pause(){
         System.out.println("Pause PresentationMachine: " + this.getId());
-        if(this.exec != null){
+        /*if(this.exec != null){
             this.exec.interrupt();
             this.exec = null;
-        }
+        }*/
         this.presetationMachine.transitionPauses();
     }
     
     @Override
     public void resume(){
         System.out.println("Resume PresentationMachine: " + this.getId());
-        if(this.exec == null){
+        /*if(this.exec == null){
             this.exec = new Thread(this);
             this.exec.start();
-        }
+        }*/
         this.presetationMachine.transitionResumes();
     }
     
@@ -91,11 +91,11 @@ public abstract class ContentNode extends Node implements Runnable{
     public void finish(){
         System.out.println("Finish PresentationMachine: " + this.getId());
         if(this.exec != null){
-            this.presetationMachine.transitionStops();
             if(this.exec.isAlive())
                 this.exec.interrupt();
             this.exec = null;
         }
+        this.presetationMachine.transitionStops();
     }
     
     @Override
