@@ -10,32 +10,16 @@
  */
 package br.ufpb.iged.gui;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDlet;
-import br.ufpb.iged.gerenciadorIGEDlet.IGEDletXml;
 import br.ufpb.iged.gerenciadorIGEDlet.GerenciadorAtividade;
 import br.ufpb.iged.gerenciadorIGEDlet.Metadado;
 import br.ufpb.iged.gerenciadorIGEDlet.Portifolio;
 import br.ufpb.iged.gerenciadorIGEDlet.PortifolioXml;
-import br.ufpb.iged.gerenciadorIGEDlet.XmlPersistencia;
-import java.beans.PropertyVetoException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
-import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -504,19 +488,7 @@ javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     private javax.swing.JButton pesquisarBotao;
 
     public static void main(String args[]) throws UnsupportedLookAndFeelException {
-        try {
-
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TelaPesquisaInterno.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(TelaPesquisaInterno.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(TelaPesquisaInterno.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(TelaPesquisaInterno.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
 

@@ -270,7 +270,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoCadastrarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarExercicioActionPerformed
         //if (cadExe == null) //instancia a tela de cadastro de clientes
         //{
-            cadExe = new TelaCadastroDeTarefaInterno();
+
             jDesktopPane1.add(cadExe);
             ((BasicInternalFrameUI)cadExe.getUI()).setNorthPane(null);
             try {
