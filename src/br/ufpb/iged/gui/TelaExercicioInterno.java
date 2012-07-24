@@ -10,6 +10,7 @@
  */
 package br.ufpb.iged.gui;
 
+import br.ufpb.iged.IGEDProperties;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDlet;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletEvent;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletListener;
@@ -27,8 +28,10 @@ import javax.swing.UIManager;
  * @author Dorgi
  */
 public class TelaExercicioInterno extends javax.swing.JInternalFrame implements IGEDletListener{
-
-     public static final File raiz = new File("./Tarefas");
+	
+	
+	private static IGEDProperties properties = IGEDProperties.getInstance();
+     public static final File raiz = new File(properties.getPropety("tarefasPath"));
      IGEDlet tf;
      TelaPesquisaInterno tp = new TelaPesquisaInterno();
      

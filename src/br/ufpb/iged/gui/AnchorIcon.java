@@ -4,6 +4,7 @@
  */
 package br.ufpb.iged.gui;
 
+import br.ufpb.iged.IGEDProperties;
 import br.ufpb.iged.gui.event.AnchorIconEvent;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
@@ -17,7 +18,9 @@ import javax.swing.JLabel;
  * @author GILBERTO FARIAS
  */
 public class AnchorIcon extends TelaPlayer implements MouseListener
-{
+{	
+	private static IGEDProperties properties = IGEDProperties.getInstance();
+	
     private JLabel anchor;
     private int x, y;
     
@@ -25,7 +28,7 @@ public class AnchorIcon extends TelaPlayer implements MouseListener
     {
         this.setXY(x, y);
         this.anchor = new JLabel();
-        ImageIcon i = new ImageIcon("imagens/play.png");
+        ImageIcon i = new ImageIcon(properties.getPropety("imagePath")+"/play.png");
         this.anchor.setIcon(i);
         this.anchor.setSize(new Dimension(i.getImage().getWidth(null), i.getImage().getHeight(null))); 
         this.anchor.addMouseListener(this);
