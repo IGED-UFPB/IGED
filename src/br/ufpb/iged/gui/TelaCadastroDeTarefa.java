@@ -578,6 +578,8 @@ private void initComponents() {
 */
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {                                              
         
+        this.setVisible(false);
+    
     }
     
     
@@ -754,6 +756,42 @@ private void initComponents() {
     protected static String getAreaStr() {
         return areaStr;
     }
+    
+    public void showTela(){
+    
+         UIManager.put("nimbusBase", new Color(140, 42, 42));
+        UIManager.put("nimbusBlueGrey", new Color(190, 167, 167));
+        UIManager.put("control", new Color(223, 215, 214));
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                TelaCadastroDeTarefa cadastrador = new TelaCadastroDeTarefa();
+                cadastrador.setVisible(true);
+                cadastrador.setLocationRelativeTo(null);
+            }
+        });
+    
+    }
+         
 
     public static void main(String args[]) {
 
