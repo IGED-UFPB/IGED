@@ -8,14 +8,16 @@ public class mainTest {
 
     public static void main(String[] args) {
 
-        int n[] = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
+        int n[] = LinearRegression.getX();
+        //int n[] = {100, 200, 300, 400, 500};//, 600, 700, 800, 900, 1000};
 
         //Meter usado na busca bin�ria!!!
         efficiencyMeter meter1 = new efficiencyMeter();
-        
+
         // tableMeter table = new tableMeter();
 
         // Test Simples Bublle Sort
+        double bs[] = new double[n.length];
         double bb[] = new double[n.length];
         for (int k = 0; k < n.length; ++k) {
             System.out.println("Test Simples");
@@ -32,8 +34,8 @@ public class mainTest {
             System.out.println("");
 
             vetor1 = bublleSort(vetor1, meter);
-            binarySearch(vetor1, 80, meter1);
-            
+            binarySearch(vetor1, (int) (Math.random() * 100), meter1);
+
             for (int i = 0; i < vetor1.length; ++i) {
                 System.out.print(vetor1[i] + " ");
             }
@@ -46,9 +48,10 @@ public class mainTest {
 
             meter.finalizador(0, 0, "Bublle Sort", n[k], meter);
             meter1.finalizador(0, 0, "Busca Binaria", n[k], meter1);
+            bs[k] = meter.registerMeter.processingTotal;
             bb[k] = meter1.registerMeter.processingTotal;
         }
-        
+
 
         TableMeter table;
         System.out.println(" ");
@@ -65,7 +68,7 @@ public class mainTest {
         }
 
         // Teste Simples Count Sort
-
+        double cs[] = new double[n.length];
         for (int k = 0; k < n.length; ++k) {
             System.out.println("Test Simples");
             int[] vetor2 = new int[n[k]];
@@ -93,11 +96,13 @@ public class mainTest {
             // System.out.println("");
 
             meter.finalizador(0, 0, "Count Sort", n[k], meter);
+            cs[k] = meter.registerMeter.processingTotal;
         }
 
 
         // Teste Simples Count Sort
-double qs[] = new double[n.length];
+        double qs[] = new double[n.length];
+        double ms[] = new double[n.length];
         for (int k = 0; k < n.length; ++k) {
             System.out.println("Test Simples");
             int[] vetor3 = new int[n[k]];
@@ -116,7 +121,7 @@ double qs[] = new double[n.length];
             System.out.println("");
 
             mergeSort(vetor3, 0, vetor3.length - 1, meter);
-            quickSort(vetor4, 0, vetor4.length-1, meter2);
+            quickSort(vetor4, 0, vetor4.length - 1, meter2);
 
             for (int i = 0; i < vetor3.length; ++i) {
                 System.out.print(vetor3[i] + " ");
@@ -130,6 +135,7 @@ double qs[] = new double[n.length];
 
             meter.finalizador(0, 0, "Merge Sort", n[k], meter);
             meter2.finalizador(0, 0, "Quick Sort", n[k], meter2);
+            ms[k] = meter.registerMeter.processingTotal;
             qs[k] = meter2.registerMeter.processingTotal;
         }
 
@@ -154,90 +160,115 @@ double qs[] = new double[n.length];
 
         ReportGraph reportGraph = new ReportGraph();
 
-        reportGraph.addSeries("Merge Sort");
+        //reportGraph.addSeries("Merge Sort");
         reportGraph.addSeries("Bublle Sort");
-        reportGraph.addSeries("Count Sort");
-        reportGraph.addSeries("Busca Binaria");
+        //reportGraph.addSeries("Count Sort");
+        //reportGraph.addSeries("Busca Binaria");
         reportGraph.addSeries("Quick Sort");
         reportGraph.showSeries();
-        
+
+        LinearRegression lr = new LinearRegression();
         PearsonCorrelation c = PearsonCorrelation.getInstance();
         System.out.println("Busca Binaria:");
-        for(int i=0; i<bb.length;++i)
+        for (int i = 0; i < bb.length; ++i) {
+            //System.out.println("BB: " + bb[i] + " LOG : " + (3/2*Math.log(n[i])/Math.log(2) + (Math.random() % 20)));
             System.out.println(bb[i]);
-        System.out.println("Cat: " + c.getCategory(bb));
+        }
+        System.out.println("Cat LR: " + lr.getCategory(bb));
+        System.out.println("Cat PC:" + c.getCategory(bb));
         System.out.println("QS: ");
-        for(int i=0; i<qs.length;++i)
-            System.out.println(qs[i]);
-        System.out.println("Cat: " + c.getCategory(qs));
+
+        System.out.println("Quick Sort:");
+        for (int i = 0; i < qs.length; ++i) {
+            System.out.println("QS: " + qs[i] + " QUAD : " + (3 / 2 * (n[i] * n[i]) + (Math.random() % 20)) + 
+                    "NLOGN : " + n[i]*Math.log(n[i])/Math.log(2));
+            //System.out.println(qs[i]);
+        }
+        System.out.println("Cat LR: " + lr.getCategory(qs));
+        System.out.println("Cat PC: " + c.getCategory(qs));
+
+        System.out.println("Buble Sort:");
+        for (int i = 0; i < bs.length; ++i) {
+            System.out.println(bs[i]);
+        }
+        System.out.println("Cat LR: " + lr.getCategory(bs));
+        System.out.println("Cat PC: " + c.getCategory(bs));
+
+        System.out.println("Merge Sort:");
+        for (int i = 0; i < ms.length; ++i) {
+            System.out.println(ms[i]);
+        }
+        System.out.println("Cat LR: " + lr.getCategory(ms));
+        System.out.println("Cat PC: " + c.getCategory(ms));
+
+        System.out.println("Couting Sort:");
+        for (int i = 0; i < cs.length; ++i) {
+            System.out.println(cs[i]);
+        }
+        System.out.println("Cat LR: " + lr.getCategory(cs));
+        System.out.println("Cat PC: " + c.getCategory(cs));
 
     }
+    public static final int NOT_FOUND = -1;
 
-
-  public static final int NOT_FOUND = -1;
-    
     /**
      * @return posi��o onde o item foi encontrado, ou n�o.
      */
-    public static int binarySearch( int [ ] a, int x, efficiencyMeter medidor)
-    {
+    public static int binarySearch(int[] a, int x, efficiencyMeter medidor) {
         int low = 0;
         medidor.simpleVariableAllocation();
-        
+
         int high = a.length - 1;
         medidor.simpleVariableAllocation();
         medidor.operationAritimetic();
-        
+
         int mid;
 
         medidor.simpleVariableAllocation();
-        
 
-        while( low <= high )
-        {
-            mid = ( low + high ) / 2;
+
+        while (low <= high) {
+            medidor.operationLogic();
+
+            mid = (low + high) / 2;
             medidor.attributionVariable();
             medidor.operationAritimetic();
-            medidor.operationLogic();
+            medidor.operationAritimetic();
 
             //Promeiro IF
-            medidor.operationLogic();
             medidor.indexArray();
             medidor.operationLogic();
-            medidor.operationAritimetic();
-            	
+
             //Primeiro ELSE
-            medidor.operationLogic();
             medidor.indexArray();
             medidor.operationLogic();
-            medidor.operationAritimetic();
-            
+
             //Segundo ELSE
             medidor.operationLogic();
-            
-          if( a[ mid ] > x ){
-                low = mid + 1;
-          		medidor.operationAritimetic();
-          		medidor.attributionVariable();
-          }else if( a[ mid ] < x ){
+
+            if (a[ mid] > x) {
                 high = mid - 1;
-          		medidor.attributionVariable();
-          		medidor.operationLogic();
-          }else
-              
-        	  medidor.methodReturn();
-        	  return mid;
+                medidor.operationAritimetic();
+                medidor.attributionVariable();
+            } else if (a[ mid] < x) {
+                low = mid + 1;
+                medidor.attributionVariable();
+                medidor.operationLogic();
+            } else {
+
+                medidor.methodReturn();
+                return mid;
+            }
         }
         medidor.operationLogic();
 
         medidor.simpleVariableDeAllocation();
         medidor.simpleVariableDeAllocation();
         medidor.simpleVariableDeAllocation();
-        
+
         medidor.methodReturn();
         return NOT_FOUND;     // NOT_FOUND = -1
     }
-
 
     public static int[] bublleSort(int[] vetor, efficiencyMeter medidor) {
 
@@ -467,7 +498,7 @@ double qs[] = new double[n.length];
     // Merge Sort
     private static int[] mergeSort(int[] vetor, int inicio, int fim, efficiencyMeter medidor) {
         medidor.methodInvocation();
-        
+
         medidor.operationLogic();
         if (inicio < fim) {
 
@@ -626,7 +657,7 @@ double qs[] = new double[n.length];
             medidor.simpleVariableDeAllocation();
             medidor.simpleVariableDeAllocation();
             medidor.simpleVariableDeAllocation();
-            
+
             medidor.arrayDeAllocation(tamanho);
         }
         medidor.methodReturn();
@@ -650,9 +681,10 @@ double qs[] = new double[n.length];
             medidor.methodInvocation();
             medidor.operationAritimetic();
             quickSort(vetor, q + 1, fim, medidor);
+
+            medidor.simpleVariableDeAllocation();
         }
 
-        medidor.simpleVariableDeAllocation();
         medidor.methodReturn();
     }
 
@@ -691,12 +723,15 @@ double qs[] = new double[n.length];
                 ++a;
             }
             medidor.operationLogic();
+            medidor.operationLogic();
+            medidor.operationLogic();
+            medidor.indexArray();
 
-            while ((b >= inicio + 1) && (vetor[b] >= x)) {
+
+            while ((b > inicio) && (vetor[b] >= x)) {
                 medidor.operationLogic();
                 medidor.operationLogic();
                 medidor.operationLogic();
-                medidor.operationAritimetic();
                 medidor.indexArray();
 
                 medidor.operationAritimetic();
@@ -704,19 +739,41 @@ double qs[] = new double[n.length];
                 --b;
             }
             medidor.operationLogic();
+            medidor.operationLogic();
+            medidor.operationLogic();
+            medidor.indexArray();
 
 
             medidor.operationLogic();
             if (a <= b) {
+                medidor.attributionVariable();
+                medidor.simpleVariableAllocation();
+                medidor.indexArray();
+                int aux = vetor[a];
+                medidor.attributionVariable();
+                medidor.indexArray();
+                medidor.indexArray();
+                vetor[a] = vetor[b];
+                medidor.attributionVariable();
+                medidor.indexArray();
+                vetor[b] = aux;
 
-                medidor.methodInvocation();
-                swap(vetor, a, b, medidor);
-
+                medidor.simpleVariableDeAllocation();
             } else {
 
-                medidor.methodInvocation();
-                swap(vetor, inicio, b, medidor);
+                medidor.attributionVariable();
+                medidor.simpleVariableAllocation();
+                medidor.indexArray();
+                int aux = vetor[inicio];
+                medidor.attributionVariable();
+                medidor.indexArray();
+                medidor.indexArray();
+                vetor[inicio] = vetor[b];
+                medidor.attributionVariable();
+                medidor.indexArray();
+                vetor[b] = aux;
 
+                medidor.simpleVariableDeAllocation();
 
                 medidor.methodReturn();
                 return b;

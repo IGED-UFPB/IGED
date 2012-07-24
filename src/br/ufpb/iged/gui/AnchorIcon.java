@@ -28,6 +28,7 @@ public class AnchorIcon extends TelaPlayer implements MouseListener
     {
         this.setXY(x, y);
         this.anchor = new JLabel();
+        
         ImageIcon i = new ImageIcon(properties.getPropety("imagePath")+"/play.png");
         this.anchor.setIcon(i);
         this.anchor.setSize(new Dimension(i.getImage().getWidth(null), i.getImage().getHeight(null))); 

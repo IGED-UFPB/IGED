@@ -37,7 +37,7 @@ public class IGEDletXml {
         //MetadadoTarefa metadado = new Metadado();
         try {
             // carrega o arquivo XML
-            FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS + "tarefa" + id + ".xml"));
+            FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS + "/tarefa" + id + ".xml"));
             // informa o nome do nó raiz do xml
             x.alias("atividade", IGEDletSubjetivaDAO.class);
             x.alias("metadados", Metadado.class);

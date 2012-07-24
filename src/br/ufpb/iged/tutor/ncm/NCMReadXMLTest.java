@@ -1,5 +1,6 @@
 package br.ufpb.iged.tutor.ncm;
 
+import br.ufpb.iged.IGEDProperties;
 import br.ufpb.iged.tutor.ncm.connector.*;
 import br.ufpb.iged.tutor.ncm.entity.*;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class NCMReadXMLTest {
 
     public static void main(String args[]) throws ParserConfigurationException, SAXException, IOException {
 
-        String pathXml = "connectors.xml";
+        String pathXml = IGEDProperties.getInstance().getPropety("nclPath") + "/connectors.xml";
 
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -153,7 +154,7 @@ public class NCMReadXMLTest {
         System.out.println("//--BODY--\\");
         //--- BODY ---
         
-        pathXml = "ncl/lista/lista.xml";
+        pathXml = IGEDProperties.getInstance().getPropety("nclPath") + "/lista/lista.xml";
 
         
         dbf = DocumentBuilderFactory.newInstance();
