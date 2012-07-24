@@ -4,6 +4,7 @@
  */
 package br.ufpb.iged.gerenciadorIGEDlet;
 
+import br.ufpb.iged.IGEDProperties;
 import br.ufpb.iged.gui.gerenciador.ConversorXmlTarefa;
 import br.ufpb.iged.gui.gerenciador.PortifolioXml;
 import br.ufpb.iged.gui.TelaCadastroDeTarefaInterno;
@@ -19,8 +20,10 @@ import java.util.logging.Logger;
  * @author Dorgi
  */
 public class XmlPersistencia {
+	
+	private static IGEDProperties properties = IGEDProperties.getInstance();
 
-    public static final String DIRTAREFAS = "./Tarefas/";
+    public static final String DIRTAREFAS = properties.getPropety("tarefasPath");
     
     public XmlPersistencia() {
     }

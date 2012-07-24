@@ -4,6 +4,7 @@
  */
 package br.ufpb.iged.gui.gerenciador;
 
+import br.ufpb.iged.IGEDProperties;
 import br.ufpb.iged.gui.TelaCadastroDeTarefaInterno;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -17,9 +18,11 @@ public class ConversorXmlTarefa {
 
     private File dir;
     private String xmlTutorial;
+    
+    private static IGEDProperties properties = IGEDProperties.getInstance();
 
     public ConversorXmlTarefa() {
-        dir = new File("C:\\Tarefas");
+        dir = new File(properties.getPropety("tarefasPath"));
         dir.mkdir();
     }
     CadastroTarefa t = new CadastroTarefa();

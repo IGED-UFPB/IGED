@@ -27,6 +27,41 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="panelCodigoIni" alignment="0" pref="0" max="32767" attributes="1"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="titulo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      <Component id="fieldAutor" min="-2" pref="375" max="-2" attributes="1"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="descricao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="autor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane1" min="-2" pref="375" max="-2" attributes="1"/>
+                                          <Component id="fieldAutor1" min="-2" pref="375" max="-2" attributes="1"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="okInformacao" min="-2" pref="93" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <Component id="area" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="panelCodigoSol" pref="0" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="comboArea" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+=======
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="panelCodigoIni" alignment="0" max="32767" attributes="1"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -61,6 +96,7 @@
                           <Component id="panelCodigoSol" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+>>>>>>> 3ee4816419326f911d09c75650ca612eeba78221
                       <Component id="panelAnimacao" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -80,38 +116,33 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="titulo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jScrollPane2" alignment="0" min="-2" pref="49" max="-2" attributes="1"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="fieldAutor" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="autor" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="comboArea" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="area" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="titulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="area" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboArea" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="autor" min="-2" max="-2" attributes="0"/>
+                          <Component id="fieldAutor1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="1">
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Component id="descricao" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="okInformacao" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+<<<<<<< HEAD
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="okInformacao" min="-2" max="-2" attributes="0"/>
+=======
+>>>>>>> 3ee4816419326f911d09c75650ca612eeba78221
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="panelCodigoIni" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -181,6 +212,8 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoCadastrarActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
+=======
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Digite o texto da quest&#xe3;o"/>
@@ -202,6 +235,7 @@
         </Component>
       </SubComponents>
     </Container>
+>>>>>>> 3ee4816419326f911d09c75650ca612eeba78221
     <Component class="javax.swing.JLabel" name="autor">
       <Properties>
         <Property name="text" type="java.lang.String" value="Autor"/>
@@ -227,8 +261,13 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
+<<<<<<< HEAD
+                      <Component id="okInicializacao" min="-2" pref="86" max="-2" attributes="0"/>
+                      <Component id="panelInicializacao" min="-2" max="-2" attributes="1"/>
+=======
                       <Component id="panelInicializacao" min="-2" max="-2" attributes="1"/>
                       <Component id="okInicializacao" min="-2" pref="79" max="-2" attributes="0"/>
+>>>>>>> 3ee4816419326f911d09c75650ca612eeba78221
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -312,6 +351,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="okSolucao" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
+                      <Component id="panelSolucao" min="-2" pref="474" max="-2" attributes="1"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+=======
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelSolucao" pref="611" max="32767" attributes="1"/>
                       <Group type="102" attributes="0">
@@ -320,6 +366,7 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+>>>>>>> 3ee4816419326f911d09c75650ca612eeba78221
               </Group>
           </Group>
         </DimensionLayout>
@@ -327,8 +374,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Component id="panelSolucao" min="0" pref="124" max="32767" attributes="0"/>
+<<<<<<< HEAD
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="okSolucao" min="-2" max="-2" attributes="0"/>
+=======
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="okSolucao" min="-2" pref="24" max="-2" attributes="0"/>
+>>>>>>> 3ee4816419326f911d09c75650ca612eeba78221
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -436,5 +488,12 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JTextField" name="fieldAutor1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bookman Old Style" size="12" style="0"/>
+        </Property>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

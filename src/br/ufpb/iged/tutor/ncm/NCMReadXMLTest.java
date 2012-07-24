@@ -1,5 +1,6 @@
 package br.ufpb.iged.tutor.ncm;
 
+import br.ufpb.iged.IGEDProperties;
 import br.ufpb.iged.tutor.ncm.connector.*;
 import br.ufpb.iged.tutor.ncm.entity.*;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class NCMReadXMLTest {
 
     public static void main(String args[]) throws ParserConfigurationException, SAXException, IOException {
 
-        String pathXml = "connectors.xml";
+        String pathXml = IGEDProperties.getInstance().getPropety("nclPath") + "/connectors.xml";
 
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -61,8 +62,12 @@ public class NCMReadXMLTest {
                         cr = new ConditionRole();
                         cr.toReadXML(causalConnectorNodes.item(j).getAttributes());
                         
+                        System.out.println(cr.toString());
+                        
                         EventStateTransitionCondition c = new EventStateTransitionCondition();
                         c.toReadXML(causalConnectorNodes.item(j).getChildNodes().item(j).getAttributes());
+                        
+                        System.out.println(c.toString());
                         cr.setCondition(c);
                         hc.add(cr);          
                         
@@ -149,7 +154,7 @@ public class NCMReadXMLTest {
         System.out.println("//--BODY--\\");
         //--- BODY ---
         
-        pathXml = "ncl/lista/lista.xml";
+        pathXml = IGEDProperties.getInstance().getPropety("nclPath") + "/lista/lista.xml";
 
         
         dbf = DocumentBuilderFactory.newInstance();
@@ -244,7 +249,7 @@ public class NCMReadXMLTest {
                     
                     
                     if(contexts.item(j).getNodeName().equals("link")){                        
-                        
+                        System.out.println("XCONNECTOR "+connectors.get(contexts.item(j).getAttributes().getNamedItem("xconnector").getNodeValue()));
                         Link l = new CausalLink(connectors.get(contexts.item(j).getAttributes().getNamedItem("xconnector").getNodeValue()));
                         l.toReadXML(contexts.item(j).getAttributes());
                         

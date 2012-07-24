@@ -45,8 +45,8 @@ public class ConditionRole extends Role{
     
     public ConditionRole toReadXML(NamedNodeMap namedNode){
     
-        this.setId(namedNode.getNamedItem("id").getNodeValue());
-        this.setEventType(namedNode.getNamedItem("eventType").getNodeValue());
+        super.setId(namedNode.getNamedItem("id").getNodeValue());
+        super.setEventType(namedNode.getNamedItem("eventType").getNodeValue());
         
         return this;
     
@@ -54,8 +54,10 @@ public class ConditionRole extends Role{
 
     @Override
     public String toString() {
-        return "id "+getId();
+        return "ConditionRole{" + "id=" + getId() + ", eventtype=" + super.getEventType()+ '}';
     }
+
+    
     
     
     

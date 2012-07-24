@@ -8,6 +8,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import br.ufpb.iged.IGEDProperties;
+
 /**
  *
  * @author Dorgi
@@ -27,12 +29,14 @@ public class CadastroTarefa {
     static String nome;
     private String codInicializacao;
     private String codSolucao;
+    
+    private static IGEDProperties properties = IGEDProperties.getInstance();
 
     public CadastroTarefa() {
     }
 
     public static void listarTodasTarefas() {
-        File raiz = new File("C:\\Tarefas");
+        File raiz = new File(properties.getPropety("tarefasPath"));
         lerDiretorio(raiz);
     }
 

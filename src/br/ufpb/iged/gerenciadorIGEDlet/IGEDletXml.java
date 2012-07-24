@@ -1,6 +1,8 @@
 
 package br.ufpb.iged.gerenciadorIGEDlet;
 
+import br.ufpb.iged.IGEDProperties;
+
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import java.io.File;
@@ -14,7 +16,10 @@ import java.io.FileNotFoundException;
 public class IGEDletXml {
 
     private static Metadado atividade;
-    public static final File raiz = new File("./Tarefas");
+    
+    private static IGEDProperties properties = IGEDProperties.getInstance();
+    		
+    public static final File raiz = new File( properties.getPropety("tarefasPath"));
 
     public static void criarXml(IGEDletSubjetiva atividade) {
         XStream xstream = new XStream(new DomDriver());
@@ -32,7 +37,7 @@ public class IGEDletXml {
         //MetadadoTarefa metadado = new Metadado();
         try {
             // carrega o arquivo XML
-            FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS + "tarefa" + id + ".xml"));
+            FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS + "/tarefa" + id + ".xml"));
             // informa o nome do nó raiz do xml
             x.alias("atividade", IGEDletSubjetivaDAO.class);
             x.alias("metadados", Metadado.class);

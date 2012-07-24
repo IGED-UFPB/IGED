@@ -35,6 +35,7 @@ public class ContentAnchor extends Anchor implements TelaPlayerListener{
     
     void setContent(ContentNode cn){
         this.content = cn;
+
     }
     
     public Point2D getPoint() {

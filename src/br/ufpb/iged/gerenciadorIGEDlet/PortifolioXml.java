@@ -35,7 +35,7 @@ public class PortifolioXml {
         //MetadadoTarefa metadado = new Metadado();
         try {
             // carrega o arquivo XML
-            FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS+"tarefas.xml"));
+            FileInputStream input = new FileInputStream(new File(XmlPersistencia.DIRTAREFAS+"/tarefas.xml"));
             // informa o nome do nó raiz do xml
             x.alias("portifolio", Portifolio.class);
             x.alias("metadados", Metadado.class);
