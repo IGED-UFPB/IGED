@@ -536,11 +536,7 @@ private void initComponents() {
            // iter.interprete(c);
         }
     }
-    XmlPersistencia xml = new XmlPersistencia();
-    LeitorXmlGerenciador lxml = new LeitorXmlGerenciador();
-    File tarefas = new File("C:\\Tarefas\\tarefas.xml");
-    //PortifolioXml pxml = new PortifolioXml();
-    Portifolio p;
+  
     
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         //while (validado != true) {

@@ -7,7 +7,6 @@ package br.ufpb.iged.gerenciadorIGEDlet;
 import br.ufpb.iged.IGEDProperties;
 import br.ufpb.iged.gui.gerenciador.ConversorXmlTarefa;
 import br.ufpb.iged.gui.gerenciador.PortifolioXml;
-import br.ufpb.iged.gui.TelaCadastroDeTarefaInterno;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -81,21 +80,7 @@ public class XmlPersistencia {
         //Cria o arquivo já no sub-diretório
         File arquivo = new File(cxml.getDir(), DIRTAREFAS+"tarefas.xml");
 
-        try {
-            writer = new BufferedWriter(new FileWriter(arquivo));
-        } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            writer.write(cxml.atualizar()); //salva fisicamente
-        } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            writer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(TelaCadastroDeTarefaInterno.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
     }
     
 }
