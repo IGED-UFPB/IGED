@@ -4,7 +4,6 @@
  */
 package br.ufpb.iged.gui.gerenciador;
 
-import br.ufpb.iged.gui.TelaCadastroDeTarefaInterno;
 import br.ufpb.iged.gerenciadorIGEDlet.Metadado;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;

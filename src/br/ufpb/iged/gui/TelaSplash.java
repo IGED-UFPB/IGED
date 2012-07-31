@@ -53,7 +53,7 @@ public class TelaSplash extends javax.swing.JWindow {
         // Mostra uma imagem com o título da aplicação 
         TelaSplash splash = new TelaSplash(5000);
         splash.showSplashAndExit();
-        MainUI manUI = new MainUI();
-        manUI.showTela();
+        TelaMain tela = new TelaMain();
+        tela.showTela();
     }
 }
