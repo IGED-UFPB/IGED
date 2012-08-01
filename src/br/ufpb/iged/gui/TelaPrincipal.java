@@ -76,16 +76,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setEnabled(false);
         setFocusableWindowState(false);
         setMaximumSize(new java.awt.Dimension(0, 0));
+        setResizable(false);
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
         );
 
         botaoCadastrarTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/63edit.png"))); // NOI18N
@@ -157,25 +158,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(botaoAbrir)
-                        .addGap(2, 2, 2)
-                        .addComponent(botaoCadastrarTutorial)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoPesquisarTutorial)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoCadastrarExercicio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoPesquisarExercicio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoCadastrarObjetiva)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoExecutarObjetiva)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
-                        .addComponent(botaoAjuda))
-                    .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(botaoAbrir)
+                .addGap(2, 2, 2)
+                .addComponent(botaoCadastrarTutorial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoPesquisarTutorial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoCadastrarExercicio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoPesquisarExercicio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoCadastrarObjetiva)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botaoExecutarObjetiva)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 448, Short.MAX_VALUE)
+                .addComponent(botaoAjuda))
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,12 +189,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(botaoPesquisarExercicio)
                     .addComponent(botaoExecutarObjetiva))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         botaoCadastrarObjetiva.getAccessibleContext().setAccessibleDescription("");
         botaoExecutarObjetiva.getAccessibleContext().setAccessibleDescription("");
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
     static JInternalFrame abrir, cadTutorial, cadExe, visualizarTut, responderExe, pesquisarExe, cadExeObj, responderExeObj, abrirTocador;
 
@@ -270,18 +269,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void botaoCadastrarExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarExercicioActionPerformed
         //if (cadExe == null) //instancia a tela de cadastro de clientes
         //{
-
-            jDesktopPane1.add(cadExe);
-            ((BasicInternalFrameUI)cadExe.getUI()).setNorthPane(null);
+            TelaCadastroDeTarefa tela = new TelaCadastroDeTarefa();
+                
+            jDesktopPane1.add(tela);
+            ((BasicInternalFrameUI)tela.getUI()).setNorthPane(null);
             try {
-                cadExe.setMaximum(true);
+                tela.setMaximum(true);
             } catch (PropertyVetoException ex) {
                 Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
-            cadExe.setClosable(true);
-            cadExe.setMaximizable(true);
-            cadExe.setIconifiable(true);
-            cadExe.show();
+            tela.setClosable(true);
+            tela.setMaximizable(true);
+            tela.setIconifiable(true);
+            tela.show();
         //}
         //else{
           //  cadExe.dispose();
@@ -463,6 +463,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
             public void run() {
 
                 TelaPrincipal.getInstance().setVisible(true);
+                TelaPrincipal.getInstance().setLocationRelativeTo(null);
+               
                 
             }
         });

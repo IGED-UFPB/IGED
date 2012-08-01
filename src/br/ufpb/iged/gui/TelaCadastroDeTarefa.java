@@ -7,13 +7,9 @@ package br.ufpb.iged.gui;
 
 import br.ufpb.iged.gerenciadorIGEDlet.GerenciadorAtividade;
 import br.ufpb.iged.gerenciadorIGEDlet.Metadado;
-import br.ufpb.iged.gerenciadorIGEDlet.Portifolio;
 import br.ufpb.iged.gerenciadorIGEDlet.IGEDletSubjetiva;
 import br.ufpb.iged.gerenciadorIGEDlet.PortifolioXml;
-import br.ufpb.iged.gerenciadorIGEDlet.XmlPersistencia;
-import br.ufpb.iged.gui.gerenciador.LeitorXmlGerenciador;
 import java.awt.Color;
-import java.io.File;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +20,7 @@ import javax.swing.UIManager;
  *
  * @author Dorgi, Renan Oliveira
  */
-public class TelaCadastroDeTarefa extends javax.swing.JFrame {
+public class TelaCadastroDeTarefa extends javax.swing.JInternalFrame {
 
     //Interpretador iter = Interpretador.getInstance();
     
@@ -782,46 +778,12 @@ private void initComponents() {
             public void run() {
                 TelaCadastroDeTarefa cadastrador = new TelaCadastroDeTarefa();
                 cadastrador.setVisible(true);
-                cadastrador.setLocationRelativeTo(null);
             }
         });
     
-    }
-         
+    }      
 
-    public static void main(String args[]) {
-
-        UIManager.put("nimbusBase", new Color(140, 42, 42));
-        UIManager.put("nimbusBlueGrey", new Color(190, 167, 167));
-        UIManager.put("control", new Color(223, 215, 214));
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                TelaCadastroDeTarefa cadastrador = new TelaCadastroDeTarefa();
-                cadastrador.setVisible(true);
-                cadastrador.setLocationRelativeTo(null);
-            }
-        });
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel area;
     private javax.swing.JLabel autor;
