@@ -4,7 +4,6 @@
  */
 package br.ufpb.iged.gerenciadorApresentacao;
 
-import br.ufpb.iged.gui.TelaCadastroDeTarefaInterno;
 import br.ufpb.iged.gui.TelaCadastroDeTutorialInterno;
 import java.io.BufferedWriter;
 import java.io.File;
