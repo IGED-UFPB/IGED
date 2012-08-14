@@ -251,15 +251,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     public void cadastrarExercicio() {
-        if (t == null) {
-            t = new TelaCadastroDeTarefa();
-            GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-            gd.setFullScreenWindow(t);
-            t.setVisible(true);
-        } else {
-            t.setVisible(true);
-            t.setState(JFrame.NORMAL);
-        }
+        
     }
 
     private void buttonCadastrarExercicioActionPerformed(java.awt.event.ActionEvent evt) {

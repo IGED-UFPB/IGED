@@ -4,18 +4,6 @@
  */
 package br.ufpb.iged.gerenciadorIGEDlet;
 
-import br.ufpb.iged.gui.ConversorXmlTutorial;
-import br.ufpb.iged.gui.DiretorioExistenteException;
-import br.ufpb.iged.gui.TelaCadastroDeTutorialInterno;
-import br.ufpb.iged.gui.gerenciador.ConversorXmlTarefa;
-import br.ufpb.iged.gui.TelaCadastroDeTarefaInterno;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Dorgi

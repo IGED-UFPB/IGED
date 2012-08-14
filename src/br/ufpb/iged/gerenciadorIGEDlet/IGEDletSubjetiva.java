@@ -8,8 +8,6 @@ import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.Interpretador;
 import java.util.StringTokenizer;
 import java.util.concurrent.Semaphore;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 public class IGEDletSubjetiva extends IGEDlet{

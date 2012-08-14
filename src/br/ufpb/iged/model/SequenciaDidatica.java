@@ -1,4 +1,4 @@
-package br.ufpb.iged.gui.model;
+package br.ufpb.iged.model;
 
 /**
  *
