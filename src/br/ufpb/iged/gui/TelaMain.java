@@ -1,11 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufpb.iged.gui;
 
 /**
- *
  * @author darkolyver
  */
 public class TelaMain extends javax.swing.JFrame {
@@ -171,14 +166,14 @@ public class TelaMain extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        
+
         TelaSequenciaDidaticaPesquisa tela = new TelaSequenciaDidaticaPesquisa();
         tela.setVisible(true);
         tela.setClosable(true);
         tela.setResizable(false);
         tela.setMaximizable(false);
-        tela.setBounds(55, 2, 900, 570);        
-        desktop.add(tela);            
+        tela.setBounds(55, 2, 900, 570);
+        desktop.add(tela);
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnSequenciaDidaticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSequenciaDidaticaActionPerformed
@@ -198,9 +193,9 @@ public class TelaMain extends javax.swing.JFrame {
         tela.setClosable(true);
         tela.setResizable(false);
         tela.setMaximizable(false);
-        tela.setBounds(55, 2, 900, 570);        
-        desktop.add(tela);            
-        
+        tela.setBounds(55, 2, 900, 570);
+        desktop.add(tela);
+
 
     }//GEN-LAST:event_btnAtividadeActionPerformed
 
@@ -239,9 +234,9 @@ public class TelaMain extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            
+
             public void run() {
-                TelaMain tela = new TelaMain();                
+                TelaMain tela = new TelaMain();
                 tela.setVisible(true);
                 tela.setLocationRelativeTo(null);
             }
@@ -265,7 +260,7 @@ public class TelaMain extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void showTela() {
-      
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -284,13 +279,13 @@ public class TelaMain extends javax.swing.JFrame {
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
-            
+
             public void run() {
 
-                TelaMain tela = new TelaMain();                
+                TelaMain tela = new TelaMain();
                 tela.setVisible(true);
                 tela.setLocationRelativeTo(null);
-                
+
             }
         });
     }

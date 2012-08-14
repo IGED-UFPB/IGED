@@ -1,8 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufpb.iged.gui;
+
+import br.ufpb.iged.gui.controller.AtividadeController;
+import br.ufpb.iged.model.Atividade;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,6 +10,8 @@ package br.ufpb.iged.gui;
  */
 public class TelaCadastroAtividadeInternal extends javax.swing.JInternalFrame {
 
+    private AtividadeController atividadeController;
+    
     /**
      * Creates new form TelaCadastroAtividadeInternal
      */
@@ -30,7 +32,7 @@ public class TelaCadastroAtividadeInternal extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTitulo = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         comboArea = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -101,6 +103,11 @@ public class TelaCadastroAtividadeInternal extends javax.swing.JInternalFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/ufpb/iged/img/check.png"))); // NOI18N
         jButton2.setText("Ok");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,7 +131,7 @@ public class TelaCadastroAtividadeInternal extends javax.swing.JInternalFrame {
                                 .addGap(1, 1, 1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2))
@@ -143,7 +150,7 @@ public class TelaCadastroAtividadeInternal extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,6 +182,20 @@ public class TelaCadastroAtividadeInternal extends javax.swing.JInternalFrame {
         setVisible(false);
     }//GEN-LAST:event_CancelarActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        atividadeController = new AtividadeController();
+        
+        Atividade atividade = new Atividade();
+        
+        if(!txtTitulo.getText().equals("")){
+            atividade.setNome(txtTitulo.getText());
+            atividadeController.salvar(atividade);
+            JOptionPane.showMessageDialog(null, "Salvo Com sucesso");
+        }else{
+            JOptionPane.showMessageDialog(null, "digite um titulo");
+        }        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
     private javax.swing.JComboBox comboArea;
@@ -191,7 +212,7 @@ public class TelaCadastroAtividadeInternal extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

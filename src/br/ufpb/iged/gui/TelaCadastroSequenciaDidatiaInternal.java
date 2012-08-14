@@ -1,8 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ufpb.iged.gui;
+
+import br.ufpb.iged.gui.controller.SequenciaDidaticaController;
+import br.ufpb.iged.model.SequenciaDidatica;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,6 +10,9 @@ package br.ufpb.iged.gui;
  */
 public class TelaCadastroSequenciaDidatiaInternal extends javax.swing.JInternalFrame {
 
+    private SequenciaDidaticaController sequenciaController;
+    private SequenciaDidatica  sequencia;
+    
     /**
      * Creates new form TelaCadastroSequenciaDidatiaInternal
      */
@@ -27,13 +30,18 @@ public class TelaCadastroSequenciaDidatiaInternal extends javax.swing.JInternalF
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtTitulo = new javax.swing.JTextField();
+        btnSalvarSequencia = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         jLabel1.setText("Título");
 
-        jButton1.setText("OK");
+        btnSalvarSequencia.setText("OK");
+        btnSalvarSequencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarSequenciaActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -52,17 +60,17 @@ public class TelaCadastroSequenciaDidatiaInternal extends javax.swing.JInternalF
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 42, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(btnSalvarSequencia)))
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnSalvarSequencia, jButton2});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -70,10 +78,10 @@ public class TelaCadastroSequenciaDidatiaInternal extends javax.swing.JInternalF
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnSalvarSequencia)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -87,10 +95,28 @@ public class TelaCadastroSequenciaDidatiaInternal extends javax.swing.JInternalF
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnSalvarSequenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarSequenciaActionPerformed
+        sequenciaController = new SequenciaDidaticaController();
+        sequencia = new SequenciaDidatica();
+        
+        if(!txtTitulo.getText().equals("")){
+        
+           sequencia.setNome(txtTitulo.getText()); 
+           
+           sequenciaController.salvarSequenciaDidatica(sequencia);
+           
+           JOptionPane.showMessageDialog(null, "Salvo com Sucesso");
+        }else{
+        
+            JOptionPane.showMessageDialog(null, "Digite o titulo");
+        }
+        
+    }//GEN-LAST:event_btnSalvarSequenciaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSalvarSequencia;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

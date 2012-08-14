@@ -4,7 +4,12 @@
  */
 package br.ufpb.iged.gui;
 
+import br.ufpb.iged.gui.controller.AtividadeController;
+import br.ufpb.iged.gui.controller.SequenciaDidaticaController;
+import br.ufpb.iged.model.Atividade;
+import br.ufpb.iged.model.SequenciaDidatica;
 import java.awt.FlowLayout;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import org.jdesktop.swingx.JXBusyLabel;
@@ -15,10 +20,16 @@ import org.jdesktop.swingx.JXBusyLabel;
  */
 public class TelaSequenciaDidaticaPesquisa extends javax.swing.JInternalFrame {
 
+    private SequenciaDidaticaController sequenciaController;
+    private AtividadeController atividadeController;
+    
     /**
      * Creates new form TelaSequenciaDidaticaPesquisa
      */
     public TelaSequenciaDidaticaPesquisa() {
+        
+        sequenciaController = new SequenciaDidaticaController();
+        atividadeController = new AtividadeController();
         initComponents();        
         buttonGroup1.add(radioAtividade);
         buttonGroup1.add(radioSequenciaDidatica);      
@@ -34,16 +45,41 @@ public class TelaSequenciaDidaticaPesquisa extends javax.swing.JInternalFrame {
         
         
         DefaultTableModel modelo = (DefaultTableModel)tabela.getModel();          
-        
+        List<SequenciaDidatica> listaSequencias= sequenciaController.listaDeSequenciaDidatica("");
         try {
             
             Thread.sleep(2500);
+            
         } catch (Exception e) {
             
         }
         
-        for(int i = 0; i < 10; i++)
-            modelo.addRow( new String [] {"A", "V", "C", "D"} );   
+        
+        
+        for(SequenciaDidatica sequencia : listaSequencias){
+            modelo.addRow( new String [] {sequencia.getNome(), "V", "C", "D"} );           
+        }
+    
+    }
+    
+    private void modelarTabelaAtividade(){
+        
+        
+        DefaultTableModel modelo = (DefaultTableModel)tabela.getModel();          
+        List<Atividade> listaAtividade= atividadeController.lista("");
+        try {
+            
+            Thread.sleep(2500);
+            
+        } catch (Exception e) {
+            
+        }
+        
+        
+        
+        for(Atividade atividade : listaAtividade){
+            modelo.addRow( new String [] {atividade.getNome(), "V", "C", "D"} );           
+        }
     
     }
 
@@ -202,7 +238,15 @@ public class TelaSequenciaDidaticaPesquisa extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_radioAtividadeActionPerformed
 
     private void btnPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisaActionPerformed
-        modelarTabela();
+        DefaultTableModel modelo = (DefaultTableModel)tabela.getModel();    
+        
+        modelo.setRowCount(0);
+
+        if(radioSequenciaDidatica.isSelected()){
+            modelarTabela();
+        }else if(radioAtividade.isSelected()){
+            modelarTabelaAtividade();
+        }
     }//GEN-LAST:event_btnPesquisaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
