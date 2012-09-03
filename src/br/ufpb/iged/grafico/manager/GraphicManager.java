@@ -93,17 +93,17 @@ public class GraphicManager {
                 
            case IGEDConst.NODE_TREE:
                NodeTree nt = new NodeTree(new Point2D.Double(getXNodeSoltos(), 
-            		   this.boundsBinaryTree+ESPACO_ESTRUTURAS), quadro);
+            		   Quadro.YBASE_TRABALHO), quadro);
                pilha.push(new WrapperStruct(nt, IGEDConst.NODE_TREE, quadro));
                quadro.add(nt);
                this.nodesSoltos++;
              
                break;
            case IGEDConst.BINARY_TREE:
-        	   BinaryTree bt = new BinaryTree(quadro);
+        	   BinaryTree bt = new BinaryTree(quadro, Quadro.YBASE+150);
         	   
         	   pilha.push(new WrapperStruct(bt, IGEDConst.BINARY_TREE, quadro));
-        	   
+        	   bt.setyBase(Quadro.YBASE);
         	   break;
 
             default:
@@ -116,9 +116,9 @@ public class GraphicManager {
         if(this.structs.get(reference) != null)
             throw new ReferenceExistingException("Referencia: " + reference + " já foi criada.");
         WrapperStruct w = new WrapperStruct(null, type, quadro);
-//        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), yBaseTrabalho + 60));
-        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), 
-        		this.boundsBinaryTree +ESPACO_ESTRUTURAS));
+        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), Quadro.YBASE_TRABALHO + 60));
+//        w.setReferenciaVazia(reference, new Point2D.Double(getXReferenciaSolta(), 
+//        		this.boundsBinaryTree +ESPACO_ESTRUTURAS));
         pilha.push(w);
         this.structs.put(reference, w);
         referenciasVazias++;
@@ -274,6 +274,16 @@ public class GraphicManager {
         this.regVet = regVet;
     }
     
+    public void setHeightNT(String h){
+    	WrapperStruct w = pilha.pop();
+    	if(w.getType()==IGEDConst.NODE_TREE){
+    		NodeTree nt = (NodeTree)w.getStruct();
+    		nt.setHeight(h);
+    	}
+    }
+    
+    
+    
     
 
     public void lixeiro(){
@@ -292,12 +302,12 @@ public class GraphicManager {
                 /**Devido a particularidade da binarytree em crescer para baixo
                  * o código deste if calcula o limite inferior da árvore*/
                 
-                if(w.getType()==IGEDConst.BINARY_TREE && w.getStruct()!=null){
-                	BinaryTree bt = ((BinaryTree)w.getStruct());
-                	bt.adjust();
-                	this.calculaBound(bt.readField(IGEDConst.NODE_TREE_ROOT), IGEDConst.BINARY_TREE);
-                	System.out.println("o/");
-                }
+//                if(w.getType()==IGEDConst.BINARY_TREE && w.getStruct()!=null){
+//                	BinaryTree bt = ((BinaryTree)w.getStruct());
+//                	bt.adjust();
+//                	this.calculaBound(bt.readField(IGEDConst.NODE_TREE_ROOT), IGEDConst.BINARY_TREE);
+//                	System.out.println("o/");
+//                }
                 w.repintar();
                
             } else {
@@ -336,8 +346,7 @@ public class GraphicManager {
         		}
         		else{
         			NodeTree nt = ((NodeTree)no.getStruct());
-        			nt.mover(new Point2D.Double(getXNodeSoltos(), this.boundsBinaryTree+this.ESPACO_ESTRUTURAS));
-        			nt.repintar();
+        			nt.mover(new Point2D.Double(getXNodeSoltos(), Quadro.YBASE_TRABALHO));
         			nodesSoltos++;
         		}
                 

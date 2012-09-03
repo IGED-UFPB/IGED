@@ -4,15 +4,21 @@ import br.ufpb.iged.IGEDConst;
 
 public class NodeTree extends Node {
 	
+	protected String height = "";
+	
 	private NodeTree leftChield;
 	private NodeTree rightChield;
 	
-
+	
 	public NodeTree() {
 		super(IGEDConst.NODE_TREE);
 		
 	}
-
+	
+	public void setHeight(String h){
+		this.height=h;
+		System.out.println("-----> Node height = "+this.height);
+	}
 	
 	public NodeTree getLeftChield() {
 		return this.leftChield;
@@ -73,7 +79,7 @@ public class NodeTree extends Node {
 	public boolean compare(Struct s) {
 		if (s instanceof NodeTree){
 			NodeTree nt = (NodeTree)s;
-			return this.content == nt.content;
+			return (this.content == nt.content) && (this.height.equals(nt.height));
 		}
 		
 		return false;

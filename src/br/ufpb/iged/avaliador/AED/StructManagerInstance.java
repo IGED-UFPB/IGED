@@ -137,5 +137,11 @@ public class StructManagerInstance{
         this.struct.clear();
         this.pilha.clear();
     }
+    
+    public void setHeight(String h){
+    	WrapperStruct w = pilha.pop();
+    	NodeTree nt = (NodeTree)w.getStruct();
+    	nt.setHeight(h);
+    }
 }
 

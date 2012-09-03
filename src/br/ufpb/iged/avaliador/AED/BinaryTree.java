@@ -68,29 +68,28 @@ public class BinaryTree extends Struct{
 			BinaryTree bt = (BinaryTree)s;
 			
 			if(this.size == bt.size){
+				boolean resultLeftSide = true;
+				boolean resultRightSide = true;
+				
 				NodeTree self = this.root;
 				NodeTree nt = bt.root;
-				
-				boolean result = true;
-				boolean result2 = true;
-				
-				while(self != null && nt != null && result){
-					result = self.compare(nt);
+				while(self != null && nt != null && resultLeftSide){
+					resultLeftSide = self.compare(nt);
 					self = self.getLeftChield();
 					nt = nt.getLeftChield();
 				}
-				if(self != null || nt != null)result = false;
+				if(self != null || nt != null)resultLeftSide = false;
 				
 				self = this.root.getRightChield();
 				nt = bt.root.getRightChield();
-				while(self != null && nt != null && result){
-					result2 = self.compare(nt);
+				while(self != null && nt != null && resultRightSide){
+					resultRightSide = self.compare(nt);
 					self = self.getRightChield();
 					nt = nt.getRightChield();
 				}
-				if(self != null || nt != null)result2 = false;
+				if(self != null || nt != null)resultRightSide = false;
 				
-				return result && result2;
+				return resultLeftSide && resultRightSide;
 				
 			}
 		}

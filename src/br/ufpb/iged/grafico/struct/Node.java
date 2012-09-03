@@ -67,4 +67,6 @@ public abstract class Node extends Struct {
             System.out.println("Node não contém a referencia");
         }
     }
+
+
 }

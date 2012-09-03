@@ -35,7 +35,14 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
     }
 
     public void removerReferencia() {
-        switch (type) {
+    	
+    	//Desta forma NodeTree e linkedListNode ficam no mesmo Case
+    	int compareType;
+    	if(this.type == IGEDConst.NODE_TREE)compareType = IGEDConst.NODE;
+    	else compareType = this.type;
+    	
+    	
+        switch (compareType) {
             case IGEDConst.LISTA:
                 //LinkedListNode l = ((Lista) s).getInit();
                 //System.out.println("CLEAR NEXT");
@@ -47,15 +54,26 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                 //Quadro.getInstance().remove((Lista)s);
                 //Quadro.getInstance().atualizar();
                 break;
-
+                
+                
+                /**Agora este código pode ser utilizado pelas estruturas Node (linkedListNode e NodeTree)
+                 * */
             case IGEDConst.NODE:
                 if (ref != null && ref.getNode() != null) {
                     quadro.remove(this.ref);
-                    LinkedListNode n = ((LinkedListNode) s);
+                    Node n = ((Node) s);
                     //n.clearNext();
                     n.remove(ref);
                 }
                 break;
+//            case IGEDConst.NODE:
+//                if (ref != null && ref.getNode() != null) {
+//                    quadro.remove(this.ref);
+//                    LinkedListNode n = ((LinkedListNode) s);
+//                    //n.clearNext();
+//                    n.remove(ref);
+//                }
+//                break;
             case IGEDConst.VETOR:
                 //if (ref != null && ref.getNode() != null) {
                     Vetor v = ((Vetor) s);
@@ -64,14 +82,14 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                     v.remove(referencia);
                 //}
                 break;
-                
-            case IGEDConst.NODE_TREE:
-            	if (ref != null && ref.getNode() != null) {
-                    quadro.remove(this.ref);
-                    NodeTree nt = ((NodeTree) s);
-                    nt.remove(ref);
-                }
-                break;
+//                
+//            case IGEDConst.NODE_TREE:
+//            	if (ref != null && ref.getNode() != null) {
+//                    quadro.remove(this.ref);
+//                    NodeTree nt = ((NodeTree) s);
+//                    nt.remove(ref);
+//                }
+//                break;
 
             default:
                 break;
@@ -189,8 +207,17 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
     @Override
     public int compareTo(WrapperStruct w) {
         if (this.getType() == w.getType() && s != null && w.getStruct() != null) {
-
-            switch (type) {
+        	
+        	/**Para o caso de e estrutura ser do tipo nodeTree
+        	 * Proporciona reuso de código
+        	 * Então a estrutura assume um tipo mais genérico*/
+        	
+        	int compareType;
+        	if(type == IGEDConst.NODE_TREE)compareType=IGEDConst.NODE;
+        	else compareType=this.getType();
+        /**---------------------------------------------------------------*/
+        	
+        	switch (compareType) {
 
                 case IGEDConst.NODE:
                     if (this.getStruct().getPInit().getX() < w.getStruct().getPInit().getX()) {
@@ -198,7 +225,6 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                     } else {
                         return 1;
                     }
-
                 case IGEDConst.LISTA:
                     if (this.getStruct().getPInit().getY() < w.getStruct().getPInit().getY()) {
                         return -1;

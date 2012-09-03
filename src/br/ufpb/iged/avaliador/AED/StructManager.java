@@ -241,10 +241,29 @@ public class StructManager {
                 break;
         }
     }
+     
+     public void setHeight(String h) {
+         switch (mode) {
+             case IGEDConst.MODE_PROFESSOR:
+                 this.replica.setHeight(h);
+                 break;
+             case IGEDConst.MODE_BOTH:
+                 this.original.setHeight(h);
+                 this.replica.setHeight(h);
+                 break;
+             case IGEDConst.MODE_STUDENT:
+                 this.original.setHeight(h);
+                 break;
+             default:
+                 break;
+         }
+     }
     
     public void clear(){
         original.clear();
         replica.clear();
     }
+    
+    
 }
 

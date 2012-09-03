@@ -27,11 +27,15 @@ public class BinaryTree extends Struct{
 	private String referencia;
 	private String tamanho = "0";
 
-	public BinaryTree(Quadro q){
+	public BinaryTree(Quadro q, double yCoord){
             super(q);
             this.type = IGEDConst.BINARY_TREE;
-            this.pi = new Point2D.Double(150, 150);
+            this.pi = new Point2D.Double(150, yCoord);
 	}
+	
+	public BinaryTree(Quadro q){
+        this(q,150);
+}
 	
     @Override
 	public Point2D getPInit() {
@@ -170,10 +174,11 @@ public class BinaryTree extends Struct{
 			}
 			
 			
-			ref = new Referencia(ini, referencia + ".raiz",
-					new Point2D.Double(60, yBase+ espaco+ 10), quadro);
-			ref.setFixa(false);
+			ref = new Referencia(ini, referencia + ".raiz", quadro);
 			
+//			ref = new Referencia(ini, referencia + ".raiz",
+//					new Point2D.Double(60, yBase+ espaco+ 10), quadro);
+			ref.setFixa(false);
 			quadro.add(ref);
 			//quadro.atualizar();
 		}

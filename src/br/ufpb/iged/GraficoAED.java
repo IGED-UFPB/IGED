@@ -147,14 +147,20 @@ public class GraficoAED {
 	public Quadro quadro(){
 		return this.quadro; 
 	}
-	
+
 	public void setMode(int mode){
-                this.mode = mode;
+		this.mode = mode;
 		sm.setMode(mode);
 	}
-        
-        public void clearStruct(){
-            this.sm.clear();
-            this.gm.clearAll();
-        }
+
+	public void clearStruct(){
+		this.sm.clear();
+		this.gm.clearAll();
+	}
+
+	public void SetHeight(String referencia){
+		sm.setHeight(referencia);
+		if(mode != IGEDConst.MODE_PROFESSOR)
+			gm.setHeightNT(referencia);
+    	}
 }

@@ -16,7 +16,7 @@ public class NodeTree extends Node {
     private NodeTree rightChield = null;
     private NodeTree leftChield = null;
     private Label valor = null;
-    private Label altura = null;
+    private Label height = null;
     private Traco tracoRightChield = null;
     private Traco tracoLeftChield = null;
     private Point2D pp; //ponto de incidência do pai
@@ -35,8 +35,8 @@ public class NodeTree extends Node {
         return new Point2D.Double(this.pb.getX() + (3 * this.sizeRadius), this.pb.getY() + (3 * this.sizeRadius));
     }
 
-    public void setAltura(String h) {
-        this.altura.setText(h);
+    public void setHeight(String h) {
+        this.height.setText(h);
         this.repintar();
 
     }
@@ -58,9 +58,9 @@ public class NodeTree extends Node {
         this.conteudo.add(circ);
 
         valor = new Label("-", this.pc);
-        altura = new Label(" ", this.ph);
+        height = new Label(" ", this.ph);
         this.textos.add(valor);
-        this.textos.add(altura);
+        this.textos.add(height);
 
     }
 

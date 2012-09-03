@@ -228,6 +228,13 @@ public class Interpretador {
 
     																				}
     																			}else{
+    																				if(metodo.equals("SET_HEIGHT")){
+    																					String var = st.nextToken();
+    																					if((var != null)&&(!var.equals(""))){
+    																						con.SetHeight(var);
+    																						
+    																					}
+    																				}
 
     																			}
     																		}
