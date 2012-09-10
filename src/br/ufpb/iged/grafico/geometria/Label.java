@@ -44,5 +44,9 @@ public class Label{
 	public void mover(double dx, double dy) {
 		this.pb.setLocation(pb.getX() + dx, pb.getY() + dy);
 	}
+	
+	public void mover(Point2D p){
+		this.pb = p;
+	}
 
 }
