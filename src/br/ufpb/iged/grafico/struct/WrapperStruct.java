@@ -206,16 +206,22 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
 
     @Override
     public int compareTo(WrapperStruct w) {
-        if (this.getType() == w.getType() && s != null && w.getStruct() != null) {
-        	
-        	/**Para o caso de e estrutura ser do tipo nodeTree
-        	 * Proporciona reuso de código
-        	 * Então a estrutura assume um tipo mais genérico*/
-        	
-        	int compareType;
-        	if(type == IGEDConst.NODE_TREE)compareType=IGEDConst.NODE;
-        	else compareType=this.getType();
-        /**---------------------------------------------------------------*/
+    	
+    	/**Para o caso de e estrutura ser do tipo nodeTree
+    	 * Proporciona reuso de código
+    	 * Então a estrutura assume um tipo mais genérico
+    	 * 
+    	 * Desta forma ainda é possível comparar os dois tipos de node*/
+    	
+    	int compareType,compareTypeStruct;
+    	if(type == IGEDConst.NODE_TREE) compareType=IGEDConst.NODE;
+    	else compareType = this.getType();
+    	
+    	if(w.getType()==IGEDConst.NODE_TREE)compareTypeStruct = IGEDConst.NODE;
+		else compareTypeStruct = w.getType();
+			 
+    /**---------------------------------------------------------------*/
+        if (compareType == compareTypeStruct && s != null && w.getStruct() != null) {
         	
         	switch (compareType) {
 
@@ -227,6 +233,12 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                     }
                 case IGEDConst.LISTA:
                     if (this.getStruct().getPInit().getY() < w.getStruct().getPInit().getY()) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                case IGEDConst.BINARY_TREE:
+                    if (this.getStruct().getPInit().getX() < w.getStruct().getPInit().getX()) {
                         return -1;
                     } else {
                         return 1;

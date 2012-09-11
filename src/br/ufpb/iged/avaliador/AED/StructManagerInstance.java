@@ -107,6 +107,16 @@ public class StructManagerInstance{
         s.writeInfo(value);
 
     }
+    
+    public void setSizeBT(int value) {
+        Struct s = pilha.pop().getStruct();
+        if (s instanceof BinaryTree) {
+            BinaryTree bt = (BinaryTree)s;
+            bt.setSize(value);
+        }
+        
+
+    }
 
     public void setPosVector(int pos) {
         this.pos = pos;

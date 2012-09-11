@@ -149,10 +149,10 @@ public class Quadro extends JPanel {
           this.desenhaveis.add(linhaStruct);
   }
   
-  static final int YBASE_TRABALHO = 190;
-  static final int YBASE = 200;
+  public static final int YBASE_TRABALHO = 190;
+  public static final int YBASE = 200;
   
-  static final int YBASE_NODE = 115;
-  static final int YBASE_STRUCT = 250;
+  public static final int YBASE_NODE = 115;
+  public static final int YBASE_STRUCT = 250;
 }
 

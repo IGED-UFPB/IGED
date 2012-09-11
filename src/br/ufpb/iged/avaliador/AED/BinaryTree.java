@@ -6,6 +6,7 @@ public class BinaryTree extends Struct{
 	
 	private NodeTree root;
 	private int size = 0;
+	
 
 	public BinaryTree() {
 		super(IGEDConst.BINARY_TREE);
@@ -14,6 +15,7 @@ public class BinaryTree extends Struct{
 	
 	public void setSize(int value){
 		this.size = value;
+		System.out.println("------------------size = "+this.size);
 	}
 	
 	public int getSize(){

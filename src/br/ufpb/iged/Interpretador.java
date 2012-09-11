@@ -234,6 +234,14 @@ public class Interpretador {
     																						con.SetHeight(var);
     																						
     																					}
+    																				}else{
+    																					if(metodo.equals("WRITE_SIZE")){
+    																						String var = st.nextToken();
+    																						if((var!=null)&&(!var.equals(""))){
+    																							con.writeSizeBT(Integer.parseInt(var));
+    																						}
+    																						
+    																					}
     																				}
 
     																			}

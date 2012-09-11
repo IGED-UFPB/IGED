@@ -190,6 +190,23 @@ public class StructManager {
                 break;
         }
     }
+    
+    public void setSizeBT(int value) {
+        switch (mode) {
+            case IGEDConst.MODE_PROFESSOR:
+                this.replica.setSizeBT(value);
+                break;
+            case IGEDConst.MODE_BOTH:
+                this.replica.setSizeBT(value);
+                this.original.setSizeBT(value);
+                break;
+            case IGEDConst.MODE_STUDENT:
+                this.original.setSizeBT(value);
+                break;
+            default:
+                break;
+        }
+    }
 
     public void setPosVector(int pos) {
         switch (mode) {

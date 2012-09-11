@@ -14,7 +14,12 @@ import java.awt.geom.Point2D;
  *
  */
 public class BinaryTree extends Struct{
-        public static double BOUNDS = 140;
+		/**desta forma quando criamos uma estrutura do tipo bt
+		 * a sua coordenada x é X_INIT + "espaço entre estruturas", que por sua vez é igual a 250
+		 * assim a coordenada x inicial será 150 (o valor que desejamos)
+		 * ou seja, igual ao X_BOUND que é o limite da coordenada x inicial */
+		public static double X_INIT = -100;
+        public static double X_BOUND = 150;
 	
 	private NodeTree ini = null;
 	
@@ -39,10 +44,10 @@ public class BinaryTree extends Struct{
 	
 	
 	
-	public BinaryTree(Quadro q, double yCoord){
+	public BinaryTree(Quadro q, double xCoord){
             super(q);
             this.type = IGEDConst.BINARY_TREE;
-            this.pi = new Point2D.Double(150, yCoord);
+            this.pi = new Point2D.Double(xCoord, q.YBASE+150);
             
             this.size = new Label(this.referencia+".size = "+this.tamanho, 
             		new Point2D.Double(pi.getX()-this.sprainXInit,pi.getY()-this.sprainYInit));
@@ -154,13 +159,21 @@ public class BinaryTree extends Struct{
 		
 		if (this.ini == null) {
 			// desenhar lista vazia "referencia solta"
+			
+			double xPosition = this.pi.getX()-40;
+			
 			if (n == null) {
-				this.ref = new Referencia(new Point2D.Double(60, yBase+ space
+				this.ref = new Referencia(new Point2D.Double(this.pi.getX()-90, yBase+ space
 						+ 10), referencia + ".raiz", quadro);
 				
 				n = new Null(new Point2D.Double(
-						120 + (7 * referencia.length()), yBase + space + 5),
+						xPosition + (7 * referencia.length()), yBase + space + 5),
 						true, this.quadro);// apontando para null
+				
+//				n = new Null(new Point2D.Double(
+//						120 + (7 * referencia.length()), yBase + space + 5),
+//						true, this.quadro);// apontando para null
+				
 				quadro.add(n);
 				quadro.add(ref);
 				quadro.atualizar();
@@ -168,18 +181,18 @@ public class BinaryTree extends Struct{
 				quadro.remove(ref);
 				quadro.remove(n);
 				
-				this.ref = new Referencia(new Point2D.Double(60, yBase + space
+				this.ref = new Referencia(new Point2D.Double(this.pi.getX()-90, yBase + space
 						+ 10), referencia + ".raiz", quadro);// apontando para
 																// null
 				
 				n = new Null(new Point2D.Double(
-						120 + (7 * referencia.length()), yBase + space + 5),true, this.quadro);
+						xPosition + (7 * referencia.length()), yBase + space + 5),true, this.quadro);
 				
 				quadro.add(n);
 				quadro.add(ref);
 				quadro.atualizar();
 			}
-		
+			this.size.mover(new Point2D.Double(pi.getX()-this.sprainXInit,pi.getY()-this.sprainYInit));
 			
 		} else {
 
@@ -260,6 +273,7 @@ public class BinaryTree extends Struct{
 	
 	public void setPointPI(Point2D p){
 		this.pi = p;
+		this.desenhar(yBase);
 	}
 
 	

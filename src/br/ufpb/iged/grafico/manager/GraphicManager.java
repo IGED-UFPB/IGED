@@ -30,7 +30,8 @@ public class GraphicManager {
     private int regVet;
     private int referenciasVazias;
     private int nodesSoltos;
-    private double boundsBinaryTree;
+    
+    private double boundXInitBT = BinaryTree.X_INIT;
     
     public GraphicManager(){
         this.structs = new HashMap<String, WrapperStruct>();
@@ -47,7 +48,7 @@ public class GraphicManager {
         this.regVet = 0;
         this.referenciasVazias = 0;
         this.nodesSoltos = 0;
-        this.boundsBinaryTree = BinaryTree.BOUNDS;
+//        this.boundBT = BinaryTree.X_BOUND;
     }
     
     public void createStruct(int type) {
@@ -58,13 +59,18 @@ public class GraphicManager {
 
                 int y = Quadro.YBASE;
                 for (WrapperStruct w : structs.values()) {
-                    if (w.isDataStruct()) {
+                	/**Neste caso não é necessário se preocupar com a estrutura BT
+                	 * a coordenada y desta estrutura só precisa ser alterada
+                	 * para estruturas diferentes de BT*/
+                    if (w.isDataStruct() && w.getType()!=IGEDConst.BINARY_TREE) {
                         if (w.getStruct() != null) {
                             y += w.getStruct().getBond() + 35;
                         }
                     }
                 }
                 l.setyBase(y);
+                
+//                this.boundXInitBT+= this.ESPACO_ESTRUTURAS;
 
                 pilha.push(new WrapperStruct(l, IGEDConst.LISTA, quadro));
                 break;
@@ -100,10 +106,12 @@ public class GraphicManager {
              
                break;
            case IGEDConst.BINARY_TREE:
-        	   BinaryTree bt = new BinaryTree(quadro, Quadro.YBASE+150);
+        	   BinaryTree bt = new BinaryTree(quadro, this.boundXInitBT+this.ESPACO_ESTRUTURAS);
         	   
         	   pilha.push(new WrapperStruct(bt, IGEDConst.BINARY_TREE, quadro));
         	   bt.setyBase(Quadro.YBASE);
+        	   
+//        	   this.boundXInitBT += this.ESPACO_ESTRUTURAS; 
         	   break;
 
             default:
@@ -282,40 +290,61 @@ public class GraphicManager {
     	}
     }
     
-    
-    
-    
-
     public void lixeiro(){
         quadro.limpar();
         for (WrapperStruct w : this.structs.values()) {
             System.out.println(w.getReferencia());
             w.startRepaint();
         }
-
-        //Pintas as Estruturas diferentes de Nodes.
+        
+        this.boundXInitBT = BinaryTree.X_INIT;
+        
+        
         List<WrapperStruct> nodes = new ArrayList<WrapperStruct>();
+        List<WrapperStruct> binaryTrees = new ArrayList<WrapperStruct>();
+        
+      //Pintas as Estruturas diferentes de Nodes e BT.
         for (WrapperStruct w : this.structs.values()) {
-            if (w.isDataStruct()) {
-                System.out.println("Repintar: " + w.getReferencia());
-               
-                /**Devido a particularidade da binarytree em crescer para baixo
-                 * o cÃ³digo deste if calcula o limite inferior da Ã¡rvore*/
-                
-//                if(w.getType()==IGEDConst.BINARY_TREE && w.getStruct()!=null){
-//                	BinaryTree bt = ((BinaryTree)w.getStruct());
-//                	bt.adjust();
-//                	this.calculaBound(bt.readField(IGEDConst.NODE_TREE_ROOT), IGEDConst.BINARY_TREE);
-//                	System.out.println("o/");
-//                }
-                w.repintar();
-               
-            } else {
-                System.out.println("Nodes add: " + w.getReferencia());
-                nodes.add(w);
-            }
+        	if (w.isDataStruct() && w.getType()!= IGEDConst.BINARY_TREE) {
+        		System.out.println("Repintar: " + w.getReferencia());
+        		w.repintar();
+        		this.calculaBoundBT(w.getStruct(), w.getType());
+        		
+        	}else {
+        		// aqui separamos as BTs das demais estruturas
+        		if(w.getType() == IGEDConst.BINARY_TREE){
+        			binaryTrees.add(w);
+        			System.out.println("BT add: "+w.getReferencia());         	
+        		}else {
+        			System.out.println("Nodes add: " + w.getReferencia());
+        			nodes.add(w);
+        		}
+        	}
         }
-
+        
+        Collections.sort(binaryTrees);
+        /**depois que todas as estruturas de dados que não são BTs foram pintadas
+         * e configuradas, vamos configurar as BTs*/
+        for(WrapperStruct no:binaryTrees){
+        	System.out.println("Repintar: " + no.getReferencia());
+         	
+        	BinaryTree bt = ((BinaryTree)no.getStruct());
+        	
+        	this.boundXInitBT += this.ESPACO_ESTRUTURAS;
+         	
+         	bt.setPointPI(new Point2D.Double(this.boundXInitBT, Quadro.YBASE+150));
+         	bt.adjust();
+         	//esse metodo calcula o x inicial de cada BT
+         	//Esse mesmo metodo é chamado antes para calcular a coordenada x das estruturas que não são BTs
+         	//Desta forma tornando possível encontrar o valor x inicial de cada BT
+         	this.calculaBoundBT(bt, IGEDConst.BINARY_TREE);
+         	
+         	System.out.println("o/");
+         	
+         	no.repintar();
+        }
+        
+        //aqui os nodes soltos, que não pertencem a uma estrutura de dados são ajustados e pintados
         this.nodesSoltos = 0;
         Collections.sort(nodes);
 
@@ -349,9 +378,7 @@ public class GraphicManager {
         			nt.mover(new Point2D.Double(getXNodeSoltos(), Quadro.YBASE_TRABALHO));
         			nodesSoltos++;
         		}
-                
-                
-//                
+
 //                LinkedListNode n = ((LinkedListNode) no.getStruct());
 //
 //                ((LinkedListNode) no.getStruct()).adjust(new Point2D.Double(getXNodeSoltos(), yBaseTrabalho));
@@ -367,30 +394,67 @@ public class GraphicManager {
         this.vi.repintar();
     }
 
+
     public Quadro getQuadro() {
         return quadro;
     }
     
-    private void calculaBound(Struct s,int type){
+    private void calculaBoundBT(Struct s,int type){
     	switch(type){
     	case IGEDConst.BINARY_TREE:
+    		BinaryTree bt = (BinaryTree)s;
+    		if(bt!=null){
+    			if(bt.getPInit().getX()>this.boundXInitBT)
+    				this.boundXInitBT = bt.getPInit().getX();
+    			this.calculaBoundBT(bt.getInit(), IGEDConst.NODE_TREE);
+    			
+    		}
+    		break;
+    		
+    	case IGEDConst.NODE_TREE:
     		NodeTree nt = ((NodeTree)s);
     		if(nt!=null){
     			
-    			if(nt.getPB().getY() > this.boundsBinaryTree)
-    				this.boundsBinaryTree = nt.getPB().getY();
+    			if(nt.getPB().getX() > this.boundXInitBT)
+    				this.boundXInitBT = nt.getPB().getX();
     			
     			if(nt.readField(IGEDConst.LEFT_CHIELD)!=null)
-    				this.calculaBound(nt.readField(IGEDConst.LEFT_CHIELD), type);
+    				this.calculaBoundBT(nt.readField(IGEDConst.LEFT_CHIELD), type);
     			if(nt.readField(IGEDConst.RIGHT_CHIELD)!=null)
-    				this.calculaBound(nt.readField(IGEDConst.RIGHT_CHIELD), type);
+    				this.calculaBoundBT(nt.readField(IGEDConst.RIGHT_CHIELD), type);
     		}
     		break;
-
-    	default:
-    		break;
-
     		
+    	case IGEDConst.LISTA:
+    		LinkedList l = (LinkedList)s;
+    		if(l!=null){
+    			/**se o resultado da expessão for verdadeiro 
+    			 * pelo menos uma estrutura lista(vazia) existe. Então a árvore incrementar sua coordenada x
+    			 * com a variável "EPACO_ESTRUTURAS".
+    			 * Para tal operação ser realizada é necessãrio altera o valor de "boundXInitBT" que é -100
+    			 *  para "X_BOUND" = 150
+    			 *  caso "boundXInitBT" já tenha sido calculado e possua um valor maior que "X_BOUND"
+    			 *  no método lixeiro, simplesmente "boundXInitBT" é incrementada pela variável "EPACO_ESTRUTURAS"*/
+    			if(this.boundXInitBT < BinaryTree.X_BOUND)
+    				this.boundXInitBT = BinaryTree.X_BOUND;
+    			this.calculaBoundBT(l.getInit(), IGEDConst.NODE);
+    		}
+    		break;
+    		
+    	case IGEDConst.NODE:
+    		LinkedListNode ln = (LinkedListNode)s;
+    		if(ln!=null){
+    			if(ln.getPB().getX() > this.boundXInitBT)
+    				this.boundXInitBT = ln.getPB().getX();
+
+    			if(ln.getProx()!=null){
+    				this.calculaBoundBT(ln.getProx(), type);
+    			}
+    		}
+    		break;
+    		
+    	default:
+    		break;	
     		
     	}
     }
@@ -403,6 +467,6 @@ public class GraphicManager {
     }
     
     static final int ESPACO_NODES = 150;
-    static final int ESPACO_ESTRUTURAS = 200;
+    static final int ESPACO_ESTRUTURAS = 250;
     
 }

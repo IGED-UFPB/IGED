@@ -83,6 +83,12 @@ public class GraficoAED {
                 if(mode != IGEDConst.MODE_PROFESSOR)
                     gm.writeInfo(String.valueOf(value));
 	}
+	
+	public void writeSizeBT(int value) {
+		sm.setSizeBT(value);
+                if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.writeInfo(String.valueOf(value));
+	}
 
 
 	public void writeStructLength(int value) {
