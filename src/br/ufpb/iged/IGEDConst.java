@@ -19,4 +19,5 @@ public interface IGEDConst {
         public static final int RIGHT_CHIELD = 5;
         public static final int LEFT_CHIELD = 6;
 
+        public static final int VECTOR_ADJACENCY_LIST = 8;
 }
