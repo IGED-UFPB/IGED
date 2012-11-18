@@ -11,16 +11,12 @@
 package br.ufpb.iged.gui;
 
 import java.io.File;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -283,8 +279,14 @@ public class TelaInicial extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        /*
         try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -293,7 +295,7 @@ public class TelaInicial extends javax.swing.JFrame {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         } catch (UnsupportedLookAndFeelException ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
         java.awt.EventQueue.invokeLater(new Runnable() {
 

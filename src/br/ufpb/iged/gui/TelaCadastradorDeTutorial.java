@@ -10,6 +10,7 @@
  */
 package br.ufpb.iged.gui;
 
+import br.ufpb.iged.IGEDProperties;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -30,7 +31,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
@@ -461,11 +461,11 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
                             .addGroup(panelCadastradorXMLLayout.createSequentialGroup()
                                 .addComponent(tituloLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE))
+                                .addComponent(campoTitulo))
                             .addGroup(panelCadastradorXMLLayout.createSequentialGroup()
                                 .addComponent(descricaoLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1))
                             .addGroup(panelCadastradorXMLLayout.createSequentialGroup()
                                 .addComponent(autorLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -474,7 +474,7 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
                                 .addComponent(anoLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campoAno, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE))
+                            .addComponent(jSeparator3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -492,7 +492,7 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
                         .addContainerGap())))
             .addGroup(panelCadastradorXMLLayout.createSequentialGroup()
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         panelCadastradorXMLLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {botaoCadastrar, botaoCancelar, botaoOk});
@@ -505,12 +505,12 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
                     .addGroup(panelCadastradorXMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(areaLabel)
                         .addComponent(conteudoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(jSeparator2)
                     .addGroup(panelCadastradorXMLLayout.createSequentialGroup()
                         .addComponent(imagemPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botaoSelecionar))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(jSeparator1)
                     .addGroup(panelCadastradorXMLLayout.createSequentialGroup()
                         .addGroup(panelCadastradorXMLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tituloLabel)
@@ -596,10 +596,6 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSelecionarActionPerformed
-    // TODO add your handling code here:
-    }//GEN-LAST:event_botaoSelecionarActionPerformed
-
     private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
     // TODO add your handling code here:
     }//GEN-LAST:event_botaoCancelarActionPerformed
@@ -619,6 +615,10 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
     private void proximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proximoActionPerformed
     // TODO add your handling code here:
     }//GEN-LAST:event_proximoActionPerformed
+
+    private void botaoSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSelecionarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoSelecionarActionPerformed
 */
     public void apagarCampos() {
         campoTitulo.setText("");
@@ -847,7 +847,7 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
                 diretorioArqSel = selecionados[i].toString();
                 BufferedImage imagem = ImageIO.read(new File(diretorioArqSel));
                 System.out.println(diretorioArqSel);
-                ImageIO.write(imagem, "JPG", new File("C:\\Tutoriais\\" + getTituloStr() + "\\Slide" + i + ".jpg"));
+                ImageIO.write(imagem, "JPG", new File(IGEDProperties.getInstance().getPropety("nclPath") + getTituloStr() + "slide" + i + ".jpg"));
             }
             //criar capa do cadastrador
             imagemPanel.removeAll();
@@ -922,7 +922,7 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
     protected static LinkedList<File> itens = new LinkedList<File>();
     static String imagemArray;
     static LinkedList<String> selecionado = new LinkedList<String>();
-    static File novoRaiz = new File("C:\\Tutoriais");
+    static File novoRaiz = new File(IGEDProperties.getInstance().getPropety("nclPath"));
     
      public void desenhar() {
         String dirArquivo;
@@ -948,13 +948,14 @@ public class TelaCadastradorDeTutorial extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws UnsupportedLookAndFeelException {
         
         try {
-            try {
-                UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            } catch (UnsupportedLookAndFeelException ex) {
-                Logger.getLogger(TelaCadastradorDeTutorial.class.getName()).log(Level.SEVERE, null, ex);
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TelaCadastradorDeTutorial.class.getName()).log(Level.SEVERE, null, ex);

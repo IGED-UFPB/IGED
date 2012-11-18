@@ -27,7 +27,7 @@ public class TelaSplash extends javax.swing.JWindow {
         setBounds(x, y, width, height);
 
         // Constrói o splash screen
-        JLabel label = new JLabel(new ImageIcon("99.png"));
+        JLabel label = new JLabel(new ImageIcon("/home/renanoliveira/Imagens/IMG_7786.JPG"));
         JLabel copyrt = new JLabel("Copyright 2012, IGED", JLabel.CENTER);
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 11));
         content.add(label, BorderLayout.CENTER);

@@ -814,13 +814,14 @@ public class TelaCadastroDeTutorialInterno extends javax.swing.JInternalFrame {
     }
 
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws UnsupportedLookAndFeelException {
 
         try {
-            try {
-                UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-            } catch (UnsupportedLookAndFeelException ex) {
-                Logger.getLogger(TelaCadastroDeTutorialInterno.class.getName()).log(Level.SEVERE, null, ex);
+           for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(TelaCadastroDeTutorialInterno.class.getName()).log(Level.SEVERE, null, ex);
