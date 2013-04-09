@@ -32,6 +32,23 @@ public class registryMeter {
 		
 	}
 	
+	public final void zerar(){
+		
+		processingTotal = 0;
+		//static int totalMemory;
+	 	temporaryMemory = 0;
+	 	peakMemory = 0;
+	 	finalAllocation = 0;
+	 	finalDesallocation = 0;
+	 	operatingVariable = 0;
+	 	operatingArray = 0;
+	 	operatingMethod = 0;
+	 	operating = 0;	
+	 	operatingLogic = 0;
+	 	operatingAritmetic = 0;
+		
+	}
+	
 	public registryMeter(int id, int id_exerc, String id_function, int dimension){
 				
 		this.setId(id);

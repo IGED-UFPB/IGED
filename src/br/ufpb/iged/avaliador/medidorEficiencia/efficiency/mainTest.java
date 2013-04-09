@@ -8,8 +8,8 @@ public class mainTest {
 
     public static void main(String[] args) {
 
-        int n[] = LinearRegression.getX();
-        //int n[] = {100, 200, 300, 400, 500};//, 600, 700, 800, 900, 1000};
+        int n[] = PearsonCorrelation.getX();
+        //int n[] = {100, 200, 300, 400, 500,600, 700, 800, 900, 1000};
 
         //Meter usado na busca bin�ria!!!
         efficiencyMeter meter1 = new efficiencyMeter();
@@ -160,52 +160,54 @@ public class mainTest {
 
         ReportGraph reportGraph = new ReportGraph();
 
-        //reportGraph.addSeries("Merge Sort");
+        reportGraph.addSeries("Merge Sort");
         reportGraph.addSeries("Bublle Sort");
-        //reportGraph.addSeries("Count Sort");
-        //reportGraph.addSeries("Busca Binaria");
+        reportGraph.addSeries("Count Sort");
+        reportGraph.addSeries("Busca Binaria");
         reportGraph.addSeries("Quick Sort");
         reportGraph.showSeries();
 
-        LinearRegression lr = new LinearRegression();
+        //LinearRegression lr = new LinearRegression();
         PearsonCorrelation c = PearsonCorrelation.getInstance();
+        
+        
         System.out.println("Busca Binaria:");
         for (int i = 0; i < bb.length; ++i) {
             //System.out.println("BB: " + bb[i] + " LOG : " + (3/2*Math.log(n[i])/Math.log(2) + (Math.random() % 20)));
             System.out.println(bb[i]);
         }
-        System.out.println("Cat LR: " + lr.getCategory(bb));
+        //System.out.println("Cat LR: " + lr.getCategory(bb));
         System.out.println("Cat PC:" + c.getCategory(bb));
         System.out.println("QS: ");
 
         System.out.println("Quick Sort:");
         for (int i = 0; i < qs.length; ++i) {
-            System.out.println("QS: " + qs[i] + " QUAD : " + (3 / 2 * (n[i] * n[i]) + (Math.random() % 20)) + 
-                    "NLOGN : " + n[i]*Math.log(n[i])/Math.log(2));
-            //System.out.println(qs[i]);
+           // System.out.println("QS: " + qs[i] + " QUAD : " + (3 / 2 * (n[i] * n[i]) + (Math.random() % 20)) + 
+                   // "NLOGN : " + n[i]*Math.log(n[i])/Math.log(2));
+            System.out.println(qs[i]);
         }
-        System.out.println("Cat LR: " + lr.getCategory(qs));
+        //System.out.println("Cat LR: " + lr.getCategory(qs));
         System.out.println("Cat PC: " + c.getCategory(qs));
 
         System.out.println("Buble Sort:");
         for (int i = 0; i < bs.length; ++i) {
             System.out.println(bs[i]);
         }
-        System.out.println("Cat LR: " + lr.getCategory(bs));
+        //System.out.println("Cat LR: " + lr.getCategory(bs));
         System.out.println("Cat PC: " + c.getCategory(bs));
 
         System.out.println("Merge Sort:");
         for (int i = 0; i < ms.length; ++i) {
             System.out.println(ms[i]);
         }
-        System.out.println("Cat LR: " + lr.getCategory(ms));
+        //System.out.println("Cat LR: " + lr.getCategory(ms));
         System.out.println("Cat PC: " + c.getCategory(ms));
 
         System.out.println("Couting Sort:");
         for (int i = 0; i < cs.length; ++i) {
             System.out.println(cs[i]);
         }
-        System.out.println("Cat LR: " + lr.getCategory(cs));
+        //System.out.println("Cat LR: " + lr.getCategory(cs));
         System.out.println("Cat PC: " + c.getCategory(cs));
 
     }

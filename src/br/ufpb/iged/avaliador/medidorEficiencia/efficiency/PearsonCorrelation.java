@@ -102,18 +102,18 @@ public class PearsonCorrelation extends EvaluatorAsymptotic{
         return category;
     }
     
-    public static void main(String arg[]){
-        /*double Tbubble[] = {45416, 172680, 365992, 611186, 938493, 1308529, 1744667, 2234946, 2775631, 3401894};
-        double Tcouting[] = {3986, 7113, 10213, 13313, 16413, 19513, 22613, 25713, 28813, 31913};
-        double Tmerge[] = {19020, 42630, 68010, 94524, 121167, 149755, 178585, 207525, 236547, 265180};
-        double bb[] = {107.0, 208.0, 295.0, 410.0, 483.0, 584.0, 629.0, 716.0, 831.0, 918.0};
-        */
-        double bb[] = {87.0, 188.0, 289.0,376.0, 463.0, 550.0, 609.0, 682.0, 769.0, 870.0};
-        
-        PearsonCorrelation c = PearsonCorrelation.getInstance();
-        /*System.out.println("Cat: " + c.getCategory(Tbubble));
-        System.out.println("Cat: " + c.getCategory(Tcouting));
-        System.out.println("Cat: " + c.getCategory(Tmerge));*/
-        System.out.println("Cat: " + c.getCategory(bb));
-    }
+//    public static void main(String arg[]){
+//        /*double Tbubble[] = {45416, 172680, 365992, 611186, 938493, 1308529, 1744667, 2234946, 2775631, 3401894};
+//        double Tcouting[] = {3986, 7113, 10213, 13313, 16413, 19513, 22613, 25713, 28813, 31913};
+//        double Tmerge[] = {19020, 42630, 68010, 94524, 121167, 149755, 178585, 207525, 236547, 265180};
+//        double bb[] = {107.0, 208.0, 295.0, 410.0, 483.0, 584.0, 629.0, 716.0, 831.0, 918.0};
+//        */
+//        double bb[] = {87.0, 188.0, 289.0,376.0, 463.0, 550.0, 609.0, 682.0, 769.0, 870.0};
+//        
+//        PearsonCorrelation c = PearsonCorrelation.getInstance();
+//        /*System.out.println("Cat: " + c.getCategory(Tbubble));
+//        System.out.println("Cat: " + c.getCategory(Tcouting));
+//        System.out.println("Cat: " + c.getCategory(Tmerge));*/
+//        System.out.println("Cat: " + c.getCategory(bb));
+//    }
 }
