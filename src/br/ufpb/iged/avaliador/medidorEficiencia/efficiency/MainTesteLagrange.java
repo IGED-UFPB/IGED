@@ -3,6 +3,7 @@ package br.ufpb.iged.avaliador.medidorEficiencia.efficiency;
 import br.ufpb.iged.avaliador.medidorEficiencia.gui.ReportGraph;
 
 import java.util.List;
+import java.util.Random;
 
 public class MainTesteLagrange {
 
@@ -12,38 +13,52 @@ public class MainTesteLagrange {
 		double[] n = Lagrange.VetorX;
 
 		// ARRAYS FINAIS PARA VERIFICAÇÃO
-		double bs[] = new double[n.length];
+		double bsMedio[] = new double[n.length];
 		double bsMin[] = new double[n.length];
 		double bsMax[] = new double[n.length];
-		
-		double bb[] = new double[n.length];
+
+		double bbMedio[] = new double[n.length];
 		double bbMin[] = new double[n.length];
 		double bbMax[] = new double[n.length];
-		
+
 		double cs[] = new double[n.length];
 		double csMin[] = new double[n.length];
 		double csMax[] = new double[n.length];
-		
-		
-		double qs[] = new double[n.length];
+
+		double qsMedio[] = new double[n.length];
 		double qsMin[] = new double[n.length];
 		double qsMax[] = new double[n.length];
-		
-		double ms[] = new double[n.length];
+
+		double msMedio[] = new double[n.length];
 		double msMin[] = new double[n.length];
 		double msMax[] = new double[n.length];
 		
+		double cvMedio[] = new double[n.length];
+
 		int MediaInicial = 0;
-		int MediaParada = 50;
+		int MediaParada = 1;
+		
 		// MEDIDORES DE EFICIÊNCIA
 		// efficiencyMeter meterBubleSort = new efficiencyMeter();
-		
-
 		// efficiencyMeter meterCountSort = new efficiencyMeter();
 		// efficiencyMeter meterQuickSort = new efficiencyMeter();
 		// efficiencyMeter meterMergeSort = new efficiencyMeter();
 
 		// ----------------------------------------------------------------//
+		
+		//TESTE CAIXEIRO
+		for (int i = 0; i < msMax.length; i++) {
+		efficiencyMeter meterCaixeiro = new efficiencyMeter();
+		
+		Caixeiro.CalcularRotas((int) n[i] , meterCaixeiro);
+		
+		cvMedio[i] = meterCaixeiro.registerMeter.processingTotal;
+		
+		meterCaixeiro.finalizador(0, 0, "Caixeiro Viajante", (int) n[i], meterCaixeiro);
+		
+		}
+		//FIM TESTE CAIXEIRO
+		
 
 		while (MediaInicial != MediaParada) {
 
@@ -64,8 +79,7 @@ public class MainTesteLagrange {
 				efficiencyMeter meterBuscaBinaria = new efficiencyMeter();
 
 				vetor1 = bublleSort(vetor1, meterBubleSort);
-				binarySearch(vetor1, -1,
-						meterBuscaBinaria);
+				binarySearch(vetor1, -1, meterBuscaBinaria);
 
 				for (int i = 0; i < vetor1.length; ++i) {
 					// System.out.print(vetor1[i] + " ");
@@ -79,17 +93,61 @@ public class MainTesteLagrange {
 				meterBuscaBinaria.finalizador(0, 0, "Busca Binaria",
 						(int) n[k], meterBuscaBinaria);
 
-				//System.out.println(meterBubleSort.registerMeter.processingTotal);
-				bs[k] += meterBubleSort.registerMeter.processingTotal;
-						
-				//System.out.println(meterBuscaBinaria.registerMeter.processingTotal);
-				//if(n[k] == 1000){
-					
-				//	System.out.println(meterBuscaBinaria.registerMeter.processingTotal);
-				bb[k] += meterBuscaBinaria.registerMeter.processingTotal;
-				
-				//	System.out.println(bb[k]);
-				//	System.out.println("--------------------------");
+				// System.out.println(meterBubleSort.registerMeter.processingTotal);
+				bsMedio[k] += meterBubleSort.registerMeter.processingTotal;
+
+				// System.out.println(meterBuscaBinaria.registerMeter.processingTotal);
+				// if(n[k] == 1000){
+
+				// System.out.println(meterBuscaBinaria.registerMeter.processingTotal);
+				bbMedio[k] += meterBuscaBinaria.registerMeter.processingTotal;
+
+				// System.out.println(bb[k]);
+				// System.out.println("--------------------------");
+
+				// MIN BB
+				if (MediaInicial == 0) {
+
+					bbMin[k] = meterBuscaBinaria.registerMeter.processingTotal;
+
+				} else if (bbMin[k] > meterBuscaBinaria.registerMeter.processingTotal) {
+
+					bbMin[k] = meterBuscaBinaria.registerMeter.processingTotal;
+
+				}
+
+				// MAX BB
+				if (MediaInicial == 0) {
+
+					bbMax[k] = meterBuscaBinaria.registerMeter.processingTotal;
+
+				} else if (bbMin[k] < meterBuscaBinaria.registerMeter.processingTotal) {
+
+					bbMax[k] = meterBuscaBinaria.registerMeter.processingTotal;
+
+				}
+
+				// MIN BS
+				if (MediaInicial == 0) {
+
+					bsMin[k] = meterBubleSort.registerMeter.processingTotal;
+
+				} else if (bbMin[k] > meterBubleSort.registerMeter.processingTotal) {
+
+					bsMin[k] = meterBubleSort.registerMeter.processingTotal;
+
+				}
+
+				// MAX BS
+				if (MediaInicial == 0) {
+
+					bsMax[k] = meterBubleSort.registerMeter.processingTotal;
+
+				} else if (bsMin[k] < meterBubleSort.registerMeter.processingTotal) {
+
+					bsMax[k] = meterBubleSort.registerMeter.processingTotal;
+
+				}
 			}
 
 			MediaInicial++;
@@ -100,12 +158,12 @@ public class MainTesteLagrange {
 
 		for (int i = 0; i < n.length; ++i) {
 
-			bs[i] = bs[i] / MediaParada;
-			
-			//System.out.println("---------Media----------");
-			bb[i] = bb[i] / MediaParada;
-			//System.out.println(bb[i]);
-			//}
+			bsMedio[i] = bsMedio[i] / MediaParada;
+
+			// System.out.println("---------Media----------");
+			bbMedio[i] = bbMedio[i] / MediaParada;
+			// System.out.println(bb[i]);
+			// }
 
 		}
 
@@ -153,7 +211,29 @@ public class MainTesteLagrange {
 				meterCountSort.finalizador(0, 0, "Count Sort", (int) n[k],
 						meterCountSort);
 				cs[k] += meterCountSort.registerMeter.processingTotal;
-				 		 meterCountSort.registerMeter.zerar();
+
+				// MIN CS
+				if (MediaInicial == 0) {
+
+					csMin[k] = meterCountSort.registerMeter.processingTotal;
+
+				} else if (csMin[k] > meterCountSort.registerMeter.processingTotal) {
+
+					csMin[k] = meterCountSort.registerMeter.processingTotal;
+
+				}
+
+				// MAX CS
+				if (MediaInicial == 0) {
+
+					csMax[k] = meterCountSort.registerMeter.processingTotal;
+
+				} else if (csMin[k] < meterCountSort.registerMeter.processingTotal) {
+
+					csMax[k] = meterCountSort.registerMeter.processingTotal;
+
+				}
+
 			}
 
 			MediaInicial++;
@@ -204,11 +284,54 @@ public class MainTesteLagrange {
 						meterMergeSort);
 				meterQuickSort.finalizador(0, 0, "Quick Sort", (int) n[k],
 						meterQuickSort);
-				ms[k] += meterMergeSort.registerMeter.processingTotal;
-						 meterMergeSort.registerMeter.zerar();
-				qs[k] += meterQuickSort.registerMeter.processingTotal;
-				 		 meterQuickSort.registerMeter.zerar();
-							 		  		 
+				msMedio[k] += meterMergeSort.registerMeter.processingTotal;
+
+				qsMedio[k] += meterQuickSort.registerMeter.processingTotal;
+
+				// MIN MS
+				if (MediaInicial == 0) {
+
+					msMin[k] = meterMergeSort.registerMeter.processingTotal;
+
+				} else if (msMin[k] > meterMergeSort.registerMeter.processingTotal) {
+
+					msMin[k] = meterMergeSort.registerMeter.processingTotal;
+
+				}
+
+				// MAX MS
+				if (MediaInicial == 0) {
+
+					msMax[k] = meterMergeSort.registerMeter.processingTotal;
+
+				} else if (msMax[k] < meterMergeSort.registerMeter.processingTotal) {
+
+					msMax[k] = meterMergeSort.registerMeter.processingTotal;
+
+				}
+
+				// MIN QS
+				if (MediaInicial == 0) {
+
+					qsMin[k] = meterQuickSort.registerMeter.processingTotal;
+
+				} else if (qsMin[k] > meterQuickSort.registerMeter.processingTotal) {
+
+					qsMin[k] = meterQuickSort.registerMeter.processingTotal;
+
+				}
+
+				// MAX QS
+				if (MediaInicial == 0) {
+
+					qsMax[k] = meterQuickSort.registerMeter.processingTotal;
+
+				} else if (bsMin[k] < meterQuickSort.registerMeter.processingTotal) {
+
+					qsMax[k] = meterQuickSort.registerMeter.processingTotal;
+
+				}
+
 			}
 
 			MediaInicial++;
@@ -219,8 +342,8 @@ public class MainTesteLagrange {
 
 		for (int i = 0; i < n.length; ++i) {
 
-			ms[i] = ms[i] / MediaParada;
-			qs[i] = qs[i] / MediaParada;
+			msMedio[i] = msMedio[i] / MediaParada;
+			qsMedio[i] = qsMedio[i] / MediaParada;
 
 		}
 
@@ -244,12 +367,12 @@ public class MainTesteLagrange {
 		// GERANDO GRAFICOS DE CRESCIMENTO
 		ReportGraph reportGraph = new ReportGraph();
 
-		// reportGraph.addSeries("Bublle Sort");
-		// reportGraph.addSeries("Busca Binaria");
-		// reportGraph.addSeries("Count Sort");
-		// reportGraph.addSeries("Merge Sort");
-		// reportGraph.addSeries("Quick Sort");
-		// reportGraph.showSeries();
+		//reportGraph.addSeries("Bublle Sort");
+		 //reportGraph.addSeries("Busca Binaria");
+		 //reportGraph.addSeries("Count Sort");
+		 //reportGraph.addSeries("Merge Sort");
+		 //reportGraph.addSeries("Quick Sort");
+		 //reportGraph.showSeries();
 		// FIM DA GERAÇÃO DOS GRÁFICOS
 
 		// ----------------------------------------------------------------//
@@ -258,13 +381,164 @@ public class MainTesteLagrange {
 
 		double alpha = 355;
 		double beta = 680;
-		
 
-		System.out.println("----------------------");
+		System.out.println("--------Bublle Sort-------");
+		System.out.println("--------Melhor caso-------");
 
-		System.out.println(Math.abs(Lagrange.fC(alpha, beta, qs)));
+		for (int j = 0; j < msMax.length; j++) {
 
-		System.out.println("----------------------");
+			System.out.println(bsMin[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, bsMin)));
+
+		System.out.println("--------Medio caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(bsMedio[j]);
+
+		}
+
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, bsMedio)));
+
+		System.out.println("--------Pior caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(bsMax[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, bsMax)));
+
+		System.out.println(" ");
+
+		System.out.println("--------Busca Binária-------");
+		System.out.println("--------Melhor caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(bbMin[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, bbMin)));
+
+		System.out.println("--------Medio caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(bbMedio[j]);
+
+		}
+
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, bbMedio)));
+
+		System.out.println("--------Pior caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(bbMax[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, bbMax)));
+
+		System.out.println(" ");
+
+		System.out.println("--------Count Sort-------");
+		System.out.println("--------Melhor caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(csMin[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, csMin)));
+
+		System.out.println("--------Medio caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(cs[j]);
+
+		}
+
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, cs)));
+
+		System.out.println("--------Pior caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(csMax[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, csMax)));
+
+		System.out.println(" ");
+
+		System.out.println("--------Merge Sort-------");
+		System.out.println("--------Melhor caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(msMin[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, msMin)));
+
+		System.out.println("--------Medio caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(msMedio[j]);
+
+		}
+
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, msMedio)));
+
+		System.out.println("--------Pior caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(msMax[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, msMax)));
+
+		System.out.println(" ");
+
+		System.out.println("--------Quick Sort-------");
+		System.out.println("--------Melhor caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(qsMin[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, qsMin)));
+
+		System.out.println("--------Medio caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(qsMedio[j]);
+
+		}
+
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, qsMedio)));
+
+		System.out.println("--------Pior caso-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(qsMax[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, qsMax)));
+
+		System.out.println(" ");
+
+		System.out.println("-------------------");
+		System.out.println("---------Classificação----------");
 		System.out.println("------Constante-----");
 
 		System.out.println("0");
@@ -313,8 +587,76 @@ public class MainTesteLagrange {
 	/**
 	 * @return posiï¿½ï¿½o onde o item foi encontrado, ou nï¿½o.
 	 */
+
+	// BOSO SORT
+	public static void bogoSort(int length, int range) {
+		int[] array = randomIntArray(length, range);
+
+		while (!isSorted(array))
+			array = randomArray(array);
+
+		for (int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + " ");
+		}
+
+	}
+
+	private static boolean isSorted(int[] array) {
+		for (int i = 0; i < (array.length - 1); ++i) {
+			if (array[i] > array[i + 1])
+				return false;
+		}
+
+		return true;
+	}
+
+	private static int[] randomArray(int[] array) {
+
+		int size = array.length;
+		int[] indices = new int[size];
+		for (int i = 0; i < size; i++) {
+			indices[i] = i;
+		}
+
+		Random random = new Random();
+		for (int i = 0; i < size; i++) {
+			boolean unique = false;
+			int nRandom = 0;
+			while (!unique) {
+				unique = true;
+				nRandom = random.nextInt(size);
+				for (int j = 0; j < i; j++) {
+					if (indices[j] == nRandom) {
+						unique = false;
+						break;
+					}
+				}
+			}
+
+			indices[i] = nRandom;
+		}
+
+		int[] result = new int[size];
+		for (int k = 0; k < size; k++) {
+			result[indices[k]] = array[k];
+		}
+
+		return result;
+	}
+
+	private static int[] randomIntArray(int length, int n) {
+		int[] a = new int[length];
+		Random generator = new Random();
+		for (int i = 0; i < a.length; i++) {
+			a[i] = generator.nextInt(n);
+		}
+		return a;
+	}
+
+	// FIM BOSO SORT
+
 	public static int binarySearch(int[] a, int x, efficiencyMeter medidor) {
-		
+
 		int low = 0;
 		medidor.simpleVariableAllocation();
 
