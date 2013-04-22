@@ -315,7 +315,7 @@ public class Caixeiro {
 ////		result = permuta(v, 0 ,v[0]);
 ////		
 ////		System.out.println(" ");
-////		System.out.println("Menor distâcia = " + menorDistancia);
+////		System.out.println("Menor distacia = " + menorDistancia);
 ////		
 //		
 //		CalcularRotas(4);

@@ -61,7 +61,7 @@ public class Lagrange {
 		return somatorio;
 	}
 
-	// DERIVADA SEGUNDA DA FUNÇÃO
+	// DERIVADA SEGUNDA DA FUNcaO
 
 	public static double dF2(double x) {
 
@@ -122,7 +122,7 @@ public class Lagrange {
 		return resultado;
 	}
 
-	// DERIVADA PRIMEIRA DA FUNÇÃO
+	// DERIVADA PRIMEIRA DA FUNcaO
 
 	public static double dF1(double x) {
 

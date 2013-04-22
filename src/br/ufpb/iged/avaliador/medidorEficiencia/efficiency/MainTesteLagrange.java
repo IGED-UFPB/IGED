@@ -1,6 +1,6 @@
 package br.ufpb.iged.avaliador.medidorEficiencia.efficiency;
 
-import br.ufpb.iged.avaliador.medidorEficiencia.gui.ReportGraph;
+//import br.ufpb.iged.avaliador.medidorEficiencia.gui.ReportGraph;
 
 import java.util.List;
 import java.util.Random;
@@ -9,8 +9,16 @@ public class MainTesteLagrange {
 
 	public static void main(String[] args) {
 
+		WriteTxt gravadorBS = new WriteTxt("Arquivo BS");
+		WriteTxt gravadorBB = new WriteTxt("Arquivo BB");
+		WriteTxt gravadorCS = new WriteTxt("Arquivo CS");
+		WriteTxt gravadorMS = new WriteTxt("Arquivo MS");
+		WriteTxt gravadorQS = new WriteTxt("Arquivo QS");
+		WriteTxt gravadorCV = new WriteTxt("Arquivo CV");
+
 		// INSTANCIAS USADAS NA MEDIÇÃO
 		double[] n = Lagrange.VetorX;
+		double[] nCaix = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
 		// ARRAYS FINAIS PARA VERIFICAÇÃO
 		double bsMedio[] = new double[n.length];
@@ -32,12 +40,12 @@ public class MainTesteLagrange {
 		double msMedio[] = new double[n.length];
 		double msMin[] = new double[n.length];
 		double msMax[] = new double[n.length];
-		
+
 		double cvMedio[] = new double[n.length];
 
 		int MediaInicial = 0;
 		int MediaParada = 1;
-		
+
 		// MEDIDORES DE EFICIÊNCIA
 		// efficiencyMeter meterBubleSort = new efficiencyMeter();
 		// efficiencyMeter meterCountSort = new efficiencyMeter();
@@ -45,24 +53,43 @@ public class MainTesteLagrange {
 		// efficiencyMeter meterMergeSort = new efficiencyMeter();
 
 		// ----------------------------------------------------------------//
-		
-		//TESTE CAIXEIRO
-		for (int i = 0; i < msMax.length; i++) {
-		efficiencyMeter meterCaixeiro = new efficiencyMeter();
-		
-		Caixeiro.CalcularRotas((int) n[i] , meterCaixeiro);
-		
-		cvMedio[i] = meterCaixeiro.registerMeter.processingTotal;
-		
-		meterCaixeiro.finalizador(0, 0, "Caixeiro Viajante", (int) n[i], meterCaixeiro);
-		
-		}
-		//FIM TESTE CAIXEIRO
-		
+
+		// TESTE CAIXEIRO
 
 		while (MediaInicial != MediaParada) {
 
-			// TESTE BUSCA BINÁRIA E BUBLE SORT
+			for (int i = 0; i < msMax.length; i++) {
+				efficiencyMeter meterCaixeiro = new efficiencyMeter();
+
+				Caixeiro.CalcularRotas((int) nCaix[i], meterCaixeiro);
+
+				cvMedio[i] += meterCaixeiro.registerMeter.processingTotal;
+
+				gravadorCV.escreve(String
+						.valueOf(meterCaixeiro.registerMeter.processingTotal));
+				gravadorCV.escreve(" ");
+
+				meterCaixeiro.finalizador(0, 0, "Caixeiro Viajante",
+						(int) nCaix[i], meterCaixeiro);
+
+			}
+			
+			MediaInicial++;
+
+		}
+		
+		MediaInicial = 0;
+		
+		for (int i = 0; i < n.length; ++i) {
+
+			cvMedio[i] = cvMedio[i] / MediaParada;
+		}
+
+		// FIM TESTE CAIXEIRO
+
+		while (MediaInicial != MediaParada) {
+
+			// TESTE BUSCA BINaRIA E BUBLE SORT
 			for (int k = 0; k < n.length; ++k) {
 				// System.out.println("Test Simples");
 				int[] vetor1 = new int[(int) n[k]];
@@ -93,6 +120,16 @@ public class MainTesteLagrange {
 				meterBuscaBinaria.finalizador(0, 0, "Busca Binaria",
 						(int) n[k], meterBuscaBinaria);
 
+				// GRAVANDO DADOS
+				gravadorBB
+						.escreve(String
+								.valueOf(meterBuscaBinaria.registerMeter.processingTotal));
+				gravadorBB.escreve(" ");
+
+				gravadorBS.escreve(String
+						.valueOf(meterBubleSort.registerMeter.processingTotal));
+				gravadorBS.escreve(" ");
+
 				// System.out.println(meterBubleSort.registerMeter.processingTotal);
 				bsMedio[k] += meterBubleSort.registerMeter.processingTotal;
 
@@ -102,6 +139,7 @@ public class MainTesteLagrange {
 				// System.out.println(meterBuscaBinaria.registerMeter.processingTotal);
 				bbMedio[k] += meterBuscaBinaria.registerMeter.processingTotal;
 
+				// System.out.println(meterBuscaBinaria.registerMeter.processingTotal);
 				// System.out.println(bb[k]);
 				// System.out.println("--------------------------");
 
@@ -149,6 +187,9 @@ public class MainTesteLagrange {
 
 				}
 			}
+
+			gravadorBB.escreve("\n\r");
+			gravadorBS.escreve("\n\r");
 
 			MediaInicial++;
 
@@ -212,6 +253,10 @@ public class MainTesteLagrange {
 						meterCountSort);
 				cs[k] += meterCountSort.registerMeter.processingTotal;
 
+				gravadorCS.escreve(String
+						.valueOf(meterCountSort.registerMeter.processingTotal));
+				gravadorCS.escreve(" ");
+
 				// MIN CS
 				if (MediaInicial == 0) {
 
@@ -235,7 +280,7 @@ public class MainTesteLagrange {
 				}
 
 			}
-
+			gravadorCS.escreve("\n\r");
 			MediaInicial++;
 
 		}
@@ -284,6 +329,15 @@ public class MainTesteLagrange {
 						meterMergeSort);
 				meterQuickSort.finalizador(0, 0, "Quick Sort", (int) n[k],
 						meterQuickSort);
+
+				gravadorMS.escreve(String
+						.valueOf(meterMergeSort.registerMeter.processingTotal));
+				gravadorMS.escreve(" ");
+
+				gravadorQS.escreve(String
+						.valueOf(meterQuickSort.registerMeter.processingTotal));
+				gravadorQS.escreve(" ");
+
 				msMedio[k] += meterMergeSort.registerMeter.processingTotal;
 
 				qsMedio[k] += meterQuickSort.registerMeter.processingTotal;
@@ -333,6 +387,8 @@ public class MainTesteLagrange {
 				}
 
 			}
+			gravadorMS.escreve("\n\r");
+			gravadorQS.escreve("\n\r");
 
 			MediaInicial++;
 
@@ -365,15 +421,15 @@ public class MainTesteLagrange {
 		// ----------------------------------------------------------------//
 
 		// GERANDO GRAFICOS DE CRESCIMENTO
-		ReportGraph reportGraph = new ReportGraph();
+		//ReportGraph reportGraph = new ReportGraph();
 
-		//reportGraph.addSeries("Bublle Sort");
-		 //reportGraph.addSeries("Busca Binaria");
-		 //reportGraph.addSeries("Count Sort");
-		 //reportGraph.addSeries("Merge Sort");
-		 //reportGraph.addSeries("Quick Sort");
-		 //reportGraph.showSeries();
-		// FIM DA GERAÇÃO DOS GRÁFICOS
+		// reportGraph.addSeries("Bublle Sort");
+		// reportGraph.addSeries("Busca Binaria");
+		// reportGraph.addSeries("Count Sort");
+		// reportGraph.addSeries("Merge Sort");
+		// reportGraph.addSeries("Quick Sort");
+		// reportGraph.showSeries();
+		// FIM DA GERAcaoO DOS GRaFICOS
 
 		// ----------------------------------------------------------------//
 
@@ -381,6 +437,18 @@ public class MainTesteLagrange {
 
 		double alpha = 355;
 		double beta = 680;
+
+		System.out.println("--------Caixeiro Viajante-------");
+		System.out.println("--------Caso Aleatório-------");
+
+		for (int j = 0; j < msMax.length; j++) {
+
+			System.out.println(cvMedio[j]);
+
+		}
+		System.out.println(Math.abs(Lagrange.fC(alpha, beta, cvMedio)));
+
+		System.out.println(" ");
 
 		System.out.println("--------Bublle Sort-------");
 		System.out.println("--------Melhor caso-------");
@@ -413,7 +481,7 @@ public class MainTesteLagrange {
 
 		System.out.println(" ");
 
-		System.out.println("--------Busca Binária-------");
+		System.out.println("--------Busca Binaria-------");
 		System.out.println("--------Melhor caso-------");
 
 		for (int j = 0; j < msMax.length; j++) {
@@ -538,7 +606,7 @@ public class MainTesteLagrange {
 		System.out.println(" ");
 
 		System.out.println("-------------------");
-		System.out.println("---------Classificação----------");
+		System.out.println("---------Classificacao----------");
 		System.out.println("------Constante-----");
 
 		System.out.println("0");
