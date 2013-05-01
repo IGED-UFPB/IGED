@@ -1,0 +1,20 @@
+.class Comp
+.method operacoes(II) I
+        iload_1
+        iload_2
+        isub
+        istore_0
+L1:     iload_0
+        ldc 10
+        if_icmplt L2
+        iload_0
+        iconst_2
+        idiv
+        ireturn
+L2:     iload_0
+        iconst_2
+        iadd
+        istore_0
+        goto L1
+.end method
+.end class

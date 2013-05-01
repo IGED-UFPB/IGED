@@ -1,0 +1,36 @@
+.class Main
+.method static main() V
+.limit locals 100
+        new Foo
+        iconst_1
+        iconst_5
+        invokespecial Foo/<init>(II) V
+        pop2
+        astore_0
+        aload_0
+        iconst_4
+        putfield Foo/x I
+        iconst_2
+        putfield Foo/y I
+        invokevirtual Foo/media() I
+        istore_1
+        ldc 8
+        iload_1
+        iadd
+        istore_2
+        aload_0
+        dup
+        getfield Foo/z LComp;
+        astore_3
+        aload_3
+        iload_1
+        iload_2
+        invokevirtual Comp/operacoes(II) I
+        istore 4
+        iload 4
+        iconst_2
+        imul
+        istore 5
+        return
+.end method
+.end class

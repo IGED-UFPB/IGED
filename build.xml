@@ -1,0 +1,57 @@
+
+<project name="Interpretador" default="gerar" basedir=".">
+	
+	<property name = "src.dir" value = 
+		"src/br/ufpb/iged/interpretador/gramaticas"/>
+	<property name = "dest.dir" value = 
+			"src/br/ufpb/iged/interpretador/parser"/>
+	<property name="assembler.gram" value = "Assembler.g"/>
+	<property name="def.gram" value = "Def.g"/>
+	<property name="ref.gram" value = "Ref.g"/>
+	<property name = "destIntermediario.dir" value = 
+				"src/br/ufpb/iged/interpretador/tradutor/intermediario/parser"/>
+	<property name="intermediario.gram" value = "Intermediario.g"/>
+    
+    <target name="clean">
+    	<delete>
+			<fileset dir="${dest.dir}">
+	    		<include name="*.java"/>
+				<include name="*.tokens"/>
+			</fileset>
+		</delete>
+	</target>
+    	
+	<target name="gerar" depends="clean">
+		<java classname="org.antlr.Tool" fork="true" failonerror="true">
+			<arg value="-verbose"/>
+			<arg value="-make"/>
+			<arg value="-o"/>
+			<arg path="${dest.dir}"/>
+			<arg path="${src.dir}/${assembler.gram}"/>
+			<arg path="${src.dir}/${def.gram}"/>
+			<arg path="${src.dir}/${ref.gram}"/>
+		</java>
+	</target>
+	
+	 
+	<target name="cleanIntermediario">
+	    <delete>
+			<fileset dir="${destIntermediario.dir}">
+		    	<include name="*.java"/>
+				<include name="*.tokens"/>
+			</fileset>
+		</delete>
+	</target>
+	    	
+	<target name="gerarIntermediario" depends="cleanIntermediario">
+		<java classname="org.antlr.Tool" fork="true" failonerror="true">
+			<arg value="-verbose"/>
+			<arg value="-make"/>
+			<arg value="-o"/>
+			<arg path="${destIntermediario.dir}"/>
+			<arg path="${src.dir}/${intermediario.gram}"/>
+		</java>
+	</target>
+ 
+</project>
+
