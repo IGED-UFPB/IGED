@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.Definicao;
 import br.ufpb.iged.interpretador.excecoes.ClassNotFoundException;
 import br.ufpb.iged.interpretador.symboltable.classes.SimboloClasse;
@@ -50,7 +51,7 @@ public class MaquinaVirtual {
 
 			executarInstrucao();
 				 
-			exibirTela(frameAtual);
+			//exibirTela(frameAtual);
 				 
 		}
 										
@@ -193,6 +194,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = 0;
+			
+			Interpretador.con.readReferenceInt("0");
 
 		}
 		;
@@ -203,6 +206,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = 1;
+			
+			Interpretador.con.readReferenceInt("1");;
 
 		}
 		;
@@ -213,6 +218,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = 2;
+			
+			Interpretador.con.readReferenceInt("2");
 
 		}
 		;
@@ -223,6 +230,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = 3;
+			
+			Interpretador.con.readReferenceInt("3");
 
 		}
 		;
@@ -233,6 +242,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = 4;
+			
+			Interpretador.con.readReferenceInt("4");
 
 		}
 		;
@@ -243,6 +254,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = 5;
+			
+			Interpretador.con.readReferenceInt("5");
 
 		}
 		;
@@ -253,6 +266,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = -1;
+			
+			Interpretador.con.readReferenceInt("-1");
 
 		}
 		;
@@ -275,6 +290,8 @@ public class MaquinaVirtual {
 			op1 = frameAtual.pc.obterOperandoInteiro();
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = op1;
+			
+			Interpretador.con.readReferenceInt(""+op1);
 
 		}
 		;
@@ -287,6 +304,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[0];
+			
+			Interpretador.con.ler_Int("0");
 
 		}
 		;
@@ -297,6 +316,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[1];
+			
+			Interpretador.con.ler_Int("1");
 
 		}
 		;
@@ -307,6 +328,9 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[2];
+			
+			Interpretador.con.ler_Int("2");
+			
 
 		}
 		;
@@ -317,6 +341,9 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[3];
+			
+			Interpretador.con.ler_Int("3");
+			
 
 		}
 		;
@@ -329,6 +356,8 @@ public class MaquinaVirtual {
 			op1 = frameAtual.pc.obterOperandoInteiro();
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[op1];
+			
+			Interpretador.con.ler_Int(""+op1);			
 
 		}
 		;
@@ -339,6 +368,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[0];
+			
+			Interpretador.con.readReference("0");
 
 		}
 		;
@@ -349,6 +380,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[1];
+			
+			Interpretador.con.readReference("1");
 
 		}
 		;
@@ -359,6 +392,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[2];
+			
+			Interpretador.con.readReference("2");
 
 		}
 		;
@@ -369,6 +404,8 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[3];
+			
+			Interpretador.con.readReference("3");
 
 		}
 		;
@@ -381,6 +418,8 @@ public class MaquinaVirtual {
 			op1 = frameAtual.pc.obterOperandoInteiro();
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[op1];
+			
+			Interpretador.con.readReference(""+op1);
 
 		}
 		;
@@ -394,6 +433,11 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[0] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[0])
+				frameAtual.criarVariavelInteiro(0);
+			
+			Interpretador.con.setValueInt((Integer)frameAtual.variaveis[0]);
 
 		}
 		;
@@ -404,6 +448,11 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[1])
+				frameAtual.criarVariavelInteiro(1);
+			
+			Interpretador.con.setValueInt((int)frameAtual.variaveis[1]);
 
 		}
 		;
@@ -414,6 +463,11 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[2] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[2])
+				frameAtual.criarVariavelInteiro(2);
+			
+			Interpretador.con.setValueInt((Integer)frameAtual.variaveis[2]);
 
 		}
 		;
@@ -424,6 +478,11 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[3] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[3])
+				frameAtual.criarVariavelInteiro(3);
+			
+			Interpretador.con.setValueInt((Integer)frameAtual.variaveis[3]);
 
 		}
 		;
@@ -436,6 +495,11 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[op1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[op1])
+				frameAtual.criarVariavelInteiro(op1);
+			
+			Interpretador.con.setValueInt((Integer)frameAtual.variaveis[op1]);
 
 		}
 		;
@@ -446,6 +510,15 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[0] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[0]){
+				Integer valorRef = ((Referencia)frameAtual.variaveis[0]).getEndereco();
+				Objeto objeto = heap.get(valorRef);
+				frameAtual.criarVariavelReferencia(0, objeto.getNome());
+			}
+			
+			Interpretador.con.readReference("0");						
+			Interpretador.con.writeReference();
 
 		}
 		;
@@ -456,6 +529,15 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[1]){
+				Integer valorRef = ((Referencia)frameAtual.variaveis[1]).getEndereco();
+				Objeto objeto = heap.get(valorRef);
+				frameAtual.criarVariavelReferencia(1, objeto.getNome());
+			}
+						
+			Interpretador.con.readReference("1");						
+			Interpretador.con.writeReference();
 
 		}
 		;
@@ -466,6 +548,15 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[2] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[2]){
+				Integer valorRef = ((Referencia)frameAtual.variaveis[2]).getEndereco();
+				Objeto objeto = heap.get(valorRef);
+				frameAtual.criarVariavelReferencia(2, objeto.getNome());
+			}
+						
+			Interpretador.con.readReference("2");						
+			Interpretador.con.writeReference();
 
 		}
 		;
@@ -476,6 +567,15 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[3] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[3]){
+				Integer valorRef = ((Referencia)frameAtual.variaveis[3]).getEndereco();
+				Objeto objeto = heap.get(valorRef);
+				frameAtual.criarVariavelReferencia(3, objeto.getNome());
+			}
+						
+			Interpretador.con.readReference("3");						
+			Interpretador.con.writeReference();
 
 		}
 		;
@@ -488,6 +588,15 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[op1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
+			
+			if (!frameAtual.getVariaveisCriadas()[op1]){
+				Integer valorRef = ((Referencia)frameAtual.variaveis[op1]).getEndereco();
+				Objeto objeto = heap.get(valorRef);
+				frameAtual.criarVariavelReferencia(op1, objeto.getNome());
+			}
+						
+			Interpretador.con.readReference(""+op1);						
+			Interpretador.con.writeReference();
 
 		}
 		;
@@ -853,6 +962,21 @@ public class MaquinaVirtual {
 			heap.add(objeto);
 
 			frameAtual.pilhaOperandos[++frameAtual.sp] = new Referencia(heap.indexOf(objeto));
+			
+			String tipo = simboloClasse.obterNome();
+			
+			if (tipo.equals("LList"))
+				Interpretador.con.createStruct(IGEDConst.LISTA);
+			else if (tipo.equals("LNode"))
+				Interpretador.con.createStruct(IGEDConst.NODE);
+			else if (tipo.equals("LNodeTree"))
+				Interpretador.con.createStruct(IGEDConst.NODE_TREE);
+			else if (tipo.equals("LVector"))
+				Interpretador.con.createStruct(IGEDConst.VETOR);
+			else if (tipo.equals("LBinaryTree"))
+				Interpretador.con.createStruct(IGEDConst.BINARY_TREE);
+			
+			//Interpretador.con.readReference(var);
 
 		}
 
@@ -869,7 +993,7 @@ public class MaquinaVirtual {
 			
 			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
 			
-			iniciarNovoMetodo(simboloMetodo, false);
+			iniciarNovoMetodo(null, simboloMetodo, false);
 		}
 		
 		;
@@ -885,7 +1009,8 @@ public class MaquinaVirtual {
 			
 			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
 			
-			iniciarNovoMetodo(simboloMetodo, false);			
+			iniciarNovoMetodo(simboloClasse, simboloMetodo, false);
+			
 
 		}
 
@@ -936,7 +1061,7 @@ public class MaquinaVirtual {
 			
 			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
 			
-			iniciarNovoMetodo(simboloMetodo, true);			
+			iniciarNovoMetodo(null, simboloMetodo, true);			
 			
 		}
 		
@@ -984,6 +1109,11 @@ public class MaquinaVirtual {
 			
 				frameAtual = pilha[topoPilha];
 			
+			/*for (int i = 0; i < frameAtual.pc.getSimboloMetodo().getTamanhoMemoriaLocalVariaveis(); i++){
+				if (frameAtual.variaveis[i] instanceof Inteiro)
+			}
+				Interpretador.con.remove_int(var);*/
+			
 		}
 		
 		;
@@ -1019,7 +1149,7 @@ public class MaquinaVirtual {
 		
 	}
 	
-	public void iniciarNovoMetodo(SimboloMetodo metodo, boolean estatico) {
+	public void iniciarNovoMetodo(SimboloClasse classe, SimboloMetodo metodo, boolean estatico) {
 		
 		pilha[++topoPilha] =  new StackFrame(metodo.getTamanhoMemoriaLocalVariaveis(), estatico);
 		
@@ -1038,6 +1168,20 @@ public class MaquinaVirtual {
 		for (i = 0; i < qtdParams; i++) {
 			obj = pilha[topoPilha - 1].pilhaOperandos[pilha[topoPilha - 1].sp - i];
 			frameAtual.inserirValorParametro(obj);
+			
+			/*if (classe != null){
+				
+				if (classe.obterNome().equals("LVector")){
+					
+					if (i == 0)
+					
+						Interpretador.con.setPosVector((Integer)obj);
+					
+					else
+					
+				}
+				
+			}*/
 			
 		}
 		
@@ -1065,7 +1209,7 @@ public class MaquinaVirtual {
 
 	}
 	
-	protected void exibirTela(StackFrame frame) {
+	/*protected void exibirTela(StackFrame frame) {
 
 		int i;
 
@@ -1105,7 +1249,7 @@ public class MaquinaVirtual {
 		in.next();
 
 
-	}
+	}*/
 
 	public StackFrame getFrameAtual() {
 		return frameAtual;

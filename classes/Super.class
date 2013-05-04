@@ -1,7 +1,0 @@
-.class Super
-.field abc I
-.field xyz I
-.method <init>() V
-	return
-.end method
-.end class

@@ -16,6 +16,7 @@ options {
     import br.ufpb.iged.interpretador.symboltable.classes.SimboloMetodo;
     import br.ufpb.iged.interpretador.symboltable.classes.TabelaSimbolos;
     import br.ufpb.iged.interpretador.symboltable.classes.EscopoLocal;
+    import br.ufpb.iged.interpretador.principal.Interpretador;
 }
 
 @members {
@@ -183,4 +184,4 @@ label
       SimboloMetodo metodo = (SimboloMetodo) escopoAtual.obterEscopoEnvolvente();
       metodo.definirLabel($id.token, contador);
    }
-   ;       
+   ;     

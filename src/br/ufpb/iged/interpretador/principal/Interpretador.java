@@ -16,6 +16,9 @@ import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.runtime.tree.TreeAdaptor;
 import org.antlr.runtime.tree.CommonTreeAdaptor;
 
+import br.ufpb.iged.GraficoAED;
+import br.ufpb.iged.IGED;
+import br.ufpb.iged.grafico.manager.Quadro;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.BytecodeAssembler;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.Definicao;
 import br.ufpb.iged.interpretador.parser.AssemblerLexer;
@@ -31,12 +34,12 @@ import br.ufpb.iged.interpretador.parser.Def;
 import br.ufpb.iged.interpretador.parser.Ref;
 
 public class Interpretador {
+	
+	public static GraficoAED con;
 			
 	private static final String DIRETORIO_FONTE = "./classes";
 				
 	public static TabelaSimbolos tabelaSimbolos;
-		
-	private static StringBuffer entrada;
 	
 	private static BytecodeAssembler assembler;
 	
@@ -45,6 +48,33 @@ public class Interpretador {
 	private static CommonTokenStream tokens = new CommonTokenStream();
 	
 	private static CommonTree tree = new CommonTree();
+	
+	public Interpretador() {
+		
+		con = new GraficoAED();
+		
+	}
+	
+	public void init(){
+		con.endCommand();
+	}
+	
+	public Quadro getQuadro() {
+	      return con.quadro();
+	}
+
+	public boolean taskIsCorrect(){
+	     return con.correctTask();
+	}
+	
+	public void setMode(int mode){
+        con.setMode(mode);
+    }
+
+    public void clear() {
+        con.clearStruct();
+        con.endCommand();
+    }
 	
 	public static TreeAdaptor bytecodesAdaptor = new CommonTreeAdaptor() {
 		
@@ -68,7 +98,7 @@ public class Interpretador {
         
     };
 
-	public static void main(String[] args) {
+	public void interpretar() {
 		
 		try {
 			
@@ -77,6 +107,7 @@ public class Interpretador {
 			vm = new MaquinaVirtual(Interpretador.getAssembler().getConstantPool());
 			
 			executarMain();
+			
 			
 		} catch (IOException ioe) {
 
@@ -108,7 +139,7 @@ public class Interpretador {
 		SimboloClasse principal = ClassLoader.carregarClasseMain();
 		SimboloMetodo main = (SimboloMetodo) principal.resolver("main(VOID)V");
 			
-		vm.iniciarNovoMetodo(main, true);
+		vm.iniciarNovoMetodo(null,main, true);
 		vm.cpu();	
 		
 	}
@@ -116,8 +147,6 @@ public class Interpretador {
 	public static void carregar() 
 			throws IOException, LabelException, 
 				AcessoIndevidoMemoriaException, RecognitionException {
-		
-		    entrada = new StringBuffer();
 		
 			File file = new File(DIRETORIO_FONTE);
 		
