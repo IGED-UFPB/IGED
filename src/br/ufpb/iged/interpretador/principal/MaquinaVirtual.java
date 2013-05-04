@@ -437,7 +437,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[0])
 				frameAtual.criarVariavelInteiro(0);
 			
-			Interpretador.con.setValueInt((Integer)frameAtual.variaveis[0]);
+			Interpretador.con.setValueInt("0");
 
 		}
 		;
@@ -452,7 +452,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[1])
 				frameAtual.criarVariavelInteiro(1);
 			
-			Interpretador.con.setValueInt((int)frameAtual.variaveis[1]);
+			Interpretador.con.setValueInt("1");
 
 		}
 		;
@@ -467,7 +467,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[2])
 				frameAtual.criarVariavelInteiro(2);
 			
-			Interpretador.con.setValueInt((Integer)frameAtual.variaveis[2]);
+			Interpretador.con.setValueInt("2");
 
 		}
 		;
@@ -482,7 +482,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[3])
 				frameAtual.criarVariavelInteiro(3);
 			
-			Interpretador.con.setValueInt((Integer)frameAtual.variaveis[3]);
+			Interpretador.con.setValueInt("3");
 
 		}
 		;
@@ -499,7 +499,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[op1])
 				frameAtual.criarVariavelInteiro(op1);
 			
-			Interpretador.con.setValueInt((Integer)frameAtual.variaveis[op1]);
+			Interpretador.con.setValueInt(""+op1);
 
 		}
 		;
@@ -1209,7 +1209,7 @@ public class MaquinaVirtual {
 
 	}
 	
-	/*protected void exibirTela(StackFrame frame) {
+	protected void exibirTela(StackFrame frame) {
 
 		int i;
 
@@ -1249,7 +1249,7 @@ public class MaquinaVirtual {
 		in.next();
 
 
-	}*/
+	}
 
 	public StackFrame getFrameAtual() {
 		return frameAtual;

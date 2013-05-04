@@ -1,0 +1,7 @@
+.class List
+.field a I
+.field b I
+.method <init>() V
+	return
+.end method 
+.end class

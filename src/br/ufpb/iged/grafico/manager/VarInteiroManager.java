@@ -48,11 +48,26 @@ public class VarInteiroManager {
 		}
 	}
 	
+	// Esse método apresentou problemas, foi alterado logo abaixo
 	public void ler(String referencia){
 		try{
 			this.ints.get(referencia).ler();
 		}catch (NullPointerException e) {
 		}
+	}
+	
+	public String lerInteiro(String referencia){
+		
+		VarInteiro varInteiro = null;
+		
+		try{
+			varInteiro = this.ints.get(referencia);
+			varInteiro.ler();
+		}catch (NullPointerException e) {
+		}
+		
+		return varInteiro.getValor();
+		
 	}
 	
 	public void remover(String referencia){

@@ -30,9 +30,6 @@ public class StackFrame {
 		
 		this.variaveis = new Object[tamanhoMemoriaLocalVars];
 		this.setVariaveisCriadas(new boolean[tamanhoMemoriaLocalVars]);
-		
-		/*for (int i = 0; i < tamanhoMemoriaLocalVars; i++)
-			Interpretador.con.creat_Int(""+i);*/
 				
 	}
 	
