@@ -510,14 +510,7 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[0] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-			
-			if (!frameAtual.getVariaveisCriadas()[0]){
-				Integer valorRef = ((Referencia)frameAtual.variaveis[0]).getEndereco();
-				Objeto objeto = heap.get(valorRef);
-				frameAtual.criarVariavelReferencia(0, objeto.getNome());
-			}
-			
-			Interpretador.con.readReference("0");						
+								
 			Interpretador.con.writeReference();
 
 		}
@@ -529,14 +522,7 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-			
-			if (!frameAtual.getVariaveisCriadas()[1]){
-				Integer valorRef = ((Referencia)frameAtual.variaveis[1]).getEndereco();
-				Objeto objeto = heap.get(valorRef);
-				frameAtual.criarVariavelReferencia(1, objeto.getNome());
-			}
-						
-			Interpretador.con.readReference("1");						
+								
 			Interpretador.con.writeReference();
 
 		}
@@ -548,14 +534,7 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[2] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-			
-			if (!frameAtual.getVariaveisCriadas()[2]){
-				Integer valorRef = ((Referencia)frameAtual.variaveis[2]).getEndereco();
-				Objeto objeto = heap.get(valorRef);
-				frameAtual.criarVariavelReferencia(2, objeto.getNome());
-			}
-						
-			Interpretador.con.readReference("2");						
+									
 			Interpretador.con.writeReference();
 
 		}
@@ -567,14 +546,7 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[3] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-			
-			if (!frameAtual.getVariaveisCriadas()[3]){
-				Integer valorRef = ((Referencia)frameAtual.variaveis[3]).getEndereco();
-				Objeto objeto = heap.get(valorRef);
-				frameAtual.criarVariavelReferencia(3, objeto.getNome());
-			}
-						
-			Interpretador.con.readReference("3");						
+								
 			Interpretador.con.writeReference();
 
 		}
@@ -588,14 +560,7 @@ public class MaquinaVirtual {
 			frameAtual.variaveis[op1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-			
-			if (!frameAtual.getVariaveisCriadas()[op1]){
-				Integer valorRef = ((Referencia)frameAtual.variaveis[op1]).getEndereco();
-				Objeto objeto = heap.get(valorRef);
-				frameAtual.criarVariavelReferencia(op1, objeto.getNome());
-			}
-						
-			Interpretador.con.readReference(""+op1);						
+									
 			Interpretador.con.writeReference();
 
 		}
@@ -965,6 +930,8 @@ public class MaquinaVirtual {
 			
 			String tipo = simboloClasse.obterNome();
 			
+			frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), tipo);
+			
 			if (tipo.equals("LList"))
 				Interpretador.con.createStruct(IGEDConst.LISTA);
 			else if (tipo.equals("LNode"))
@@ -1043,6 +1010,7 @@ public class MaquinaVirtual {
 			op1 = frameAtual.pc.obterOperandoInteiro();
 
 			objeto.getMemoriaLocal()[op1] = frameAtual.pilhaOperandos[frameAtual.sp--];
+				
 
 		}
 

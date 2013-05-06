@@ -11,6 +11,8 @@ public class StackFrame {
 	public Object[] variaveis;
 	
 	private boolean[] variaveisCriadas;
+	
+	private int proximaVariavelNaoCriada = 0;
 		
 	public int sp = -1;
 	
@@ -47,27 +49,33 @@ public class StackFrame {
 	
 	public void criarVariavelInteiro(int endereco) {
 		
-		Interpretador.con.creat_Int(""+endereco);
-		variaveisCriadas[endereco] = true;
+		if (endereco == proximaVariavelNaoCriada) {
+			Interpretador.con.creat_Int(""+endereco);
+			variaveisCriadas[endereco] = true;
+			proximaVariavelNaoCriada++;
+		}
 		
 	}
 	
 	public void criarVariavelReferencia(int endereco, String tipo) {
 		
-		if (tipo.equals("LList"))
-			Interpretador.con.createReference(""+endereco, IGEDConst.LISTA);
-		else if (tipo.equals("LNode"))
-			Interpretador.con.createReference(""+endereco, IGEDConst.NODE);
-		else if (tipo.equals("LNodeTree"))
-			Interpretador.con.createReference(""+endereco, IGEDConst.NODE_TREE);
-		else if (tipo.equals("LVector"))
-			Interpretador.con.createReference(""+endereco, IGEDConst.VETOR);
-		else if (tipo.equals("LBinaryTree"))
-			Interpretador.con.createReference(""+endereco, IGEDConst.BINARY_TREE);
-		else
-			Interpretador.con.creat_Int(""+endereco);
-		
-		variaveisCriadas[endereco] = true;
+		if (endereco == proximaVariavelNaoCriada) {
+			if (tipo.equals("LList"))
+				Interpretador.con.createReference(""+endereco, IGEDConst.LISTA);
+			else if (tipo.equals("LNode"))
+				Interpretador.con.createReference(""+endereco, IGEDConst.NODE);
+			else if (tipo.equals("LNodeTree"))
+				Interpretador.con.createReference(""+endereco, IGEDConst.NODE_TREE);
+			else if (tipo.equals("LVector"))
+				Interpretador.con.createReference(""+endereco, IGEDConst.VETOR);
+			else if (tipo.equals("LBinaryTree"))
+				Interpretador.con.createReference(""+endereco, IGEDConst.BINARY_TREE);
+			else
+				Interpretador.con.creat_Int(""+endereco);
+			
+			variaveisCriadas[endereco] = true;
+			proximaVariavelNaoCriada++;
+		}
 		
 	}
 
@@ -77,6 +85,14 @@ public class StackFrame {
 
 	public void setVariaveisCriadas(boolean[] variaveisCriadas) {
 		this.variaveisCriadas = variaveisCriadas;
+	}
+
+	public int getProximaVariavelNaoCriada() {
+		return proximaVariavelNaoCriada;
+	}
+
+	public void setProximaVariavelNaoCriada(int proximaVariavelNaoCriada) {
+		this.proximaVariavelNaoCriada = proximaVariavelNaoCriada;
 	}
 	
 

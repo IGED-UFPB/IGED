@@ -1,6 +1,6 @@
-.class List
-.field init LList;
-.field size I
+.class NodeList
+.field info I
+.field next LList;
 .method <init>() V
 	return
 .end method 

@@ -18,6 +18,7 @@ import org.antlr.runtime.tree.CommonTreeAdaptor;
 
 import br.ufpb.iged.GraficoAED;
 import br.ufpb.iged.IGED;
+import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.grafico.manager.Quadro;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.BytecodeAssembler;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.Definicao;
@@ -222,6 +223,31 @@ public class Interpretador {
 			ref.downup(tree);
 		
 	}
+	
+	public static int referenceField(String field) {
+        if (field != null) {
+            if (field.equals("next")) {
+                return IGEDConst.NODE_PROX;
+            } else {
+                if (field.equals("init")) {
+                    return IGEDConst.LISTA_INICIO;
+                }else{
+                	if(field.equals("node_root")){
+                		return IGEDConst.NODE_TREE_ROOT;
+                	}else{
+                		if(field.equals("left_chield")){
+                			return IGEDConst.LEFT_CHIELD;
+                		}else{
+                			if(field.equals("right_chield")){
+                    			return IGEDConst.RIGHT_CHIELD;
+                			}
+                		}
+                	}
+                }
+            }
+        }
+        return -1;
+    }
 	
 	public static BytecodeAssembler getAssembler() {
 		return assembler;
