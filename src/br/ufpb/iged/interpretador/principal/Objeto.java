@@ -18,6 +18,15 @@ public class Objeto {
 				
 	}
 	
+	public Objeto(int qtdMemoriaLocal, String nome) {
+		
+		this.nome = nome;
+		
+		if (nome.equals("[I"))
+			memoriaLocal = new Integer[qtdMemoriaLocal];
+		
+	}
+	
 	public String getNome() {
 		return nome;
 	}

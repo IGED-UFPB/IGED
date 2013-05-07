@@ -938,7 +938,7 @@ public class MaquinaVirtual {
 				Interpretador.con.createStruct(IGEDConst.NODE);
 			else if (tipo.equals("LNodeTree"))
 				Interpretador.con.createStruct(IGEDConst.NODE_TREE);
-			else if (tipo.equals("LVector"))
+			else if (tipo.equals("LIntVector"))
 				Interpretador.con.createStruct(IGEDConst.VETOR);
 			else if (tipo.equals("LBinaryTree"))
 				Interpretador.con.createStruct(IGEDConst.BINARY_TREE);
@@ -977,7 +977,6 @@ public class MaquinaVirtual {
 			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
 			
 			iniciarNovoMetodo(simboloClasse, simboloMetodo, false);
-			
 
 		}
 
@@ -1089,16 +1088,28 @@ public class MaquinaVirtual {
 		//retorno de métodos
 		case Definicao.RETURN: {
 			
+			SimboloMetodo metodo = frameAtual.getMetodo();
+			
 			topoPilha--;
 			
-			if (topoPilha > -1)
+			if (topoPilha > -1) {
 			
 				frameAtual = pilha[topoPilha];
 			
-			/*for (int i = 0; i < frameAtual.pc.getSimboloMetodo().getTamanhoMemoriaLocalVariaveis(); i++){
-				if (frameAtual.variaveis[i] instanceof Inteiro)
+				for (int i = 0; i < metodo.contarParametros(); i++)
+					frameAtual.sp--;
+				
+				Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+				Objeto objeto = heap.get(referencia.getEndereco());
+				
+				if (metodo.getNome().equals("<init>(VOID)V") && objeto.getNome().equals("LIntVector")) {
+					
+					Objeto objetoNovo = new Objeto((Integer)objeto.getMemoriaLocal()[1], "[I");
+					heap.add(objetoNovo);
+					objeto.getMemoriaLocal()[2] = new Referencia(heap.indexOf(objetoNovo));
+					
+				}
 			}
-				Interpretador.con.remove_int(var);*/
 			
 		}
 		
@@ -1109,7 +1120,12 @@ public class MaquinaVirtual {
 			
 			Integer valor = (Integer) frameAtual.pilhaOperandos[frameAtual.sp];
 			
+			int qtdParametros = frameAtual.getMetodo().contarParametros();
+			
 			frameAtual = pilha[--topoPilha];
+			
+			for (int i = 0; i < qtdParametros; i++)
+				frameAtual.sp--;
 			
 			frameAtual.pilhaOperandos[frameAtual.sp] = valor;
 			
@@ -1122,7 +1138,12 @@ public class MaquinaVirtual {
 			
 			Referencia valor = (Referencia) frameAtual.pilhaOperandos[frameAtual.sp];
 			
+			int qtdParametros = frameAtual.getMetodo().contarParametros();
+			
 			frameAtual = pilha[--topoPilha];
+			
+			for (int i = 0; i < qtdParametros; i++)
+				frameAtual.sp--;
 			
 			frameAtual.pilhaOperandos[frameAtual.sp] = valor;
 			
@@ -1137,7 +1158,7 @@ public class MaquinaVirtual {
 	
 	public void iniciarNovoMetodo(SimboloClasse classe, SimboloMetodo metodo, boolean estatico) {
 		
-		pilha[++topoPilha] =  new StackFrame(metodo.getTamanhoMemoriaLocalVariaveis(), estatico);
+		pilha[++topoPilha] =  new StackFrame(metodo, estatico);
 		
 		pilha[topoPilha].pc = new ProgramCounter(metodo);
 		
@@ -1157,7 +1178,7 @@ public class MaquinaVirtual {
 			
 			/*if (classe != null){
 				
-				if (classe.obterNome().equals("LVector")){
+				if (classe.obterNome().equals("LIntVector")){
 					
 					if (i == 0)
 					

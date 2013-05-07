@@ -1,13 +1,13 @@
-.class Vector
+.class IntVector
 .field pos I
 .field size I
 .field data [I
 .method <init>(I) V
 	aload_0
 	iconst_0
-	putfield Vector/pos I
+	putfield IntVector/pos I
 	iload_1
-	putfield Vector/size I
+	putfield IntVector/size I
 	return
 .end method
 .end class

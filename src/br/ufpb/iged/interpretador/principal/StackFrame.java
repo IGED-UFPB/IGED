@@ -1,6 +1,7 @@
 package br.ufpb.iged.interpretador.principal;
 
 import br.ufpb.iged.IGEDConst;
+import br.ufpb.iged.interpretador.symboltable.classes.SimboloMetodo;
 
 public class StackFrame {
 	
@@ -20,8 +21,13 @@ public class StackFrame {
 	
 	private int nextParam;
 	
-	public StackFrame(int tamanhoMemoriaLocalVars, boolean estatico) {
+	private SimboloMetodo metodo;
+	
+	public StackFrame(SimboloMetodo metodo, boolean estatico) {
 		
+		this.setMetodo(metodo);
+		
+		int tamanhoMemoriaLocalVars = metodo.getTamanhoMemoriaLocalVariaveis();
 		
 		if (estatico)
 			nextParam = 0;
@@ -66,7 +72,7 @@ public class StackFrame {
 				Interpretador.con.createReference(""+endereco, IGEDConst.NODE);
 			else if (tipo.equals("LNodeTree"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.NODE_TREE);
-			else if (tipo.equals("LVector"))
+			else if (tipo.equals("LIntVector"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.VETOR);
 			else if (tipo.equals("LBinaryTree"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.BINARY_TREE);
@@ -93,6 +99,14 @@ public class StackFrame {
 
 	public void setProximaVariavelNaoCriada(int proximaVariavelNaoCriada) {
 		this.proximaVariavelNaoCriada = proximaVariavelNaoCriada;
+	}
+
+	public SimboloMetodo getMetodo() {
+		return metodo;
+	}
+
+	public void setMetodo(SimboloMetodo metodo) {
+		this.metodo = metodo;
 	}
 	
 
