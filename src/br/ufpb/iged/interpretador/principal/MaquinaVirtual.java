@@ -934,7 +934,7 @@ public class MaquinaVirtual {
 			
 			if (tipo.equals("LList"))
 				Interpretador.con.createStruct(IGEDConst.LISTA);
-			else if (tipo.equals("LNode"))
+			else if (tipo.equals("LNodeList"))
 				Interpretador.con.createStruct(IGEDConst.NODE);
 			else if (tipo.equals("LNodeTree"))
 				Interpretador.con.createStruct(IGEDConst.NODE_TREE);
@@ -1011,6 +1011,24 @@ public class MaquinaVirtual {
 
 			objeto.getMemoriaLocal()[op1] = frameAtual.pilhaOperandos[frameAtual.sp--];
 				
+			if (objeto.getNome().equals("LList")) {				
+				if (op1 == 0) {
+					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
+						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
+					else
+						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
+				}else
+					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1]);				
+			} else if (objeto.getNome().equals("LNodeList")) {				
+				if (op1 == 0)
+					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1]);
+				else {					
+					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
+						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("next"));
+					else
+						Interpretador.con.writeReferenceField(Interpretador.referenceField("next"));
+				}				
+			}
 
 		}
 

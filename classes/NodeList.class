@@ -1,7 +1,0 @@
-.class NodeList
-.field info I
-.field next LList;
-.method <init>() V
-	return
-.end method 
-.end class

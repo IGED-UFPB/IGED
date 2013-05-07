@@ -56,7 +56,7 @@ public class IGED implements AcaoUsuario{
 		
 		String codigoArquivo = pait.Lines();
 		try {
-			FileWriter fw = new FileWriter("classes/Main.class");
+			FileWriter fw = new FileWriter("classes/Main.j");
 			BufferedWriter bw =  new BufferedWriter(fw);
 			bw.write(codigoArquivo);
 			bw.close();

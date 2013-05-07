@@ -157,7 +157,7 @@ public class Interpretador {
 		    
 			for (i = 0; i < arquivos.length; i++){
 			
-				if (arquivos[i].endsWith(".class")) {
+				if (arquivos[i].endsWith(".j")) {
 					
 					ANTLRFileStream input = 
 							new ANTLRFileStream(DIRETORIO_FONTE+"/"+arquivos[i]);

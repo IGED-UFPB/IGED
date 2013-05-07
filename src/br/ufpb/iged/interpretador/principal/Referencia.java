@@ -23,5 +23,11 @@ public class Referencia {
 		return (endereco != null)? endereco.toString() : "null";
 		
 	}
+	
+	public boolean isNull() {
+		
+		return endereco == null;
+		
+	}
 
 }

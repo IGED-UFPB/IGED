@@ -62,7 +62,7 @@ public class StackFrame {
 		if (endereco == proximaVariavelNaoCriada) {
 			if (tipo.equals("LList"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.LISTA);
-			else if (tipo.equals("LNode"))
+			else if (tipo.equals("LNodeList"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.NODE);
 			else if (tipo.equals("LNodeTree"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.NODE_TREE);
