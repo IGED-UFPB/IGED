@@ -72,7 +72,7 @@ public class StackFrame {
 				Interpretador.con.createReference(""+endereco, IGEDConst.NODE);
 			else if (tipo.equals("LNodeTree"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.NODE_TREE);
-			else if (tipo.equals("LIntVector"))
+			else if (tipo.equals("LVector"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.VETOR);
 			else if (tipo.equals("LBinaryTree"))
 				Interpretador.con.createReference(""+endereco, IGEDConst.BINARY_TREE);

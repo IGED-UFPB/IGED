@@ -1,5 +1,5 @@
 .class List
-.field init LList;
+.field init LNodeList;
 .field size I
 .method <init>() V
 	aload_0

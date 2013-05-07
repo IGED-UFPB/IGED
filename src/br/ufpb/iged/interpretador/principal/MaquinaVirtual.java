@@ -938,7 +938,7 @@ public class MaquinaVirtual {
 				Interpretador.con.createStruct(IGEDConst.NODE);
 			else if (tipo.equals("LNodeTree"))
 				Interpretador.con.createStruct(IGEDConst.NODE_TREE);
-			else if (tipo.equals("LIntVector"))
+			else if (tipo.equals("LVector"))
 				Interpretador.con.createStruct(IGEDConst.VETOR);
 			else if (tipo.equals("LBinaryTree"))
 				Interpretador.con.createStruct(IGEDConst.BINARY_TREE);
@@ -994,6 +994,28 @@ public class MaquinaVirtual {
 			frameAtual.pilhaOperandos[frameAtual.sp] = null;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = objeto.getMemoriaLocal()[op1];
+			
+			if (objeto.getNome().equals("LList")) {				
+				if (op1 == 0)
+					Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
+			} else if (objeto.getNome().equals("LNodeList")) {				
+				if (op1 == 0)
+					Interpretador.con.readStructInfo();
+				else if (op1 == 1)
+					Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
+			} else if (objeto.getNome().equals("LTree")) {
+				if (op1 == 0)
+					Interpretador.con.readReferenceField(Interpretador.referenceField("init"));									
+			} else if (objeto.getNome().equals("LNodeTree")) {				
+				if (op1 == 0)
+					Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
+				else if (op1 == 1)
+					Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
+				else if (op1 == 2)
+					Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
+				else if (op1 == 3)
+					Interpretador.con.readStructInfo();					
+			}
 
 		}
 
@@ -1016,17 +1038,51 @@ public class MaquinaVirtual {
 						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
 					else
 						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
-				}else
+				} else if (op1 == 1)
 					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1]);				
 			} else if (objeto.getNome().equals("LNodeList")) {				
 				if (op1 == 0)
 					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1]);
-				else {					
+				else if (op1 == 1){					
 					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
 						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("next"));
 					else
 						Interpretador.con.writeReferenceField(Interpretador.referenceField("next"));
 				}				
+			} else if (objeto.getNome().equals("LVector")) {
+				if (op1 == 0)
+					Interpretador.con.setPosVector((Integer)objeto.getMemoriaLocal()[op1]);
+				else if (op1 == 1)
+					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1]);
+			} else if (objeto.getNome().equals("LTree")) {
+				if (op1 == 0){
+					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
+						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
+					else
+						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
+				} else if (op1 == 1)
+					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1]);
+				else if (op1 == 2)
+					Interpretador.con.SetHeight(((Integer)objeto.getMemoriaLocal()[op1]).toString());					
+			} else if (objeto.getNome().equals("LNodeTree")) {				
+				if (op1 == 0){					
+					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
+						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("node_root"));
+					else
+						Interpretador.con.writeReferenceField(Interpretador.referenceField("node_root"));					
+				} else if (op1 == 1) {
+					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
+						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("left_chield"));
+					else
+						Interpretador.con.writeReferenceField(Interpretador.referenceField("left_chield"));
+				} else if (op1 == 2){
+					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
+						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("right_chield"));
+					else
+						Interpretador.con.writeReferenceField(Interpretador.referenceField("right_chield"));
+				} else if (op1 == 3)
+					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1]);
+					
 			}
 
 		}
@@ -1102,7 +1158,7 @@ public class MaquinaVirtual {
 				Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
 				Objeto objeto = heap.get(referencia.getEndereco());
 				
-				if (metodo.getNome().equals("<init>(VOID)V") && objeto.getNome().equals("LIntVector")) {
+				if (metodo.getNome().equals("<init>(VOID)V") && objeto.getNome().equals("LVector")) {
 					
 					Objeto objetoNovo = new Objeto((Integer)objeto.getMemoriaLocal()[1], "[I");
 					heap.add(objetoNovo);
@@ -1178,7 +1234,7 @@ public class MaquinaVirtual {
 			
 			/*if (classe != null){
 				
-				if (classe.obterNome().equals("LIntVector")){
+				if (classe.obterNome().equals("LVector")){
 					
 					if (i == 0)
 					

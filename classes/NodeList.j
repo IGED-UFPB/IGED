@@ -1,6 +1,6 @@
 .class NodeList
 .field info I
-.field next LList;
+.field next LNodeList;
 .method <init>() V
 	aload_0
 	iconst_0
