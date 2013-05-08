@@ -8,6 +8,9 @@
 	putfield Vector/pos I
 	iload_1
 	putfield Vector/size I
+	getfield Vector/size I
+	newarray int
+	putfield Vector/data [I;	
 	return
 .end method
 .end class

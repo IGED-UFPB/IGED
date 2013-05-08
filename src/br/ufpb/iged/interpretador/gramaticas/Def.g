@@ -34,7 +34,6 @@ topdown : entraNoCorpoMetodo
         | entraNoConstrutor
         | entraNoMetodo
         | entraNaClasse
-        //| parametros
         | declaracaoVariavel
         | field
         | invoke
@@ -165,7 +164,7 @@ invoke 	: ^(('invokespecial' | 'invokestatic' | 'invokevirtual') . ^(METHOD_CALL
         ;
         
 nenhumoperando 
-	: ^((RETURN | ARITMETICA | NEW | LOAD | STORE | LOGICA | PILHA) . )
+	: ^((RETURN | ARITMETICA | NEW | NEWARRAY | LOAD | STORE | LOGICA | PILHA) . )
 	{
 	   contador++;
 	}	

@@ -424,7 +424,18 @@ public class MaquinaVirtual {
 		}
 		;
 		break;
-
+		
+		case Definicao.IALOAD: {
+			
+			int indice = (Integer)frameAtual.pilhaOperandos[frameAtual.sp--];
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp--];
+			
+			Objeto objeto = heap.get(referencia.getEndereco());
+			frameAtual.pilhaOperandos[++frameAtual.sp] = objeto.getMemoriaLocal()[indice];
+						
+		}
+		;
+		break;
 
 		// operações de store
 
@@ -563,6 +574,23 @@ public class MaquinaVirtual {
 									
 			Interpretador.con.writeReference();
 
+		}
+		;
+		break;
+		
+		case Definicao.IASTORE: {
+			
+			int valor = (Integer)frameAtual.pilhaOperandos[frameAtual.sp--];
+			int indice = (Integer)frameAtual.pilhaOperandos[frameAtual.sp--];
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp--];
+			
+			Objeto objeto = heap.get(referencia.getEndereco());
+			
+			objeto.getMemoriaLocal()[indice] = valor;
+			
+        	Interpretador.con.setPosVector(indice);
+        	Interpretador.con.writeStructInfo(valor);
+			
 		}
 		;
 		break;
@@ -938,8 +966,6 @@ public class MaquinaVirtual {
 				Interpretador.con.createStruct(IGEDConst.NODE);
 			else if (tipo.equals("LNodeTree"))
 				Interpretador.con.createStruct(IGEDConst.NODE_TREE);
-			else if (tipo.equals("LVector"))
-				Interpretador.con.createStruct(IGEDConst.VETOR);
 			else if (tipo.equals("LBinaryTree"))
 				Interpretador.con.createStruct(IGEDConst.BINARY_TREE);
 			
@@ -947,6 +973,34 @@ public class MaquinaVirtual {
 
 		}
 
+		;
+		break;
+		
+		case Definicao.NEWARRAY: {
+			
+			op1 = frameAtual.pc.obterOperandoInteiro();
+			int tamArray = (Integer)frameAtual.pilhaOperandos[frameAtual.sp];
+			Objeto objeto = null;
+			
+			if (op1 == 2)
+				objeto = new Objeto(tamArray, "[I");
+			
+			heap.add(objeto);
+			
+			Referencia referencia = new Referencia(heap.indexOf(objeto));
+			
+			frameAtual.pilhaOperandos[++frameAtual.sp] = referencia;
+			
+			String tipo = objeto.getNome();
+			
+			frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), tipo);
+			
+			Interpretador.con.writeStructLength(tamArray);
+			
+			Interpretador.con.createStruct(IGEDConst.VETOR);
+
+		}
+		
 		;
 		break;
 		
@@ -1153,18 +1207,8 @@ public class MaquinaVirtual {
 				frameAtual = pilha[topoPilha];
 			
 				for (int i = 0; i < metodo.contarParametros(); i++)
-					frameAtual.sp--;
+					frameAtual.sp--;				
 				
-				Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
-				Objeto objeto = heap.get(referencia.getEndereco());
-				
-				if (metodo.getNome().equals("<init>(VOID)V") && objeto.getNome().equals("LVector")) {
-					
-					Objeto objetoNovo = new Objeto((Integer)objeto.getMemoriaLocal()[1], "[I");
-					heap.add(objetoNovo);
-					objeto.getMemoriaLocal()[2] = new Referencia(heap.indexOf(objetoNovo));
-					
-				}
 			}
 			
 		}

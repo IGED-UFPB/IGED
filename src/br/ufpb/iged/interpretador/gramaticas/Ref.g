@@ -112,6 +112,36 @@ options {
           BytecodeAssembler.ip, assembler.getConstantPool().indexOf(simboloClasse));
   
   }
+  
+  private void newArray(String tipo) throws RecognitionException{
+  
+  	assembler.escreverOpcode("newarray");
+  	
+  	int valor;
+  	
+  	if (tipo.equals("boolean"))
+  		valor = 0;
+  	else if (tipo.equals("float"))
+  		valor = 1;
+  	else if (tipo.equals("int"))
+  		valor = 2;
+  	else if (tipo.equals("char"))
+  		valor = 3;
+  	else if (tipo.equals("double"))
+  		valor = 4;
+  	else if (tipo.equals("long"))
+  		valor = 5;
+  	else if (tipo.equals("byte"))
+  		valor = 6;
+  	else if (tipo.equals("short"))
+  		valor = 7;
+  	else
+  	      throw new RecognitionException();
+  	      
+  	BytecodeAssembler.escreverInteiro(BytecodeAssembler.codigo,
+          BytecodeAssembler.ip, valor);
+  
+  }
     
 }
 
@@ -123,6 +153,7 @@ topdown
       | field
       | invoke
       | novaClasse
+      | novoArray
       | nenhumoperando
       | umoperando
     ;
@@ -250,7 +281,14 @@ novaClasse
     newClass("L"+$classe.getText());
   }
   ;
-  
+
+novoArray
+	: ^(NEWARRAY tipo = .)	
+	{
+	  newArray($tipo.getText());
+	}
+	;
+ 
 nenhumoperando 
 	: ^((RETURN | ARITMETICA | LOAD | STORE | LOGICA | PILHA) operacao = . )
 	{

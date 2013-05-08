@@ -16,7 +16,7 @@ public class Objeto {
 		
 		simboloClasse.alocarMemoriaVariaveis(this, false);
 				
-	}
+	}	
 	
 	public Objeto(int qtdMemoriaLocal, String nome) {
 		

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g 2013-05-06 22:23:23
+// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g 2013-05-07 23:19:26
 
   package br.ufpb.iged.interpretador.parser;
 
@@ -11,8 +11,6 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class AssemblerLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__33=33;
-    public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
     public static final int T__37=37;
@@ -90,6 +88,11 @@ public class AssemblerLexer extends Lexer {
     public static final int T__109=109;
     public static final int T__110=110;
     public static final int T__111=111;
+    public static final int T__112=112;
+    public static final int T__113=113;
+    public static final int T__114=114;
+    public static final int T__115=115;
+    public static final int T__116=116;
     public static final int ARGS=4;
     public static final int ARITMETICA=5;
     public static final int BODY=6;
@@ -109,16 +112,18 @@ public class AssemblerLexer extends Lexer {
     public static final int METHOD_CALL=20;
     public static final int METHOD_DECL=21;
     public static final int NEW=22;
-    public static final int NEWLINE=23;
-    public static final int NULL=24;
-    public static final int PARAMS=25;
-    public static final int PILHA=26;
-    public static final int REF=27;
-    public static final int RETURN=28;
-    public static final int STORE=29;
-    public static final int TIPO_REF=30;
-    public static final int VOID=31;
-    public static final int WS=32;
+    public static final int NEWARRAY=23;
+    public static final int NEWLINE=24;
+    public static final int NULL=25;
+    public static final int PARAMS=26;
+    public static final int PILHA=27;
+    public static final int REF=28;
+    public static final int RETURN=29;
+    public static final int STORE=30;
+    public static final int TIPOARRAY=31;
+    public static final int TIPO_REF=32;
+    public static final int VOID=33;
+    public static final int WS=34;
 
     // delegates
     // delegators
@@ -135,59 +140,15 @@ public class AssemblerLexer extends Lexer {
     }
     public String getGrammarFileName() { return "C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g"; }
 
-    // $ANTLR start "T__33"
-    public final void mT__33() throws RecognitionException {
-        try {
-            int _type = T__33;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:6:7: ( '(' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:6:9: '('
-            {
-            match('('); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__33"
-
-    // $ANTLR start "T__34"
-    public final void mT__34() throws RecognitionException {
-        try {
-            int _type = T__34;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:7:7: ( '()' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:7:9: '()'
-            {
-            match("()"); 
-
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        	// do for sure before leaving
-        }
-    }
-    // $ANTLR end "T__34"
-
     // $ANTLR start "T__35"
     public final void mT__35() throws RecognitionException {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:8:7: ( ')' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:8:9: ')'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:6:7: ( '(' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:6:9: '('
             {
-            match(')'); 
+            match('('); 
 
             }
 
@@ -205,10 +166,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:9:7: ( '.class' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:9:9: '.class'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:7:7: ( '()' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:7:9: '()'
             {
-            match(".class"); 
+            match("()"); 
 
 
 
@@ -228,12 +189,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:10:7: ( '.end class' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:10:9: '.end class'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:8:7: ( ')' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:8:9: ')'
             {
-            match(".end class"); 
-
-
+            match(')'); 
 
             }
 
@@ -251,10 +210,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:11:7: ( '.end method' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:11:9: '.end method'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:9:7: ( '.class' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:9:9: '.class'
             {
-            match(".end method"); 
+            match(".class"); 
 
 
 
@@ -274,10 +233,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:12:7: ( '.field' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:12:9: '.field'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:10:7: ( '.end class' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:10:9: '.end class'
             {
-            match(".field"); 
+            match(".end class"); 
 
 
 
@@ -297,10 +256,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:13:7: ( '.limit locals' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:13:9: '.limit locals'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:11:7: ( '.end method' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:11:9: '.end method'
             {
-            match(".limit locals"); 
+            match(".end method"); 
 
 
 
@@ -320,10 +279,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:14:7: ( '.method' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:14:9: '.method'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:12:7: ( '.field' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:12:9: '.field'
             {
-            match(".method"); 
+            match(".field"); 
 
 
 
@@ -343,10 +302,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:15:7: ( '.super' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:15:9: '.super'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:13:7: ( '.limit locals' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:13:9: '.limit locals'
             {
-            match(".super"); 
+            match(".limit locals"); 
 
 
 
@@ -366,10 +325,12 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:16:7: ( ':' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:16:9: ':'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:14:7: ( '.method' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:14:9: '.method'
             {
-            match(':'); 
+            match(".method"); 
+
+
 
             }
 
@@ -387,10 +348,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:17:7: ( 'aconst_null' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:17:9: 'aconst_null'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:15:7: ( '.super' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:15:9: '.super'
             {
-            match("aconst_null"); 
+            match(".super"); 
 
 
 
@@ -410,12 +371,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:18:7: ( 'aload' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:18:9: 'aload'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:16:7: ( ':' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:16:9: ':'
             {
-            match("aload"); 
-
-
+            match(':'); 
 
             }
 
@@ -433,10 +392,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:19:7: ( 'aload_0' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:19:9: 'aload_0'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:17:7: ( 'aconst_null' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:17:9: 'aconst_null'
             {
-            match("aload_0"); 
+            match("aconst_null"); 
 
 
 
@@ -456,10 +415,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:20:7: ( 'aload_1' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:20:9: 'aload_1'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:18:7: ( 'aload' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:18:9: 'aload'
             {
-            match("aload_1"); 
+            match("aload"); 
 
 
 
@@ -479,10 +438,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:21:7: ( 'aload_2' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:21:9: 'aload_2'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:19:7: ( 'aload_0' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:19:9: 'aload_0'
             {
-            match("aload_2"); 
+            match("aload_0"); 
 
 
 
@@ -502,10 +461,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:22:7: ( 'aload_3' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:22:9: 'aload_3'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:20:7: ( 'aload_1' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:20:9: 'aload_1'
             {
-            match("aload_3"); 
+            match("aload_1"); 
 
 
 
@@ -525,10 +484,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:23:7: ( 'areturn' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:23:9: 'areturn'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:21:7: ( 'aload_2' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:21:9: 'aload_2'
             {
-            match("areturn"); 
+            match("aload_2"); 
 
 
 
@@ -548,10 +507,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:24:7: ( 'astore' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:24:9: 'astore'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:22:7: ( 'aload_3' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:22:9: 'aload_3'
             {
-            match("astore"); 
+            match("aload_3"); 
 
 
 
@@ -571,10 +530,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:25:7: ( 'astore_0' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:25:9: 'astore_0'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:23:7: ( 'areturn' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:23:9: 'areturn'
             {
-            match("astore_0"); 
+            match("areturn"); 
 
 
 
@@ -594,10 +553,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:26:7: ( 'astore_1' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:26:9: 'astore_1'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:24:7: ( 'astore' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:24:9: 'astore'
             {
-            match("astore_1"); 
+            match("astore"); 
 
 
 
@@ -617,10 +576,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:27:7: ( 'astore_2' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:27:9: 'astore_2'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:25:7: ( 'astore_0' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:25:9: 'astore_0'
             {
-            match("astore_2"); 
+            match("astore_0"); 
 
 
 
@@ -640,10 +599,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:28:7: ( 'astore_3' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:28:9: 'astore_3'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:26:7: ( 'astore_1' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:26:9: 'astore_1'
             {
-            match("astore_3"); 
+            match("astore_1"); 
 
 
 
@@ -663,10 +622,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:29:7: ( 'dup' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:29:9: 'dup'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:27:7: ( 'astore_2' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:27:9: 'astore_2'
             {
-            match("dup"); 
+            match("astore_2"); 
 
 
 
@@ -686,10 +645,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:30:7: ( 'getfield' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:30:9: 'getfield'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:28:7: ( 'astore_3' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:28:9: 'astore_3'
             {
-            match("getfield"); 
+            match("astore_3"); 
 
 
 
@@ -709,10 +668,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:31:7: ( 'getstatic' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:31:9: 'getstatic'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:29:7: ( 'dup' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:29:9: 'dup'
             {
-            match("getstatic"); 
+            match("dup"); 
 
 
 
@@ -732,10 +691,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:32:7: ( 'goto' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:32:9: 'goto'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:30:7: ( 'getfield' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:30:9: 'getfield'
             {
-            match("goto"); 
+            match("getfield"); 
 
 
 
@@ -755,10 +714,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:33:7: ( 'iadd' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:33:9: 'iadd'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:31:7: ( 'getstatic' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:31:9: 'getstatic'
             {
-            match("iadd"); 
+            match("getstatic"); 
 
 
 
@@ -778,10 +737,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:34:7: ( 'iand' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:34:9: 'iand'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:32:7: ( 'goto' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:32:9: 'goto'
             {
-            match("iand"); 
+            match("goto"); 
 
 
 
@@ -801,10 +760,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:35:7: ( 'iconst_0' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:35:9: 'iconst_0'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:33:7: ( 'iadd' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:33:9: 'iadd'
             {
-            match("iconst_0"); 
+            match("iadd"); 
 
 
 
@@ -824,10 +783,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:36:7: ( 'iconst_1' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:36:9: 'iconst_1'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:34:7: ( 'iaload' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:34:9: 'iaload'
             {
-            match("iconst_1"); 
+            match("iaload"); 
 
 
 
@@ -847,10 +806,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:37:7: ( 'iconst_2' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:37:9: 'iconst_2'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:35:7: ( 'iand' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:35:9: 'iand'
             {
-            match("iconst_2"); 
+            match("iand"); 
 
 
 
@@ -870,10 +829,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:38:7: ( 'iconst_3' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:38:9: 'iconst_3'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:36:7: ( 'iastore' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:36:9: 'iastore'
             {
-            match("iconst_3"); 
+            match("iastore"); 
 
 
 
@@ -893,10 +852,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:39:7: ( 'iconst_4' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:39:9: 'iconst_4'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:37:7: ( 'iconst_0' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:37:9: 'iconst_0'
             {
-            match("iconst_4"); 
+            match("iconst_0"); 
 
 
 
@@ -916,10 +875,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:40:7: ( 'iconst_5' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:40:9: 'iconst_5'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:38:7: ( 'iconst_1' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:38:9: 'iconst_1'
             {
-            match("iconst_5"); 
+            match("iconst_1"); 
 
 
 
@@ -939,10 +898,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:41:7: ( 'iconst_m1' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:41:9: 'iconst_m1'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:39:7: ( 'iconst_2' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:39:9: 'iconst_2'
             {
-            match("iconst_m1"); 
+            match("iconst_2"); 
 
 
 
@@ -962,10 +921,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:42:7: ( 'idiv' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:42:9: 'idiv'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:40:7: ( 'iconst_3' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:40:9: 'iconst_3'
             {
-            match("idiv"); 
+            match("iconst_3"); 
 
 
 
@@ -985,10 +944,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:43:7: ( 'if_icmpeq' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:43:9: 'if_icmpeq'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:41:7: ( 'iconst_4' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:41:9: 'iconst_4'
             {
-            match("if_icmpeq"); 
+            match("iconst_4"); 
 
 
 
@@ -1008,10 +967,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:44:7: ( 'if_icmpge' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:44:9: 'if_icmpge'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:42:7: ( 'iconst_5' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:42:9: 'iconst_5'
             {
-            match("if_icmpge"); 
+            match("iconst_5"); 
 
 
 
@@ -1031,10 +990,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:45:7: ( 'if_icmpgt' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:45:9: 'if_icmpgt'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:43:7: ( 'iconst_m1' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:43:9: 'iconst_m1'
             {
-            match("if_icmpgt"); 
+            match("iconst_m1"); 
 
 
 
@@ -1054,10 +1013,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:46:7: ( 'if_icmple' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:46:9: 'if_icmple'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:44:7: ( 'idiv' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:44:9: 'idiv'
             {
-            match("if_icmple"); 
+            match("idiv"); 
 
 
 
@@ -1077,10 +1036,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:47:7: ( 'if_icmplt' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:47:9: 'if_icmplt'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:45:7: ( 'if_icmpeq' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:45:9: 'if_icmpeq'
             {
-            match("if_icmplt"); 
+            match("if_icmpeq"); 
 
 
 
@@ -1100,10 +1059,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:48:7: ( 'if_icmpne' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:48:9: 'if_icmpne'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:46:7: ( 'if_icmpge' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:46:9: 'if_icmpge'
             {
-            match("if_icmpne"); 
+            match("if_icmpge"); 
 
 
 
@@ -1123,10 +1082,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:49:7: ( 'ifeq' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:49:9: 'ifeq'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:47:7: ( 'if_icmpgt' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:47:9: 'if_icmpgt'
             {
-            match("ifeq"); 
+            match("if_icmpgt"); 
 
 
 
@@ -1146,10 +1105,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:50:7: ( 'ifge' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:50:9: 'ifge'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:48:7: ( 'if_icmple' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:48:9: 'if_icmple'
             {
-            match("ifge"); 
+            match("if_icmple"); 
 
 
 
@@ -1169,10 +1128,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:51:7: ( 'ifgt' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:51:9: 'ifgt'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:49:7: ( 'if_icmplt' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:49:9: 'if_icmplt'
             {
-            match("ifgt"); 
+            match("if_icmplt"); 
 
 
 
@@ -1192,10 +1151,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:52:7: ( 'ifle' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:52:9: 'ifle'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:50:7: ( 'if_icmpne' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:50:9: 'if_icmpne'
             {
-            match("ifle"); 
+            match("if_icmpne"); 
 
 
 
@@ -1215,10 +1174,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:53:7: ( 'iflt' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:53:9: 'iflt'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:51:7: ( 'ifeq' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:51:9: 'ifeq'
             {
-            match("iflt"); 
+            match("ifeq"); 
 
 
 
@@ -1238,10 +1197,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:54:7: ( 'ifne' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:54:9: 'ifne'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:52:7: ( 'ifge' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:52:9: 'ifge'
             {
-            match("ifne"); 
+            match("ifge"); 
 
 
 
@@ -1261,10 +1220,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:55:7: ( 'iinc' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:55:9: 'iinc'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:53:7: ( 'ifgt' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:53:9: 'ifgt'
             {
-            match("iinc"); 
+            match("ifgt"); 
 
 
 
@@ -1284,10 +1243,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:56:7: ( 'iload' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:56:9: 'iload'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:54:7: ( 'ifle' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:54:9: 'ifle'
             {
-            match("iload"); 
+            match("ifle"); 
 
 
 
@@ -1307,10 +1266,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:57:7: ( 'iload_0' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:57:9: 'iload_0'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:55:7: ( 'iflt' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:55:9: 'iflt'
             {
-            match("iload_0"); 
+            match("iflt"); 
 
 
 
@@ -1330,10 +1289,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:58:7: ( 'iload_1' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:58:9: 'iload_1'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:56:7: ( 'ifne' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:56:9: 'ifne'
             {
-            match("iload_1"); 
+            match("ifne"); 
 
 
 
@@ -1353,10 +1312,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:59:7: ( 'iload_2' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:59:9: 'iload_2'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:57:7: ( 'iinc' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:57:9: 'iinc'
             {
-            match("iload_2"); 
+            match("iinc"); 
 
 
 
@@ -1376,10 +1335,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:60:7: ( 'iload_3' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:60:9: 'iload_3'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:58:7: ( 'iload' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:58:9: 'iload'
             {
-            match("iload_3"); 
+            match("iload"); 
 
 
 
@@ -1399,10 +1358,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:61:7: ( 'imul' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:61:9: 'imul'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:59:7: ( 'iload_0' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:59:9: 'iload_0'
             {
-            match("imul"); 
+            match("iload_0"); 
 
 
 
@@ -1422,10 +1381,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:62:7: ( 'ineg' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:62:9: 'ineg'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:60:7: ( 'iload_1' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:60:9: 'iload_1'
             {
-            match("ineg"); 
+            match("iload_1"); 
 
 
 
@@ -1445,10 +1404,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:63:7: ( 'invokespecial' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:63:9: 'invokespecial'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:61:7: ( 'iload_2' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:61:9: 'iload_2'
             {
-            match("invokespecial"); 
+            match("iload_2"); 
 
 
 
@@ -1468,10 +1427,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:64:7: ( 'invokestatic' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:64:9: 'invokestatic'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:62:7: ( 'iload_3' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:62:9: 'iload_3'
             {
-            match("invokestatic"); 
+            match("iload_3"); 
 
 
 
@@ -1491,10 +1450,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:65:7: ( 'invokevirtual' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:65:9: 'invokevirtual'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:63:7: ( 'imul' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:63:9: 'imul'
             {
-            match("invokevirtual"); 
+            match("imul"); 
 
 
 
@@ -1514,10 +1473,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:66:7: ( 'ior' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:66:9: 'ior'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:64:7: ( 'ineg' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:64:9: 'ineg'
             {
-            match("ior"); 
+            match("ineg"); 
 
 
 
@@ -1537,10 +1496,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:67:7: ( 'irem' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:67:9: 'irem'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:65:7: ( 'invokespecial' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:65:9: 'invokespecial'
             {
-            match("irem"); 
+            match("invokespecial"); 
 
 
 
@@ -1560,10 +1519,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:68:7: ( 'ireturn' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:68:9: 'ireturn'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:66:7: ( 'invokestatic' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:66:9: 'invokestatic'
             {
-            match("ireturn"); 
+            match("invokestatic"); 
 
 
 
@@ -1583,10 +1542,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:69:7: ( 'istore' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:69:9: 'istore'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:67:7: ( 'invokevirtual' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:67:9: 'invokevirtual'
             {
-            match("istore"); 
+            match("invokevirtual"); 
 
 
 
@@ -1606,10 +1565,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:70:7: ( 'istore_0' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:70:9: 'istore_0'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:68:7: ( 'ior' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:68:9: 'ior'
             {
-            match("istore_0"); 
+            match("ior"); 
 
 
 
@@ -1629,10 +1588,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:71:7: ( 'istore_1' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:71:9: 'istore_1'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:69:7: ( 'irem' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:69:9: 'irem'
             {
-            match("istore_1"); 
+            match("irem"); 
 
 
 
@@ -1652,10 +1611,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:72:7: ( 'istore_2' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:72:9: 'istore_2'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:70:7: ( 'ireturn' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:70:9: 'ireturn'
             {
-            match("istore_2"); 
+            match("ireturn"); 
 
 
 
@@ -1675,10 +1634,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:73:8: ( 'istore_3' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:73:10: 'istore_3'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:71:8: ( 'istore' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:71:10: 'istore'
             {
-            match("istore_3"); 
+            match("istore"); 
 
 
 
@@ -1698,10 +1657,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:74:8: ( 'isub' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:74:10: 'isub'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:72:8: ( 'istore_0' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:72:10: 'istore_0'
             {
-            match("isub"); 
+            match("istore_0"); 
 
 
 
@@ -1721,10 +1680,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:75:8: ( 'ixor' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:75:10: 'ixor'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:73:8: ( 'istore_1' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:73:10: 'istore_1'
             {
-            match("ixor"); 
+            match("istore_1"); 
 
 
 
@@ -1744,10 +1703,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:76:8: ( 'ldc' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:76:10: 'ldc'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:74:8: ( 'istore_2' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:74:10: 'istore_2'
             {
-            match("ldc"); 
+            match("istore_2"); 
 
 
 
@@ -1767,10 +1726,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:77:8: ( 'new' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:77:10: 'new'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:75:8: ( 'istore_3' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:75:10: 'istore_3'
             {
-            match("new"); 
+            match("istore_3"); 
 
 
 
@@ -1790,10 +1749,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:78:8: ( 'nop' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:78:10: 'nop'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:76:8: ( 'isub' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:76:10: 'isub'
             {
-            match("nop"); 
+            match("isub"); 
 
 
 
@@ -1813,10 +1772,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:79:8: ( 'pop' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:79:10: 'pop'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:77:8: ( 'ixor' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:77:10: 'ixor'
             {
-            match("pop"); 
+            match("ixor"); 
 
 
 
@@ -1836,10 +1795,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:80:8: ( 'pop2' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:80:10: 'pop2'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:78:8: ( 'ldc' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:78:10: 'ldc'
             {
-            match("pop2"); 
+            match("ldc"); 
 
 
 
@@ -1859,10 +1818,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:81:8: ( 'putfield' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:81:10: 'putfield'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:79:8: ( 'new' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:79:10: 'new'
             {
-            match("putfield"); 
+            match("new"); 
 
 
 
@@ -1882,10 +1841,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:82:8: ( 'putstatic' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:82:10: 'putstatic'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:80:8: ( 'newarray' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:80:10: 'newarray'
             {
-            match("putstatic"); 
+            match("newarray"); 
 
 
 
@@ -1905,10 +1864,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:83:8: ( 'return' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:83:10: 'return'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:81:8: ( 'nop' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:81:10: 'nop'
             {
-            match("return"); 
+            match("nop"); 
 
 
 
@@ -1928,10 +1887,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:84:8: ( 'static' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:84:10: 'static'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:82:8: ( 'pop' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:82:10: 'pop'
             {
-            match("static"); 
+            match("pop"); 
 
 
 
@@ -1946,13 +1905,128 @@ public class AssemblerLexer extends Lexer {
     }
     // $ANTLR end "T__111"
 
+    // $ANTLR start "T__112"
+    public final void mT__112() throws RecognitionException {
+        try {
+            int _type = T__112;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:83:8: ( 'pop2' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:83:10: 'pop2'
+            {
+            match("pop2"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__112"
+
+    // $ANTLR start "T__113"
+    public final void mT__113() throws RecognitionException {
+        try {
+            int _type = T__113;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:84:8: ( 'putfield' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:84:10: 'putfield'
+            {
+            match("putfield"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__113"
+
+    // $ANTLR start "T__114"
+    public final void mT__114() throws RecognitionException {
+        try {
+            int _type = T__114;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:85:8: ( 'putstatic' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:85:10: 'putstatic'
+            {
+            match("putstatic"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__114"
+
+    // $ANTLR start "T__115"
+    public final void mT__115() throws RecognitionException {
+        try {
+            int _type = T__115;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:86:8: ( 'return' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:86:10: 'return'
+            {
+            match("return"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__115"
+
+    // $ANTLR start "T__116"
+    public final void mT__116() throws RecognitionException {
+        try {
+            int _type = T__116;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:87:8: ( 'static' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:87:10: 'static'
+            {
+            match("static"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "T__116"
+
     // $ANTLR start "INIT"
     public final void mINIT() throws RecognitionException {
         try {
             int _type = INIT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:214:6: ( '<init>' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:214:8: '<init>'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:218:6: ( '<init>' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:218:8: '<init>'
             {
             match("<init>"); 
 
@@ -1974,8 +2048,8 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:216:5: ( 'I' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:216:7: 'I'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:220:5: ( 'I' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:220:7: 'I'
             {
             match('I'); 
 
@@ -1995,8 +2069,8 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = VOID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:218:6: ( 'V' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:218:8: 'V'
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:222:6: ( 'V' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:222:8: 'V'
             {
             match('V'); 
 
@@ -2016,10 +2090,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = NULL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:220:6: ( ( 'null' | 'NULL' ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:220:8: ( 'null' | 'NULL' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:6: ( ( 'null' | 'NULL' ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:8: ( 'null' | 'NULL' )
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:220:8: ( 'null' | 'NULL' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:8: ( 'null' | 'NULL' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -2038,7 +2112,7 @@ public class AssemblerLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:220:9: 'null'
+                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:9: 'null'
                     {
                     match("null"); 
 
@@ -2047,7 +2121,7 @@ public class AssemblerLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:220:18: 'NULL'
+                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:18: 'NULL'
                     {
                     match("NULL"); 
 
@@ -2070,15 +2144,38 @@ public class AssemblerLexer extends Lexer {
     }
     // $ANTLR end "NULL"
 
+    // $ANTLR start "TIPOARRAY"
+    public final void mTIPOARRAY() throws RecognitionException {
+        try {
+            int _type = TIPOARRAY;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:12: ( 'int' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:14: 'int'
+            {
+            match("int"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "TIPOARRAY"
+
     // $ANTLR start "INTEIRO"
     public final void mINTEIRO() throws RecognitionException {
         try {
             int _type = INTEIRO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:222:9: ( ( '-' )? ( '0' .. '9' )+ )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:222:11: ( '-' )? ( '0' .. '9' )+
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:228:9: ( ( '-' )? ( '0' .. '9' )+ )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:228:11: ( '-' )? ( '0' .. '9' )+
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:222:11: ( '-' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:228:11: ( '-' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -2087,7 +2184,7 @@ public class AssemblerLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:222:11: '-'
+                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:228:11: '-'
                     {
                     match('-'); 
 
@@ -2097,7 +2194,7 @@ public class AssemblerLexer extends Lexer {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:222:16: ( '0' .. '9' )+
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:228:16: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -2152,10 +2249,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = REF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:6: ( ( ID '/' )+ ( ID | INIT ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:9: ( ID '/' )+ ( ID | INIT )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:6: ( ( ID '/' )+ ( ID | INIT ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:9: ( ID '/' )+ ( ID | INIT )
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:9: ( ID '/' )+
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:9: ( ID '/' )+
             int cnt4=0;
             loop4:
             do {
@@ -2163,7 +2260,7 @@ public class AssemblerLexer extends Lexer {
                 alt4 = dfa4.predict(input);
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:10: ID '/'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:10: ID '/'
             	    {
             	    mID(); 
 
@@ -2183,7 +2280,7 @@ public class AssemblerLexer extends Lexer {
             } while (true);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:19: ( ID | INIT )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:19: ( ID | INIT )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2202,7 +2299,7 @@ public class AssemblerLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:21: ID
+                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:21: ID
                     {
                     mID(); 
 
@@ -2210,7 +2307,7 @@ public class AssemblerLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:224:26: INIT
+                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:26: INIT
                     {
                     mINIT(); 
 
@@ -2237,10 +2334,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = TIPO_REF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:9: ( ( '[' )* ( 'L' ID ( '/' ID )* ';' | INT )+ )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:11: ( '[' )* ( 'L' ID ( '/' ID )* ';' | INT )+
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:9: ( ( '[' )* ( 'L' ID ( '/' ID )* ';' | INT )+ )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:11: ( '[' )* ( 'L' ID ( '/' ID )* ';' | INT )+
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:11: ( '[' )*
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:11: ( '[' )*
             loop6:
             do {
                 int alt6=2;
@@ -2253,7 +2350,7 @@ public class AssemblerLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:12: '['
+            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:12: '['
             	    {
             	    match('['); 
 
@@ -2266,7 +2363,7 @@ public class AssemblerLexer extends Lexer {
             } while (true);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:17: ( 'L' ID ( '/' ID )* ';' | INT )+
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:17: ( 'L' ID ( '/' ID )* ';' | INT )+
             int cnt8=0;
             loop8:
             do {
@@ -2283,14 +2380,14 @@ public class AssemblerLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:18: 'L' ID ( '/' ID )* ';'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:18: 'L' ID ( '/' ID )* ';'
             	    {
             	    match('L'); 
 
             	    mID(); 
 
 
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:24: ( '/' ID )*
+            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:24: ( '/' ID )*
             	    loop7:
             	    do {
             	        int alt7=2;
@@ -2303,7 +2400,7 @@ public class AssemblerLexer extends Lexer {
 
             	        switch (alt7) {
             	    	case 1 :
-            	    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:25: '/' ID
+            	    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:25: '/' ID
             	    	    {
             	    	    match('/'); 
 
@@ -2324,7 +2421,7 @@ public class AssemblerLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:226:39: INT
+            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:39: INT
             	    {
             	    mINT(); 
 
@@ -2358,8 +2455,8 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:228:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' | '_' )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:228:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' | '_' )*
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:234:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' | '_' )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:234:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' | '_' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -2371,7 +2468,7 @@ public class AssemblerLexer extends Lexer {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:228:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' | '_' )*
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:234:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '.' | '_' )*
             loop9:
             do {
                 int alt9=2;
@@ -2421,10 +2518,10 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = NEWLINE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:9: ( ( '\\n' )+ )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:11: ( '\\n' )+
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:236:9: ( ( '\\n' )+ )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:236:11: ( '\\n' )+
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:11: ( '\\n' )+
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:236:11: ( '\\n' )+
             int cnt10=0;
             loop10:
             do {
@@ -2438,7 +2535,7 @@ public class AssemblerLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:230:11: '\\n'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:236:11: '\\n'
             	    {
             	    match('\n'); 
 
@@ -2471,8 +2568,8 @@ public class AssemblerLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:4: ( ( ' ' | '\\t' | '\\r' ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:232:6: ( ' ' | '\\t' | '\\r' )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:238:4: ( ( ' ' | '\\t' | '\\r' ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:238:6: ( ' ' | '\\t' | '\\r' )
             {
             if ( input.LA(1)=='\t'||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -2498,716 +2595,748 @@ public class AssemblerLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:8: ( T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | INIT | INT | VOID | NULL | INTEIRO | REF | TIPO_REF | ID | NEWLINE | WS )
-        int alt11=89;
+        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:8: ( T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | INIT | INT | VOID | NULL | TIPOARRAY | INTEIRO | REF | TIPO_REF | ID | NEWLINE | WS )
+        int alt11=93;
         alt11 = dfa11.predict(input);
         switch (alt11) {
             case 1 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:10: T__33
-                {
-                mT__33(); 
-
-
-                }
-                break;
-            case 2 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:16: T__34
-                {
-                mT__34(); 
-
-
-                }
-                break;
-            case 3 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:22: T__35
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:10: T__35
                 {
                 mT__35(); 
 
 
                 }
                 break;
-            case 4 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:28: T__36
+            case 2 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:16: T__36
                 {
                 mT__36(); 
 
 
                 }
                 break;
-            case 5 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:34: T__37
+            case 3 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:22: T__37
                 {
                 mT__37(); 
 
 
                 }
                 break;
-            case 6 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:40: T__38
+            case 4 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:28: T__38
                 {
                 mT__38(); 
 
 
                 }
                 break;
-            case 7 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:46: T__39
+            case 5 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:34: T__39
                 {
                 mT__39(); 
 
 
                 }
                 break;
-            case 8 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:52: T__40
+            case 6 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:40: T__40
                 {
                 mT__40(); 
 
 
                 }
                 break;
-            case 9 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:58: T__41
+            case 7 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:46: T__41
                 {
                 mT__41(); 
 
 
                 }
                 break;
-            case 10 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:64: T__42
+            case 8 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:52: T__42
                 {
                 mT__42(); 
 
 
                 }
                 break;
-            case 11 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:70: T__43
+            case 9 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:58: T__43
                 {
                 mT__43(); 
 
 
                 }
                 break;
-            case 12 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:76: T__44
+            case 10 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:64: T__44
                 {
                 mT__44(); 
 
 
                 }
                 break;
-            case 13 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:82: T__45
+            case 11 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:70: T__45
                 {
                 mT__45(); 
 
 
                 }
                 break;
-            case 14 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:88: T__46
+            case 12 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:76: T__46
                 {
                 mT__46(); 
 
 
                 }
                 break;
-            case 15 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:94: T__47
+            case 13 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:82: T__47
                 {
                 mT__47(); 
 
 
                 }
                 break;
-            case 16 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:100: T__48
+            case 14 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:88: T__48
                 {
                 mT__48(); 
 
 
                 }
                 break;
-            case 17 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:106: T__49
+            case 15 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:94: T__49
                 {
                 mT__49(); 
 
 
                 }
                 break;
-            case 18 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:112: T__50
+            case 16 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:100: T__50
                 {
                 mT__50(); 
 
 
                 }
                 break;
-            case 19 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:118: T__51
+            case 17 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:106: T__51
                 {
                 mT__51(); 
 
 
                 }
                 break;
-            case 20 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:124: T__52
+            case 18 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:112: T__52
                 {
                 mT__52(); 
 
 
                 }
                 break;
-            case 21 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:130: T__53
+            case 19 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:118: T__53
                 {
                 mT__53(); 
 
 
                 }
                 break;
-            case 22 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:136: T__54
+            case 20 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:124: T__54
                 {
                 mT__54(); 
 
 
                 }
                 break;
-            case 23 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:142: T__55
+            case 21 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:130: T__55
                 {
                 mT__55(); 
 
 
                 }
                 break;
-            case 24 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:148: T__56
+            case 22 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:136: T__56
                 {
                 mT__56(); 
 
 
                 }
                 break;
-            case 25 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:154: T__57
+            case 23 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:142: T__57
                 {
                 mT__57(); 
 
 
                 }
                 break;
-            case 26 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:160: T__58
+            case 24 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:148: T__58
                 {
                 mT__58(); 
 
 
                 }
                 break;
-            case 27 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:166: T__59
+            case 25 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:154: T__59
                 {
                 mT__59(); 
 
 
                 }
                 break;
-            case 28 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:172: T__60
+            case 26 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:160: T__60
                 {
                 mT__60(); 
 
 
                 }
                 break;
-            case 29 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:178: T__61
+            case 27 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:166: T__61
                 {
                 mT__61(); 
 
 
                 }
                 break;
-            case 30 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:184: T__62
+            case 28 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:172: T__62
                 {
                 mT__62(); 
 
 
                 }
                 break;
-            case 31 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:190: T__63
+            case 29 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:178: T__63
                 {
                 mT__63(); 
 
 
                 }
                 break;
-            case 32 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:196: T__64
+            case 30 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:184: T__64
                 {
                 mT__64(); 
 
 
                 }
                 break;
-            case 33 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:202: T__65
+            case 31 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:190: T__65
                 {
                 mT__65(); 
 
 
                 }
                 break;
-            case 34 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:208: T__66
+            case 32 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:196: T__66
                 {
                 mT__66(); 
 
 
                 }
                 break;
-            case 35 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:214: T__67
+            case 33 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:202: T__67
                 {
                 mT__67(); 
 
 
                 }
                 break;
-            case 36 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:220: T__68
+            case 34 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:208: T__68
                 {
                 mT__68(); 
 
 
                 }
                 break;
-            case 37 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:226: T__69
+            case 35 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:214: T__69
                 {
                 mT__69(); 
 
 
                 }
                 break;
-            case 38 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:232: T__70
+            case 36 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:220: T__70
                 {
                 mT__70(); 
 
 
                 }
                 break;
-            case 39 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:238: T__71
+            case 37 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:226: T__71
                 {
                 mT__71(); 
 
 
                 }
                 break;
-            case 40 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:244: T__72
+            case 38 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:232: T__72
                 {
                 mT__72(); 
 
 
                 }
                 break;
-            case 41 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:250: T__73
+            case 39 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:238: T__73
                 {
                 mT__73(); 
 
 
                 }
                 break;
-            case 42 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:256: T__74
+            case 40 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:244: T__74
                 {
                 mT__74(); 
 
 
                 }
                 break;
-            case 43 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:262: T__75
+            case 41 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:250: T__75
                 {
                 mT__75(); 
 
 
                 }
                 break;
-            case 44 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:268: T__76
+            case 42 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:256: T__76
                 {
                 mT__76(); 
 
 
                 }
                 break;
-            case 45 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:274: T__77
+            case 43 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:262: T__77
                 {
                 mT__77(); 
 
 
                 }
                 break;
-            case 46 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:280: T__78
+            case 44 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:268: T__78
                 {
                 mT__78(); 
 
 
                 }
                 break;
-            case 47 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:286: T__79
+            case 45 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:274: T__79
                 {
                 mT__79(); 
 
 
                 }
                 break;
-            case 48 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:292: T__80
+            case 46 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:280: T__80
                 {
                 mT__80(); 
 
 
                 }
                 break;
-            case 49 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:298: T__81
+            case 47 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:286: T__81
                 {
                 mT__81(); 
 
 
                 }
                 break;
-            case 50 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:304: T__82
+            case 48 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:292: T__82
                 {
                 mT__82(); 
 
 
                 }
                 break;
-            case 51 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:310: T__83
+            case 49 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:298: T__83
                 {
                 mT__83(); 
 
 
                 }
                 break;
-            case 52 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:316: T__84
+            case 50 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:304: T__84
                 {
                 mT__84(); 
 
 
                 }
                 break;
-            case 53 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:322: T__85
+            case 51 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:310: T__85
                 {
                 mT__85(); 
 
 
                 }
                 break;
-            case 54 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:328: T__86
+            case 52 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:316: T__86
                 {
                 mT__86(); 
 
 
                 }
                 break;
-            case 55 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:334: T__87
+            case 53 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:322: T__87
                 {
                 mT__87(); 
 
 
                 }
                 break;
-            case 56 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:340: T__88
+            case 54 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:328: T__88
                 {
                 mT__88(); 
 
 
                 }
                 break;
-            case 57 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:346: T__89
+            case 55 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:334: T__89
                 {
                 mT__89(); 
 
 
                 }
                 break;
-            case 58 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:352: T__90
+            case 56 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:340: T__90
                 {
                 mT__90(); 
 
 
                 }
                 break;
-            case 59 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:358: T__91
+            case 57 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:346: T__91
                 {
                 mT__91(); 
 
 
                 }
                 break;
-            case 60 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:364: T__92
+            case 58 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:352: T__92
                 {
                 mT__92(); 
 
 
                 }
                 break;
-            case 61 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:370: T__93
+            case 59 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:358: T__93
                 {
                 mT__93(); 
 
 
                 }
                 break;
-            case 62 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:376: T__94
+            case 60 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:364: T__94
                 {
                 mT__94(); 
 
 
                 }
                 break;
-            case 63 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:382: T__95
+            case 61 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:370: T__95
                 {
                 mT__95(); 
 
 
                 }
                 break;
-            case 64 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:388: T__96
+            case 62 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:376: T__96
                 {
                 mT__96(); 
 
 
                 }
                 break;
-            case 65 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:394: T__97
+            case 63 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:382: T__97
                 {
                 mT__97(); 
 
 
                 }
                 break;
-            case 66 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:400: T__98
+            case 64 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:388: T__98
                 {
                 mT__98(); 
 
 
                 }
                 break;
-            case 67 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:406: T__99
+            case 65 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:394: T__99
                 {
                 mT__99(); 
 
 
                 }
                 break;
-            case 68 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:412: T__100
+            case 66 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:400: T__100
                 {
                 mT__100(); 
 
 
                 }
                 break;
-            case 69 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:419: T__101
+            case 67 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:407: T__101
                 {
                 mT__101(); 
 
 
                 }
                 break;
-            case 70 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:426: T__102
+            case 68 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:414: T__102
                 {
                 mT__102(); 
 
 
                 }
                 break;
-            case 71 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:433: T__103
+            case 69 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:421: T__103
                 {
                 mT__103(); 
 
 
                 }
                 break;
-            case 72 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:440: T__104
+            case 70 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:428: T__104
                 {
                 mT__104(); 
 
 
                 }
                 break;
-            case 73 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:447: T__105
+            case 71 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:435: T__105
                 {
                 mT__105(); 
 
 
                 }
                 break;
-            case 74 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:454: T__106
+            case 72 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:442: T__106
                 {
                 mT__106(); 
 
 
                 }
                 break;
-            case 75 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:461: T__107
+            case 73 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:449: T__107
                 {
                 mT__107(); 
 
 
                 }
                 break;
-            case 76 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:468: T__108
+            case 74 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:456: T__108
                 {
                 mT__108(); 
 
 
                 }
                 break;
-            case 77 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:475: T__109
+            case 75 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:463: T__109
                 {
                 mT__109(); 
 
 
                 }
                 break;
-            case 78 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:482: T__110
+            case 76 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:470: T__110
                 {
                 mT__110(); 
 
 
                 }
                 break;
-            case 79 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:489: T__111
+            case 77 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:477: T__111
                 {
                 mT__111(); 
 
 
                 }
                 break;
+            case 78 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:484: T__112
+                {
+                mT__112(); 
+
+
+                }
+                break;
+            case 79 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:491: T__113
+                {
+                mT__113(); 
+
+
+                }
+                break;
             case 80 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:496: INIT
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:498: T__114
+                {
+                mT__114(); 
+
+
+                }
+                break;
+            case 81 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:505: T__115
+                {
+                mT__115(); 
+
+
+                }
+                break;
+            case 82 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:512: T__116
+                {
+                mT__116(); 
+
+
+                }
+                break;
+            case 83 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:519: INIT
                 {
                 mINIT(); 
 
 
                 }
                 break;
-            case 81 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:501: INT
+            case 84 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:524: INT
                 {
                 mINT(); 
 
 
                 }
                 break;
-            case 82 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:505: VOID
+            case 85 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:528: VOID
                 {
                 mVOID(); 
 
 
                 }
                 break;
-            case 83 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:510: NULL
+            case 86 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:533: NULL
                 {
                 mNULL(); 
 
 
                 }
                 break;
-            case 84 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:515: INTEIRO
+            case 87 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:538: TIPOARRAY
+                {
+                mTIPOARRAY(); 
+
+
+                }
+                break;
+            case 88 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:548: INTEIRO
                 {
                 mINTEIRO(); 
 
 
                 }
                 break;
-            case 85 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:523: REF
+            case 89 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:556: REF
                 {
                 mREF(); 
 
 
                 }
                 break;
-            case 86 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:527: TIPO_REF
+            case 90 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:560: TIPO_REF
                 {
                 mTIPO_REF(); 
 
 
                 }
                 break;
-            case 87 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:536: ID
+            case 91 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:569: ID
                 {
                 mID(); 
 
 
                 }
                 break;
-            case 88 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:539: NEWLINE
+            case 92 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:572: NEWLINE
                 {
                 mNEWLINE(); 
 
 
                 }
                 break;
-            case 89 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:547: WS
+            case 93 :
+                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Assembler.g:1:580: WS
                 {
                 mWS(); 
 
@@ -3272,66 +3401,71 @@ public class AssemblerLexer extends Lexer {
             this.transition = DFA4_transition;
         }
         public String getDescription() {
-            return "()+ loopback of 224:9: ( ID '/' )+";
+            return "()+ loopback of 230:9: ( ID '/' )+";
         }
     }
     static final String DFA11_eotS =
         "\1\uffff\1\31\3\uffff\11\45\1\uffff\1\76\1\101\1\45\1\uffff\1\45"+
         "\1\uffff\1\45\12\uffff\5\45\2\uffff\27\45\1\uffff\1\45\1\24\1\uffff"+
-        "\2\45\1\uffff\4\45\1\157\20\45\1\u0083\4\45\1\u0089\1\u008a\1\u008b"+
-        "\1\45\1\u008e\4\45\1\uffff\1\45\1\uffff\4\45\1\uffff\2\45\1\u009c"+
-        "\1\u009d\1\u009e\1\45\1\u00a0\1\45\1\u00a2\1\u00a3\1\u00a4\1\u00a5"+
-        "\1\u00a6\1\u00a7\1\u00a8\1\45\1\u00aa\1\u00ab\1\45\1\uffff\1\u00ad"+
-        "\2\45\1\u00b0\1\u00b1\3\uffff\1\u00b2\1\u00b3\1\uffff\4\45\1\u00b2"+
-        "\1\46\1\uffff\1\45\1\u00bd\4\45\3\uffff\1\45\1\uffff\1\45\7\uffff"+
-        "\1\u00c5\2\uffff\1\45\1\uffff\2\45\4\uffff\4\45\1\46\2\uffff\2\45"+
-        "\1\uffff\1\45\1\u00d4\5\45\1\uffff\2\45\1\u00e1\2\45\1\u00e4\1\u00e5"+
-        "\1\45\1\u00e7\1\u00e8\1\u00e9\1\u00ea\1\u00eb\1\45\1\uffff\4\45"+
-        "\1\u00fd\1\u00fe\1\u00ff\1\u0100\2\45\1\u0104\1\45\1\uffff\2\45"+
-        "\2\uffff\1\45\5\uffff\1\u010c\1\u010d\1\u010e\1\u010f\1\u0110\1"+
-        "\45\1\u0112\1\u0113\1\u0114\1\u0115\1\u0116\1\u0117\5\45\4\uffff"+
-        "\3\45\1\uffff\1\u0122\1\u0123\1\u0124\1\u0125\1\u0126\2\45\5\uffff"+
-        "\1\u0129\6\uffff\1\u012a\1\u012b\1\u012c\1\u012d\1\u012e\1\u012f"+
-        "\1\u0130\3\45\5\uffff\1\u0134\1\45\10\uffff\3\45\1\uffff\1\u0139"+
-        "\3\45\1\uffff\1\45\1\u013e\1\45\1\u0140\1\uffff\1\u0141\2\uffff";
+        "\2\45\1\uffff\4\45\1\162\22\45\1\u0088\1\u0089\4\45\1\u008f\1\u0091"+
+        "\1\u0092\1\45\1\u0095\4\45\1\uffff\1\45\1\uffff\4\45\1\uffff\2\45"+
+        "\1\u00a3\1\u00a4\1\45\1\u00a6\2\45\1\u00a9\1\45\1\u00ab\1\u00ac"+
+        "\1\u00ad\1\u00ae\1\u00af\1\u00b0\1\u00b1\1\45\1\u00b3\1\u00b4\1"+
+        "\45\2\uffff\1\u00b6\2\45\1\u00b9\1\u00ba\1\uffff\1\45\2\uffff\1"+
+        "\u00bc\1\u00bd\1\uffff\4\45\1\u00bc\1\46\1\uffff\1\45\1\u00c7\4"+
+        "\45\2\uffff\1\45\1\uffff\2\45\1\uffff\1\45\7\uffff\1\u00d1\2\uffff"+
+        "\1\45\1\uffff\2\45\2\uffff\1\45\2\uffff\4\45\1\46\2\uffff\2\45\1"+
+        "\uffff\1\45\1\u00e1\2\45\1\u00e4\4\45\1\uffff\2\45\1\u00f0\3\45"+
+        "\1\u00f4\1\u00f5\1\45\1\u00f7\1\u00f8\1\u00f9\1\u00fa\1\u00fb\1"+
+        "\45\1\uffff\2\45\1\uffff\1\u0102\2\45\1\u010e\1\u010f\1\u0110\1"+
+        "\u0111\2\45\1\u0115\1\45\1\uffff\3\45\2\uffff\1\45\5\uffff\1\u011e"+
+        "\1\u011f\1\u0120\1\u0121\1\u0122\1\45\1\uffff\1\u0124\1\u0125\1"+
+        "\u0126\1\u0127\1\u0128\1\u0129\5\45\4\uffff\3\45\1\uffff\1\u0134"+
+        "\1\u0135\1\u0136\1\u0137\1\u0138\1\u0139\2\45\5\uffff\1\u013c\6"+
+        "\uffff\1\u013d\1\u013e\1\u013f\1\u0140\1\u0141\1\u0142\1\u0143\3"+
+        "\45\6\uffff\1\u0147\1\45\10\uffff\3\45\1\uffff\1\u014c\3\45\1\uffff"+
+        "\1\45\1\u0151\1\45\1\u0153\1\uffff\1\u0154\2\uffff";
     static final String DFA11_eofS =
-        "\u0142\uffff";
+        "\u0155\uffff";
     static final String DFA11_minS =
         "\1\11\1\51\1\uffff\1\143\1\uffff\11\56\1\uffff\3\56\1\uffff\1\56"+
         "\1\uffff\1\56\5\uffff\1\156\4\uffff\5\56\2\uffff\27\56\1\uffff\2"+
-        "\56\1\uffff\2\56\1\144\43\56\1\74\1\56\1\40\4\56\1\uffff\23\56\1"+
-        "\uffff\5\56\3\uffff\2\56\1\uffff\6\56\1\143\6\56\3\uffff\1\56\1"+
-        "\uffff\1\56\7\uffff\1\56\2\uffff\1\56\1\uffff\2\56\4\uffff\5\56"+
-        "\2\uffff\2\56\1\uffff\7\56\1\uffff\16\56\1\uffff\14\56\1\uffff\2"+
-        "\56\2\uffff\1\56\5\uffff\21\56\4\uffff\3\56\1\uffff\7\56\5\uffff"+
-        "\1\56\6\uffff\12\56\5\uffff\2\56\10\uffff\3\56\1\uffff\4\56\1\uffff"+
+        "\56\1\uffff\2\56\1\144\46\56\1\74\1\56\1\40\4\56\1\uffff\25\56\2"+
+        "\uffff\5\56\1\uffff\1\56\2\uffff\2\56\1\uffff\6\56\1\143\6\56\2"+
+        "\uffff\1\56\1\uffff\2\56\1\uffff\1\56\7\uffff\1\56\2\uffff\1\56"+
+        "\1\uffff\2\56\2\uffff\1\56\2\uffff\5\56\2\uffff\2\56\1\uffff\11"+
+        "\56\1\uffff\17\56\1\uffff\2\56\1\uffff\13\56\1\uffff\3\56\2\uffff"+
+        "\1\56\5\uffff\6\56\1\uffff\13\56\4\uffff\3\56\1\uffff\10\56\5\uffff"+
+        "\1\56\6\uffff\12\56\6\uffff\2\56\10\uffff\3\56\1\uffff\4\56\1\uffff"+
         "\4\56\1\uffff\1\56\2\uffff";
     static final String DFA11_maxS =
         "\1\172\1\51\1\uffff\1\163\1\uffff\11\172\1\uffff\3\172\1\uffff\1"+
         "\172\1\uffff\1\172\5\uffff\1\156\4\uffff\5\172\2\uffff\27\172\1"+
-        "\uffff\2\172\1\uffff\2\172\1\144\45\172\1\40\4\172\1\uffff\23\172"+
-        "\1\uffff\5\172\3\uffff\2\172\1\uffff\6\172\1\155\6\172\3\uffff\1"+
-        "\172\1\uffff\1\172\7\uffff\1\172\2\uffff\1\172\1\uffff\2\172\4\uffff"+
-        "\5\172\2\uffff\2\172\1\uffff\7\172\1\uffff\16\172\1\uffff\14\172"+
-        "\1\uffff\2\172\2\uffff\1\172\5\uffff\21\172\4\uffff\3\172\1\uffff"+
-        "\7\172\5\uffff\1\172\6\uffff\12\172\5\uffff\2\172\10\uffff\3\172"+
-        "\1\uffff\4\172\1\uffff\4\172\1\uffff\1\172\2\uffff";
+        "\uffff\2\172\1\uffff\2\172\1\144\50\172\1\40\4\172\1\uffff\25\172"+
+        "\2\uffff\5\172\1\uffff\1\172\2\uffff\2\172\1\uffff\6\172\1\155\6"+
+        "\172\2\uffff\1\172\1\uffff\2\172\1\uffff\1\172\7\uffff\1\172\2\uffff"+
+        "\1\172\1\uffff\2\172\2\uffff\1\172\2\uffff\5\172\2\uffff\2\172\1"+
+        "\uffff\11\172\1\uffff\17\172\1\uffff\2\172\1\uffff\13\172\1\uffff"+
+        "\3\172\2\uffff\1\172\5\uffff\6\172\1\uffff\13\172\4\uffff\3\172"+
+        "\1\uffff\10\172\5\uffff\1\172\6\uffff\12\172\6\uffff\2\172\10\uffff"+
+        "\3\172\1\uffff\4\172\1\uffff\4\172\1\uffff\1\172\2\uffff";
     static final String DFA11_acceptS =
-        "\2\uffff\1\3\1\uffff\1\13\11\uffff\1\120\3\uffff\1\124\1\uffff\1"+
-        "\126\1\uffff\1\130\1\131\1\2\1\1\1\4\1\uffff\1\7\1\10\1\11\1\12"+
-        "\5\uffff\1\127\1\125\27\uffff\1\121\2\uffff\1\122\55\uffff\1\30"+
-        "\23\uffff\1\75\5\uffff\1\107\1\110\1\111\2\uffff\1\112\15\uffff"+
-        "\1\33\1\34\1\35\1\uffff\1\45\1\uffff\1\54\1\55\1\56\1\57\1\60\1"+
-        "\61\1\62\1\uffff\1\70\1\71\1\uffff\1\76\2\uffff\1\105\1\106\1\123"+
-        "\1\113\5\uffff\1\5\1\6\2\uffff\1\15\7\uffff\1\63\16\uffff\1\23\14"+
-        "\uffff\1\100\2\uffff\1\116\1\117\1\uffff\1\16\1\17\1\20\1\21\1\22"+
-        "\21\uffff\1\64\1\65\1\66\1\67\3\uffff\1\77\7\uffff\1\24\1\25\1\26"+
-        "\1\27\1\31\1\uffff\1\36\1\37\1\40\1\41\1\42\1\43\12\uffff\1\101"+
-        "\1\102\1\103\1\104\1\114\2\uffff\1\32\1\44\1\46\1\47\1\50\1\51\1"+
-        "\52\1\53\3\uffff\1\115\4\uffff\1\14\4\uffff\1\73\1\uffff\1\72\1"+
-        "\74";
+        "\2\uffff\1\3\1\uffff\1\13\11\uffff\1\123\3\uffff\1\130\1\uffff\1"+
+        "\132\1\uffff\1\134\1\135\1\2\1\1\1\4\1\uffff\1\7\1\10\1\11\1\12"+
+        "\5\uffff\1\133\1\131\27\uffff\1\124\2\uffff\1\125\60\uffff\1\30"+
+        "\25\uffff\1\127\1\77\5\uffff\1\111\1\uffff\1\112\1\114\2\uffff\1"+
+        "\115\15\uffff\1\33\1\34\1\uffff\1\36\2\uffff\1\47\1\uffff\1\56\1"+
+        "\57\1\60\1\61\1\62\1\63\1\64\1\uffff\1\72\1\73\1\uffff\1\100\2\uffff"+
+        "\1\107\1\110\1\uffff\1\126\1\116\5\uffff\1\5\1\6\2\uffff\1\15\11"+
+        "\uffff\1\65\17\uffff\1\23\2\uffff\1\35\13\uffff\1\102\3\uffff\1"+
+        "\121\1\122\1\uffff\1\16\1\17\1\20\1\21\1\22\6\uffff\1\37\13\uffff"+
+        "\1\66\1\67\1\70\1\71\3\uffff\1\101\10\uffff\1\24\1\25\1\26\1\27"+
+        "\1\31\1\uffff\1\40\1\41\1\42\1\43\1\44\1\45\12\uffff\1\103\1\104"+
+        "\1\105\1\106\1\113\1\117\2\uffff\1\32\1\46\1\50\1\51\1\52\1\53\1"+
+        "\54\1\55\3\uffff\1\120\4\uffff\1\14\4\uffff\1\75\1\uffff\1\74\1"+
+        "\76";
     static final String DFA11_specialS =
-        "\u0142\uffff}>";
+        "\u0155\uffff}>";
     static final String[] DFA11_transitionS = {
             "\1\27\1\26\2\uffff\1\27\22\uffff\1\27\7\uffff\1\1\1\2\3\uffff"+
             "\1\22\1\3\1\uffff\12\22\1\4\1\uffff\1\16\4\uffff\10\25\1\17"+
@@ -3399,145 +3533,155 @@ public class AssemblerLexer extends Lexer {
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
             "\113\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
-            "\114\11\44\1\115\14\44",
+            "\114\7\44\1\115\1\44\1\116\4\44\1\117\7\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
-            "\116\13\44",
+            "\120\13\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\117\21\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\120\1\uffff\4\44\1"+
-            "\121\1\44\1\122\4\44\1\123\1\44\1\124\14\44",
+            "\121\21\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\122\1\uffff\4\44\1"+
+            "\123\1\44\1\124\4\44\1\125\1\44\1\126\14\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\15\44\1"+
-            "\125\14\44",
+            "\127\14\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
-            "\126\13\44",
+            "\130\13\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\24\44\1"+
-            "\127\5\44",
+            "\131\5\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\130\20\44\1\131\4\44",
+            "\132\16\44\1\134\1\44\1\133\4\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
-            "\132\10\44",
+            "\135\10\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\133\25\44",
+            "\136\25\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\134\1\135\5\44",
+            "\137\1\140\5\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
-            "\136\13\44",
+            "\141\13\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
-            "\137\27\44",
+            "\142\27\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\26\44\1"+
-            "\140\3\44",
+            "\143\3\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\17\44\1"+
-            "\141\12\44",
+            "\144\12\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
-            "\142\16\44",
+            "\145\16\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\17\44\1"+
-            "\143\12\44",
+            "\146\12\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\144\6\44",
+            "\147\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\145\6\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\146\31"+
+            "\150\6\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\151\31"+
             "\44",
             "",
             "\1\44\1\46\12\44\7\uffff\32\103\4\uffff\1\103\1\uffff\32\103",
             "\1\44\1\46\12\44\7\uffff\10\44\1\100\2\44\1\77\16\44\4\uffff"+
             "\1\44\1\uffff\32\44",
             "",
-            "\1\44\1\46\12\44\7\uffff\13\44\1\147\16\44\4\uffff\1\44\1\uffff"+
+            "\1\44\1\46\12\44\7\uffff\13\44\1\152\16\44\4\uffff\1\44\1\uffff"+
             "\32\44",
-            "\1\151\1\150\12\151\1\uffff\1\24\5\uffff\32\151\4\uffff\1\151"+
-            "\1\uffff\32\151",
-            "\1\152",
+            "\1\154\1\153\12\154\1\uffff\1\24\5\uffff\32\154\4\uffff\1\154"+
+            "\1\uffff\32\154",
+            "\1\155",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\15\44\1"+
-            "\153\14\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\154\31"+
+            "\156\14\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\157\31"+
             "\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\155\6\44",
+            "\160\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
-            "\156\13\44",
+            "\161\13\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\5\44\1"+
-            "\160\14\44\1\161\7\44",
+            "\163\14\44\1\164\7\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
-            "\162\13\44",
+            "\165\13\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
-            "\163\26\44",
+            "\166\26\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
+            "\167\13\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
-            "\164\26\44",
+            "\170\26\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
+            "\171\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\15\44\1"+
-            "\165\14\44",
+            "\172\14\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\25\44\1"+
-            "\166\4\44",
+            "\173\4\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\167\21\44",
+            "\174\21\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\20\44\1"+
-            "\170\11\44",
+            "\175\11\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\171\16\44\1\172\6\44",
+            "\176\16\44\1\177\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\173\16\44\1\174\6\44",
+            "\u0080\16\44\1\u0081\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\175\25\44",
+            "\u0082\25\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
-            "\176\27\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\177\31"+
-            "\44",
+            "\u0083\27\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u0084"+
+            "\31\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
-            "\u0080\16\44",
+            "\u0085\16\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\6\44\1"+
-            "\u0081\23\44",
+            "\u0086\23\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
-            "\u0082\13\44",
+            "\u0087\13\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\14\44\1"+
-            "\u0084\6\44\1\u0085\6\44",
+            "\u008a\6\44\1\u008b\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
-            "\u0086\13\44",
+            "\u008c\13\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\44\1"+
-            "\u0087\30\44",
+            "\u008d\30\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
-            "\u0088\10\44",
+            "\u008e\10\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u0090"+
+            "\31\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
-            "\u008c\16\44",
-            "\1\44\1\46\2\44\1\u008d\7\44\7\uffff\32\44\4\uffff\1\44\1\uffff"+
+            "\u0093\16\44",
+            "\1\44\1\46\2\44\1\u0094\7\44\7\uffff\32\44\4\uffff\1\44\1\uffff"+
             "\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\5\44\1"+
-            "\u008f\14\44\1\u0090\7\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\24\44\1"+
-            "\u0091\5\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\u0092\6\44",
-            "\1\44\1\46\12\44\7\uffff\13\44\1\u0093\16\44\4\uffff\1\44\1"+
-            "\uffff\32\44",
-            "\1\46\4\uffff\32\u0094\4\uffff\1\u0094\1\uffff\32\u0094",
-            "\1\151\1\150\12\151\1\uffff\1\24\5\uffff\32\151\4\uffff\1\151"+
-            "\1\uffff\32\151",
-            "\1\u0095",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\22\44\1"+
-            "\u0096\7\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
-            "\u0097\26\44",
+            "\u0096\14\44\1\u0097\7\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\24\44\1"+
             "\u0098\5\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
+            "\u0099\6\44",
+            "\1\44\1\46\12\44\7\uffff\13\44\1\u009a\16\44\4\uffff\1\44\1"+
+            "\uffff\32\44",
+            "\1\46\4\uffff\32\u009b\4\uffff\1\u009b\1\uffff\32\u009b",
+            "\1\154\1\153\12\154\1\uffff\1\24\5\uffff\32\154\4\uffff\1\154"+
+            "\1\uffff\32\154",
+            "\1\u009c",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\22\44\1"+
+            "\u009d\7\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
+            "\u009e\26\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\24\44\1"+
+            "\u009f\5\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
-            "\u0099\10\44",
+            "\u00a0\10\44",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\u009a\21\44",
+            "\u00a1\21\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\u009b\6\44",
+            "\u00a2\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u00a5"+
+            "\31\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\16\44\1"+
+            "\u00a7\13\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\22\44\1"+
-            "\u009f\7\44",
+            "\u00a8\7\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
-            "\u00a1\27\44",
+            "\u00aa\27\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
@@ -3546,108 +3690,102 @@ public class AssemblerLexer extends Lexer {
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
-            "\u00a9\26\44",
+            "\u00b2\26\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\12\44\1"+
-            "\u00ac\17\44",
+            "\u00b5\17\44",
+            "",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\24\44\1"+
-            "\u00ae\5\44",
+            "\u00b7\5\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
-            "\u00af\10\44",
+            "\u00b8\10\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
+            "\u00bb\10\44",
             "",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\u00b4\21\44",
+            "\u00be\21\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\u00b5\6\44",
+            "\u00bf\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
-            "\u00b6\10\44",
+            "\u00c0\10\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\u00b7\21\44",
+            "\u00c1\21\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\u00b8\1\150\12\u00b8\1\uffff\1\24\5\uffff\32\u00b8\4\uffff"+
-            "\1\u00b8\1\uffff\32\u00b8",
-            "\1\u00b9\11\uffff\1\u00ba",
+            "\1\u00c2\1\153\12\u00c2\1\uffff\1\24\5\uffff\32\u00c2\4\uffff"+
+            "\1\u00c2\1\uffff\32\u00c2",
+            "\1\u00c3\11\uffff\1\u00c4",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\u00bb\6\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00bc\1\uffff\32\44",
+            "\u00c5\6\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00c6\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
-            "\u00be\10\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u00bf\25\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u00c0\25\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u00c1"+
-            "\31\44",
-            "",
-            "",
-            "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\u00c2\6\44",
-            "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\14\44\1"+
-            "\u00c3\15\44",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00c4\1\uffff\32\44",
-            "",
-            "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u00c6\25\44",
-            "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
-            "\u00c7\10\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u00c8\25\44",
-            "",
-            "",
-            "",
-            "",
+            "\u00c8\10\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
             "\u00c9\25\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u00ca"+
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
+            "\u00ca\25\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u00cb"+
+            "\31\44",
+            "",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
+            "\u00cc\26\44",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
+            "\u00cd\10\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
+            "\u00ce\6\44",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\14\44\1"+
+            "\u00cf\15\44",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00d0\1\uffff\32\44",
+            "",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
+            "\u00d2\25\44",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
+            "\u00d3\10\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
+            "\u00d4\25\44",
+            "",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
+            "\u00d5\10\44",
+            "",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
+            "\u00d6\25\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u00d7"+
             "\31\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\15\44\1"+
-            "\u00cb\14\44",
+            "\u00d8\14\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
-            "\u00cc\27\44",
-            "\1\u00b8\1\150\12\u00b8\1\uffff\1\24\5\uffff\32\u00b8\4\uffff"+
-            "\1\u00b8\1\uffff\32\u00b8",
+            "\u00d9\27\44",
+            "\1\u00c2\1\153\12\u00c2\1\uffff\1\24\5\uffff\32\u00c2\4\uffff"+
+            "\1\u00c2\1\uffff\32\u00c2",
             "",
             "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00cd\1\uffff\32\44",
-            "\1\44\1\46\1\u00ce\1\u00cf\1\u00d0\1\u00d1\6\44\7\uffff\32"+
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00da\1\uffff\32\44",
+            "\1\44\1\46\1\u00db\1\u00dc\1\u00dd\1\u00de\6\44\7\uffff\32"+
             "\44\4\uffff\1\44\1\uffff\32\44",
             "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\15\44\1"+
-            "\u00d2\14\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00d3\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
-            "\u00d5\16\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\u00d6\6\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00d7\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\17\44\1"+
-            "\u00d8\12\44",
-            "\1\44\1\46\1\u00d9\1\u00da\1\u00db\1\u00dc\6\44\7\uffff\32"+
-            "\44\4\uffff\1\44\1\uffff\32\44",
-            "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\22\44\1"+
-            "\u00dd\2\44\1\u00de\4\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\15\44\1"+
             "\u00df\14\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00e0\1\uffff\32\44",
@@ -3656,45 +3794,69 @@ public class AssemblerLexer extends Lexer {
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
             "\u00e3\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
+            "\u00e5\25\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00e6\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\17\44\1"+
+            "\u00e7\12\44",
+            "\1\44\1\46\1\u00e8\1\u00e9\1\u00ea\1\u00eb\6\44\7\uffff\32"+
+            "\44\4\uffff\1\44\1\uffff\32\44",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\22\44\1"+
+            "\u00ec\2\44\1\u00ed\4\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\15\44\1"+
+            "\u00ee\14\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\u00ef\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u00f1"+
+            "\31\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
+            "\u00f2\16\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
+            "\u00f3\6\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\15\44\1"+
-            "\u00e6\14\44",
+            "\u00f6\14\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\1\u00ec\1\u00ed\1\u00ee\1\u00ef\6\44\7\uffff\32"+
+            "\1\44\1\46\1\u00fc\1\u00fd\1\u00fe\1\u00ff\6\44\7\uffff\32"+
             "\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
-            "\u00f0\26\44",
+            "\u0100\26\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\u00f1\21\44",
-            "\1\44\1\46\1\u00f2\1\u00f3\1\u00f4\1\u00f5\1\u00f6\1\u00f7"+
-            "\4\44\7\uffff\32\44\4\uffff\1\44\1\uffff\14\44\1\u00f8\15\44",
+            "\u0101\21\44",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\1\u0103\1\u0104\1\u0105\1\u0106\1\u0107\1\u0108"+
+            "\4\44\7\uffff\32\44\4\uffff\1\44\1\uffff\14\44\1\u0109\15\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u00f9\1\44\1\u00fa\4\44\1\u00fb\1\44\1\u00fc\14\44",
+            "\u010a\1\44\1\u010b\4\44\1\u010c\1\44\1\u010d\14\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\17\44\1"+
-            "\u0101\3\44\1\u0102\6\44",
+            "\u0112\3\44\1\u0113\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\u0103\21\44",
+            "\u0114\21\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\1\u0105\1\u0106\1\u0107\1\u0108\6\44\7\uffff\32"+
+            "\1\44\1\46\1\u0116\1\u0117\1\u0118\1\u0119\6\44\7\uffff\32"+
             "\44\4\uffff\1\44\1\uffff\32\44",
             "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\30\44\1"+
+            "\u011a\1\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\3\44\1"+
-            "\u0109\26\44",
+            "\u011b\26\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\u010a\21\44",
+            "\u011c\21\44",
             "",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\24\44\1"+
-            "\u010b\5\44",
+            "\u011d\5\44",
             "",
             "",
             "",
@@ -3706,56 +3868,35 @@ public class AssemblerLexer extends Lexer {
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
-            "\u0111\27\44",
+            "\u0123\27\44",
+            "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\1\44\1\u0118\10\44\7\uffff\32\44\4\uffff\1\44\1"+
+            "\1\44\1\46\1\44\1\u012a\10\44\7\uffff\32\44\4\uffff\1\44\1"+
             "\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\20\44\1"+
-            "\u0119\11\44",
+            "\u012b\11\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u011a\16\44\1\u011b\6\44",
+            "\u012c\16\44\1\u012d\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u011c\16\44\1\u011d\6\44",
+            "\u012e\16\44\1\u012f\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u011e\25\44",
+            "\u0130\25\44",
             "",
             "",
             "",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\4\44\1"+
-            "\u011f\25\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u0120"+
+            "\u0131\25\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u0132"+
             "\31\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\21\44\1"+
-            "\u0121\10\44",
+            "\u0133\10\44",
             "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
-            "\u0127\27\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
-            "\u0128\16\44",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
@@ -3763,11 +3904,35 @@ public class AssemblerLexer extends Lexer {
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
-            "\u0131\27\44",
+            "\u013a\27\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
+            "\u013b\16\44",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
+            "\u0144\27\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\u0132\6\44",
+            "\u0145\6\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\23\44\1"+
-            "\u0133\6\44",
+            "\u0146\6\44",
+            "",
             "",
             "",
             "",
@@ -3775,7 +3940,7 @@ public class AssemblerLexer extends Lexer {
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
-            "\u0135\16\44",
+            "\u0148\16\44",
             "",
             "",
             "",
@@ -3785,25 +3950,25 @@ public class AssemblerLexer extends Lexer {
             "",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\u0136\21\44",
+            "\u0149\21\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\10\44\1"+
-            "\u0137\21\44",
+            "\u014a\21\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\24\44\1"+
-            "\u0138\5\44",
+            "\u014b\5\44",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u013a"+
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u014d"+
             "\31\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\2\44\1"+
-            "\u013b\27\44",
-            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u013c"+
+            "\u014e\27\44",
+            "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\1\u014f"+
             "\31\44",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
-            "\u013d\16\44",
+            "\u0150\16\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\13\44\1"+
-            "\u013f\16\44",
+            "\u0152\16\44",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "\1\44\1\46\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
@@ -3841,7 +4006,7 @@ public class AssemblerLexer extends Lexer {
             this.transition = DFA11_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | INIT | INT | VOID | NULL | INTEIRO | REF | TIPO_REF | ID | NEWLINE | WS );";
+            return "1:1: Tokens : ( T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | T__116 | INIT | INT | VOID | NULL | TIPOARRAY | INTEIRO | REF | TIPO_REF | ID | NEWLINE | WS );";
         }
     }
  

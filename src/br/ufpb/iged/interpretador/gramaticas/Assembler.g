@@ -25,6 +25,7 @@ tokens {
   LIMIT;
   METHOD_CALL;
   ARGS;
+  NEWARRAY;
 }
 
 @header{
@@ -62,9 +63,9 @@ label : a = ID ':' -> ^(LABEL $a);
 comando: ( manipulacaoObjetos
               | aritmetica
               | load
-              | loadint
+              | loaddois
               | store
-              | storeint
+              | storedois
               | desvio
               | logica
               | pilha
@@ -114,6 +115,7 @@ manipulacaoObjetos : a = 'getfield' REF tipo -> ^('getfield' REF tipo)
                     | a = 'invokevirtual' REF d = parametrosRetorno
                       -> ^('invokevirtual' REF $d)
                    | a = 'new' (b = ID | b = REF) -> ^(NEW $b)
+                   | a = 'newarray' b = TIPOARRAY -> ^(NEWARRAY $b)
                    ;
                 
   
@@ -146,11 +148,12 @@ load : ( a = 'iconst_m1'
           | a = 'aload_1'
           | a = 'aload_2'
           | a = 'aload_3'
+          | a = 'iaload'
        )
        -> ^(LOAD $a)
      ;
      
-loadint : ( a = 'iload' b = INTEIRO
+loaddois : ( a = 'iload' b = INTEIRO
             | a = 'ldc' b = INTEIRO
             | a = 'aload' b = INTEIRO
           )
@@ -165,11 +168,12 @@ store : ( a = 'istore_0'
           | a = 'astore_1'
           | a = 'astore_2'
           | a = 'astore_3'
+          | a = 'iastore'
         )
         -> ^(STORE $a)
       ;
       
-storeint : ( a = 'istore' b = INTEIRO
+storedois : ( a = 'istore' b = INTEIRO
              | a = 'astore' b = INTEIRO
            )
            -> ^(STORE $a $b)
@@ -218,6 +222,8 @@ INT : 'I';
 VOID : 'V';
 
 NULL : ('null' | 'NULL');
+
+TIPOARRAY  : 'int';
 
 INTEIRO : '-'? '0'..'9'+ ;
 

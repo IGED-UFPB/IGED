@@ -54,10 +54,12 @@ aload_0 2a 42
 aload_1 2b 43
 aload_2 2c 44
 aload_3 2d 45
+iaload 2e 46
 astore_0 4b 75
 astore_1 4c 76
 astore_2 4d 77
 astore_3 4e 78
+iastore 4f 79
 ireturn ac 172
 areturn b0 176
 return b1 177
@@ -69,3 +71,4 @@ invokevirtual b6 182
 invokespecial b7 183
 invokestatic b8 184
 new bb 187
+newarray bc 188

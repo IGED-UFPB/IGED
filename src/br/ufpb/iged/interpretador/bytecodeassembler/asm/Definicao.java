@@ -55,11 +55,13 @@ public class Definicao {
     public static final int ALOAD1 = 0x2b;
     public static final int ALOAD2 = 0x2c;
     public static final int ALOAD3 = 0x2d;
+    public static final int IALOAD = 0x2e;
     public static final int ASTORE = 0x3a;
     public static final int ASTORE0 = 0x4b;
     public static final int ASTORE1 = 0x4c;
     public static final int ASTORE2 = 0x4d;
     public static final int ASTORE3 = 0x4e;
+    public static final int IASTORE = 0x4f;
     public static final int IRETURN = 0xac;
     public static final int ARETURN = 0xb0;
     public static final int RETURN = 0xb1;
@@ -71,6 +73,7 @@ public class Definicao {
     public static final int INVOKESPECIAL = 0xb7;
     public static final int INVOKESTATIC = 0xb8;
     public static final int NEW = 0xbb;
+    public static final int NEWARRAY = 0xbc;
     
     public static final int ID = AssemblerParser.ID;
     public static final int INT= AssemblerParser.INT;
@@ -163,11 +166,13 @@ public class Definicao {
 			new Instrucao("aload_1", Definicao.ALOAD1),
 			new Instrucao("aload_2", Definicao.ALOAD2),
 			new Instrucao("aload_3", Definicao.ALOAD3),
+			new Instrucao("iaload", Definicao.IALOAD),
 			new Instrucao("astore", Definicao.ASTORE),
 			new Instrucao("astore_0", Definicao.ASTORE0),
 			new Instrucao("astore_1", Definicao.ASTORE1),
 			new Instrucao("astore_2", Definicao.ASTORE2),
 			new Instrucao("astore_3", Definicao.ASTORE3),
+			new Instrucao("iastore", Definicao.IASTORE),
 			new Instrucao("ireturn", Definicao.IRETURN),
 			new Instrucao("areturn", Definicao.ARETURN),
 			new Instrucao("return", Definicao.RETURN),
@@ -178,7 +183,8 @@ public class Definicao {
 			new Instrucao("invokevirtual", Definicao.INVOKEVIRTUAL),
 			new Instrucao("invokespecial", Definicao.INVOKESPECIAL),
 			new Instrucao("invokestatic", Definicao.INVOKESTATIC),
-			new Instrucao("new", Definicao.NEW)
+			new Instrucao("new", Definicao.NEW),
+			new Instrucao("newarray", Definicao.NEWARRAY)
 
 	};
  
