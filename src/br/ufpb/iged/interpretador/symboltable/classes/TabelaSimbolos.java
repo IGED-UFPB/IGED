@@ -6,7 +6,8 @@ public class TabelaSimbolos {
 	
 	public TabelaSimbolos() {
 		
-		global.definir(new SimboloTipoPrimitvo("I"));
+		global.definir(new SimboloTipoPrimitivo(SimboloTipoPrimitivo.INTEIRO));
+		global.definir(new SimboloTipoArray(SimboloTipoArray.INTEIROUMADIMENSAO));
 		
 	}
 	

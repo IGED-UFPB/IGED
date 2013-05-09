@@ -187,7 +187,7 @@ entraNaClasse
 declaracaoVariavel
     : ^(FIELD_DECL .? ID tip =.)
         {
-           if ($tip.getText().startsWith("L"))
+           if ($tip.getText().startsWith("L") || $tip.getText().startsWith("["))
            	$ID.simbolo.tipo = resolverTipo($tip.getText().substring(0, $tip.getText().length() - 1));
            else
            	$ID.simbolo.tipo = resolverTipo($tip.getText());

@@ -1,6 +1,6 @@
 .class Main
 .method static main() V
-.limit locals 6
+.limit locals 8
 	ldc 5
 	istore_0
 	iconst_3
@@ -53,6 +53,21 @@
 	aload_2
 	iload 4
 	putfield List/size I
+	new Vector
+	astore 6
+	aload 6
+	iconst_0
+	putfield Vector/pos I
+	aload 6
+	ldc 10
+	putfield Vector/size I
+	aload 6
+	getfield Vector/size I
+	newarray int
+	astore 7
+	aload 6
+	aload 7
+	putfield Vector/data [I;
 	return
 .end method
 .end class

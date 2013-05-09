@@ -1,7 +1,7 @@
 .class Vector
 .field pos I
 .field size I
-.field data [I
+.field data [I;
 .method <init>(I) V
 	aload_0
 	iconst_0
