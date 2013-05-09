@@ -249,6 +249,29 @@ public class Interpretador {
         return -1;
     }
 	
+	public static String gerarIdentificador(int endereco) {
+		
+		String id = "";
+		String idRev = "";
+		
+		char[]alfabeto= {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+				'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+				'u', 'v', 'w', 'x', 'y', 'z'};
+		
+		int div = endereco;
+		do{
+			int mod = div % 26;
+			div = (int) div / 26;
+			idRev += alfabeto[mod];
+		}while(div > 0);
+		
+		for (int i = idRev.length() - 1; i >= 0; i--)
+			id += idRev.charAt(i);
+		
+		return id;
+		
+    }
+	
 	public static BytecodeAssembler getAssembler() {
 		return assembler;
 	}

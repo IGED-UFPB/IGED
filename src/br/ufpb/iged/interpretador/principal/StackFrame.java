@@ -56,7 +56,7 @@ public class StackFrame {
 	public void criarVariavelInteiro(int endereco) {
 		
 		if (endereco == proximaVariavelNaoCriada) {
-			Interpretador.con.creat_Int(""+endereco);
+			Interpretador.con.creat_Int(Interpretador.gerarIdentificador(endereco));
 			variaveisCriadas[endereco] = true;
 			proximaVariavelNaoCriada++;
 		}
@@ -67,17 +67,17 @@ public class StackFrame {
 		
 		if (endereco == proximaVariavelNaoCriada) {
 			if (tipo.equals("LList"))
-				Interpretador.con.createReference(""+endereco, IGEDConst.LISTA);
+				Interpretador.con.createReference(Interpretador.gerarIdentificador(endereco), IGEDConst.LISTA);
 			else if (tipo.equals("LNodeList"))
-				Interpretador.con.createReference(""+endereco, IGEDConst.NODE);
+				Interpretador.con.createReference(Interpretador.gerarIdentificador(endereco), IGEDConst.NODE);
 			else if (tipo.equals("LNodeTree"))
-				Interpretador.con.createReference(""+endereco, IGEDConst.NODE_TREE);
+				Interpretador.con.createReference(Interpretador.gerarIdentificador(endereco), IGEDConst.NODE_TREE);
 			else if (tipo.equals("[I"))
-				Interpretador.con.createReference(""+endereco, IGEDConst.VETOR);
+				Interpretador.con.createReference(Interpretador.gerarIdentificador(endereco), IGEDConst.VETOR);
 			else if (tipo.equals("LBinaryTree"))
-				Interpretador.con.createReference(""+endereco, IGEDConst.BINARY_TREE);
+				Interpretador.con.createReference(Interpretador.gerarIdentificador(endereco), IGEDConst.BINARY_TREE);
 			else
-				Interpretador.con.creat_Int(""+endereco);
+				Interpretador.con.creat_Int(Interpretador.gerarIdentificador(endereco));
 			
 			variaveisCriadas[endereco] = true;
 			proximaVariavelNaoCriada++;

@@ -6,7 +6,7 @@
 	iconst_0
 	putfield NodeList/info I
 	aconst_null
-	putfield NodeList/next LList;
+	putfield NodeList/next LNodeList;
 	return
 .end method
 .method <init>(I) V
@@ -14,7 +14,9 @@
 	iload_1
 	putfield NodeList/info I
 	aconst_null
-	putfield NodeList/next LList;
+	astore_2
+	aload_2
+	putfield NodeList/next LNodeList;
 	return
 .end method  
 .end class

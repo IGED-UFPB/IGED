@@ -305,7 +305,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[0];
 			
-			Interpretador.con.ler_Int("0");
+			Interpretador.con.ler_Int(Interpretador.gerarIdentificador(0));
 
 		}
 		;
@@ -317,7 +317,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[1];
 			
-			Interpretador.con.ler_Int("1");
+			Interpretador.con.ler_Int(Interpretador.gerarIdentificador(1));
 
 		}
 		;
@@ -329,7 +329,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[2];
 			
-			Interpretador.con.ler_Int("2");
+			Interpretador.con.ler_Int(Interpretador.gerarIdentificador(2));
 			
 
 		}
@@ -342,7 +342,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[3];
 			
-			Interpretador.con.ler_Int("3");
+			Interpretador.con.ler_Int(Interpretador.gerarIdentificador(3));
 			
 
 		}
@@ -357,7 +357,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[op1];
 			
-			Interpretador.con.ler_Int(""+op1);			
+			Interpretador.con.ler_Int(Interpretador.gerarIdentificador(op1));			
 
 		}
 		;
@@ -369,7 +369,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[0];
 			
-			Interpretador.con.readReference("0");
+			Interpretador.con.readReference(Interpretador.gerarIdentificador(0));
 
 		}
 		;
@@ -381,7 +381,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[1];
 			
-			Interpretador.con.readReference("1");
+			Interpretador.con.readReference(Interpretador.gerarIdentificador(1));
 
 		}
 		;
@@ -393,7 +393,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[2];
 			
-			Interpretador.con.readReference("2");
+			Interpretador.con.readReference(Interpretador.gerarIdentificador(2));
 
 		}
 		;
@@ -405,7 +405,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[3];
 			
-			Interpretador.con.readReference("3");
+			Interpretador.con.readReference(Interpretador.gerarIdentificador(3));
 
 		}
 		;
@@ -419,7 +419,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[op1];
 			
-			Interpretador.con.readReference(""+op1);
+			Interpretador.con.readReference(Interpretador.gerarIdentificador(op1));
 
 		}
 		;
@@ -448,7 +448,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[0])
 				frameAtual.criarVariavelInteiro(0);
 			
-			Interpretador.con.setValueInt("0");
+			Interpretador.con.setValueInt(Interpretador.gerarIdentificador(0));
 
 		}
 		;
@@ -463,7 +463,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[1])
 				frameAtual.criarVariavelInteiro(1);
 			
-			Interpretador.con.setValueInt("1");
+			Interpretador.con.setValueInt(Interpretador.gerarIdentificador(1));
 
 		}
 		;
@@ -478,7 +478,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[2])
 				frameAtual.criarVariavelInteiro(2);
 			
-			Interpretador.con.setValueInt("2");
+			Interpretador.con.setValueInt(Interpretador.gerarIdentificador(2));
 
 		}
 		;
@@ -493,7 +493,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[3])
 				frameAtual.criarVariavelInteiro(3);
 			
-			Interpretador.con.setValueInt("3");
+			Interpretador.con.setValueInt(Interpretador.gerarIdentificador(3));
 
 		}
 		;
@@ -510,7 +510,7 @@ public class MaquinaVirtual {
 			if (!frameAtual.getVariaveisCriadas()[op1])
 				frameAtual.criarVariavelInteiro(op1);
 			
-			Interpretador.con.setValueInt(""+op1);
+			Interpretador.con.setValueInt(Interpretador.gerarIdentificador(op1));
 
 		}
 		;
@@ -1085,6 +1085,8 @@ public class MaquinaVirtual {
 			op1 = frameAtual.pc.obterOperandoInteiro();
 
 			objeto.getMemoriaLocal()[op1] = frameAtual.pilhaOperandos[frameAtual.sp--];
+			
+			frameAtual.sp--;
 				
 			if (objeto.getNome().equals("LList")) {				
 				if (op1 == 0) {

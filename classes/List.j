@@ -4,7 +4,7 @@
 .method <init>() V
 	aload_0
 	aconst_null
-	putfield List/init LList;
+	putfield List/init LNodeList;
 	iconst_0
 	putfield List/size I
 	return
