@@ -97,9 +97,9 @@ options {
     
   }
   
-  private void newClass(String nomeClasse) {
+  private void newClass(String operacao, String nomeClasse) {
   
-     assembler.escreverOpcode("new");
+     assembler.escreverOpcode(operacao);
        
       SimboloClasse simboloClasse =
           (SimboloClasse)tabelaSimbolos.global.resolver( nomeClasse);
@@ -113,9 +113,9 @@ options {
   
   }
   
-  private void newArray(String tipo) throws RecognitionException{
+  private void newArray(String operacao, String tipo) throws RecognitionException{
   
-  	assembler.escreverOpcode("newarray");
+  	assembler.escreverOpcode(operacao);
   	
   	int valor;
   	
@@ -276,16 +276,16 @@ invoke 	:  ^((op = 'invokespecial' | op = 'invokestatic' | op = 'invokevirtual')
         ;
     
 novaClasse
-  : ^(NEW classe = .)
+  : ^(NEW operacao = . classe = .)
   {
-    newClass("L"+$classe.getText());
+    newClass($operacao.getText(), "L"+$classe.getText());
   }
   ;
 
 novoArray
-	: ^(NEWARRAY tipo = .)	
+	: ^(NEWARRAY operacao = . tipo = .)	
 	{
-	  newArray($tipo.getText());
+	  newArray($operacao.getText(), $tipo.getText());
 	}
 	;
  

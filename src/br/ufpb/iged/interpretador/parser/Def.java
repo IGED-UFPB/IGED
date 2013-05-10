@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g 2013-05-09 13:14:24
+// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g 2013-05-09 21:40:07
 
     package br.ufpb.iged.interpretador.parser;
     
@@ -1131,13 +1131,13 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "nenhumoperando"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:166:1: nenhumoperando : ^( ( RETURN | ARITMETICA | NEW | NEWARRAY | LOAD | STORE | LOGICA | PILHA ) . ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:166:1: nenhumoperando : ^( ( RETURN | ARITMETICA | LOAD | STORE | LOGICA | PILHA ) . ) ;
     public final void nenhumoperando() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:167:2: ( ^( ( RETURN | ARITMETICA | NEW | NEWARRAY | LOAD | STORE | LOGICA | PILHA ) . ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:167:4: ^( ( RETURN | ARITMETICA | NEW | NEWARRAY | LOAD | STORE | LOGICA | PILHA ) . )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:167:2: ( ^( ( RETURN | ARITMETICA | LOAD | STORE | LOGICA | PILHA ) . ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:167:4: ^( ( RETURN | ARITMETICA | LOAD | STORE | LOGICA | PILHA ) . )
             {
-            if ( input.LA(1)==ARITMETICA||(input.LA(1) >= LOAD && input.LA(1) <= LOGICA)||(input.LA(1) >= NEW && input.LA(1) <= NEWARRAY)||input.LA(1)==PILHA||(input.LA(1) >= RETURN && input.LA(1) <= STORE) ) {
+            if ( input.LA(1)==ARITMETICA||(input.LA(1) >= LOAD && input.LA(1) <= LOGICA)||input.LA(1)==PILHA||(input.LA(1) >= RETURN && input.LA(1) <= STORE) ) {
                 input.consume();
                 state.errorRecovery=false;
                 state.failed=false;
@@ -1177,13 +1177,13 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "umoperando"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:173:1: umoperando : ^( ( DESVIO | LOAD | STORE ) . . ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:173:1: umoperando : ^( ( DESVIO | LOAD | STORE | NEW | NEWARRAY ) . . ) ;
     public final void umoperando() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:174:9: ( ^( ( DESVIO | LOAD | STORE ) . . ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:174:11: ^( ( DESVIO | LOAD | STORE ) . . )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:174:9: ( ^( ( DESVIO | LOAD | STORE | NEW | NEWARRAY ) . . ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g:174:11: ^( ( DESVIO | LOAD | STORE | NEW | NEWARRAY ) . . )
             {
-            if ( input.LA(1)==DESVIO||input.LA(1)==LOAD||input.LA(1)==STORE ) {
+            if ( input.LA(1)==DESVIO||input.LA(1)==LOAD||(input.LA(1) >= NEW && input.LA(1) <= NEWARRAY)||input.LA(1)==STORE ) {
                 input.consume();
                 state.errorRecovery=false;
                 state.failed=false;
@@ -1285,7 +1285,7 @@ public class Def extends TreeFilter {
         "\21\uffff}>";
     static final String[] DFA1_transitionS = {
             "\1\11\1\1\1\2\1\12\1\uffff\1\5\4\uffff\1\13\1\uffff\1\10\1\11"+
-            "\2\uffff\1\3\2\11\3\uffff\1\11\1\uffff\1\11\1\10\7\uffff\1\4"+
+            "\2\uffff\1\3\2\12\3\uffff\1\11\1\uffff\1\11\1\10\7\uffff\1\4"+
             "\24\uffff\2\6\41\uffff\3\7\20\uffff\2\6",
             "",
             "",
@@ -1382,7 +1382,7 @@ public class Def extends TreeFilter {
     public static final BitSet FOLLOW_METHOD_CALL_in_invoke658 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_PARAMS_in_invoke661 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_set_in_nenhumoperando706 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_set_in_umoperando764 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_set_in_umoperando756 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_LABEL_in_label816 = new BitSet(new long[]{0x0000000000000004L});
 
 }

@@ -1,6 +1,6 @@
 .class Main
 .method static main() V
-.limit locals 8
+.limit locals 10
 	ldc 5
 	istore_0
 	iconst_3
@@ -68,6 +68,27 @@
 	aload 6
 	aload 7
 	putfield Vector/data [I;
+	aload 6
+	getfield Vector/size I
+	iconst_m1
+	iadd
+	istore 8
+	iconst_0
+	istore 9
+L1:	aload 7
+	iload 9
+	iload 8
+	iastore
+	iload 8
+	iconst_1
+	isub
+	istore 8
+	iload 9
+	iinc
+	istore 9
+	iload 8
+	iconst_0
+	if_icmpge L1	
 	return
 .end method
 .end class

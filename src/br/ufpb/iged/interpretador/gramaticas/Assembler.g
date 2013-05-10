@@ -114,8 +114,8 @@ manipulacaoObjetos : a = 'getfield' REF tipo -> ^('getfield' REF tipo)
                       -> ^('invokestatic' REF $d)
                     | a = 'invokevirtual' REF d = parametrosRetorno
                       -> ^('invokevirtual' REF $d)
-                   | a = 'new' (b = ID | b = REF) -> ^(NEW $b)
-                   | a = 'newarray' b = TIPOARRAY -> ^(NEWARRAY $b)
+                   | a = 'new' (b = ID | b = REF) -> ^(NEW $a $b)
+                   | a = 'newarray' b = TIPOARRAY -> ^(NEWARRAY $a $b)
                    ;
                 
   

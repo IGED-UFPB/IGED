@@ -164,14 +164,14 @@ invoke 	: ^(('invokespecial' | 'invokestatic' | 'invokevirtual') . ^(METHOD_CALL
         ;
         
 nenhumoperando 
-	: ^((RETURN | ARITMETICA | NEW | NEWARRAY | LOAD | STORE | LOGICA | PILHA) . )
+	: ^((RETURN | ARITMETICA | LOAD | STORE | LOGICA | PILHA) . )
 	{
 	   contador++;
 	}	
 	;
 	
 umoperando
-        : ^((DESVIO | LOAD | STORE) . .)
+        : ^((DESVIO | LOAD | STORE | NEW | NEWARRAY) . .)
         {
           contador += 5;
         }

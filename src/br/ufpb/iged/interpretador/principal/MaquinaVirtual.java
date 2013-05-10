@@ -111,6 +111,8 @@ public class MaquinaVirtual {
 			op1 = (Integer) frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = 0 - op1;
+			
+			Interpretador.con.readReferenceInt(""+frameAtual.pilhaOperandos[frameAtual.sp]);
 
 		};
 		break;
@@ -124,6 +126,8 @@ public class MaquinaVirtual {
 			frameAtual.sp--;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = op1 + op2;
+			
+			Interpretador.con.readReferenceInt(""+frameAtual.pilhaOperandos[frameAtual.sp]);
 
 		}
 		;
@@ -138,6 +142,8 @@ public class MaquinaVirtual {
 			frameAtual.sp--;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = op1 - op2;
+			
+			Interpretador.con.readReferenceInt(""+frameAtual.pilhaOperandos[frameAtual.sp]);
 
 		}
 		;
@@ -152,6 +158,8 @@ public class MaquinaVirtual {
 			frameAtual.sp--;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = op1 * op2;
+			
+			Interpretador.con.readReferenceInt(""+frameAtual.pilhaOperandos[frameAtual.sp]);
 
 		}
 		;
@@ -166,6 +174,8 @@ public class MaquinaVirtual {
 			frameAtual.sp--;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = op1 / op2;
+			
+			Interpretador.con.readReferenceInt(""+frameAtual.pilhaOperandos[frameAtual.sp]);
 
 		}
 		;
@@ -180,6 +190,8 @@ public class MaquinaVirtual {
 			frameAtual.sp--;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = op1 % op2;
+			
+			Interpretador.con.readReferenceInt(""+frameAtual.pilhaOperandos[frameAtual.sp]);
 
 		}
 		;
@@ -190,6 +202,8 @@ public class MaquinaVirtual {
 			op1 = (Integer) frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = ++op1;
+			
+			Interpretador.con.readReferenceInt(""+frameAtual.pilhaOperandos[frameAtual.sp]);
 
 		}
 		;
@@ -1150,8 +1164,11 @@ public class MaquinaVirtual {
 				if (op1 == 0) {
 					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
 						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
-					else
+					else {
 						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
+						Interpretador.con.removeReference(Interpretador.gerarIdentificador(op1));
+						Interpretador.con.endCommand();
+					}
 				} else if (op1 == 1)
 					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1]);				
 			} else if (objeto.getNome().equals("LNodeList")) {				
@@ -1160,8 +1177,11 @@ public class MaquinaVirtual {
 				else if (op1 == 1){					
 					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
 						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("next"));
-					else
+					else {
 						Interpretador.con.writeReferenceField(Interpretador.referenceField("next"));
+						Interpretador.con.removeReference(Interpretador.gerarIdentificador(op1));
+						Interpretador.con.endCommand();
+					}
 				}				
 			} else if (objeto.getNome().equals("LVector")) {
 				if (op1 == 0)

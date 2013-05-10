@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g 2013-05-09 13:14:25
+// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g 2013-05-09 21:40:08
 
     package br.ufpb.iged.interpretador.parser;
     
@@ -238,9 +238,9 @@ public class Ref extends TreeFilter {
         
       }
       
-      private void newClass(String nomeClasse) {
+      private void newClass(String operacao, String nomeClasse) {
       
-         assembler.escreverOpcode("new");
+         assembler.escreverOpcode(operacao);
            
           SimboloClasse simboloClasse =
               (SimboloClasse)tabelaSimbolos.global.resolver( nomeClasse);
@@ -254,9 +254,9 @@ public class Ref extends TreeFilter {
       
       }
       
-      private void newArray(String tipo) throws RecognitionException{
+      private void newArray(String operacao, String tipo) throws RecognitionException{
       
-      	assembler.escreverOpcode("newarray");
+      	assembler.escreverOpcode(operacao);
       	
       	int valor;
       	
@@ -1172,17 +1172,22 @@ public class Ref extends TreeFilter {
 
 
     // $ANTLR start "novaClasse"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:278:1: novaClasse : ^( NEW classe= . ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:278:1: novaClasse : ^( NEW operacao= . classe= . ) ;
     public final void novaClasse() throws RecognitionException {
+        BytecodesAST operacao=null;
         BytecodesAST classe=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:279:3: ( ^( NEW classe= . ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:279:5: ^( NEW classe= . )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:279:3: ( ^( NEW operacao= . classe= . ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:279:5: ^( NEW operacao= . classe= . )
             {
             match(input,NEW,FOLLOW_NEW_in_novaClasse574); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
+            operacao=(BytecodesAST)input.LT(1);
+
+            matchAny(input); if (state.failed) return ;
+
             classe=(BytecodesAST)input.LT(1);
 
             matchAny(input); if (state.failed) return ;
@@ -1191,7 +1196,7 @@ public class Ref extends TreeFilter {
 
 
             if ( state.backtracking==1 ) {
-                newClass("L"+classe.getText());
+                newClass(operacao.getText(), "L"+classe.getText());
               }
 
             }
@@ -1212,17 +1217,22 @@ public class Ref extends TreeFilter {
 
 
     // $ANTLR start "novoArray"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:285:1: novoArray : ^( NEWARRAY tipo= . ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:285:1: novoArray : ^( NEWARRAY operacao= . tipo= . ) ;
     public final void novoArray() throws RecognitionException {
+        BytecodesAST operacao=null;
         BytecodesAST tipo=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:286:2: ( ^( NEWARRAY tipo= . ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:286:4: ^( NEWARRAY tipo= . )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:286:2: ( ^( NEWARRAY operacao= . tipo= . ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Ref.g:286:4: ^( NEWARRAY operacao= . tipo= . )
             {
-            match(input,NEWARRAY,FOLLOW_NEWARRAY_in_novoArray598); if (state.failed) return ;
+            match(input,NEWARRAY,FOLLOW_NEWARRAY_in_novoArray604); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
+            operacao=(BytecodesAST)input.LT(1);
+
+            matchAny(input); if (state.failed) return ;
+
             tipo=(BytecodesAST)input.LT(1);
 
             matchAny(input); if (state.failed) return ;
@@ -1231,7 +1241,7 @@ public class Ref extends TreeFilter {
 
 
             if ( state.backtracking==1 ) {
-            	  newArray(tipo.getText());
+            	  newArray(operacao.getText(), tipo.getText());
             	}
 
             }
@@ -1469,8 +1479,8 @@ public class Ref extends TreeFilter {
     public static final BitSet FOLLOW_METHOD_CALL_in_invoke522 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_PARAMS_in_invoke525 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_NEW_in_novaClasse574 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_NEWARRAY_in_novoArray598 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_set_in_nenhumoperando623 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_set_in_umoperando677 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_NEWARRAY_in_novoArray604 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_set_in_nenhumoperando635 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_set_in_umoperando689 = new BitSet(new long[]{0x0000000000000004L});
 
 }
