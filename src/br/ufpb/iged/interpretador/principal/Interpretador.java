@@ -249,6 +249,24 @@ public class Interpretador {
         return -1;
     }
 	
+	public static void criarEstrutura(String tipo, int tamanho) {
+		
+		con.writeStructLength(tamanho);
+		
+		if (tipo.equals("LList"))
+			con.createStruct(IGEDConst.LISTA);
+		else if (tipo.equals("LNodeList"))
+			con.createStruct(IGEDConst.NODE);
+		else if (tipo.equals("LNodeTree"))
+			con.createStruct(IGEDConst.NODE_TREE);
+		else if (tipo.equals("LBinaryTree"))
+			con.createStruct(IGEDConst.BINARY_TREE);
+		else if (tipo.equals("[I"))
+			con.createStruct(IGEDConst.VETOR);
+
+		
+	}
+	
 	public static String gerarIdentificador(int endereco) {
 		
 		String id = "";

@@ -549,14 +549,31 @@ public class MaquinaVirtual {
 		break;
 
 		case Definicao.ASTORE0: {
+			
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			
+			Objeto objeto = heap.get(referencia.getEndereco());
+			
+			if (!frameAtual.getVariaveisCriadas()[0]) {
+				
+				frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), objeto.getNome());
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+				
+			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[0]).getEndereco()) {
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+			}
 
 			frameAtual.variaveis[0] = frameAtual.pilhaOperandos[frameAtual.sp];
 			
-			frameAtual.sp--;
-			
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp + 1];
-			
-			Objeto objeto = heap.get(referencia.getEndereco());
+			frameAtual.sp--;			
 			
 			if (!objeto.getNome().equals("LVector"))
 								
@@ -569,14 +586,31 @@ public class MaquinaVirtual {
 		break;
 
 		case Definicao.ASTORE1: {
+			
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			
+			Objeto objeto = heap.get(referencia.getEndereco());
+			
+			if (!frameAtual.getVariaveisCriadas()[1]) {
+				
+				frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), objeto.getNome());
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+				
+			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[1]).getEndereco()) {
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+			}
 
 			frameAtual.variaveis[1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-								
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp + 1];
-			
-			Objeto objeto = heap.get(referencia.getEndereco());
 			
 			if (!objeto.getNome().equals("LVector"))
 								
@@ -589,14 +623,31 @@ public class MaquinaVirtual {
 		break;
 
 		case Definicao.ASTORE2: {
+			
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			
+			Objeto objeto = heap.get(referencia.getEndereco());
+			
+			if (!frameAtual.getVariaveisCriadas()[2]) {
+				
+				frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), objeto.getNome());
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+				
+			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[2]).getEndereco()) {
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+			}
 
 			frameAtual.variaveis[2] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-									
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp + 1];
-			
-			Objeto objeto = heap.get(referencia.getEndereco());
 			
 			if (!objeto.getNome().equals("LVector"))
 								
@@ -609,14 +660,31 @@ public class MaquinaVirtual {
 		break;
 
 		case Definicao.ASTORE3: {
+			
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			
+			Objeto objeto = heap.get(referencia.getEndereco());
+			
+			if (!frameAtual.getVariaveisCriadas()[3]) {
+				
+				frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), objeto.getNome());
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+				
+			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[3]).getEndereco()) {
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+			}
 
 			frameAtual.variaveis[3] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-								
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp + 1];
-			
-			Objeto objeto = heap.get(referencia.getEndereco());
 			
 			if (!objeto.getNome().equals("LVector"))
 								
@@ -631,14 +699,31 @@ public class MaquinaVirtual {
 		case Definicao.ASTORE: {
 
 			op1 = frameAtual.pc.obterOperandoInteiro();
+			
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			
+			Objeto objeto = heap.get(referencia.getEndereco());
+			
+			if (!frameAtual.getVariaveisCriadas()[op1]) {
+				
+				frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), objeto.getNome());
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+				
+			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[op1]).getEndereco()) {
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+			}
 
 			frameAtual.variaveis[op1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
 			frameAtual.sp--;
-									
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp + 1];
-			
-			Objeto objeto = heap.get(referencia.getEndereco());
 			
 			if (!objeto.getNome().equals("LVector"))
 								
@@ -1030,19 +1115,6 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[++frameAtual.sp] = new Referencia(heap.indexOf(objeto));
 			
-			String tipo = simboloClasse.obterNome();
-			
-			frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), tipo);
-			
-			if (tipo.equals("LList"))
-				Interpretador.con.createStruct(IGEDConst.LISTA);
-			else if (tipo.equals("LNodeList"))
-				Interpretador.con.createStruct(IGEDConst.NODE);
-			else if (tipo.equals("LNodeTree"))
-				Interpretador.con.createStruct(IGEDConst.NODE_TREE);
-			else if (tipo.equals("LBinaryTree"))
-				Interpretador.con.createStruct(IGEDConst.BINARY_TREE);
-			
 		}
 
 		;
@@ -1065,11 +1137,11 @@ public class MaquinaVirtual {
 			
 			String tipo = objeto.getNome();
 			
-			frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), tipo);
+			/*frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), tipo);
 			
 			Interpretador.con.writeStructLength(tamArray);
 			
-			Interpretador.con.createStruct(IGEDConst.VETOR);
+			Interpretador.con.createStruct(IGEDConst.VETOR);*/
 
 		}
 		
@@ -1166,7 +1238,6 @@ public class MaquinaVirtual {
 						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
 					else {
 						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
-						Interpretador.con.removeReference(Interpretador.gerarIdentificador(op1));
 						Interpretador.con.endCommand();
 					}
 				} else if (op1 == 1)
@@ -1179,7 +1250,6 @@ public class MaquinaVirtual {
 						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("next"));
 					else {
 						Interpretador.con.writeReferenceField(Interpretador.referenceField("next"));
-						Interpretador.con.removeReference(Interpretador.gerarIdentificador(op1));
 						Interpretador.con.endCommand();
 					}
 				}				

@@ -1,94 +1,33 @@
 .class Main
 .method static main() V
-.limit locals 10
-	ldc 5
-	istore_0
-	iconst_3
-	istore_1
-	iload_1
-	istore_0
+.limit locals 2
 	new List
-	astore_2
-	aload_2
+	astore_0
+	aload_0
 	aconst_null
 	putfield List/init LNodeList;
-	aload_2
+	aload_0
 	iconst_0
 	putfield List/size I
 	new NodeList
-	astore_3	
-	aload_3
-	ldc 4
+	astore_1
+	aload_1
+	iconst_2
 	putfield NodeList/info I
-	aload_3
+	aload_1
 	aconst_null
 	putfield NodeList/next LNodeList;
-	aload_2
-	aload_3
+	aload_0
+	aload_1
 	putfield List/init LNodeList;
-	aload_2
-	getfield List/size I
-	iconst_1
-	iadd
-	istore 4
-	aload_2
-	iload 4
-	putfield List/size I	
 	new NodeList
-	astore 5
-	aload 5
-	iconst_3
+	astore_1
+	aload_1
+	ldc 12
 	putfield NodeList/info I
-	aload 5
+	aload_1
 	aconst_null
 	putfield NodeList/next LNodeList;
-	aload_3
-	aload 5
-	putfield NodeList/next LNodeList;
-	aload_2
-	getfield List/size I
-	iconst_1
-	iadd
-	istore 4
-	aload_2
-	iload 4
-	putfield List/size I
-	new Vector
-	astore 6
-	aload 6
-	iconst_0
-	putfield Vector/pos I
-	aload 6
-	ldc 10
-	putfield Vector/size I
-	aload 6
-	getfield Vector/size I
-	newarray int
-	astore 7
-	aload 6
-	aload 7
-	putfield Vector/data [I;
-	aload 6
-	getfield Vector/size I
-	iconst_m1
-	iadd
-	istore 8
-	iconst_0
-	istore 9
-L1:	aload 7
-	iload 9
-	iload 8
-	iastore
-	iload 8
-	iconst_1
-	isub
-	istore 8
-	iload 9
-	iinc
-	istore 9
-	iload 8
-	iconst_0
-	if_icmpge L1	
 	return
 .end method
 .end class
