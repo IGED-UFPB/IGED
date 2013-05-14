@@ -32,6 +32,8 @@ public class MaquinaVirtual {
 	
 	private int tamanhoCodigo;
 	
+	private boolean novoObjeto = false;
+	
 	private Scanner in = new Scanner(System.in);
 	
 	public MaquinaVirtual(List<SimboloClasse> areaClasses) {
@@ -565,6 +567,9 @@ public class MaquinaVirtual {
 				
 			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[0]).getEndereco()) {
 				
+				if (novoObjeto)
+					Interpretador.con.readReference(Interpretador.gerarIdentificador(0));
+				
 				if (objeto.getNome().equals("[I"))					
 					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
 				else 					
@@ -580,6 +585,8 @@ public class MaquinaVirtual {
 				Interpretador.con.writeReference();
 			
 			Interpretador.con.endCommand();
+			
+			novoObjeto = false;
 
 		}
 		;
@@ -602,6 +609,9 @@ public class MaquinaVirtual {
 				
 			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[1]).getEndereco()) {
 				
+				if (novoObjeto)
+					Interpretador.con.readReference(Interpretador.gerarIdentificador(1));
+				
 				if (objeto.getNome().equals("[I"))					
 					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
 				else 					
@@ -617,6 +627,8 @@ public class MaquinaVirtual {
 				Interpretador.con.writeReference();
 			
 			Interpretador.con.endCommand();
+			
+			novoObjeto = false;
 
 		}
 		;
@@ -639,6 +651,9 @@ public class MaquinaVirtual {
 				
 			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[2]).getEndereco()) {
 				
+				if (novoObjeto)
+					Interpretador.con.readReference(Interpretador.gerarIdentificador(2));
+				
 				if (objeto.getNome().equals("[I"))					
 					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
 				else 					
@@ -654,6 +669,8 @@ public class MaquinaVirtual {
 				Interpretador.con.writeReference();
 			
 			Interpretador.con.endCommand();
+			
+			novoObjeto = false;
 
 		}
 		;
@@ -676,6 +693,9 @@ public class MaquinaVirtual {
 				
 			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[3]).getEndereco()) {
 				
+				if (novoObjeto)
+					Interpretador.con.readReference(Interpretador.gerarIdentificador(3));
+				
 				if (objeto.getNome().equals("[I"))					
 					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
 				else 					
@@ -691,6 +711,8 @@ public class MaquinaVirtual {
 				Interpretador.con.writeReference();
 			
 			Interpretador.con.endCommand();
+			
+			novoObjeto = false;
 
 		}
 		;
@@ -715,6 +737,9 @@ public class MaquinaVirtual {
 				
 			} else if (referencia.getEndereco() != ((Referencia)frameAtual.variaveis[op1]).getEndereco()) {
 				
+				if (novoObjeto)
+					Interpretador.con.readReference(Interpretador.gerarIdentificador(op1));
+				
 				if (objeto.getNome().equals("[I"))					
 					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
 				else 					
@@ -730,6 +755,8 @@ public class MaquinaVirtual {
 				Interpretador.con.writeReference();
 			
 			Interpretador.con.endCommand();
+			
+			novoObjeto = false;
 
 		}
 		;
@@ -1115,6 +1142,8 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[++frameAtual.sp] = new Referencia(heap.indexOf(objeto));
 			
+			novoObjeto = true;
+			
 		}
 
 		;
@@ -1135,13 +1164,7 @@ public class MaquinaVirtual {
 			
 			frameAtual.pilhaOperandos[++frameAtual.sp] = referencia;
 			
-			String tipo = objeto.getNome();
-			
-			/*frameAtual.criarVariavelReferencia(frameAtual.getProximaVariavelNaoCriada(), tipo);
-			
-			Interpretador.con.writeStructLength(tamArray);
-			
-			Interpretador.con.createStruct(IGEDConst.VETOR);*/
+			novoObjeto = true;
 
 		}
 		

@@ -7,7 +7,7 @@ public class Objeto {
 	private String nome;
 	
 	private Object[] memoriaLocal;
-	
+		
 	public Objeto(SimboloClasse simboloClasse) {
 		
 		memoriaLocal = new Object[0];
@@ -15,7 +15,7 @@ public class Objeto {
 		nome = simboloClasse.obterNome();
 		
 		simboloClasse.alocarMemoriaVariaveis(this, false);
-				
+						
 	}	
 	
 	public Objeto(int qtdMemoriaLocal, String nome) {
@@ -24,7 +24,7 @@ public class Objeto {
 		
 		if (nome.equals("[I"))
 			memoriaLocal = new Integer[qtdMemoriaLocal];
-		
+				
 	}
 	
 	public String getNome() {
@@ -42,7 +42,6 @@ public class Objeto {
 	public void setMemoriaLocal(Object[] memoriaLocal) {
 		this.memoriaLocal = memoriaLocal;
 	}
-	
 	
 
 }
