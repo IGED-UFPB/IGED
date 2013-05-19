@@ -6,11 +6,11 @@ public class Objeto {
 	
 	private String nome;
 	
-	private Object[] memoriaLocal;
+	private Valor[] memoriaLocal;
 		
 	public Objeto(SimboloClasse simboloClasse) {
 		
-		memoriaLocal = new Object[0];
+		memoriaLocal = new Valor[0];
 		
 		nome = simboloClasse.obterNome();
 		
@@ -23,7 +23,7 @@ public class Objeto {
 		this.nome = nome;
 		
 		if (nome.equals("[I"))
-			memoriaLocal = new Integer[qtdMemoriaLocal];
+			memoriaLocal = new Inteiro[qtdMemoriaLocal];
 				
 	}
 	
@@ -35,11 +35,11 @@ public class Objeto {
 		this.nome = nome;
 	}
 
-	public Object[] getMemoriaLocal() {
+	public Valor[] getMemoriaLocal() {
 		return memoriaLocal;
 	}
 
-	public void setMemoriaLocal(Object[] memoriaLocal) {
+	public void setMemoriaLocal(Valor[] memoriaLocal) {
 		this.memoriaLocal = memoriaLocal;
 	}
 	

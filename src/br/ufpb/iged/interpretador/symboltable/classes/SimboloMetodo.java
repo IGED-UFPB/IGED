@@ -89,6 +89,12 @@ public class SimboloMetodo extends SimboloComEscopo{
 
 	}
     
+    public String obterNomeSimples(){
+    	
+    	return nome.substring(0, nome.indexOf("("));
+    	
+    }
+    
 	public String getRetorno() {
 		return retorno;
 	}

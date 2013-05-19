@@ -1,33 +1,24 @@
 package br.ufpb.iged.interpretador.principal;
 
-public class Referencia {
+public class Referencia extends Valor{
 	
-	protected Integer endereco;
-	
-	public Referencia(Integer endereco) {
+	public Referencia(Integer endereco, String tipo) {
 		
-		this.setEndereco(endereco);
+		super(endereco, tipo);
 		
-	}
-
-	public Integer getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Integer endereco) {
-		this.endereco = endereco;
 	}
 	
-	public String toString() {
+	/*public String toString() {
 		
-		return (endereco != null)? endereco.toString() : "null";
+		return (valor != null)? String.valueOf(((Integer)valor).intValue()) : "null";
 		
-	}
+	}*/
 	
 	public boolean isNull() {
 		
-		return endereco == null;
+		return valor == null;
 		
 	}
+
 
 }

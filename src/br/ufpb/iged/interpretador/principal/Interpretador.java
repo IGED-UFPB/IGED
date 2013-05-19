@@ -2,6 +2,10 @@ package br.ufpb.iged.interpretador.principal;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.ANTLRStringStream;
@@ -49,6 +53,8 @@ public class Interpretador {
 	private static CommonTokenStream tokens = new CommonTokenStream();
 	
 	private static CommonTree tree = new CommonTree();
+	
+	private static Map<String, Integer> variaveisCriadas = new HashMap<String, Integer>();
 	
 	public Interpretador() {
 		
@@ -140,7 +146,7 @@ public class Interpretador {
 		SimboloClasse principal = ClassLoader.carregarClasseMain();
 		SimboloMetodo main = (SimboloMetodo) principal.resolver("main(VOID)V");
 		
-		vm.iniciarNovoMetodo(null,main, true);
+		vm.iniciarNovoMetodo("Main", null, main, true);
 		vm.cpu();	
 		
 	}
@@ -267,7 +273,7 @@ public class Interpretador {
 		
 	}
 	
-	public static String gerarIdentificador(int endereco) {
+	public static String obterIdentificadorVariavel(StackFrame frame, int endereco) {
 		
 		String id = "";
 		String idRev = "";
@@ -286,9 +292,153 @@ public class Interpretador {
 		for (int i = idRev.length() - 1; i >= 0; i--)
 			id += idRev.charAt(i);
 		
-		return id;
+		return obterPrefixoVariavel(frame)+id;
 		
     }
+	
+	public static String obterIdentificadorCampo(StackFrame frame, List<Objeto> heap, boolean estatico, int sp, int endereco){
+		
+		String formId = "";
+		
+		if (sp > 0) {
+			
+			Valor valor = frame.pilhaOperandos[sp - 1];
+		
+			if ((sp - 1) > 0){
+				
+				Referencia referenciaDeBaixo = (Referencia)frame.pilhaOperandos[sp - 2];
+				
+				if (valor != referenciaDeBaixo) {
+				
+					Objeto objetoDeBaixo = heap.get((Integer)referenciaDeBaixo.getValor());
+									
+					Objeto objeto = heap.get((Integer)valor.getValor());
+					
+					SimboloClasse classe = (SimboloClasse)tabelaSimbolos.global.resolver(objeto.getNome());
+					
+					formId = classe.obterIdentificadorVariavel(endereco, estatico);
+					
+					endereco = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(valor);
+					
+					
+				} else
+					
+					formId = ""; 
+			
+			} else if ((sp - 1) == 0) {
+							
+				Objeto objeto = heap.get((Integer)valor.getValor());
+				
+				SimboloClasse classe = (SimboloClasse)tabelaSimbolos.global.resolver(objeto.getNome());
+						
+				formId = classe.obterIdentificadorVariavel(endereco, estatico);
+				
+				endereco = Arrays.asList(frame.variaveis).indexOf(valor);
+			
+			}
+			
+		} else {
+			
+			formId = obterIdentificadorVariavel(frame, endereco);
+
+			return formId;
+		}
+
+		
+		formId = obterIdentificadorCampo(frame, heap, estatico,  sp - 1, endereco) + "."+formId;
+			
+		return formId;
+	}
+	
+	public static String obterIdentificadorCampoGet(StackFrame frame, List<Objeto> heap, boolean estatico, int sp, int endereco){
+		
+		Referencia referencia = (Referencia)frame.pilhaOperandos[sp];
+
+		Objeto objeto = heap.get((Integer)referencia.getValor());
+		
+		SimboloClasse classe = (SimboloClasse)tabelaSimbolos.global.resolver(objeto.getNome());
+
+		String formId = classe.obterIdentificadorVariavel(endereco, estatico);
+		
+		if (sp > 0){
+			
+			Referencia referenciaDeBaixo = (Referencia)frame.pilhaOperandos[sp - 1];
+			
+			if (referencia != referenciaDeBaixo){
+			
+				Objeto objetoDeBaixo = heap.get((Integer)referenciaDeBaixo.getValor());
+	
+				endereco = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(referencia);
+	
+				formId = obterIdentificadorCampoGet(frame, heap, estatico,  sp - 1, endereco) + "."+formId;
+				
+			} else {
+				
+				formId = "";
+				
+				formId = obterIdentificadorCampoGet(frame, heap, estatico,  sp - 1, endereco);
+				
+			}
+							
+			
+		} else {
+			
+			endereco = Arrays.asList(frame.variaveis).indexOf(referencia);
+			
+			formId = obterIdentificadorVariavel(frame, endereco) + "." + formId;
+			
+		}
+					
+		return formId;
+		
+	}
+	
+	public static String obterIdentificadorCampo(SimboloClasse classe, StackFrame frame, int endereco, boolean estatico){
+		
+		return frame.pilhaOperandos[frame.sp - 1]+"."+classe.obterIdentificadorVariavel(endereco, estatico);
+		
+	}
+	
+	private static String obterPrefixoVariavel(StackFrame frame){
+		
+		if (frame.getProprietario().equals("Main"))
+			return "";
+		
+		return frame.getProprietario()+"."+frame.getMetodo().obterNomeSimples()+".";
+		
+	}
+	
+	public static void criarVariavelGrafica(String id, String tipo, int endereco) {
+		
+		if (tipo.equals("I")) 			
+			Interpretador.con.creat_Int(id);		
+		else if (tipo.equals("LList"))
+			Interpretador.con.createReference(id, IGEDConst.LISTA);
+		else if (tipo.equals("LNodeList"))
+			Interpretador.con.createReference(id, IGEDConst.NODE);
+		else if (tipo.equals("LNodeTree"))
+			Interpretador.con.createReference(id, IGEDConst.NODE_TREE);
+		else if (tipo.equals("[I"))
+			Interpretador.con.createReference(id, IGEDConst.VETOR);
+		else if (tipo.equals("LBinaryTree"))
+			Interpretador.con.createReference(id, IGEDConst.BINARY_TREE);
+		else 
+			Interpretador.con.creat_Int(id);
+		
+		variaveisCriadas.put(id, endereco);
+		
+	}
+	
+	public static boolean ehTipoEstruturaDeDadosReferencia(String tipo){
+		
+		if (tipo.equals("LList") || tipo.equals("LNodeList") 
+				|| tipo.equals("LNodeTree") || tipo.equals("LBinaryTree"))
+			
+			return true;
+		
+		return false;
+		
+	}
 	
 	public static BytecodeAssembler getAssembler() {
 		return assembler;
@@ -304,6 +454,14 @@ public class Interpretador {
 
 	public static void setVm(MaquinaVirtual vm) {
 		Interpretador.vm = vm;
+	}
+
+	public static Map<String, Integer> getVariaveisCriadas() {
+		return variaveisCriadas;
+	}
+
+	public static void setVariaveisCriadas(Map<String, Integer> variaveisCriadas) {
+		Interpretador.variaveisCriadas = variaveisCriadas;
 	}
 	
 

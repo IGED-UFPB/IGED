@@ -2,8 +2,10 @@ package br.ufpb.iged.interpretador.symboltable.classes;
 
 import java.util.*;
 
+import br.ufpb.iged.interpretador.principal.Inteiro;
 import br.ufpb.iged.interpretador.principal.Objeto;
 import br.ufpb.iged.interpretador.principal.Referencia;
+import br.ufpb.iged.interpretador.principal.Valor;
 
 public class SimboloClasse extends SimboloComEscopo implements Tipo {
    
@@ -15,7 +17,7 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
     
     protected List<SimboloMetodo> methodArea = new ArrayList<SimboloMetodo>();
     
-    private Object[] fields = null;
+    private Valor[] fields = null;
     
     protected int proximoElementoConstPool = 0;
 
@@ -66,7 +68,7 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
     	
     	if (!estaticas || (estaticas && (fields == null))) {
     		
-    		Object[] variaveis = new Object[obterQuantidadeVariaveis(estaticas)];
+    		Valor[] variaveis = new Valor[obterQuantidadeVariaveis(estaticas)];
 	    	
 	    	definirTiposVariaveis(variaveis, 0, estaticas);
 	    	
@@ -83,7 +85,7 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
     		
     }
     
-    public int definirTiposVariaveis(Object[] vars, int i, boolean estaticas) {
+    public int definirTiposVariaveis(Valor[] vars, int i, boolean estaticas) {
     	
     	for (SimboloVariavel variavel : constantPool) {
 			
@@ -93,13 +95,13 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
 				
 				if(nomeTipo.equals("I")) {
 					
-					vars[i] = new Integer(0);
+					vars[i] = new Inteiro(0);
 					
 					i++;
 				
 				} else if (nomeTipo.startsWith("L")) {
 					
-					vars[i] = new Referencia(new Integer(0));
+					vars[i] = new Referencia(new Integer(0), nomeTipo);
 					
 					i++;
 					
@@ -135,10 +137,31 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
     	
     }
     
+    public String obterIdentificadorVariavel(int endereco, boolean estatica){
+    	
+    	int i = 0;
+    	
+    	for (SimboloVariavel var : constantPool){
+    		
+    		if (var.isEstatico() == estatica){
+    			
+    			if (i == endereco)
+    				return var.getNome();
+    			else
+    				i++;
+    			
+    		}
+    		
+    	}
+    	
+    	return null;   	
+    	
+    }
+    
     public void alocarMemoriaFields() {
     	
     	 	
-    	fields = new Object[constantPool.size()];
+    	fields = new Valor[constantPool.size()];
 		
 		int i;
 		
@@ -148,11 +171,11 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
 			
 			if(nomeTipo.equals("I"))
 				
-				fields[i] = new Integer(0);
+				fields[i] = new Inteiro(0);
 			
 			else if (nomeTipo.startsWith("L"))
 				
-				fields[i] = new Referencia(new Integer(0));
+				fields[i] = new Referencia(new Integer(0), nomeTipo);
 				
 			
 		}
@@ -175,11 +198,11 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
 				
 				if(nomeTipo.equals("I"))
 					
-					fields[i] = new Integer(0);
+					fields[i] = new Inteiro(0);
 				
 				else if (nomeTipo.startsWith("L"))
 					
-					fields[i] = new Referencia(new Integer(0));
+					fields[i] = new Referencia(new Integer(0), nomeTipo);
 					
 				
 			}
@@ -205,7 +228,7 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
     	
     }
     
-    public void alterarCampo(int index, Object valor) {
+    public void alterarCampo(int index, Valor valor) {
     	
     	fields[index] = valor;
     	
@@ -243,11 +266,11 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
 		this.superClasse = superClasse;
 	}
 
-	public Object[] getFields() {
+	public Valor[] getFields() {
 		return fields;
 	}
 
-	public void setFields(Object[] fields) {
+	public void setFields(Valor[] fields) {
 		
 		this.fields = fields;
 		
