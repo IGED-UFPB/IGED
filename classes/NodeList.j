@@ -5,6 +5,7 @@
 	aload_0
 	iconst_0
 	putfield NodeList/info I
+	aload_0
 	aconst_null
 	putfield NodeList/next LNodeList;
 	return
@@ -13,9 +14,8 @@
 	aload_0
 	iload_1
 	putfield NodeList/info I
+	aload_0
 	aconst_null
-	astore_2
-	aload_2
 	putfield NodeList/next LNodeList;
 	return
 .end method  

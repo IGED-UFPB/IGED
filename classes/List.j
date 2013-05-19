@@ -5,6 +5,7 @@
 	aload_0
 	aconst_null
 	putfield List/init LNodeList;
+	aload_0
 	iconst_0
 	putfield List/size I
 	return

@@ -146,7 +146,7 @@ public class Interpretador {
 		SimboloClasse principal = ClassLoader.carregarClasseMain();
 		SimboloMetodo main = (SimboloMetodo) principal.resolver("main(VOID)V");
 		
-		vm.iniciarNovoMetodo("Main", null, main, true);
+		vm.iniciarNovoMetodo("Main", main, true);
 		vm.cpu();	
 		
 	}

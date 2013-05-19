@@ -1,0 +1,24 @@
+.class Main
+.method static main() V
+.limit locals 4
+	ldc 5
+	istore_0
+	iconst_3
+	istore_1
+	iload_1
+	istore_0
+	new List
+	astore_2
+	aload_2
+	invokespecial List/<init>() V
+	new NodeList
+	astore_3
+	aload_3
+	iconst_4
+	invokespecial NodeList/<init>(I) V
+	aload_2
+	aload_3
+	putfield List/init LNodeList;
+	return
+.end method
+.end class

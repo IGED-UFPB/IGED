@@ -976,9 +976,9 @@ public class MaquinaVirtual {
 			
 			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
 			
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp - simboloMetodo.contarParametros()];
 			
-			iniciarNovoMetodo(Interpretador.obterIdentificadorVariavel(frameAtual, (Integer)referencia.getValor()),null, simboloMetodo, false);
+			iniciarNovoMetodo(Interpretador.obterIdentificadorVariavel(frameAtual, (Integer)referencia.getValor()), simboloMetodo, false);
 		}
 		
 		;
@@ -994,9 +994,9 @@ public class MaquinaVirtual {
 			
 			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
 			
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp - simboloMetodo.contarParametros()];
 			
-			iniciarNovoMetodo(Interpretador.obterIdentificadorVariavel(frameAtual, (Integer)referencia.getValor()),simboloClasse, simboloMetodo, false);
+			iniciarNovoMetodo(Interpretador.obterIdentificadorVariavel(frameAtual, (Integer)referencia.getValor()), simboloMetodo, false);
 
 		}
 
@@ -1159,7 +1159,7 @@ public class MaquinaVirtual {
 			
 			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
 			
-			iniciarNovoMetodo(simboloClasse.getNome(), null, simboloMetodo, true);			
+			iniciarNovoMetodo(simboloClasse.getNome(), simboloMetodo, true);			
 			
 		}
 		
@@ -1210,7 +1210,9 @@ public class MaquinaVirtual {
 				frameAtual = pilha[topoPilha];
 			
 				for (int i = 0; i < metodo.contarParametros(); i++)
-					frameAtual.sp--;				
+					frameAtual.sp--;
+				
+				frameAtual.sp--;
 				
 			}
 			
@@ -1259,7 +1261,7 @@ public class MaquinaVirtual {
 		
 	}
 	
-	public void iniciarNovoMetodo(String proprietarioMetodo, SimboloClasse classe, SimboloMetodo metodo, boolean estatico) {
+	public void iniciarNovoMetodo(String proprietarioMetodo, SimboloMetodo metodo, boolean estatico) {
 		
 		pilha[++topoPilha] =  new StackFrame(proprietarioMetodo, metodo, estatico);
 		
@@ -1280,7 +1282,7 @@ public class MaquinaVirtual {
 			frameAtual.inserirValorParametro(v);
 			
 		}
-		
+				
 		if (!estatico)
 		
 			frameAtual.inserirThis(pilha[topoPilha - 1].pilhaOperandos[pilha[topoPilha - 1].sp - i]);

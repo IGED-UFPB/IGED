@@ -6,9 +6,11 @@
 	aload_0
 	iconst_0
 	putfield Vector/pos I
+	aload_0
 	iload_1
 	putfield Vector/size I
-	getfield Vector/size I
+	aload_0
+	iload_1
 	newarray int
 	putfield Vector/data [I;	
 	return
