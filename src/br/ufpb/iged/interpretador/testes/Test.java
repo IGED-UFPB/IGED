@@ -74,6 +74,23 @@ public class Test {
         
     }
     
+    public void a(){
+    	
+    	
+    }
+    
+    public void a(int a){
+    	
+    }
+    
+    public void a(int a, int b){
+    	
+    }
+    
+    public void a(float a, int b){
+    	
+    }
+    
     public static String tabelaSimbolos(int endereco) {
 		
 		String id = "";

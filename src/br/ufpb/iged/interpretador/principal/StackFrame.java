@@ -1,5 +1,8 @@
 package br.ufpb.iged.interpretador.principal;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.interpretador.symboltable.classes.SimboloMetodo;
 
@@ -23,6 +26,8 @@ public class StackFrame {
 	
 	private boolean estatico;
 	
+	private Map<String, Integer> variaveisCriadas = new HashMap<String, Integer>();
+		
 	public StackFrame(String proprietario, SimboloMetodo metodo, boolean estatico) {
 		
 		this.setProprietario(proprietario);
@@ -79,6 +84,21 @@ public class StackFrame {
 	public void setEstatico(boolean estatico) {
 		this.estatico = estatico;
 	}
-	
+
+	public int getNextParam() {
+		return nextParam;
+	}
+
+	public void setNextParam(int nextParam) {
+		this.nextParam = nextParam;
+	}
+
+	public Map<String, Integer> getVariaveisCriadas() {
+		return variaveisCriadas;
+	}
+
+	public void setVariaveisCriadas(Map<String, Integer> variaveisCriadas) {
+		this.variaveisCriadas = variaveisCriadas;
+	}
 
 }

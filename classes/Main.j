@@ -1,6 +1,6 @@
 .class Main
 .method static main() V
-.limit locals 4
+.limit locals 6
 	ldc 5
 	istore_0
 	iconst_3
@@ -11,6 +11,28 @@
 	astore_2
 	aload_2
 	invokespecial List/<init>() V
+	new NodeList
+	astore_3
+	aload_3
+	iconst_4
+	invokespecial NodeList/<init>(I) V
+	aload_2
+	aload_3
+	putfield List/init LNodeList;
+	new NodeList
+	astore 4
+	aload 4
+	iconst_3
+	invokespecial NodeList/<init>(I) V
+	aload_2
+	getfield List/init LNodeList;
+	aload 4
+	putfield NodeList/next LNodeList;
+	new Vector
+	astore 5
+	aload 5
+	ldc 10
+	invokespecial Vector/<init>(I) V
 	return
 .end method
 .end class

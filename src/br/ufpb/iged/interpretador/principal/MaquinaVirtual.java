@@ -1,8 +1,10 @@
 package br.ufpb.iged.interpretador.principal;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.Definicao;
@@ -33,6 +35,8 @@ public class MaquinaVirtual {
 	private int tamanhoCodigo;
 	
 	private boolean novoObjeto = false;
+	
+	private String idReferenciaAtual = "";
 	
 	private Scanner in = new Scanner(System.in);
 	
@@ -329,7 +333,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[0];
 			
-			Interpretador.con.ler_Int(Interpretador.obterIdentificadorVariavel(frameAtual, 0));
+			Interpretador.con.ler_Int(obterIdentificadorVariavel(0));
 
 		}
 		;
@@ -341,7 +345,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[1];
 			
-			Interpretador.con.ler_Int(Interpretador.obterIdentificadorVariavel(frameAtual, 1));
+			Interpretador.con.ler_Int(obterIdentificadorVariavel(1));
 
 		}
 		;
@@ -353,7 +357,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[2];
 			
-			Interpretador.con.ler_Int(Interpretador.obterIdentificadorVariavel(frameAtual, 2));
+			Interpretador.con.ler_Int(obterIdentificadorVariavel(2));
 			
 
 		}
@@ -366,7 +370,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[3];
 			
-			Interpretador.con.ler_Int(Interpretador.obterIdentificadorVariavel(frameAtual, 3));
+			Interpretador.con.ler_Int(obterIdentificadorVariavel(3));
 			
 
 		}
@@ -381,7 +385,7 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[op1];
 			
-			Interpretador.con.ler_Int(Interpretador.obterIdentificadorVariavel(frameAtual, op1));			
+			Interpretador.con.ler_Int(obterIdentificadorVariavel(op1));			
 
 		}
 		;
@@ -393,7 +397,9 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[0];
 			
-			Interpretador.con.readReference(Interpretador.obterIdentificadorVariavel(frameAtual, 0));
+			idReferenciaAtual = obterIdentificadorVariavel(0);
+			
+			Interpretador.con.readReference(idReferenciaAtual);
 
 		}
 		;
@@ -405,7 +411,9 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[1];
 			
-			Interpretador.con.readReference(Interpretador.obterIdentificadorVariavel(frameAtual, 1));
+			idReferenciaAtual = obterIdentificadorVariavel(1);
+			
+			Interpretador.con.readReference(idReferenciaAtual);
 
 		}
 		;
@@ -417,7 +425,9 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[2];
 			
-			Interpretador.con.readReference(Interpretador.obterIdentificadorVariavel(frameAtual, 2));
+			idReferenciaAtual = obterIdentificadorVariavel(2);
+			
+			Interpretador.con.readReference(idReferenciaAtual);
 
 		}
 		;
@@ -429,7 +439,9 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[3];
 			
-			Interpretador.con.readReference(Interpretador.obterIdentificadorVariavel(frameAtual, 3));
+			idReferenciaAtual = obterIdentificadorVariavel(3);
+			
+			Interpretador.con.readReference(idReferenciaAtual);
 
 		}
 		;
@@ -443,7 +455,9 @@ public class MaquinaVirtual {
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[op1];
 			
-			Interpretador.con.readReference(Interpretador.obterIdentificadorVariavel(frameAtual, op1));
+			idReferenciaAtual = obterIdentificadorVariavel(op1);
+			
+			Interpretador.con.readReference(idReferenciaAtual);
 
 		}
 		;
@@ -469,7 +483,7 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			salvarInteiro(Interpretador.obterIdentificadorVariavel(frameAtual, 0), 0, false, frameAtual.variaveis[0]);
+			salvarInteiro(obterIdentificadorVariavel(0), 0, false, frameAtual.variaveis[0]);
 
 		}
 		;
@@ -481,7 +495,7 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			salvarInteiro(Interpretador.obterIdentificadorVariavel(frameAtual, 1), 1, false, frameAtual.variaveis[1]);
+			salvarInteiro(obterIdentificadorVariavel(1), 1, false, frameAtual.variaveis[1]);
 
 		}
 		;
@@ -493,7 +507,7 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			salvarInteiro(Interpretador.obterIdentificadorVariavel(frameAtual, 2), 2, false, frameAtual.variaveis[2]);
+			salvarInteiro(obterIdentificadorVariavel(2), 2, false, frameAtual.variaveis[2]);
 
 		}
 		;
@@ -505,7 +519,7 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			salvarInteiro(Interpretador.obterIdentificadorVariavel(frameAtual, 3), 3, false, frameAtual.variaveis[3]);
+			salvarInteiro(obterIdentificadorVariavel(3), 3, false, frameAtual.variaveis[3]);
 			
 		}
 		;
@@ -519,15 +533,17 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			salvarInteiro(Interpretador.obterIdentificadorVariavel(frameAtual, op1), op1, false, frameAtual.variaveis[op1]);
+			salvarInteiro(obterIdentificadorVariavel(op1), op1, false, frameAtual.variaveis[op1]);
 
 		}
 		;
 		break;
 
 		case Definicao.ASTORE0: {
-						
-			salvarReferencia(Interpretador.obterIdentificadorVariavel(frameAtual, 0), 0, false, frameAtual.variaveis[0], frameAtual.sp);
+			
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+									
+			salvarReferencia(obterIdentificadorVariavel(0), 0, false, frameAtual.variaveis[0], referencia);
 
 			frameAtual.variaveis[0] = frameAtual.pilhaOperandos[frameAtual.sp];
 			
@@ -539,7 +555,9 @@ public class MaquinaVirtual {
 
 		case Definicao.ASTORE1: {
 			
-			salvarReferencia(Interpretador.obterIdentificadorVariavel(frameAtual, 1), 1, false, frameAtual.variaveis[1], frameAtual.sp);
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			
+			salvarReferencia(obterIdentificadorVariavel(1), 1, false, frameAtual.variaveis[1], referencia);
 
 			frameAtual.variaveis[1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
@@ -551,7 +569,9 @@ public class MaquinaVirtual {
 
 		case Definicao.ASTORE2: {
 			
-			salvarReferencia(Interpretador.obterIdentificadorVariavel(frameAtual, 2), 2, false, frameAtual.variaveis[2], frameAtual.sp);
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			
+			salvarReferencia(obterIdentificadorVariavel(2), 2, false, frameAtual.variaveis[2], referencia);
 
 			frameAtual.variaveis[2] = frameAtual.pilhaOperandos[frameAtual.sp];
 
@@ -562,8 +582,10 @@ public class MaquinaVirtual {
 		break;
 
 		case Definicao.ASTORE3: {
+			
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
 
-			salvarReferencia(Interpretador.obterIdentificadorVariavel(frameAtual, 3), 3, false, frameAtual.variaveis[3], frameAtual.sp);
+			salvarReferencia(obterIdentificadorVariavel(3), 3, false, frameAtual.variaveis[3], referencia);
 			
 			frameAtual.variaveis[3] = frameAtual.pilhaOperandos[frameAtual.sp];
 
@@ -577,7 +599,9 @@ public class MaquinaVirtual {
 
 			op1 = frameAtual.pc.obterOperandoInteiro();
 			
-			salvarReferencia(Interpretador.obterIdentificadorVariavel(frameAtual, op1), op1, false, frameAtual.variaveis[op1], frameAtual.sp);
+			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
+			
+			salvarReferencia(obterIdentificadorVariavel(op1), op1, false, frameAtual.variaveis[op1], referencia);
 
 			frameAtual.variaveis[op1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
@@ -974,11 +998,10 @@ public class MaquinaVirtual {
 			
 			SimboloClasse simboloClasse = ClassLoader.carregarClasse(op1);
 			
-			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
-			
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp - simboloMetodo.contarParametros()];
-			
-			iniciarNovoMetodo(Interpretador.obterIdentificadorVariavel(frameAtual, (Integer)referencia.getValor()), simboloMetodo, false);
+			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);			
+						
+			iniciarNovoMetodo(idReferenciaAtual, simboloMetodo, false);
+
 		}
 		
 		;
@@ -993,10 +1016,8 @@ public class MaquinaVirtual {
 			SimboloClasse simboloClasse = ClassLoader.carregarClasse(op1);
 			
 			SimboloMetodo simboloMetodo = (SimboloMetodo) simboloClasse.getMethodArea().get(op2);
-			
-			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp - simboloMetodo.contarParametros()];
-			
-			iniciarNovoMetodo(Interpretador.obterIdentificadorVariavel(frameAtual, (Integer)referencia.getValor()), simboloMetodo, false);
+						
+			iniciarNovoMetodo(idReferenciaAtual, simboloMetodo, false);
 
 		}
 
@@ -1014,9 +1035,11 @@ public class MaquinaVirtual {
 			if (!Interpretador.ehTipoEstruturaDeDadosReferencia(objeto.getNome())){
 			
 				if (objeto.getMemoriaLocal()[op1].getTipo().equals("I"))				
-					Interpretador.con.ler_Int(Interpretador.obterIdentificadorCampoGet(frameAtual, heap, false, frameAtual.sp, op1));		
-				else 				
-					Interpretador.con.readReference(Interpretador.obterIdentificadorCampoGet(frameAtual, heap, false, frameAtual.sp, op1));
+					Interpretador.con.ler_Int(obterIdentificadorCampo(false, false, frameAtual.sp, op1));		
+				else {	
+					idReferenciaAtual = obterIdentificadorCampo(false, false, frameAtual.sp, op1);
+					Interpretador.con.readReference(idReferenciaAtual);
+				}
 			
 			}
 
@@ -1135,9 +1158,9 @@ public class MaquinaVirtual {
 			
 				if (tipo != null){
 					if (tipo.equals("I"))
-						salvarInteiro(Interpretador.obterIdentificadorCampo(frameAtual, heap, false, sp, op1), op1, true, valorAntigo);
+						salvarInteiro(obterIdentificadorCampo(true, false, sp, op1), op1, true, valorAntigo);
 					else
-						salvarReferencia(Interpretador.obterIdentificadorCampo(frameAtual, heap, false, sp, op1), op1, true, valorAntigo, sp);
+						salvarReferencia(obterIdentificadorCampo(true, false, sp, op1), op1, true, valorAntigo, (Referencia)frameAtual.pilhaOperandos[sp]);
 				}
 			
 			}
@@ -1278,8 +1301,21 @@ public class MaquinaVirtual {
 		Valor v;
 		
 		for (i = 0; i < qtdParams; i++) {
+			
 			v = pilha[topoPilha - 1].pilhaOperandos[pilha[topoPilha - 1].sp - i];
+			
+			int endereco = frameAtual.getNextParam();
+			
+			if (v.getTipo().equals("I")){
+				frameAtual.variaveis[endereco] = new Inteiro(0);
+				salvarInteiro(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco]);
+			} else {
+				frameAtual.variaveis[endereco] = new Referencia(new Integer(0), v.getTipo());
+				salvarReferencia(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco], (Referencia)v);
+			}
+			
 			frameAtual.inserirValorParametro(v);
+
 			
 		}
 				
@@ -1305,15 +1341,13 @@ public class MaquinaVirtual {
 
 	}
 	
-	private void salvarReferencia(String identificador, int endereco, boolean ehCampo, Valor toSave, int sp){
-		
-		Referencia referencia = (Referencia)frameAtual.pilhaOperandos[sp];
+	private void salvarReferencia(String identificador, int endereco, boolean ehCampo, Valor toSave, Referencia referencia){
 		
 		Objeto objeto = heap.get((Integer)referencia.getValor());
 		
-		if (!Interpretador.getVariaveisCriadas().containsKey(identificador)){
+		if (!frameAtual.getVariaveisCriadas().containsKey(identificador)){
 			
-			Interpretador.criarVariavelGrafica(identificador, frameAtual.pilhaOperandos[sp].getTipo(), endereco);
+			Interpretador.criarVariavelGrafica(frameAtual, identificador, referencia.getTipo(), endereco);
 			
 			if (objeto.getNome().equals("[I"))					
 				Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
@@ -1324,11 +1358,12 @@ public class MaquinaVirtual {
 			
 			if (novoObjeto)
 				Interpretador.con.readReference(identificador);
-			
+				
 			if (objeto.getNome().equals("[I"))					
 				Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
 			else 					
 				Interpretador.criarEstrutura(objeto.getNome(), 0);
+			
 		}
 		
 		if (!objeto.getNome().equals("LVector"))
@@ -1342,13 +1377,199 @@ public class MaquinaVirtual {
 	}
 	
 	private void salvarInteiro(String identificador, int endereco, boolean ehCampo, Valor toSave){
-		
-		if (!Interpretador.getVariaveisCriadas().containsKey(identificador))
-			Interpretador.criarVariavelGrafica(identificador, toSave.getTipo(), endereco);
-		
+				
+		if (!frameAtual.getVariaveisCriadas().containsKey(identificador))
+			
+			Interpretador.criarVariavelGrafica(frameAtual, identificador, toSave.getTipo(), endereco);
+			
 		Interpretador.con.setValueInt(identificador);
 		
 		Interpretador.con.endCommand();
+		
+	}
+	
+	public String obterIdentificadorVariavel(int endereco) {
+		
+		if (!frameAtual.isEstatico() && endereco == 0)
+			return frameAtual.getProprietario();
+		
+		String id = "";
+		String idRev = "";
+		
+		char[]alfabeto= {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+				'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+				'u', 'v', 'w', 'x', 'y', 'z'};
+		
+		int div = endereco;
+		do{
+			int mod = div % 26;
+			div = (int) div / 26;
+			idRev += alfabeto[mod];
+		}while(div > 0);
+		
+		for (int i = idRev.length() - 1; i >= 0; i--)
+			id += idRev.charAt(i);
+		
+		//return obterPrefixoVariavel(frameAtual)+id;
+		
+		return id + obterSufixoVariavel(id);
+		
+    }
+	
+	public String obterIdentificadorCampo(boolean put, boolean estatico, int sp, int endereco) {
+		
+		String id;
+		
+		if (put)
+			id = obterIdentificadorCampoPut(estatico, sp, endereco);
+		else
+			id = obterIdentificadorCampoGet(estatico, sp, endereco);
+		
+		return id + obterSufixoVariavel(id);
+		
+	}
+	
+	private String obterIdentificadorCampoPut(boolean estatico, int sp, int endereco){
+		
+		String formId = "";
+		
+		if (sp > 0) {
+			
+			Valor valor = frameAtual.pilhaOperandos[sp - 1];
+		
+			if ((sp - 1) > 0){
+				
+				Referencia referenciaDeBaixo = (Referencia)frameAtual.pilhaOperandos[sp - 2];
+				
+				if (valor != referenciaDeBaixo) {
+				
+					Objeto objetoDeBaixo = heap.get((Integer)referenciaDeBaixo.getValor());
+									
+					Objeto objeto = heap.get((Integer)valor.getValor());
+					
+					SimboloClasse classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(objeto.getNome());
+					
+					formId = classe.obterIdentificadorVariavel(endereco, estatico);
+					
+					endereco = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(valor);
+					
+					
+				} else
+					
+					formId = ""; 
+			
+			} else if ((sp - 1) == 0) {
+							
+				Objeto objeto = heap.get((Integer)valor.getValor());
+				
+				SimboloClasse classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(objeto.getNome());
+						
+				formId = classe.obterIdentificadorVariavel(endereco, estatico);
+				
+				endereco = Arrays.asList(frameAtual.variaveis).indexOf(valor);
+			
+			}
+			
+		} else {
+			
+			formId = obterIdentificadorVariavel(endereco);
+
+			return formId;
+		}
+
+		
+		formId = obterIdentificadorCampoPut(estatico,  sp - 1, endereco) + "."+formId;
+			
+		return formId;
+	}
+	
+	private String obterIdentificadorCampoGet(boolean estatico, int sp, int endereco){
+		
+		Referencia referencia = (Referencia)frameAtual.pilhaOperandos[sp];
+
+		Objeto objeto = heap.get((Integer)referencia.getValor());
+		
+		SimboloClasse classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(objeto.getNome());
+
+		String formId = classe.obterIdentificadorVariavel(endereco, estatico);
+		
+		if (sp > 0){
+			
+			Referencia referenciaDeBaixo = (Referencia)frameAtual.pilhaOperandos[sp - 1];
+			
+			if (referencia != referenciaDeBaixo){
+			
+				Objeto objetoDeBaixo = heap.get((Integer)referenciaDeBaixo.getValor());
+	
+				endereco = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(referencia);
+	
+				formId = obterIdentificadorCampoGet(estatico,  sp - 1, endereco) + "."+formId;
+				
+			} else {
+				
+				formId = "";
+				
+				formId = obterIdentificadorCampoGet(estatico,  sp - 1, endereco);
+				
+			}
+							
+			
+		} else {
+			
+			endereco = Arrays.asList(frameAtual.variaveis).indexOf(referencia);
+			
+			formId = obterIdentificadorVariavel(endereco) + "." + formId;
+			
+		}
+					
+		return formId;
+		
+	}
+	
+	/*private String obterPrefixoVariavel(){
+		
+		if (frameAtual.getProprietario().equals("Main"))
+			return "";
+		
+		return frameAtual.getProprietario()+"."+frameAtual.getMetodo().obterNomeSimples()+".";
+		
+	}*/
+	
+	private String obterSufixoVariavel(String identificador){
+		
+		int i = 0, qtd = 0;
+		
+		StackFrame frame = null;
+		
+		while (i <= topoPilha){
+			
+			frame = pilha[i];
+			
+			String p = (i > 0)? "(" : "";
+			
+			Set<String> ids = frame.getVariaveisCriadas().keySet();
+			
+			for (String id : ids){
+				
+				if (id.startsWith(identificador+p)){
+					
+					if (i == topoPilha)
+						qtd--;
+					
+					qtd++;
+					
+				}
+				
+			}
+			
+			i++;
+					
+		}
+		
+		if (qtd > 0)
+			return "("+(qtd+1)+")";
+		
+		return "";
 		
 	}
 	
