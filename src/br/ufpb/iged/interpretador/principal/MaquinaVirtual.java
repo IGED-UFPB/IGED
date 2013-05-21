@@ -1224,6 +1224,9 @@ public class MaquinaVirtual {
 		//retorno de métodos
 		case Definicao.RETURN: {
 			
+			if (topoPilha > 0)
+				removerVariaveisGraficas();
+			
 			SimboloMetodo metodo = frameAtual.getMetodo();
 			
 			topoPilha--;
@@ -1246,6 +1249,9 @@ public class MaquinaVirtual {
 		
 		case Definicao.IRETURN: {
 			
+			if (topoPilha > 0)
+				removerVariaveisGraficas();
+						
 			Integer valor = (Integer) frameAtual.pilhaOperandos[frameAtual.sp].getValor();
 			
 			int qtdParametros = frameAtual.getMetodo().contarParametros();
@@ -1263,6 +1269,9 @@ public class MaquinaVirtual {
 		break;
 		
 		case Definicao.ARETURN: {
+			
+			if (topoPilha > 0)
+				removerVariaveisGraficas();
 			
 			Referencia valor = (Referencia) frameAtual.pilhaOperandos[frameAtual.sp];
 			
@@ -1347,7 +1356,7 @@ public class MaquinaVirtual {
 		
 		if (!frameAtual.getVariaveisCriadas().containsKey(identificador)){
 			
-			Interpretador.criarVariavelGrafica(frameAtual, identificador, referencia.getTipo(), endereco);
+			Interpretador.criarVariavelGrafica(frameAtual, identificador, referencia.getTipo());
 			
 			if (objeto.getNome().equals("[I"))					
 				Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
@@ -1380,7 +1389,7 @@ public class MaquinaVirtual {
 				
 		if (!frameAtual.getVariaveisCriadas().containsKey(identificador))
 			
-			Interpretador.criarVariavelGrafica(frameAtual, identificador, toSave.getTipo(), endereco);
+			Interpretador.criarVariavelGrafica(frameAtual, identificador, toSave.getTipo());
 			
 		Interpretador.con.setValueInt(identificador);
 		
@@ -1570,6 +1579,25 @@ public class MaquinaVirtual {
 			return "("+(qtd+1)+")";
 		
 		return "";
+		
+	}
+	
+	public void removerVariaveisGraficas(){
+		
+		Set<String> ids = frameAtual.getVariaveisCriadas().keySet();
+		
+		for (String id : ids){
+			
+			if (!id.contains(".")) {
+			
+				if (frameAtual.getVariaveisCriadas().get(id).equals("I"))
+					Interpretador.con.remove_int(id);
+				else
+					Interpretador.con.removeReference(id);
+			
+			}
+			
+		}
 		
 	}
 	

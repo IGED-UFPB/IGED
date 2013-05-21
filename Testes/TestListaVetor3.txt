@@ -1,6 +1,6 @@
 .class Main
 .method static main() V
-.limit locals 6
+.limit locals 8
 	ldc 5
 	istore_0
 	iconst_3
@@ -33,6 +33,29 @@
 	aload 5
 	ldc 10
 	invokespecial Vector/<init>(I) V
+	iconst_0
+	istore 6
+	aload 5
+	getfield Vector/size I
+	iconst_1
+	isub
+	istore 7
+L1: aload 5
+	getfield Vector/data [I;
+	iload 6
+	iload 7
+	iastore
+	iload 6
+	iincj
+	istore 6
+	iload 7
+	iconst_1
+	isub
+	istore 7
+	iload 6
+	aload 5
+	getfield Vector/size I
+	if_icmplt L1
 	return
 .end method
 .end class

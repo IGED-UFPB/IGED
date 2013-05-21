@@ -277,7 +277,7 @@ public class Interpretador {
 		
 	}
 	
-	public static void criarVariavelGrafica(StackFrame frame, String id, String tipo, int endereco) {
+	public static void criarVariavelGrafica(StackFrame frame, String id, String tipo) {
 		
 		if (tipo.equals("I")) 			
 			Interpretador.con.creat_Int(id);		
@@ -291,10 +291,8 @@ public class Interpretador {
 			Interpretador.con.createReference(id, IGEDConst.VETOR);
 		else if (tipo.equals("LBinaryTree"))
 			Interpretador.con.createReference(id, IGEDConst.BINARY_TREE);
-		else 
-			Interpretador.con.creat_Int(id);
 		
-		frame.getVariaveisCriadas().put(id, endereco);
+		frame.getVariaveisCriadas().put(id, tipo);
 		
 	}
 	

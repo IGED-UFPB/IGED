@@ -26,7 +26,7 @@ public class StackFrame {
 	
 	private boolean estatico;
 	
-	private Map<String, Integer> variaveisCriadas = new HashMap<String, Integer>();
+	private Map<String, String> variaveisCriadas = new HashMap<String, String>();
 		
 	public StackFrame(String proprietario, SimboloMetodo metodo, boolean estatico) {
 		
@@ -93,11 +93,11 @@ public class StackFrame {
 		this.nextParam = nextParam;
 	}
 
-	public Map<String, Integer> getVariaveisCriadas() {
+	public Map<String, String> getVariaveisCriadas() {
 		return variaveisCriadas;
 	}
 
-	public void setVariaveisCriadas(Map<String, Integer> variaveisCriadas) {
+	public void setVariaveisCriadas(Map<String, String> variaveisCriadas) {
 		this.variaveisCriadas = variaveisCriadas;
 	}
 
