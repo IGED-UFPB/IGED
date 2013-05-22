@@ -3,7 +3,6 @@ package br.ufpb.iged.interpretador.principal;
 import java.util.HashMap;
 import java.util.Map;
 
-import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.interpretador.symboltable.classes.SimboloMetodo;
 
 public class StackFrame {

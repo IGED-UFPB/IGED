@@ -46,7 +46,7 @@ L1: aload 5
 	iload 7
 	iastore
 	iload 6
-	iincj
+	iinc
 	istore 6
 	iload 7
 	iconst_1

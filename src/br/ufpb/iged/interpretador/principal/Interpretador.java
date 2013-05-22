@@ -2,10 +2,6 @@ package br.ufpb.iged.interpretador.principal;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.ANTLRStringStream;
@@ -21,7 +17,6 @@ import org.antlr.runtime.tree.TreeAdaptor;
 import org.antlr.runtime.tree.CommonTreeAdaptor;
 
 import br.ufpb.iged.GraficoAED;
-import br.ufpb.iged.IGED;
 import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.grafico.manager.Quadro;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.BytecodeAssembler;

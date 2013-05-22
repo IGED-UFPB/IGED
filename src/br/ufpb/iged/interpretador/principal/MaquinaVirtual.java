@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.Definicao;
 import br.ufpb.iged.interpretador.excecoes.ClassNotFoundException;
 import br.ufpb.iged.interpretador.symboltable.classes.SimboloClasse;
@@ -1430,25 +1429,31 @@ public class MaquinaVirtual {
 		String id;
 		
 		if (put)
-			id = obterIdentificadorCampoPut(estatico, sp, endereco);
+			id = obterIdentificadorCampoPut(estatico, sp, endereco, false);
 		else
-			id = obterIdentificadorCampoGet(estatico, sp, endereco);
+			id = obterIdentificadorCampoGet(estatico, sp, endereco, false);
 		
 		return id + obterSufixoVariavel(id);
 		
 	}
 	
-	private String obterIdentificadorCampoPut(boolean estatico, int sp, int endereco){
+	private String obterIdentificadorCampoPut(boolean estatico, int sp, int endereco, boolean fim){
 		
 		String formId = "";
 		
-		if (sp > 0) {
+		if (sp == 0)
+			fim = true;
+		
+		if (!fim) {
 			
 			Valor valor = frameAtual.pilhaOperandos[sp - 1];
 		
 			if ((sp - 1) > 0){
 				
-				Referencia referenciaDeBaixo = (Referencia)frameAtual.pilhaOperandos[sp - 2];
+				Valor referenciaDeBaixo = frameAtual.pilhaOperandos[sp - 2];
+				
+				if (referenciaDeBaixo.getTipo().equals("I"))
+					return obterIdentificadorCampoPut(estatico,  sp , endereco, true);
 				
 				if (valor != referenciaDeBaixo) {
 				
@@ -1460,7 +1465,12 @@ public class MaquinaVirtual {
 					
 					formId = classe.obterIdentificadorVariavel(endereco, estatico);
 					
-					endereco = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(valor);
+					int end = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(valor);
+					
+					if (end == -1)
+						return obterIdentificadorCampoPut(estatico,  sp, endereco, true);
+					else
+						endereco = end;
 					
 					
 				} else
@@ -1487,12 +1497,12 @@ public class MaquinaVirtual {
 		}
 
 		
-		formId = obterIdentificadorCampoPut(estatico,  sp - 1, endereco) + "."+formId;
+		formId = obterIdentificadorCampoPut(estatico,  sp - 1, endereco, false) + "."+formId;
 			
 		return formId;
 	}
 	
-	private String obterIdentificadorCampoGet(boolean estatico, int sp, int endereco){
+	private String obterIdentificadorCampoGet(boolean estatico, int sp, int endereco, boolean fim){
 		
 		Referencia referencia = (Referencia)frameAtual.pilhaOperandos[sp];
 
@@ -1502,23 +1512,34 @@ public class MaquinaVirtual {
 
 		String formId = classe.obterIdentificadorVariavel(endereco, estatico);
 		
-		if (sp > 0){
+		if (sp == 0)
+			fim = true;
+		
+		if (!fim){
 			
-			Referencia referenciaDeBaixo = (Referencia)frameAtual.pilhaOperandos[sp - 1];
+			Valor referenciaDeBaixo = frameAtual.pilhaOperandos[sp - 1];
+			
+			if (referenciaDeBaixo.getTipo().equals("I"))
+				return obterIdentificadorCampoGet(estatico, sp, endereco, true);
 			
 			if (referencia != referenciaDeBaixo){
 			
 				Objeto objetoDeBaixo = heap.get((Integer)referenciaDeBaixo.getValor());
 	
-				endereco = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(referencia);
+				int end = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(referencia);
+				
+				if (end == -1)
+					return obterIdentificadorCampoGet(estatico, sp, endereco, true);
+				else
+					endereco = end;
 	
-				formId = obterIdentificadorCampoGet(estatico,  sp - 1, endereco) + "."+formId;
+				formId = obterIdentificadorCampoGet(estatico,  sp - 1, endereco, false) + "."+formId;
 				
 			} else {
 				
 				formId = "";
 				
-				formId = obterIdentificadorCampoGet(estatico,  sp - 1, endereco);
+				formId = obterIdentificadorCampoGet(estatico,  sp - 1, endereco, false);
 				
 			}
 							

@@ -1,7 +1,5 @@
 package br.ufpb.iged.interpretador.principal;
 
-import br.ufpb.iged.interpretador.symboltable.classes.SimboloClasse;
-
 public class Valor{
 	
 	protected String tipo;
