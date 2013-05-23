@@ -35,9 +35,7 @@ public class MaquinaVirtual {
 	private int tamanhoCodigo;
 	
 	private boolean novoObjeto = false;
-	
-	private String idReferenciaAtual = "";
-	
+		
 	private Scanner in = new Scanner(System.in);
 	
 	public MaquinaVirtual(List<SimboloClasse> areaClasses) {
@@ -453,9 +451,7 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[0];
-			
-			idReferenciaAtual = obterIdentificadorVariavel(0);
-			
+						
 			id = obterIdentificadorVariavel(0);
 			
 			Interpretador.con.readReference(id);
@@ -471,9 +467,7 @@ public class MaquinaVirtual {
 			frameAtual.sp++;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[1];
-			
-			idReferenciaAtual = obterIdentificadorVariavel(1);
-			
+						
 			id = obterIdentificadorVariavel(1);
 			
 			Interpretador.con.readReference(id);
@@ -1381,10 +1375,8 @@ public class MaquinaVirtual {
 			op2 = frameAtual.pc.obterOperandoInteiro();
 						
 			SimboloClasse simboloClasse =  ClassLoader.carregarClasse(op1);
-			String idField = simboloClasse.obterIdentificadorVariavel(op2, true);
-			
-			String idCampo = simboloClasse.obterNomeSimples()+"."+idField+obterSufixoVariavel(simboloClasse.obterNomeSimples()+"."+idField);
-
+						
+			String idCampo = obterIdentificadorCampoEstatico(simboloClasse, op2);
 			
 			frameAtual.getPilhaIdentificadores().push(idCampo);
 			
@@ -1396,10 +1388,8 @@ public class MaquinaVirtual {
 					Interpretador.con.readReference(idCampo);
 			
 			}
-
-			frameAtual.pilhaOperandos[frameAtual.sp] = null;
 			
-			frameAtual.pilhaOperandos[frameAtual.sp] = simboloClasse.getFields()[op2];
+			frameAtual.pilhaOperandos[++frameAtual.sp] = simboloClasse.getFields()[op2];
 			
 			if (simboloClasse.getNome().equals("LList")) {				
 				if (op2 == 0)
@@ -1435,7 +1425,7 @@ public class MaquinaVirtual {
 			
 			op2 = frameAtual.pc.obterOperandoInteiro();
 			
-			SimboloClasse simboloClasse =  ClassLoader.carregarClasse(op1);
+			SimboloClasse simboloClasse = ClassLoader.carregarClasse(op1);
 						
 			Valor valorAntigo = simboloClasse.getFields()[op2];
 			
@@ -1497,16 +1487,16 @@ public class MaquinaVirtual {
 					Interpretador.con.writeStructInfo((Integer)simboloClasse.getFields()[op2].getValor());
 					
 			}
-			
-			int sp = frameAtual.sp + 2;
-			
-			String tipo = frameAtual.pilhaOperandos[sp].getTipo();
+					
+			String tipo = frameAtual.pilhaOperandos[0].getTipo();
 						
 			frameAtual.getPilhaIdentificadores().pop();
 			
 			String idField = simboloClasse.obterIdentificadorVariavel(op2, true);
 			
-			String idCampo = simboloClasse.obterNomeSimples()+"."+idField + obterSufixoVariavel(simboloClasse.obterNomeSimples()+"."+idField);
+			String idCampo = obterIdentificadorCampoEstatico(simboloClasse, op2);
+			
+			salvarCampoEstatico(idCampo, simboloClasse, op2);
 						
 			if (!Interpretador.ehTipoEstruturaDeDadosReferencia(simboloClasse.getNome())) {
 			
@@ -1514,7 +1504,7 @@ public class MaquinaVirtual {
 					if (tipo.equals("I"))
 						salvarInteiro(idCampo, op2, true, valorAntigo);
 					else
-						salvarReferencia(idCampo, op2, true, valorAntigo, (Referencia)frameAtual.pilhaOperandos[sp]);
+						salvarReferencia(idCampo, op2, true, valorAntigo, (Referencia)frameAtual.pilhaOperandos[0]);
 				}
 			
 			}
@@ -1701,6 +1691,24 @@ public class MaquinaVirtual {
 		Interpretador.con.setValueInt(identificador);
 		
 		Interpretador.con.endCommand();
+		
+	}
+	
+	private void salvarCampoEstatico(String identificador, SimboloClasse classe, int endereco) {
+		
+		if (!frameAtual.getVariaveisCriadas().containsKey(identificador))
+			classe.getCamposCriados().put(endereco, identificador);
+		
+	}
+	
+	private String obterIdentificadorCampoEstatico(SimboloClasse classe, int endereco) {
+						
+		if (classe.getCamposCriados().containsKey(endereco))
+			return classe.getCamposCriados().get(endereco);
+		
+		String idField = classe.obterIdentificadorVariavel(endereco, true);
+		
+		return classe.obterNomeSimples()+"."+idField + obterSufixoVariavel(classe.obterNomeSimples()+"."+idField);
 		
 	}
 	

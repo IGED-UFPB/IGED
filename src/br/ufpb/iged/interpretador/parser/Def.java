@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g 2013-05-22 23:48:00
+// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\interpretador\\gramaticas\\Def.g 2013-05-23 17:57:16
 
     package br.ufpb.iged.interpretador.parser;
     
@@ -1132,7 +1132,7 @@ public class Def extends TreeFilter {
 
 
             if ( state.backtracking==1 ) {           
-                       if (a.equals("getstatic") || a.equals("putstatic"))
+                       if (a.getText().equals("getstatic") || a.getText().equals("putstatic"))
                        	contador += 9;
                        else
                           contador += 5;

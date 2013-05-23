@@ -20,6 +20,8 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
     private Valor[] fields = null;
     
     protected int proximoElementoConstPool = 0;
+    
+    private Map<Integer, String> camposCriados = new HashMap<Integer, String>();
 
     public SimboloClasse(String nome, Escopo escopoEnvolvente, SimboloClasse superClasse) {
     	
@@ -323,6 +325,14 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
 
 	public void setMethodArea(List<SimboloMetodo> methodArea) {
 		this.methodArea = methodArea;
+	}
+
+	public Map<Integer, String> getCamposCriados() {
+		return camposCriados;
+	}
+
+	public void setCamposCriados(Map<Integer, String> camposCriados) {
+		this.camposCriados = camposCriados;
 	}
 
 	

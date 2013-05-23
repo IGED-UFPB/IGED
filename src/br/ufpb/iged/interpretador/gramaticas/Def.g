@@ -157,7 +157,7 @@ saiDoConstrutor
 	
 field	: ^((a = 'getfield' | a = 'getstatic' | a = 'putfield' | a = 'putstatic') . .)
         {           
-           if ($a.equals("getstatic") || $a.equals("putstatic"))
+           if ($a.getText().equals("getstatic") || $a.getText().equals("putstatic"))
            	contador += 9;
            else
               contador += 5;
