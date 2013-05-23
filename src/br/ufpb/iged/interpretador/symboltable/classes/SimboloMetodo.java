@@ -25,6 +25,8 @@ public class SimboloMetodo extends SimboloComEscopo{
 	
 	private int tamanhoMemoriaLocalVariaveis = 65536;
 	
+	private boolean estatico;
+	
 	public SimboloMetodo(String nome, Tipo tipoRet, Escopo parent) {
         super(nome, tipoRet, parent);
         setRetorno("");
@@ -133,6 +135,14 @@ public class SimboloMetodo extends SimboloComEscopo{
 
 	public void setTamanhoMemoriaLocalVariaveis(int tamanhoMemoriaLocalVariaveis) {
 		this.tamanhoMemoriaLocalVariaveis = tamanhoMemoriaLocalVariaveis;
+	}
+
+	public boolean isEstatico() {
+		return estatico;
+	}
+
+	public void setEstatico(boolean estatico) {
+		this.estatico = estatico;
 	}
 
 	public String toString() {

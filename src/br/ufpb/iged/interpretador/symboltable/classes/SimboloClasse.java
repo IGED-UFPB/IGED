@@ -52,6 +52,41 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
         
     }
     
+    public SimboloMetodo resolverMetodoVirtual(String nome) {
+    	
+        Simbolo m = membros.get(nome);
+        
+        if (m != null && !((SimboloMetodo)m).isEstatico())
+        	return (SimboloMetodo)m;
+        
+        if (superClasse != null)
+        	return superClasse.resolverMetodoVirtual(nome);
+        
+        return null;
+        
+    }
+    
+    public SimboloMetodo resolverMetodoEstatico(String nome) {
+    	
+        Simbolo m = membros.get(nome);
+        
+        if (m != null && ((SimboloMetodo)m).isEstatico())
+        	return (SimboloMetodo)m;
+        
+        if (superClasse != null)
+        	return superClasse.resolverMetodoEstatico(nome);
+        
+        return null;
+        
+    }
+    
+    
+    public SimboloMetodo resolverMetodoEspecial(String nome){
+    	
+    	return (SimboloMetodo) obterMembros().get(nome);
+    	
+    }
+    
     
     public boolean possuiMetodo(String assinatura) {
     	
@@ -248,6 +283,12 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
 	@Override
 	public String obterNome() {
 		return nome;
+	}
+	
+	public String obterNomeSimples() {
+		
+		return nome.substring(1);
+		
 	}
 
 	public List<SimboloVariavel>  getConstantPool() {

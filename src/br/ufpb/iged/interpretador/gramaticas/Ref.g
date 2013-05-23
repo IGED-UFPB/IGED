@@ -80,8 +80,14 @@ options {
       
           assembler.getConstantPool().add(simboloClasse);
           
-       SimboloMetodo simboloMetodo =
-          (SimboloMetodo) simboloClasse.resolver(nomeMetodo+"("+args+")"+tipoRetorno);
+       SimboloMetodo simboloMetodo;
+       
+       if (instrucao.equals("invokevirtual"))
+       		simboloMetodo = simboloClasse.resolverMetodoVirtual(nomeMetodo+"("+args+")"+tipoRetorno);
+       else if (instrucao.equals("invokestatic"))
+       		simboloMetodo = simboloClasse.resolverMetodoEstatico(nomeMetodo+"("+args+")"+tipoRetorno);
+       else
+       		simboloMetodo = simboloClasse.resolverMetodoEspecial(nomeMetodo+"("+args+")"+tipoRetorno);
     
         if (!simboloClasse.getMethodArea().contains(simboloMetodo))
       
@@ -207,7 +213,7 @@ entraNoConstrutor
 	;
     
 entraNoMetodo
-	: ^(METHOD_DECL ID . ^(PARAMS .) (^(LIMIT lim=INTEIRO))? .)
+	: ^(METHOD_DECL .? ID . ^(PARAMS .) (^(LIMIT lim=INTEIRO))? .)
 	{
 	  System.out.println("Ref: Entrou no metodo "+$ID.text);
 	  escopoAtual = (SimboloMetodo)$ID.simbolo;

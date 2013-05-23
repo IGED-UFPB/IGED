@@ -2,6 +2,7 @@ package br.ufpb.iged.interpretador.principal;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Stack;
 
 import br.ufpb.iged.interpretador.symboltable.classes.SimboloMetodo;
 
@@ -20,17 +21,17 @@ public class StackFrame {
 	private int nextParam;
 	
 	private SimboloMetodo metodo;
-	
-	private String proprietario;
-	
+		
 	private boolean estatico;
 	
 	private Map<String, String> variaveisCriadas = new HashMap<String, String>();
+	
+	private Map<Integer, String> referenciasRecebidas = new HashMap<Integer, String>();
+	
+	private Stack<String> pilhaIdentificadores = new Stack<String>();
 		
-	public StackFrame(String proprietario, SimboloMetodo metodo, boolean estatico) {
-		
-		this.setProprietario(proprietario);
-		
+	public StackFrame(SimboloMetodo metodo, boolean estatico) {
+				
 		this.setEstatico(estatico);
 		
 		this.setMetodo(metodo);
@@ -68,14 +69,6 @@ public class StackFrame {
 		this.metodo = metodo;
 	}
 
-	public String getProprietario() {
-		return proprietario;
-	}
-
-	public void setProprietario(String proprietario) {
-		this.proprietario = proprietario;
-	}
-
 	public boolean isEstatico() {
 		return estatico;
 	}
@@ -98,6 +91,22 @@ public class StackFrame {
 
 	public void setVariaveisCriadas(Map<String, String> variaveisCriadas) {
 		this.variaveisCriadas = variaveisCriadas;
+	}
+
+	public Map<Integer, String> getReferenciasRecebidas() {
+		return referenciasRecebidas;
+	}
+
+	public void setReferenciasRecebidas(Map<Integer, String> referenciasRecebidas) {
+		this.referenciasRecebidas = referenciasRecebidas;
+	}
+
+	public Stack<String> getPilhaIdentificadores() {
+		return pilhaIdentificadores;
+	}
+
+	public void setPilhaIdentificadores(Stack<String> pilhaIdentificadores) {
+		this.pilhaIdentificadores = pilhaIdentificadores;
 	}
 
 }

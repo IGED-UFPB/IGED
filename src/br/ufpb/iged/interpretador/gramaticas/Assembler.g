@@ -84,8 +84,8 @@ membroClasse
     : '.field' st = 'static'? ID tipo -> ^(FIELD_DECL $st? ID tipo)
     | '.method' INIT (parametros | '(' parametros ')') ret = tipo NEWLINE (limite NEWLINE)? operacao* '.end method'
 	-> ^(CONSTR_DECL INIT $ret parametros limite? ^(BODY operacao*))
-    | '.method' 'static'? ID (parametros | '(' parametros ')') ret = tipo NEWLINE (limite NEWLINE)? operacao* '.end method'
-        -> ^(METHOD_DECL ID $ret parametros limite? ^(BODY operacao*))
+    | '.method' st = 'static'? ID (parametros | '(' parametros ')') ret = tipo NEWLINE (limite NEWLINE)? operacao* '.end method'
+        -> ^(METHOD_DECL $st? ID $ret parametros limite? ^(BODY operacao*))
     ;
     
 limite :  '.limit locals' INTEIRO -> ^(LIMIT INTEIRO);  

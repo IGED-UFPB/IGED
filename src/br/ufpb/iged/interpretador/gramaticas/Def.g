@@ -83,6 +83,7 @@ entraNoConstrutor
 	   System.out.println("linha "+$INIT.getLine()+
                           ": def method init ");
            SimboloMetodo metodo = new SimboloMetodo($INIT.text+"("+a.getText()+")"+tipoRet.getText(), null, escopoAtual);
+           metodo.setEstatico(false);
            if (lim != null)
            	metodo.setTamanhoMemoriaLocalVariaveis(new Integer(lim.getText()));
            metodo.setRetorno($tipoRet.getText());
@@ -95,11 +96,17 @@ entraNoConstrutor
 	;
 	
 entraNoMetodo
-	: ^(METHOD_DECL ID tipoRet =. ^(PARAMS a =.) (^(LIMIT lim=INTEIRO))? .)
+	: ^(METHOD_DECL (st =.)? ID tipoRet =. ^(PARAMS a =.) (^(LIMIT lim=INTEIRO))? .)
 	{
 	   System.out.println("linha "+$ID.getLine()+
                           ": def method "+$ID.text);
            SimboloMetodo metodo = new SimboloMetodo($ID.text+"("+a.getText()+")"+tipoRet.getText(), null, escopoAtual);
+           
+           if (st == null)
+           	metodo.setEstatico(false);
+           else
+           	metodo.setEstatico(true);
+           
            if (lim != null)
            	metodo.setTamanhoMemoriaLocalVariaveis(new Integer(lim.getText()));
            metodo.setRetorno($tipoRet.getText());
