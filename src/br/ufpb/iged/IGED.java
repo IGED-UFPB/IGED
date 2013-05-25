@@ -42,7 +42,7 @@ public class IGED implements AcaoUsuario{
 
 	@Override
 	public void color() {
-            /*final StringTokenizer st = new StringTokenizer(pait.Lines(), "\n");
+           /*final StringTokenizer st = new StringTokenizer(pait.Lines(), "\n");
             new Thread(){
                 @Override
                 public void run(){

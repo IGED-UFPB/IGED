@@ -138,7 +138,7 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
 				
 				} else if (nomeTipo.startsWith("L")) {
 					
-					vars[i] = new Referencia(new Integer(0), nomeTipo);
+					vars[i] = new Referencia(null, nomeTipo);
 					
 					i++;
 					

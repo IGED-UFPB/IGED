@@ -35,8 +35,25 @@ public class MaquinaVirtual {
 	private int tamanhoCodigo;
 	
 	private boolean novoObjeto = false;
-		
+			
 	private Scanner in = new Scanner(System.in);
+	
+	private Read toRead;
+	
+	class Read{
+		
+		Object objeto;
+		
+		int endereco;
+		
+		String id;
+		
+		boolean ehCampo;
+		
+		boolean estatico;
+				
+	}
+	
 	
 	public MaquinaVirtual(List<SimboloClasse> areaClasses) {
 		
@@ -454,9 +471,27 @@ public class MaquinaVirtual {
 						
 			id = obterIdentificadorVariavel(0);
 			
-			Interpretador.con.readReference(id);
+			//Interpretador.con.readReference(id);
 			
 			frameAtual.getPilhaIdentificadores().push(id);
+			
+			toRead = new Read();
+			toRead.ehCampo = false;
+			toRead.endereco = 0;
+			toRead.estatico = false;
+			toRead.id = id;
+			toRead.objeto = null;
+			
+			short nextOpcode = frameAtual.pc.obterOpcode();
+			
+			if (nextOpcode != Definicao.PUTSTATIC 
+					&& nextOpcode != Definicao.ASTORE
+					&& nextOpcode != Definicao.ASTORE0
+					&& nextOpcode != Definicao.ASTORE1
+					&& nextOpcode != Definicao.ASTORE2
+					&& nextOpcode != Definicao.ASTORE3)
+				
+				lerReferenciaGrafica();
 
 		}
 		;
@@ -470,9 +505,27 @@ public class MaquinaVirtual {
 						
 			id = obterIdentificadorVariavel(1);
 			
-			Interpretador.con.readReference(id);
+			//Interpretador.con.readReference(id);
 			
 			frameAtual.getPilhaIdentificadores().push(id);
+			
+			toRead = new Read();
+			toRead.ehCampo = false;
+			toRead.endereco = 1;
+			toRead.estatico = false;
+			toRead.id = id;
+			toRead.objeto = null;
+			
+			short nextOpcode = frameAtual.pc.obterOpcode();
+			
+			if (nextOpcode != Definicao.PUTSTATIC 
+					&& nextOpcode != Definicao.ASTORE
+					&& nextOpcode != Definicao.ASTORE0
+					&& nextOpcode != Definicao.ASTORE1
+					&& nextOpcode != Definicao.ASTORE2
+					&& nextOpcode != Definicao.ASTORE3)
+				
+				lerReferenciaGrafica();
 
 		}
 		;
@@ -486,9 +539,27 @@ public class MaquinaVirtual {
 			
 			id = obterIdentificadorVariavel(2);
 			
-			Interpretador.con.readReference(id);
+			//Interpretador.con.readReference(id);
 			
 			frameAtual.getPilhaIdentificadores().push(id);
+			
+			toRead = new Read();
+			toRead.ehCampo = false;
+			toRead.endereco = 2;
+			toRead.estatico = false;
+			toRead.id = id;
+			toRead.objeto = null;
+			
+			short nextOpcode = frameAtual.pc.obterOpcode();
+			
+			if (nextOpcode != Definicao.PUTSTATIC 
+					&& nextOpcode != Definicao.ASTORE
+					&& nextOpcode != Definicao.ASTORE0
+					&& nextOpcode != Definicao.ASTORE1
+					&& nextOpcode != Definicao.ASTORE2
+					&& nextOpcode != Definicao.ASTORE3)
+				
+				lerReferenciaGrafica();
 
 
 		}
@@ -503,9 +574,27 @@ public class MaquinaVirtual {
 			
 			id = obterIdentificadorVariavel(3);
 			
-			Interpretador.con.readReference(id);
+			//Interpretador.con.readReference(id);
 			
 			frameAtual.getPilhaIdentificadores().push(id);
+			
+			toRead = new Read();
+			toRead.ehCampo = false;
+			toRead.endereco = 3;
+			toRead.estatico = false;
+			toRead.id = id;
+			toRead.objeto = null;
+			
+			short nextOpcode = frameAtual.pc.obterOpcode();
+			
+			if (nextOpcode != Definicao.PUTSTATIC 
+					&& nextOpcode != Definicao.ASTORE
+					&& nextOpcode != Definicao.ASTORE0
+					&& nextOpcode != Definicao.ASTORE1
+					&& nextOpcode != Definicao.ASTORE2
+					&& nextOpcode != Definicao.ASTORE3)
+				
+				lerReferenciaGrafica();
 
 
 		}
@@ -522,9 +611,27 @@ public class MaquinaVirtual {
 			
 			id = obterIdentificadorVariavel(op1);
 			
-			Interpretador.con.readReference(id);
+			//Interpretador.con.readReference(id);
 			
 			frameAtual.getPilhaIdentificadores().push(id);
+			
+			toRead = new Read();
+			toRead.ehCampo = false;
+			toRead.endereco = op1;
+			toRead.estatico = false;
+			toRead.id = id;
+			toRead.objeto = null;
+			
+			short nextOpcode = frameAtual.pc.obterOpcode();
+			
+			if (nextOpcode != Definicao.PUTSTATIC 
+					&& nextOpcode != Definicao.ASTORE
+					&& nextOpcode != Definicao.ASTORE0
+					&& nextOpcode != Definicao.ASTORE1
+					&& nextOpcode != Definicao.ASTORE2
+					&& nextOpcode != Definicao.ASTORE3)
+				
+				lerReferenciaGrafica();
 
 		}
 		;
@@ -625,7 +732,7 @@ public class MaquinaVirtual {
 			
 			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
 									
-			salvarReferencia(obterIdentificadorVariavel(0), 0, false, frameAtual.variaveis[0], referencia);
+			salvarReferencia(obterIdentificadorVariavel(0), 0, false, frameAtual.variaveis[0], referencia, false);
 
 			frameAtual.variaveis[0] = frameAtual.pilhaOperandos[frameAtual.sp];
 			
@@ -641,7 +748,7 @@ public class MaquinaVirtual {
 			
 			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
 			
-			salvarReferencia(obterIdentificadorVariavel(1), 1, false, frameAtual.variaveis[1], referencia);
+			salvarReferencia(obterIdentificadorVariavel(1), 1, false, frameAtual.variaveis[1], referencia, false);
 
 			frameAtual.variaveis[1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
@@ -657,7 +764,7 @@ public class MaquinaVirtual {
 			
 			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
 			
-			salvarReferencia(obterIdentificadorVariavel(2), 2, false, frameAtual.variaveis[2], referencia);
+			salvarReferencia(obterIdentificadorVariavel(2), 2, false, frameAtual.variaveis[2], referencia, false);
 
 			frameAtual.variaveis[2] = frameAtual.pilhaOperandos[frameAtual.sp];
 
@@ -673,7 +780,7 @@ public class MaquinaVirtual {
 			
 			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
 
-			salvarReferencia(obterIdentificadorVariavel(3), 3, false, frameAtual.variaveis[3], referencia);
+			salvarReferencia(obterIdentificadorVariavel(3), 3, false, frameAtual.variaveis[3], referencia, false);
 			
 			frameAtual.variaveis[3] = frameAtual.pilhaOperandos[frameAtual.sp];
 
@@ -691,7 +798,7 @@ public class MaquinaVirtual {
 			
 			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp];
 			
-			salvarReferencia(obterIdentificadorVariavel(op1), op1, false, frameAtual.variaveis[op1], referencia);
+			salvarReferencia(obterIdentificadorVariavel(op1), op1, false, frameAtual.variaveis[op1], referencia, false);
 
 			frameAtual.variaveis[op1] = frameAtual.pilhaOperandos[frameAtual.sp];
 
@@ -1197,20 +1304,20 @@ public class MaquinaVirtual {
 			
 			frameAtual.getPilhaIdentificadores().push(idCampo);
 			
-			if (!Interpretador.ehTipoEstruturaDeDadosReferencia(objeto.getNome())){
+			/*if (!Interpretador.ehTipoEstruturaDeDadosReferencia(objeto.getNome())){
 			
 				if (objeto.getMemoriaLocal()[op1].getTipo().equals("I"))				
 					Interpretador.con.ler_Int(idCampo);		
 				else 
 					Interpretador.con.readReference(idCampo);
 			
-			}
+			}*/
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = null;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = objeto.getMemoriaLocal()[op1];
 			
-			if (objeto.getNome().equals("LList")) {				
+			/*if (objeto.getNome().equals("LList")) {				
 				if (op1 == 0)
 					Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
 			} else if (objeto.getNome().equals("LNodeList")) {				
@@ -1230,7 +1337,25 @@ public class MaquinaVirtual {
 					Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
 				else if (op1 == 3)
 					Interpretador.con.readStructInfo();					
-			}
+			}*/
+			
+			toRead = new Read();
+			toRead.ehCampo = true;
+			toRead.endereco = op1;
+			toRead.estatico = false;
+			toRead.id = idCampo;
+			toRead.objeto = objeto;
+			
+			short nextOpcode = frameAtual.pc.obterOpcode();
+			
+			if (nextOpcode != Definicao.PUTSTATIC 
+					&& nextOpcode != Definicao.ASTORE
+					&& nextOpcode != Definicao.ASTORE0
+					&& nextOpcode != Definicao.ASTORE1
+					&& nextOpcode != Definicao.ASTORE2
+					&& nextOpcode != Definicao.ASTORE3)
+				
+				lerReferenciaGrafica();
 			
 
 		}
@@ -1253,7 +1378,7 @@ public class MaquinaVirtual {
 			objeto.getMemoriaLocal()[op1] = frameAtual.pilhaOperandos[frameAtual.sp--];
 			
 			frameAtual.sp--;
-				
+							
 			if (objeto.getNome().equals("LList")) {				
 				if (op1 == 0) {
 					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
@@ -1332,7 +1457,7 @@ public class MaquinaVirtual {
 					if (tipo.equals("I"))
 						salvarInteiro(idCampo, op1, true, valorAntigo);
 					else
-						salvarReferencia(idCampo, op1, true, valorAntigo, (Referencia)frameAtual.pilhaOperandos[sp]);
+						salvarReferencia(idCampo, op1, true, valorAntigo, (Referencia)frameAtual.pilhaOperandos[sp], true);
 				}
 			
 			}
@@ -1380,18 +1505,18 @@ public class MaquinaVirtual {
 			
 			frameAtual.getPilhaIdentificadores().push(idCampo);
 			
-			if (!Interpretador.ehTipoEstruturaDeDadosReferencia(simboloClasse.getNome())){
+			/*if (!Interpretador.ehTipoEstruturaDeDadosReferencia(simboloClasse.getNome())){
 			
 				if (simboloClasse.getFields()[op2].getTipo().equals("I"))				
 					Interpretador.con.ler_Int(idCampo);		
 				else 
 					Interpretador.con.readReference(idCampo);
 			
-			}
+			}*/
 			
 			frameAtual.pilhaOperandos[++frameAtual.sp] = simboloClasse.getFields()[op2];
 			
-			if (simboloClasse.getNome().equals("LList")) {				
+			/*if (simboloClasse.getNome().equals("LList")) {				
 				if (op2 == 0)
 					Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
 			} else if (simboloClasse.getNome().equals("LNodeList")) {				
@@ -1411,7 +1536,25 @@ public class MaquinaVirtual {
 					Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
 				else if (op2 == 3)
 					Interpretador.con.readStructInfo();					
-			}
+			}*/
+			
+			toRead = new Read();
+			toRead.ehCampo = true;
+			toRead.endereco = op2;
+			toRead.estatico = true;
+			toRead.id = idCampo;
+			toRead.objeto = simboloClasse;
+			
+			short nextOpcode = frameAtual.pc.obterOpcode();
+			
+			if (nextOpcode != Definicao.PUTSTATIC 
+					&& nextOpcode != Definicao.ASTORE
+					&& nextOpcode != Definicao.ASTORE0
+					&& nextOpcode != Definicao.ASTORE1
+					&& nextOpcode != Definicao.ASTORE2
+					&& nextOpcode != Definicao.ASTORE3)
+				
+				lerReferenciaGrafica();
 			
 			
 		}
@@ -1504,7 +1647,7 @@ public class MaquinaVirtual {
 					if (tipo.equals("I"))
 						salvarInteiro(idCampo, op2, true, valorAntigo);
 					else
-						salvarReferencia(idCampo, op2, true, valorAntigo, (Referencia)frameAtual.pilhaOperandos[0]);
+						salvarReferencia(idCampo, op2, true, valorAntigo, (Referencia)frameAtual.pilhaOperandos[0], false);
 				}
 			
 			}
@@ -1612,8 +1755,8 @@ public class MaquinaVirtual {
 				frameAtual.variaveis[endereco] = new Inteiro(0);
 				salvarInteiro(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco]);
 			} else {
-				frameAtual.variaveis[endereco] = new Referencia(new Integer(0), v.getTipo());
-				salvarReferencia(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco], (Referencia)v);
+				frameAtual.variaveis[endereco] = new Referencia(null, v.getTipo());
+				salvarReferencia(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco], (Referencia)v, false);
 				frameAtual.getReferenciasRecebidas().put(endereco, idsParams.get(endereco));
 			}
 			
@@ -1647,35 +1790,71 @@ public class MaquinaVirtual {
 
 	}
 	
-	private void salvarReferencia(String identificador, int endereco, boolean ehCampo, Valor toSave, Referencia referencia){
+	private void salvarReferencia(String identificador, int endereco, boolean ehCampo, Valor toSave, Referencia referencia, boolean putfield){
 		
 		Objeto objeto = heap.get((Integer)referencia.getValor());
 		
-		if (!frameAtual.getVariaveisCriadas().containsKey(identificador) && !frameAtual.getReferenciasRecebidas().containsKey(identificador)){
+		if (!frameAtual.getVariaveisCriadas().containsKey(identificador) && !frameAtual.getReferenciasRecebidas().containsKey(identificador)) {
 			
 			Interpretador.criarVariavelGrafica(frameAtual, identificador, referencia.getTipo());
 			
-			if (objeto.getNome().equals("[I"))					
-				Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
-			else 					
-				Interpretador.criarEstrutura(objeto.getNome(), 0);
+			if (novoObjeto){
+				
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+				
+			} else {
+				
+				if (!putfield) { 
+					
+					Interpretador.con.readReference(identificador);
+					
+					if (toRead.ehCampo)
+					
+						Interpretador.con.readReference(obterReferenciaDoCampo(toRead.id));
+					
+					lerReferenciaGrafica();
+										
+				}
+				
+			}
 		
-		} else if (referencia.getValor() != ((Referencia)toSave).getValor()) {
-			
-			if (novoObjeto)
+		} else  {
+						
+			if (novoObjeto){
+				
 				Interpretador.con.readReference(identificador);
 				
-			if (objeto.getNome().equals("[I"))					
-				Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
-			else 					
-				Interpretador.criarEstrutura(objeto.getNome(), 0);
+				if (objeto.getNome().equals("[I"))					
+					Interpretador.criarEstrutura(objeto.getNome(), objeto.getMemoriaLocal().length);				
+				else 					
+					Interpretador.criarEstrutura(objeto.getNome(), 0);
+				
+				
+			} else {
+				
+				if (!putfield) {
+					
+					Interpretador.con.readReference(identificador);
+					
+					if (toRead.ehCampo)
+					
+						Interpretador.con.readReference(obterReferenciaDoCampo(toRead.id));
+					
+					lerReferenciaGrafica();
+										
+				}
+				
+			}
 			
 		}
 		
 		if (!objeto.getNome().equals("LVector"))
 			
 			Interpretador.con.writeReference();
-		
+				
 		Interpretador.con.endCommand();
 		
 		novoObjeto = false;
@@ -1741,6 +1920,12 @@ public class MaquinaVirtual {
 		return id + obterSufixoVariavel(id);
 		
     }
+	
+	private String obterReferenciaDoCampo(String campo) {
+		
+		return campo.substring(0, campo.lastIndexOf("."));
+		
+	}
 	
 /*	public String obterIdentificadorCampo(boolean put, boolean estatico, int sp, int endereco) { 
 					
@@ -1937,6 +2122,86 @@ public class MaquinaVirtual {
 			}
 			
 		}
+		
+	}
+	
+	
+	private void lerReferenciaGrafica(){
+		
+		if (toRead.ehCampo) {
+			
+			if (toRead.estatico) {
+				
+				if (!Interpretador.ehTipoEstruturaDeDadosReferencia(((SimboloClasse)toRead.objeto).getNome())){
+					
+					if (((SimboloClasse)toRead.objeto).getFields()[toRead.endereco].getTipo().equals("I"))				
+						Interpretador.con.ler_Int(toRead.id);		
+					else 
+						Interpretador.con.readReference(toRead.id);
+					
+					if (((SimboloClasse)toRead.objeto).getNome().equals("LList")) {				
+						if (toRead.endereco == 0)
+							Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
+					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LNodeList")) {				
+						if (toRead.endereco == 0)
+							Interpretador.con.readStructInfo();
+						else if (toRead.endereco == 1)
+							Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
+					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LTree")) {
+						if (toRead.endereco == 0)
+							Interpretador.con.readReferenceField(Interpretador.referenceField("init"));									
+					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LNodeTree")) {				
+						if (toRead.endereco == 0)
+							Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
+						else if (toRead.endereco == 1)
+							Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
+						else if (toRead.endereco == 2)
+							Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
+						else if (toRead.endereco == 3)
+							Interpretador.con.readStructInfo();					
+					}
+				
+				}
+				
+			} else {
+								
+				if (!Interpretador.ehTipoEstruturaDeDadosReferencia(((Objeto)toRead.objeto).getNome())){
+					
+					if (((Objeto)toRead.objeto).getMemoriaLocal()[toRead.endereco].getTipo().equals("I"))				
+						Interpretador.con.ler_Int(toRead.id);		
+					else 
+						Interpretador.con.readReference(toRead.id);
+				
+				}
+				
+				if (((Objeto)toRead.objeto).getNome().equals("LList")) {				
+					if (toRead.endereco == 0)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
+				} else if (((Objeto)toRead.objeto).getNome().equals("LNodeList")) {				
+					if (toRead.endereco == 0)
+						Interpretador.con.readStructInfo();
+					else if (toRead.endereco == 1)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
+				} else if (((Objeto)toRead.objeto).getNome().equals("LTree")) {
+					if (toRead.endereco == 0)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("init"));									
+				} else if (((Objeto)toRead.objeto).getNome().equals("LNodeTree")) {				
+					if (toRead.endereco == 0)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
+					else if (toRead.endereco == 1)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
+					else if (toRead.endereco == 2)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
+					else if (toRead.endereco == 3)
+						Interpretador.con.readStructInfo();					
+				}
+				
+			}
+			
+		} else 
+			
+			Interpretador.con.readReference(toRead.id);
+	
 		
 	}
 	
