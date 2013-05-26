@@ -1388,7 +1388,7 @@ public class MaquinaVirtual {
 						Interpretador.con.endCommand();
 					}
 				} else if (op1 == 1)
-					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1].getValor());				
+					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1].getValor());				
 			} else if (objeto.getNome().equals("LNodeList")) {				
 				if (op1 == 0)
 					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1].getValor());
@@ -1746,9 +1746,12 @@ public class MaquinaVirtual {
 		Valor v;
 		
 		for (i = 0; i < qtdParams; i++) {
-			
-			v = pilha[topoPilha - 1].pilhaOperandos[pilha[topoPilha - 1].sp - i];
-			
+		
+			if (metodo.isEstatico())
+				v = pilha[topoPilha - 1].pilhaOperandos[i];
+			else
+				v = pilha[topoPilha - 1].pilhaOperandos[i + 1];
+						
 			int endereco = frameAtual.getNextParam();
 			
 			if (v.getTipo().equals("I")){
@@ -1756,7 +1759,6 @@ public class MaquinaVirtual {
 				salvarInteiro(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco]);
 			} else {
 				frameAtual.variaveis[endereco] = new Referencia(null, v.getTipo());
-				salvarReferencia(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco], (Referencia)v, false);
 				frameAtual.getReferenciasRecebidas().put(endereco, idsParams.get(endereco));
 			}
 			
@@ -2078,13 +2080,11 @@ public class MaquinaVirtual {
 			
 			frame = pilha[i];
 			
-			String p = (i > 0)? "(" : "";
-			
 			Set<String> ids = frame.getVariaveisCriadas().keySet();
 			
 			for (String id : ids){
 				
-				if (id.startsWith(identificador+p)){
+				if (id.equals(identificador) || id.startsWith(identificador+"(")){
 					
 					if (i == topoPilha)
 						qtd--;

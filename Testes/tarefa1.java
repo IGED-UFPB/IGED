@@ -2,18 +2,27 @@ public class Main{
 	
 	public static void main(String args[]) {
 		
-		List l = new List();
+		List a = new List();
 		
-		NodeList n = new NodeList(10);
-		l.init = n;
-		l.size++;
+		preencherLista(5);
+			
 		
-		NodeList aux = l.init
+	}
+	
+	public static void preencherLista(Lista a, int b) {
 		
-		n = new NodeList(20);
-		aux.next = n
+		NodeList c = new NodeList(10);
+		a.init = c;
+		a.size = 1;
 		
+		NodeList d = a.init
 		
+		for (int e = 1; e < b; e++){			
+			c = new NodeList((e + 1) * 10);
+			d.next = c;
+			a.size++;
+			d = d.next;			
+		}
 		
 	}
 	
