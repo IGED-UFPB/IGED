@@ -49,31 +49,35 @@ public class Definicao {
     public static final int IF_ICMPGE = 0xA2;
     public static final int IF_ICMPGT = 0xA3;
     public static final int IF_ICMPLE = 0xA4;
+    public static final int IF_ACMPEQ = 0xA5;
+    public static final int IF_ACMPNE = 0xA6;
     public static final int GOTO = 0xA7;
     public static final int ALOAD = 0x19;
-    public static final int ALOAD0 = 0x2a;
-    public static final int ALOAD1 = 0x2b;
-    public static final int ALOAD2 = 0x2c;
-    public static final int ALOAD3 = 0x2d;
-    public static final int IALOAD = 0x2e;
-    public static final int ASTORE = 0x3a;
-    public static final int ASTORE0 = 0x4b;
-    public static final int ASTORE1 = 0x4c;
-    public static final int ASTORE2 = 0x4d;
-    public static final int ASTORE3 = 0x4e;
-    public static final int IASTORE = 0x4f;
-    public static final int IRETURN = 0xac;
-    public static final int ARETURN = 0xb0;
-    public static final int RETURN = 0xb1;
-    public static final int GETSTATIC = 0xb2;
-    public static final int PUTSTATIC = 0xb3;
-    public static final int GETFIELD = 0xb4;
-    public static final int PUTFIELD = 0xb5;
-    public static final int INVOKEVIRTUAL = 0xb6;
-    public static final int INVOKESPECIAL = 0xb7;
-    public static final int INVOKESTATIC = 0xb8;
-    public static final int NEW = 0xbb;
-    public static final int NEWARRAY = 0xbc;
+    public static final int ALOAD0 = 0x2A;
+    public static final int ALOAD1 = 0x2B;
+    public static final int ALOAD2 = 0x2C;
+    public static final int ALOAD3 = 0x2D;
+    public static final int IALOAD = 0x2E;
+    public static final int ASTORE = 0x3A;
+    public static final int ASTORE0 = 0x4B;
+    public static final int ASTORE1 = 0x4C;
+    public static final int ASTORE2 = 0x4D;
+    public static final int ASTORE3 = 0x4E;
+    public static final int IASTORE = 0x4F;
+    public static final int IRETURN = 0xAC;
+    public static final int ARETURN = 0xB0;
+    public static final int RETURN = 0xB1;
+    public static final int GETSTATIC = 0xB2;
+    public static final int PUTSTATIC = 0xB3;
+    public static final int GETFIELD = 0xB4;
+    public static final int PUTFIELD = 0xB5;
+    public static final int INVOKEVIRTUAL = 0xB6;
+    public static final int INVOKESPECIAL = 0xB7;
+    public static final int INVOKESTATIC = 0xB8;
+    public static final int NEW = 0xBB;
+    public static final int NEWARRAY = 0xBC;
+    public static final int IFNULL = 0xC6;
+    public static final int IFNONNULL = 0xC7;
     
     public static final int ID = AssemblerParser.ID;
     public static final int INT= AssemblerParser.INT;
@@ -160,6 +164,8 @@ public class Definicao {
 			new Instrucao("if_icmpge", ID, Definicao.IF_ICMPGE),
 			new Instrucao("if_icmpgt", ID, Definicao.IF_ICMPGT),
 			new Instrucao("if_icmple", ID, Definicao.IF_ICMPLE),
+			new Instrucao("if_acmpeq", ID, Definicao.IF_ACMPEQ),
+			new Instrucao("if_acmpne", ID, Definicao.IF_ACMPNE),
 			new Instrucao("goto", ID, Definicao.GOTO),
 			new Instrucao("aload", Definicao.ALOAD),
 			new Instrucao("aload_0", Definicao.ALOAD0),
@@ -184,7 +190,9 @@ public class Definicao {
 			new Instrucao("invokespecial", Definicao.INVOKESPECIAL),
 			new Instrucao("invokestatic", Definicao.INVOKESTATIC),
 			new Instrucao("new", Definicao.NEW),
-			new Instrucao("newarray", Definicao.NEWARRAY)
+			new Instrucao("newarray", Definicao.NEWARRAY),
+			new Instrucao("ifnull", ID, Definicao.IFNULL),
+			new Instrucao("ifnonnull", ID, Definicao.IFNONNULL)
 
 	};
  

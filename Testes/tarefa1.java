@@ -4,12 +4,14 @@ public class Main{
 		
 		List a = new List();
 		
-		preencherLista(5);
+		preencherLista(a, 5);
+		
+		inverterLista(a);
 			
 		
 	}
 	
-	public static void preencherLista(Lista a, int b) {
+	public static void preencherLista(List a, int b) {
 		
 		NodeList c = new NodeList(10);
 		a.init = c;
@@ -23,6 +25,17 @@ public class Main{
 			a.size++;
 			d = d.next;			
 		}
+		
+	}
+	
+	public static void inverterLista(List a) {
+		
+		NodeList b = a.init;
+		
+		while(b.next != null)
+			b = b.next;
+		
+		
 		
 	}
 	

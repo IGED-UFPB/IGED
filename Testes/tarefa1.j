@@ -8,6 +8,8 @@
 	aload_0
 	ldc 5
 	invokestatic Main/preencherLista(LList;I) V
+	aload_0
+	invokestatic Main/inverterLista(LList;) V
 	return
 .end method
 .method static preencherLista(LList;I) V
@@ -55,16 +57,22 @@ L1: new NodeList
 	if_icmplt L1
 	return
 .end method
-.end class
-
-new NodeList
+.method static inverterLista(LList;) V
+.limit locals 2
+	aload_0
+	getfield List/init LNodeList;
+	astore_1
+L1:	aload_1
+	getfield NodeList/next LNodeList;
 	astore_1
 	aload_1
-	ldc 20
-	invokespecial NodeList/<init>(I) V
-	aload_2
-	aload_1
-	putfield NodeList/next LNodeList;
+	getfield NodeList/next LNodeList;
+	aconst_null
+	if_acmpne L1
+	return
+.end method
+.end class
+
 
 CREATE_REF LIST l
 CREATE_STRUCT LIST

@@ -47,7 +47,9 @@ if_icmpne a0 160
 if_icmplt a1 161 
 if_icmpge a2 162 
 if_icmpgt a3 163 
-if_icmple a4 164 
+if_icmple a4 164
+if_acmpeq a5 165
+if_acmpne a6 166
 goto a7 167
 aload 19 25
 aload_0 2a 42
@@ -72,3 +74,5 @@ invokespecial b7 183
 invokestatic b8 184
 new bb 187
 newarray bc 188
+ifnull c6 198
+ifnonnull c7 199

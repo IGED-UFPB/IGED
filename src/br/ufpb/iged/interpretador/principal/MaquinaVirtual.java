@@ -27,6 +27,8 @@ public class MaquinaVirtual {
 	private List<SimboloClasse> areaClasses = new ArrayList<SimboloClasse>();
 	
 	private int op1, op2;
+	
+	private Integer refOp1, refOp2;
 
 	private short opcode;
 
@@ -1068,6 +1070,80 @@ public class MaquinaVirtual {
 		}
 		;
 		break;
+		
+		case Definicao.IF_ACMPEQ: {
+
+			refOp1 = (Integer) ((Referencia)frameAtual.pilhaOperandos[frameAtual.sp - 1]).getValor();
+
+			refOp2 = (Integer)((Referencia)frameAtual.pilhaOperandos[frameAtual.sp]).getValor();
+
+			int comp1, comp2;
+			
+			if (refOp1 == null)
+				comp1 = -1;
+			else
+				comp1 = refOp1.intValue();
+			
+			if (refOp2 == null)
+				comp2 = -1;
+			else
+				comp2 = refOp2.intValue();
+			
+			frameAtual.sp -= 2;
+
+			if (comp1 == comp2) {
+
+				desviar(frameAtual);
+
+				desvio = true;
+
+			} else 
+
+				frameAtual.pc.pularOperando();
+			
+			frameAtual.getPilhaIdentificadores().pop();
+			frameAtual.getPilhaIdentificadores().pop();
+
+		}
+		;
+		break;
+		
+		case Definicao.IF_ACMPNE: {
+
+			refOp1 = (Integer) ((Referencia)frameAtual.pilhaOperandos[frameAtual.sp - 1]).getValor();
+
+			refOp2 = (Integer) ((Referencia)frameAtual.pilhaOperandos[frameAtual.sp]).getValor();
+			
+			int comp1, comp2;
+			
+			if (refOp1 == null)
+				comp1 = -1;
+			else
+				comp1 = refOp1.intValue();
+			
+			if (refOp2 == null)
+				comp2 = -1;
+			else
+				comp2 = refOp2.intValue();
+
+			frameAtual.sp -= 2;
+
+			if (comp1 != comp2) {
+
+				desviar(frameAtual);
+
+				desvio = true;
+
+			} else 
+
+				frameAtual.pc.pularOperando();
+			
+			frameAtual.getPilhaIdentificadores().pop();
+			frameAtual.getPilhaIdentificadores().pop();
+
+		}
+		;
+		break;
 
 		case Definicao.IF_ICMPLT: {
 
@@ -1165,6 +1241,50 @@ public class MaquinaVirtual {
 				frameAtual.pc.pularOperando();
 			
 			frameAtual.getPilhaIdentificadores().pop();
+			frameAtual.getPilhaIdentificadores().pop();
+
+		}
+		;
+		break;
+		
+		case Definicao.IFNULL: {
+
+			refOp1 = (Integer) ((Referencia)frameAtual.pilhaOperandos[frameAtual.sp]).getValor();
+
+			frameAtual.sp--;
+
+			if (refOp1 == null) {
+
+				desviar(frameAtual);
+
+				desvio = true;
+
+			} else 
+
+				frameAtual.pc.pularOperando();
+			
+			frameAtual.getPilhaIdentificadores().pop();
+
+		}
+		;
+		break;
+		
+		case Definicao.IFNONNULL: {
+
+			refOp1 = (Integer) ((Referencia)frameAtual.pilhaOperandos[frameAtual.sp]).getValor();
+
+			frameAtual.sp--;
+
+			if (refOp1 != null) {
+
+				desviar(frameAtual);
+
+				desvio = true;
+
+			} else 
+
+				frameAtual.pc.pularOperando();
+			
 			frameAtual.getPilhaIdentificadores().pop();
 
 		}
@@ -1674,7 +1794,8 @@ public class MaquinaVirtual {
 				for (int i = 0; i < metodo.contarParametros(); i++)
 					frameAtual.sp--;
 				
-				frameAtual.sp--;
+				if (!metodo.isEstatico())
+					frameAtual.sp--;
 				
 			}
 			
@@ -1690,11 +1811,16 @@ public class MaquinaVirtual {
 						
 			Integer valor = (Integer) frameAtual.pilhaOperandos[frameAtual.sp].getValor();
 			
-			int qtdParametros = frameAtual.getMetodo().contarParametros();
+			SimboloMetodo metodo = frameAtual.getMetodo();
+			
+			int qtdParametros = metodo.contarParametros();
 			
 			frameAtual = pilha[--topoPilha];
 			
 			for (int i = 0; i < qtdParametros; i++)
+				frameAtual.sp--;
+			
+			if (!metodo.isEstatico())
 				frameAtual.sp--;
 			
 			frameAtual.pilhaOperandos[frameAtual.sp] = new Inteiro(valor);
@@ -1711,11 +1837,16 @@ public class MaquinaVirtual {
 			
 			Referencia valor = (Referencia) frameAtual.pilhaOperandos[frameAtual.sp];
 			
-			int qtdParametros = frameAtual.getMetodo().contarParametros();
+			SimboloMetodo metodo = frameAtual.getMetodo();
+			
+			int qtdParametros = metodo.contarParametros();
 			
 			frameAtual = pilha[--topoPilha];
 			
 			for (int i = 0; i < qtdParametros; i++)
+				frameAtual.sp--;
+			
+			if (!metodo.isEstatico())
 				frameAtual.sp--;
 			
 			frameAtual.pilhaOperandos[frameAtual.sp] = valor;

@@ -198,6 +198,10 @@ desvio : ( a = 'ifeq' b = ID
            | a = 'if_icmpge' b = ID
            | a = 'if_icmpgt' b = ID
            | a = 'if_icmple' b = ID
+           | a = 'if_acmpeq' b = ID
+           | a = 'if_acmpne' b = ID
+           | a = 'ifnonnull' b = ID
+           | a = 'ifnull' b = ID
            | a = 'goto' b = ID
          )
          -> ^(DESVIO $a $b)
