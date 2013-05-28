@@ -37,6 +37,8 @@ public class MaquinaVirtual {
 	private int tamanhoCodigo;
 	
 	private boolean novoObjeto = false;
+	
+	private boolean empilhouConstNull = false;
 			
 	private Scanner in = new Scanner(System.in);
 	
@@ -359,6 +361,8 @@ public class MaquinaVirtual {
 			frameAtual.pilhaOperandos[frameAtual.sp] = new Referencia(null, null);
 			
 			frameAtual.getPilhaIdentificadores().push("");
+			
+			empilhouConstNull = true;
 
 		}
 		;
@@ -472,9 +476,7 @@ public class MaquinaVirtual {
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[0];
 						
 			id = obterIdentificadorVariavel(0);
-			
-			//Interpretador.con.readReference(id);
-			
+						
 			frameAtual.getPilhaIdentificadores().push(id);
 			
 			toRead = new Read();
@@ -506,9 +508,7 @@ public class MaquinaVirtual {
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[1];
 						
 			id = obterIdentificadorVariavel(1);
-			
-			//Interpretador.con.readReference(id);
-			
+						
 			frameAtual.getPilhaIdentificadores().push(id);
 			
 			toRead = new Read();
@@ -540,9 +540,7 @@ public class MaquinaVirtual {
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[2];
 			
 			id = obterIdentificadorVariavel(2);
-			
-			//Interpretador.con.readReference(id);
-			
+						
 			frameAtual.getPilhaIdentificadores().push(id);
 			
 			toRead = new Read();
@@ -575,9 +573,7 @@ public class MaquinaVirtual {
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[3];
 			
 			id = obterIdentificadorVariavel(3);
-			
-			//Interpretador.con.readReference(id);
-			
+						
 			frameAtual.getPilhaIdentificadores().push(id);
 			
 			toRead = new Read();
@@ -612,9 +608,7 @@ public class MaquinaVirtual {
 			frameAtual.pilhaOperandos[frameAtual.sp] = frameAtual.variaveis[op1];
 			
 			id = obterIdentificadorVariavel(op1);
-			
-			//Interpretador.con.readReference(id);
-			
+						
 			frameAtual.getPilhaIdentificadores().push(id);
 			
 			toRead = new Read();
@@ -1423,41 +1417,10 @@ public class MaquinaVirtual {
 			String idCampo = idRef+"."+idField+obterSufixoVariavel(idRef+"."+idField);
 			
 			frameAtual.getPilhaIdentificadores().push(idCampo);
-			
-			/*if (!Interpretador.ehTipoEstruturaDeDadosReferencia(objeto.getNome())){
-			
-				if (objeto.getMemoriaLocal()[op1].getTipo().equals("I"))				
-					Interpretador.con.ler_Int(idCampo);		
-				else 
-					Interpretador.con.readReference(idCampo);
-			
-			}*/
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = null;
 
 			frameAtual.pilhaOperandos[frameAtual.sp] = objeto.getMemoriaLocal()[op1];
-			
-			/*if (objeto.getNome().equals("LList")) {				
-				if (op1 == 0)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
-			} else if (objeto.getNome().equals("LNodeList")) {				
-				if (op1 == 0)
-					Interpretador.con.readStructInfo();
-				else if (op1 == 1)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
-			} else if (objeto.getNome().equals("LTree")) {
-				if (op1 == 0)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("init"));									
-			} else if (objeto.getNome().equals("LNodeTree")) {				
-				if (op1 == 0)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
-				else if (op1 == 1)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
-				else if (op1 == 2)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
-				else if (op1 == 3)
-					Interpretador.con.readStructInfo();					
-			}*/
 			
 			toRead = new Read();
 			toRead.ehCampo = true;
@@ -1490,9 +1453,7 @@ public class MaquinaVirtual {
 			Objeto objeto = heap.get((Integer)referencia.getValor());
 
 			op1 = frameAtual.pc.obterOperandoInteiro();
-			
-			//SimboloClasse classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(objeto.getNome());
-			
+						
 			Valor valorAntigo = objeto.getMemoriaLocal()[op1];
 			
 			objeto.getMemoriaLocal()[op1] = frameAtual.pilhaOperandos[frameAtual.sp--];
@@ -1501,11 +1462,12 @@ public class MaquinaVirtual {
 							
 			if (objeto.getNome().equals("LList")) {				
 				if (op1 == 0) {
-					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
-					else {
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
-						Interpretador.con.endCommand();
+					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
+						if (empilhouConstNull)
+							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
+						else
+							Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
+						Interpretador.con.endCommand();	
 					}
 				} else if (op1 == 1)
 					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1].getValor());				
@@ -1513,10 +1475,11 @@ public class MaquinaVirtual {
 				if (op1 == 0)
 					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1].getValor());
 				else if (op1 == 1){					
-					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("next"));
-					else {
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("next"));
+					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
+						if (empilhouConstNull)
+							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("next"));
+						else
+							Interpretador.con.writeReferenceField(Interpretador.referenceField("next"));
 						Interpretador.con.endCommand();
 					}
 				}				
@@ -1527,30 +1490,42 @@ public class MaquinaVirtual {
 					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1].getValor());
 			} else if (objeto.getNome().equals("LTree")) {
 				if (op1 == 0){
-					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
-					else
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
+					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
+						if (empilhouConstNull)
+							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
+						else
+							Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
+						Interpretador.con.endCommand();
+					}
 				} else if (op1 == 1)
 					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1].getValor());
 				else if (op1 == 2)
 					Interpretador.con.SetHeight(((Integer)objeto.getMemoriaLocal()[op1].getValor()).toString());					
 			} else if (objeto.getNome().equals("LNodeTree")) {				
-				if (op1 == 0){					
-					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("node_root"));
-					else
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("node_root"));					
+				if (op1 == 0){
+					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
+						if (empilhouConstNull)
+							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("node_root"));
+						else
+							Interpretador.con.writeReferenceField(Interpretador.referenceField("node_root"));					
+						Interpretador.con.endCommand();
+					}					
 				} else if (op1 == 1) {
-					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("left_chield"));
-					else
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("left_chield"));
+					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
+						if (empilhouConstNull) 
+							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("left_chield"));
+						 else
+							Interpretador.con.writeReferenceField(Interpretador.referenceField("left_chield"));
+						Interpretador.con.endCommand();
+					}
 				} else if (op1 == 2){
-					if (((Referencia)objeto.getMemoriaLocal()[op1]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("right_chield"));
-					else
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("right_chield"));
+					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
+						if (empilhouConstNull)
+							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("right_chield"));
+						else
+							Interpretador.con.writeReferenceField(Interpretador.referenceField("right_chield"));
+						Interpretador.con.endCommand();
+					}
 				} else if (op1 == 3)
 					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1].getValor());
 					
@@ -1581,7 +1556,7 @@ public class MaquinaVirtual {
 				}
 			
 			}
-
+			
 		}
 
 		;
@@ -1625,38 +1600,7 @@ public class MaquinaVirtual {
 			
 			frameAtual.getPilhaIdentificadores().push(idCampo);
 			
-			/*if (!Interpretador.ehTipoEstruturaDeDadosReferencia(simboloClasse.getNome())){
-			
-				if (simboloClasse.getFields()[op2].getTipo().equals("I"))				
-					Interpretador.con.ler_Int(idCampo);		
-				else 
-					Interpretador.con.readReference(idCampo);
-			
-			}*/
-			
 			frameAtual.pilhaOperandos[++frameAtual.sp] = simboloClasse.getFields()[op2];
-			
-			/*if (simboloClasse.getNome().equals("LList")) {				
-				if (op2 == 0)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
-			} else if (simboloClasse.getNome().equals("LNodeList")) {				
-				if (op2 == 0)
-					Interpretador.con.readStructInfo();
-				else if (op2 == 1)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
-			} else if (simboloClasse.getNome().equals("LTree")) {
-				if (op2 == 0)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("init"));									
-			} else if (simboloClasse.getNome().equals("LNodeTree")) {				
-				if (op2 == 0)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
-				else if (op2 == 1)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
-				else if (op2 == 2)
-					Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
-				else if (op2 == 3)
-					Interpretador.con.readStructInfo();					
-			}*/
 			
 			toRead = new Read();
 			toRead.ehCampo = true;
@@ -1693,70 +1637,11 @@ public class MaquinaVirtual {
 			Valor valorAntigo = simboloClasse.getFields()[op2];
 			
 			simboloClasse.alterarCampo(op2, frameAtual.pilhaOperandos[frameAtual.sp--]);
-							
-			if (simboloClasse.getNome().equals("LList")) {				
-				if (op2 == 0) {
-					if (((Referencia)simboloClasse.getFields()[op2]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
-					else {
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
-						Interpretador.con.endCommand();
-					}
-				} else if (op2 == 1)
-					Interpretador.con.writeStructLength((Integer)simboloClasse.getFields()[op2].getValor());				
-			} else if (simboloClasse.getNome().equals("LNodeList")) {				
-				if (op2 == 0)
-					Interpretador.con.writeStructInfo((Integer)simboloClasse.getFields()[op2].getValor());
-				else if (op2 == 1){					
-					if (((Referencia)simboloClasse.getFields()[op2]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("next"));
-					else {
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("next"));
-						Interpretador.con.endCommand();
-					}
-				}				
-			} else if (simboloClasse.getNome().equals("LVector")) {
-				if (op2 == 0)
-					Interpretador.con.setPosVector((Integer)simboloClasse.getFields()[op2].getValor());
-				else if (op2 == 1)
-					Interpretador.con.writeStructLength((Integer)simboloClasse.getFields()[op2].getValor());
-			} else if (simboloClasse.getNome().equals("LTree")) {
-				if (op2 == 0){
-					if (((Referencia)simboloClasse.getFields()[op2]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
-					else
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
-				} else if (op2 == 1)
-					Interpretador.con.writeStructLength((Integer)simboloClasse.getFields()[op2].getValor());
-				else if (op2 == 2)
-					Interpretador.con.SetHeight(((Integer)simboloClasse.getFields()[op2].getValor()).toString());					
-			} else if (simboloClasse.getNome().equals("LNodeTree")) {				
-				if (op2 == 0){					
-					if (((Referencia)simboloClasse.getFields()[op2]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("node_root"));
-					else
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("node_root"));					
-				} else if (op2 == 1) {
-					if (((Referencia)simboloClasse.getFields()[op2]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("left_chield"));
-					else
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("left_chield"));
-				} else if (op2 == 2){
-					if (((Referencia)simboloClasse.getFields()[op2]).isNull())
-						Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("right_chield"));
-					else
-						Interpretador.con.writeReferenceField(Interpretador.referenceField("right_chield"));
-				} else if (op2 == 3)
-					Interpretador.con.writeStructInfo((Integer)simboloClasse.getFields()[op2].getValor());
-					
-			}
 					
 			String tipo = frameAtual.pilhaOperandos[0].getTipo();
 						
 			frameAtual.getPilhaIdentificadores().pop();
-			
-			String idField = simboloClasse.obterIdentificadorVariavel(op2, true);
-			
+						
 			String idCampo = obterIdentificadorCampoEstatico(simboloClasse, op2);
 			
 			salvarCampoEstatico(idCampo, simboloClasse, op2);
@@ -1771,7 +1656,7 @@ public class MaquinaVirtual {
 				}
 			
 			}
-									
+												
 		}
 		
 		;
@@ -1857,6 +1742,9 @@ public class MaquinaVirtual {
 		break;
 
 		}
+		
+		if (opcode != Definicao.ACONSTNULL)
+			empilhouConstNull = false;
 		
 	}
 	
@@ -1991,7 +1879,7 @@ public class MaquinaVirtual {
 		Interpretador.con.endCommand();
 		
 		novoObjeto = false;
-		
+				
 	}
 	
 	private void salvarInteiro(String identificador, int endereco, boolean ehCampo, Valor toSave){
@@ -2047,9 +1935,7 @@ public class MaquinaVirtual {
 		
 		for (int i = idRev.length() - 1; i >= 0; i--)
 			id += idRev.charAt(i);
-		
-		//return obterPrefixoVariavel(frameAtual)+id;
-		
+				
 		return id + obterSufixoVariavel(id);
 		
     }
@@ -2059,147 +1945,6 @@ public class MaquinaVirtual {
 		return campo.substring(0, campo.lastIndexOf("."));
 		
 	}
-	
-/*	public String obterIdentificadorCampo(boolean put, boolean estatico, int sp, int endereco) { 
-					
-		String id;
-		
-		if (put)
-			id = obterIdentificadorCampoPut(estatico, sp, endereco, false);
-		else
-			id = obterIdentificadorCampoGet(estatico, sp, endereco, false);
-		
-		return id + obterSufixoVariavel(id);
-		
-	}
-	
-	private String obterIdentificadorCampoPut(boolean estatico, int sp, int endereco, boolean fim){
-		
-		String formId = "";
-		
-		if (sp == 0)
-			fim = true;
-		
-		if (!fim) {
-			
-			Valor valor = frameAtual.pilhaOperandos[sp - 1];
-		
-			if ((sp - 1) > 0){
-				
-				Valor referenciaDeBaixo = frameAtual.pilhaOperandos[sp - 2];
-				
-				if (referenciaDeBaixo.getTipo().equals("I"))
-					return obterIdentificadorCampoPut(estatico,  sp , endereco, true);
-				
-				if (valor != referenciaDeBaixo) {
-				
-					Objeto objetoDeBaixo = heap.get((Integer)referenciaDeBaixo.getValor());
-									
-					Objeto objeto = heap.get((Integer)valor.getValor());
-					
-					SimboloClasse classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(objeto.getNome());
-					
-					formId = classe.obterIdentificadorVariavel(endereco, estatico);
-					
-					int end = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(valor);
-					
-					if (end == -1)
-						return obterIdentificadorCampoPut(estatico,  sp, endereco, true);
-					else
-						endereco = end;
-					
-					
-				} else
-					
-					formId = ""; 
-			
-			} else if ((sp - 1) == 0) {
-							
-				Objeto objeto = heap.get((Integer)valor.getValor());
-				
-				SimboloClasse classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(objeto.getNome());
-						
-				formId = classe.obterIdentificadorVariavel(endereco, estatico);
-				
-				endereco = Arrays.asList(frameAtual.variaveis).indexOf(valor);
-			
-			}
-			
-		} else {
-			
-			formId = obterIdentificadorVariavel(endereco);
-
-			return formId;
-		}
-
-		
-		formId = obterIdentificadorCampoPut(estatico,  sp - 1, endereco, false) + "."+formId;
-			
-		return formId;
-	}
-	
-	private String obterIdentificadorCampoGet(boolean estatico, int sp, int endereco, boolean fim){
-		
-		Referencia referencia = (Referencia)frameAtual.pilhaOperandos[sp];
-
-		Objeto objeto = heap.get((Integer)referencia.getValor());
-		
-		SimboloClasse classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(objeto.getNome());
-
-		String formId = classe.obterIdentificadorVariavel(endereco, estatico);
-		
-		if (sp == 0)
-			fim = true;
-		
-		if (!fim){
-			
-			Valor referenciaDeBaixo = frameAtual.pilhaOperandos[sp - 1];
-			
-			if (referenciaDeBaixo.getTipo().equals("I"))
-				return obterIdentificadorCampoGet(estatico, sp, endereco, true);
-			
-			if (referencia != referenciaDeBaixo){
-			
-				Objeto objetoDeBaixo = heap.get((Integer)referenciaDeBaixo.getValor());
-	
-				int end = Arrays.asList(objetoDeBaixo.getMemoriaLocal()).indexOf(referencia);
-				
-				if (end == -1)
-					return obterIdentificadorCampoGet(estatico, sp, endereco, true);
-				else
-					endereco = end;
-	
-				formId = obterIdentificadorCampoGet(estatico,  sp - 1, endereco, false) + "."+formId;
-				
-			} else {
-				
-				formId = "";
-				
-				formId = obterIdentificadorCampoGet(estatico,  sp - 1, endereco, false);
-				
-			}
-							
-			
-		} else {
-			
-			endereco = Arrays.asList(frameAtual.variaveis).indexOf(referencia);
-			
-			formId = obterIdentificadorVariavel(endereco) + "." + formId;
-			
-		}
-					
-		return formId;
-		
-	}
-	
-	private String obterPrefixoVariavel(){
-		
-		if (frameAtual.getProprietario().equals("Main"))
-			return "";
-		
-		return frameAtual.getProprietario()+"."+frameAtual.getMetodo().obterNomeSimples()+".";
-		
-	}*/
 	
 	private String obterSufixoVariavel(String identificador){
 		

@@ -1,3 +1,5 @@
+Inversão de um vetor por meio de um campo estático
+
 .class Main
 .field static vetor LVector;
 .method static main() V
@@ -8,8 +10,14 @@
 	iconst_4
 	invokespecial Vector/<init>(I) V
 	iconst_0
-	istore_0
-L1: getstatic Main/vetor LVector;
+	istore_0	
+L1:	iload_0
+	getstatic Main/vetor LVector;
+	getfield Vector/size I
+	if_icmplt L2
+	invokestatic Main/inverterVetor() V
+	return
+L2: getstatic Main/vetor LVector;
 	getfield Vector/data [I;
 	iload_0
 	iload_0
@@ -18,15 +26,10 @@ L1: getstatic Main/vetor LVector;
 	iload_0
 	iinc
 	istore_0
-	iload_0
-	getstatic Main/vetor LVector;
-	getfield Vector/size I
-	if_icmplt L1
-	invokestatic Main/inverterVetor() V
-	return
+	goto L1
 .end method
 .method static inverterVetor() V
-.limit locals 3
+.limit locals 4
 	getstatic Main/vetor LVector;
 	getfield Vector/size I
 	iconst_1
@@ -34,7 +37,14 @@ L1: getstatic Main/vetor LVector;
 	istore_1
 	iconst_0
 	istore_0
-L1: getstatic Main/vetor LVector;
+L1:	iload_0
+	getstatic Main/vetor LVector;
+	getfield Vector/size I
+	iconst_2
+	idiv
+	if_icmplt L2
+	return
+L2:	getstatic Main/vetor LVector;
 	getfield Vector/data [I;
 	iload_1
 	iaload
@@ -59,12 +69,6 @@ L1: getstatic Main/vetor LVector;
 	iconst_1
 	isub
 	istore_1
-	iload_0
-	getstatic Main/vetor LVector;
-	getfield Vector/size I
-	iconst_2
-	idiv
-	if_icmplt L1
-	return
+	goto L1
 .end method
 .end class

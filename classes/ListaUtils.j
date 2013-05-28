@@ -1,19 +1,4 @@
-Inversão de uma lista encadeada
-
-.class Main
-.method static main() V
-.limit locals 1
-	new List
-	astore_0
-	aload_0
-	invokespecial List/<init>() V
-	aload_0
-	ldc 5
-	invokestatic Main/preencherLista(LList;I) V
-	aload_0
-	invokestatic Main/inverterLista(LList;) V
-	return
-.end method
+.class ListaUtils
 .method static preencherLista(LList;I) V
 .limit locals 5
 	new NodeList
@@ -95,5 +80,56 @@ L4: aload_0
     getfield List/init LNodeList;
     astore_2
    	goto L3
+.end method
+.method static removerNo(LList;I) V
+.limit locals 5
+	aload_0
+	getfield List/init LNodeList;
+	ifnull L1
+	iload_1
+	aload_0
+	getfield List/size I
+	if_icmpgt L1
+	goto L2
+L1: return
+L2: aload_0
+	getfield List/init LNodeList;
+	astore_2
+	iload_1
+	ifeq L3
+	iconst_0
+	istore_3
+L4: iload_3
+	iload_1
+	iconst_2
+	isub
+	if_icmplt L5
+	aload_2
+	getfield NodeList/next LNodeList;
+	astore 4
+	aload_2
+	aload_2
+	getfield NodeList/next LNodeList;
+	getfield NodeList/next LNodeList;
+	putfield NodeList/next LNodeList;
+	aload 4
+	aconst_null
+	putfield NodeList/next LNodeList;
+	return
+L5: aload_2
+	getfield NodeList/next LNodeList;
+	astore_2	
+	iload_3
+	iinc
+	istore_3	
+	goto L4
+L3: aload_0
+	aload_2
+	getfield NodeList/next LNodeList;
+	putfield List/init LNodeList;
+	aload_2
+	aconst_null
+	putfield NodeList/next LNodeList;
+	return
 .end method
 .end class

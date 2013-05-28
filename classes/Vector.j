@@ -3,6 +3,7 @@
 .field size I
 .field data [I;
 .method <init>(I) V
+.limit locals 2
 	aload_0
 	iconst_0
 	putfield Vector/pos I

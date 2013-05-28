@@ -1,0 +1,129 @@
+.class Main
+.method static main() V
+.limit locals 3
+	new List
+	astore_0
+	aload_0
+	invokespecial List/<init>() V
+	new NodeList
+	astore_1
+	aload_1
+	ldc 21
+	invokespecial NodeList/<init>(I) V
+	aload_0
+	aload_1
+	putfield List/init LNodeList;
+	new NodeList
+	astore_1
+	aload_1
+	ldc 14
+	invokespecial NodeList/<init>(I) V
+	aload_1
+	aload_0
+	getfield List/init LNodeList;
+	putfield NodeList/next LNodeList;
+	aload_0
+	aload_1
+	putfield List/init LNodeList;
+	aload_1
+	getfield NodeList/next LNodeList;
+	astore_2
+	aload_0
+	aload_1
+	getfield NodeList/next LNodeList;
+	putfield List/init LNodeList;
+	aload_1
+	aload_2
+	getfield NodeList/next LNodeList;
+	putfield NodeList/next LNodeList;
+	aload_2
+	aload_1
+	putfield NodeList/next LNodeList;
+	return
+.end method
+.end class
+
+CREATE_REF LIST l
+CREATE_STRUCT LIST
+WRITE_REF
+END_COMMAND
+CREATE_REF NODE n
+CREATE_STRUCT NODE
+WRITE_REF
+END_COMMAND
+READ_REF n
+WRITE_INFO 21
+END_COMMAND
+READ_REF l
+READ_REF n
+WRITE_REF_FIELD INIT
+END_COMMAND
+READ_REF n
+CREATE_STRUCT NODE
+WRITE_REF
+END_COMMAND
+READ_REF n
+WRITE_INFO 14
+END_COMMAND
+READ_REF n
+READ_REF l
+READ_REF_FIELD INIT
+WRITE_REF_FIELD NEXT
+END_COMMAND
+READ_REF l
+READ_REF n
+WRITE_REF_FIELD INIT
+END_COMMAND
+CREATE_REF NODE p
+READ_REF p
+READ_REF n
+READ_REF_FIELD NEXT
+WRITE_REF
+END_COMMAND	
+READ_REF l
+READ_REF p
+WRITE_REF_FIELD INIT
+END_COMMAND	
+READ_REF n
+READ_REF p
+READ_REF_FIELD NEXT
+WRITE_REF_FIELD NEXT
+END_COMMAND	
+READ_REF p
+READ_REF n
+WRITE_REF_FIELD NEXT
+END_COMMAND
+
+
+
+
+CREATE_REF LIST l
+CREATE_STRUCT LIST
+WRITE_REF
+END_COMMAND
+CREATE_REF NODE n
+CREATE_STRUCT NODE
+WRITE_REF
+END_COMMAND 
+READ_REF n
+WRITE_INFO 30
+END_COMMAND
+READ_REF l
+WRITE_INFO 1
+END_COMMAND
+READ_REF l
+READ_REF n
+WRITE_REF_FIELD INIT
+END_COMMAND
+CREATE_REF NODE aux
+READ_REF aux
+READ_REF l
+READ_REF_FIELD INIT
+WRITE_REF 
+END_COMMAND
+
+READ_REF n
+READ_REF l
+READ_REF_FIELD INIT
+WRITE_REF_FIELD NEXT
+END_COMMAND

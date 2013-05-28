@@ -1,15 +1,5 @@
-public class Main{
+public class Lista {
 	
-	public static void main(String args[]) {
-		
-		List a = new List();
-		
-		preencherLista(a, 5);
-		
-		inverterLista(a);
-			
-		
-	}
 	
 	public static void preencherLista(List a, int b) {
 		
@@ -48,5 +38,33 @@ public class Main{
 				
 		
 	}
+	
+	public static void removerNo(List a, int b){
 		
+		if (a.init == null)
+			return;
+		
+		if (b > a.size)
+			return
+		
+		NodeList c = a.init;
+		
+		if (b == 0){		
+			a.init = c.next;
+			c.next = null;
+			return;
+		}
+				
+		for (int d = 0; d < (b - 2); d++)
+			c = c.next;
+		
+		NodeList e = c.next;
+		c.next = c.next.next;
+		e.next = null;
+		
+		
+	}
+	
+	
+	
 }
