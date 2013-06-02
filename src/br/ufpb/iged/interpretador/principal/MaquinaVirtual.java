@@ -1488,29 +1488,19 @@ public class MaquinaVirtual {
 					Interpretador.con.setPosVector((Integer)objeto.getMemoriaLocal()[op1].getValor());
 				else if (op1 == 1)
 					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1].getValor());
-			} else if (objeto.getNome().equals("LTree")) {
-				if (op1 == 0){
-					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
-						if (empilhouConstNull)
-							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("init"));
-						else
-							Interpretador.con.writeReferenceField(Interpretador.referenceField("init"));
-						Interpretador.con.endCommand();
-					}
-				} else if (op1 == 1)
-					Interpretador.con.writeStructLength((Integer)objeto.getMemoriaLocal()[op1].getValor());
-				else if (op1 == 2)
-					Interpretador.con.SetHeight(((Integer)objeto.getMemoriaLocal()[op1].getValor()).toString());					
-			} else if (objeto.getNome().equals("LNodeTree")) {				
+			} else if (objeto.getNome().equals("LBinaryTree")) {
 				if (op1 == 0){
 					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
 						if (empilhouConstNull)
 							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("node_root"));
 						else
-							Interpretador.con.writeReferenceField(Interpretador.referenceField("node_root"));					
+							Interpretador.con.writeReferenceField(Interpretador.referenceField("node_root"));
 						Interpretador.con.endCommand();
-					}					
-				} else if (op1 == 1) {
+					}
+				} else if (op1 == 1)
+					Interpretador.con.writeSizeBT((Integer)objeto.getMemoriaLocal()[op1].getValor());					
+			} else if (objeto.getNome().equals("LNodeTree")) {				
+				 if (op1 == 0) {
 					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
 						if (empilhouConstNull) 
 							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("left_chield"));
@@ -1518,7 +1508,7 @@ public class MaquinaVirtual {
 							Interpretador.con.writeReferenceField(Interpretador.referenceField("left_chield"));
 						Interpretador.con.endCommand();
 					}
-				} else if (op1 == 2){
+				} else if (op1 == 1){
 					if (!frameAtual.getMetodo().getNome().startsWith("<init>")) {
 						if (empilhouConstNull)
 							Interpretador.con.writeReferenceFieldNull(Interpretador.referenceField("right_chield"));
@@ -1526,9 +1516,10 @@ public class MaquinaVirtual {
 							Interpretador.con.writeReferenceField(Interpretador.referenceField("right_chield"));
 						Interpretador.con.endCommand();
 					}
-				} else if (op1 == 3)
+				} else if (op1 == 2)
 					Interpretador.con.writeStructInfo((Integer)objeto.getMemoriaLocal()[op1].getValor());
-					
+				else if (op1 == 3)
+					Interpretador.con.SetHeight(String.valueOf((Integer)objeto.getMemoriaLocal()[op1].getValor()));				
 			}
 			
 			int sp = frameAtual.sp + 2;
