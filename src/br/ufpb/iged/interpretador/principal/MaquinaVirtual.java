@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
+import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.Definicao;
 import br.ufpb.iged.interpretador.excecoes.ClassNotFoundException;
 import br.ufpb.iged.interpretador.symboltable.classes.SimboloClasse;
@@ -1804,7 +1805,11 @@ public class MaquinaVirtual {
 	
 	private void salvarReferencia(String identificador, int endereco, boolean ehCampo, Valor toSave, Referencia referencia, boolean putfield){
 		
-		Objeto objeto = heap.get((Integer)referencia.getValor());
+		Objeto objeto = null;
+		
+		if (referencia.getValor() != null)
+		
+			objeto  = heap.get((Integer)referencia.getValor());
 		
 		if (!frameAtual.getVariaveisCriadas().containsKey(identificador) && !frameAtual.getReferenciasRecebidas().containsKey(identificador)) {
 			
@@ -1819,16 +1824,20 @@ public class MaquinaVirtual {
 				
 			} else {
 				
-				if (!putfield) { 
-					
-					Interpretador.con.readReference(identificador);
-					
-					if (toRead.ehCampo)
-					
-						Interpretador.con.readReference(obterReferenciaDoCampo(toRead.id));
-					
-					lerReferenciaGrafica();
-										
+				if (objeto != null) {
+				
+					if (!putfield) { 
+						
+						Interpretador.con.readReference(identificador);
+						
+						if (toRead.ehCampo)
+						
+							Interpretador.con.readReference(obterReferenciaDoCampo(toRead.id));
+						
+						lerReferenciaGrafica();
+											
+					}
+				
 				}
 				
 			}
@@ -1847,26 +1856,34 @@ public class MaquinaVirtual {
 				
 			} else {
 				
-				if (!putfield) {
-					
-					Interpretador.con.readReference(identificador);
-					
-					if (toRead.ehCampo)
-					
-						Interpretador.con.readReference(obterReferenciaDoCampo(toRead.id));
-					
-					lerReferenciaGrafica();
-										
+				if (objeto != null){
+				
+					if (!putfield) {
+						
+						Interpretador.con.readReference(identificador);
+						
+						if (toRead.ehCampo)
+						
+							Interpretador.con.readReference(obterReferenciaDoCampo(toRead.id));
+						
+						lerReferenciaGrafica();
+											
+					}
+				
 				}
 				
 			}
 			
 		}
 		
-		if (!objeto.getNome().equals("LVector"))
+		if (objeto != null){
 			
-			Interpretador.con.writeReference();
+			if (!objeto.getNome().equals("LVector"))
 				
+				Interpretador.con.writeReference();
+			
+		}
+					
 		Interpretador.con.endCommand();
 		
 		novoObjeto = false;
@@ -2014,17 +2031,15 @@ public class MaquinaVirtual {
 							Interpretador.con.readStructInfo();
 						else if (toRead.endereco == 1)
 							Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
-					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LTree")) {
-						if (toRead.endereco == 0)
-							Interpretador.con.readReferenceField(Interpretador.referenceField("init"));									
-					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LNodeTree")) {				
+					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LBinaryTree")) {
 						if (toRead.endereco == 0)
 							Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
-						else if (toRead.endereco == 1)
+					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LNodeTree")) {				
+						if (toRead.endereco == 0)
 							Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
+						else if (toRead.endereco == 1)
+							Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));									
 						else if (toRead.endereco == 2)
-							Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
-						else if (toRead.endereco == 3)
 							Interpretador.con.readStructInfo();					
 					}
 				
@@ -2049,17 +2064,15 @@ public class MaquinaVirtual {
 						Interpretador.con.readStructInfo();
 					else if (toRead.endereco == 1)
 						Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
-				} else if (((Objeto)toRead.objeto).getNome().equals("LTree")) {
-					if (toRead.endereco == 0)
-						Interpretador.con.readReferenceField(Interpretador.referenceField("init"));									
-				} else if (((Objeto)toRead.objeto).getNome().equals("LNodeTree")) {				
+				} else if (((Objeto)toRead.objeto).getNome().equals("LBinaryTree")) {
 					if (toRead.endereco == 0)
 						Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
-					else if (toRead.endereco == 1)
+				} else if (((Objeto)toRead.objeto).getNome().equals("LNodeTree")) {				
+					if (toRead.endereco == 0)
 						Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
+					else if (toRead.endereco == 1)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));									
 					else if (toRead.endereco == 2)
-						Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));
-					else if (toRead.endereco == 3)
 						Interpretador.con.readStructInfo();					
 				}
 				

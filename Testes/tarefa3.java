@@ -4,13 +4,13 @@ public class Main{
 		
 		BinaryTree a = new BinaryTree();
 		
-		NodeTree b = new NodeTree(4);
+		NodeTree b = new NodeTree(35);
 		
 		a.root = b;
 		
-		b = new NodeTree(25);
-		
+		NodeTree c = a.root;	
 		
 	}
+	
 	
 }
