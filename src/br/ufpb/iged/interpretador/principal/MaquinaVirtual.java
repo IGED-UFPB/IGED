@@ -487,14 +487,18 @@ public class MaquinaVirtual {
 			toRead.id = id;
 			toRead.objeto = null;
 			
-			short nextOpcode = frameAtual.pc.obterOpcode();
+			short nextOpcode = frameAtual.pc.obterInstrucao(1);
+			
+			if (nextOpcode < 0)
+				nextOpcode = valorEmByte(nextOpcode);
 			
 			if (nextOpcode != Definicao.PUTSTATIC 
 					&& nextOpcode != Definicao.ASTORE
 					&& nextOpcode != Definicao.ASTORE0
 					&& nextOpcode != Definicao.ASTORE1
 					&& nextOpcode != Definicao.ASTORE2
-					&& nextOpcode != Definicao.ASTORE3)
+					&& nextOpcode != Definicao.ASTORE3
+					&& nextOpcode != Definicao.ARETURN)
 				
 				lerReferenciaGrafica();
 
@@ -519,14 +523,18 @@ public class MaquinaVirtual {
 			toRead.id = id;
 			toRead.objeto = null;
 			
-			short nextOpcode = frameAtual.pc.obterOpcode();
+			short nextOpcode = frameAtual.pc.obterInstrucao(1);
+			
+			if (nextOpcode < 0)
+				nextOpcode = valorEmByte(nextOpcode);
 			
 			if (nextOpcode != Definicao.PUTSTATIC 
 					&& nextOpcode != Definicao.ASTORE
 					&& nextOpcode != Definicao.ASTORE0
 					&& nextOpcode != Definicao.ASTORE1
 					&& nextOpcode != Definicao.ASTORE2
-					&& nextOpcode != Definicao.ASTORE3)
+					&& nextOpcode != Definicao.ASTORE3
+					&& nextOpcode != Definicao.ARETURN)
 				
 				lerReferenciaGrafica();
 
@@ -551,14 +559,18 @@ public class MaquinaVirtual {
 			toRead.id = id;
 			toRead.objeto = null;
 			
-			short nextOpcode = frameAtual.pc.obterOpcode();
+			short nextOpcode = frameAtual.pc.obterInstrucao(1);
+			
+			if (nextOpcode < 0)
+				nextOpcode = valorEmByte(nextOpcode);
 			
 			if (nextOpcode != Definicao.PUTSTATIC 
 					&& nextOpcode != Definicao.ASTORE
 					&& nextOpcode != Definicao.ASTORE0
 					&& nextOpcode != Definicao.ASTORE1
 					&& nextOpcode != Definicao.ASTORE2
-					&& nextOpcode != Definicao.ASTORE3)
+					&& nextOpcode != Definicao.ASTORE3
+					&& nextOpcode != Definicao.ARETURN)
 				
 				lerReferenciaGrafica();
 
@@ -584,14 +596,18 @@ public class MaquinaVirtual {
 			toRead.id = id;
 			toRead.objeto = null;
 			
-			short nextOpcode = frameAtual.pc.obterOpcode();
+			short nextOpcode = frameAtual.pc.obterInstrucao(1);
+			
+			if (nextOpcode < 0)
+				nextOpcode = valorEmByte(nextOpcode);
 			
 			if (nextOpcode != Definicao.PUTSTATIC 
 					&& nextOpcode != Definicao.ASTORE
 					&& nextOpcode != Definicao.ASTORE0
 					&& nextOpcode != Definicao.ASTORE1
 					&& nextOpcode != Definicao.ASTORE2
-					&& nextOpcode != Definicao.ASTORE3)
+					&& nextOpcode != Definicao.ASTORE3
+					&& nextOpcode != Definicao.ARETURN)
 				
 				lerReferenciaGrafica();
 
@@ -619,14 +635,18 @@ public class MaquinaVirtual {
 			toRead.id = id;
 			toRead.objeto = null;
 			
-			short nextOpcode = frameAtual.pc.obterOpcode();
+			short nextOpcode = frameAtual.pc.obterInstrucao(1);
+			
+			if (nextOpcode < 0)
+				nextOpcode = valorEmByte(nextOpcode);
 			
 			if (nextOpcode != Definicao.PUTSTATIC 
 					&& nextOpcode != Definicao.ASTORE
 					&& nextOpcode != Definicao.ASTORE0
 					&& nextOpcode != Definicao.ASTORE1
 					&& nextOpcode != Definicao.ASTORE2
-					&& nextOpcode != Definicao.ASTORE3)
+					&& nextOpcode != Definicao.ASTORE3
+					&& nextOpcode != Definicao.ARETURN)
 				
 				lerReferenciaGrafica();
 
@@ -735,7 +755,8 @@ public class MaquinaVirtual {
 			
 			frameAtual.sp--;
 			
-			frameAtual.getPilhaIdentificadores().pop();
+			if (!frameAtual.getPilhaIdentificadores().isEmpty())
+				frameAtual.getPilhaIdentificadores().pop();
 
 		}
 		;
@@ -751,7 +772,8 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			frameAtual.getPilhaIdentificadores().pop();
+			if (!frameAtual.getPilhaIdentificadores().isEmpty())
+				frameAtual.getPilhaIdentificadores().pop();
 		
 		}
 		;
@@ -767,7 +789,8 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			frameAtual.getPilhaIdentificadores().pop();
+			if (!frameAtual.getPilhaIdentificadores().isEmpty())
+				frameAtual.getPilhaIdentificadores().pop();
 
 		}
 		;
@@ -783,7 +806,8 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			frameAtual.getPilhaIdentificadores().pop();
+			if (!frameAtual.getPilhaIdentificadores().isEmpty())
+				frameAtual.getPilhaIdentificadores().pop();
 
 		}
 		;
@@ -801,7 +825,8 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			frameAtual.getPilhaIdentificadores().pop();
+			if (!frameAtual.getPilhaIdentificadores().isEmpty())
+				frameAtual.getPilhaIdentificadores().pop();
 
 		}
 		;
@@ -1430,14 +1455,18 @@ public class MaquinaVirtual {
 			toRead.id = idCampo;
 			toRead.objeto = objeto;
 			
-			short nextOpcode = frameAtual.pc.obterOpcode();
+			short nextOpcode = frameAtual.pc.obterInstrucao(1);
+			
+			if (nextOpcode < 0)
+				nextOpcode = valorEmByte(nextOpcode);
 			
 			if (nextOpcode != Definicao.PUTSTATIC 
 					&& nextOpcode != Definicao.ASTORE
 					&& nextOpcode != Definicao.ASTORE0
 					&& nextOpcode != Definicao.ASTORE1
 					&& nextOpcode != Definicao.ASTORE2
-					&& nextOpcode != Definicao.ASTORE3)
+					&& nextOpcode != Definicao.ASTORE3
+					&& nextOpcode != Definicao.ARETURN)
 				
 				lerReferenciaGrafica();
 			
@@ -1601,14 +1630,18 @@ public class MaquinaVirtual {
 			toRead.id = idCampo;
 			toRead.objeto = simboloClasse;
 			
-			short nextOpcode = frameAtual.pc.obterOpcode();
+			short nextOpcode = frameAtual.pc.obterInstrucao(1);
+			
+			if (nextOpcode < 0)
+				nextOpcode = valorEmByte(nextOpcode);
 			
 			if (nextOpcode != Definicao.PUTSTATIC 
 					&& nextOpcode != Definicao.ASTORE
 					&& nextOpcode != Definicao.ASTORE0
 					&& nextOpcode != Definicao.ASTORE1
 					&& nextOpcode != Definicao.ASTORE2
-					&& nextOpcode != Definicao.ASTORE3)
+					&& nextOpcode != Definicao.ASTORE3
+					&& nextOpcode != Definicao.ARETURN)
 				
 				lerReferenciaGrafica();
 			
@@ -1631,8 +1664,10 @@ public class MaquinaVirtual {
 			simboloClasse.alterarCampo(op2, frameAtual.pilhaOperandos[frameAtual.sp--]);
 					
 			String tipo = frameAtual.pilhaOperandos[0].getTipo();
+			
+			if (!frameAtual.getPilhaIdentificadores().isEmpty())
 						
-			frameAtual.getPilhaIdentificadores().pop();
+				frameAtual.getPilhaIdentificadores().pop();
 						
 			String idCampo = obterIdentificadorCampoEstatico(simboloClasse, op2);
 			
@@ -1700,7 +1735,7 @@ public class MaquinaVirtual {
 			if (!metodo.isEstatico())
 				frameAtual.sp--;
 			
-			frameAtual.pilhaOperandos[frameAtual.sp] = new Inteiro(valor);
+			frameAtual.pilhaOperandos[++frameAtual.sp] = new Inteiro(valor);
 			
 		}
 		
@@ -1726,7 +1761,7 @@ public class MaquinaVirtual {
 			if (!metodo.isEstatico())
 				frameAtual.sp--;
 			
-			frameAtual.pilhaOperandos[frameAtual.sp] = valor;
+			frameAtual.pilhaOperandos[++frameAtual.sp] = valor;
 			
 		}
 		
@@ -1765,16 +1800,19 @@ public class MaquinaVirtual {
 						
 			int endereco = frameAtual.getNextParam();
 			
-			if (v.getTipo().equals("I")){
-				frameAtual.variaveis[endereco] = new Inteiro(0);
-				salvarInteiro(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco]);
-			} else {
-				frameAtual.variaveis[endereco] = new Referencia(null, v.getTipo());
-				frameAtual.getReferenciasRecebidas().put(endereco, idsParams.get(endereco));
+			if (v.getTipo() != null){
+			
+				if (v.getTipo().equals("I")){
+					frameAtual.variaveis[endereco] = new Inteiro(0);
+					salvarInteiro(obterIdentificadorVariavel(endereco), endereco, false, frameAtual.variaveis[endereco]);
+				} else {
+					frameAtual.variaveis[endereco] = new Referencia(null, v.getTipo());
+					frameAtual.getReferenciasRecebidas().put(endereco, idsParams.get(endereco));
+				}
+			
 			}
 			
 			frameAtual.inserirValorParametro(v);
-
 			
 		}
 				
@@ -1916,7 +1954,10 @@ public class MaquinaVirtual {
 		
 		String idField = classe.obterIdentificadorVariavel(endereco, true);
 		
-		return classe.obterNomeSimples()+"."+idField + obterSufixoVariavel(classe.obterNomeSimples()+"."+idField);
+		//return classe.obterNomeSimples()+"."+idField + obterSufixoVariavel(classe.obterNomeSimples()+"."+idField);
+		
+		return idField + obterSufixoVariavel(idField);
+
 		
 	}
 	
@@ -2022,27 +2063,27 @@ public class MaquinaVirtual {
 						Interpretador.con.ler_Int(toRead.id);		
 					else 
 						Interpretador.con.readReference(toRead.id);
-					
-					if (((SimboloClasse)toRead.objeto).getNome().equals("LList")) {				
-						if (toRead.endereco == 0)
-							Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
-					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LNodeList")) {				
-						if (toRead.endereco == 0)
-							Interpretador.con.readStructInfo();
-						else if (toRead.endereco == 1)
-							Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
-					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LBinaryTree")) {
-						if (toRead.endereco == 0)
-							Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
-					} else if (((SimboloClasse)toRead.objeto).getNome().equals("LNodeTree")) {				
-						if (toRead.endereco == 0)
-							Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
-						else if (toRead.endereco == 1)
-							Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));									
-						else if (toRead.endereco == 2)
-							Interpretador.con.readStructInfo();					
-					}
 				
+				}
+				
+				if (((SimboloClasse)toRead.objeto).getNome().equals("LList")) {				
+					if (toRead.endereco == 0)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("init"));				
+				} else if (((SimboloClasse)toRead.objeto).getNome().equals("LNodeList")) {				
+					if (toRead.endereco == 0)
+						Interpretador.con.readStructInfo();
+					else if (toRead.endereco == 1)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("next"));
+				} else if (((SimboloClasse)toRead.objeto).getNome().equals("LBinaryTree")) {
+					if (toRead.endereco == 0)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("node_root"));									
+				} else if (((SimboloClasse)toRead.objeto).getNome().equals("LNodeTree")) {				
+					if (toRead.endereco == 0)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("left_chield"));									
+					else if (toRead.endereco == 1)
+						Interpretador.con.readReferenceField(Interpretador.referenceField("right_chield"));									
+					else if (toRead.endereco == 2)
+						Interpretador.con.readStructInfo();					
 				}
 				
 			} else {
@@ -2078,10 +2119,89 @@ public class MaquinaVirtual {
 				
 			}
 			
-		} else 
+		} else {
 			
-			Interpretador.con.readReference(toRead.id);
+			if (toRead.id.contains(".")) {
+				
+				if (!Interpretador.ehTipoEstruturaDeDadosReferencia(frameAtual.pilhaOperandos[frameAtual.sp].getTipo()))
+					Interpretador.con.readReference(toRead.id);
+				else {
+					
+					String[] tokens = toRead.id.split("\\.");
+					
+					Interpretador.con.readReference(tokens[0]);
+						
+					int i;
+					
+					SimboloClasse classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(obterTipoVariavelCriada(tokens[0]));
+					
+					toRead = new Read();
+					toRead.ehCampo = true;
+					toRead.endereco = classe.obterIdentificadorVariavel(tokens[1]);
+					toRead.estatico = false;
+					toRead.id = null;
+					toRead.objeto = procurarObjeto(classe.getNome());
+					
+					lerReferenciaGrafica();
+					
+					for (i = 2; i < tokens.length; i++){
+						
+						String tipoObjeto = ((Objeto)toRead.objeto).getMemoriaLocal()[toRead.endereco].getTipo();
+						
+						classe = (SimboloClasse)Interpretador.tabelaSimbolos.global.resolver(tipoObjeto);
+						
+						toRead = new Read();
+						toRead.ehCampo = true;
+						toRead.endereco = classe.obterIdentificadorVariavel(tokens[i]);
+						toRead.estatico = false;
+						toRead.id = null;
+						toRead.objeto = procurarObjeto(classe.getNome());
+						
+						lerReferenciaGrafica();
+						
+					}
+					
+				}
+				
+			} else
+			
+				Interpretador.con.readReference(toRead.id);
+			
+		}
 	
+		
+	}
+	
+	private String obterTipoVariavelCriada(String identificador) {
+		
+		int sp = frameAtual.sp;
+		StackFrame frame;
+		String tipo = null;
+		
+		while(sp > -1 && tipo == null) {
+			
+			frame = pilha[sp];
+			
+			tipo = frame.getVariaveisCriadas().get(identificador);
+			
+			sp--;
+			
+		}
+		
+		return tipo;
+		
+	}
+	
+	private Objeto procurarObjeto(String tipo){
+		
+		for (Objeto obj : heap){
+			
+			if (obj.getNome().equals(tipo))
+				return obj;
+			
+		}
+		
+		return null;
 		
 	}
 	

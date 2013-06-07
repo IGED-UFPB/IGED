@@ -274,20 +274,24 @@ public class Interpretador {
 	
 	public static void criarVariavelGrafica(StackFrame frame, String id, String tipo) {
 		
-		if (tipo.equals("I")) 			
-			Interpretador.con.creat_Int(id);		
-		else if (tipo.equals("LList"))
-			Interpretador.con.createReference(id, IGEDConst.LISTA);
-		else if (tipo.equals("LNodeList"))
-			Interpretador.con.createReference(id, IGEDConst.NODE);
-		else if (tipo.equals("LNodeTree"))
-			Interpretador.con.createReference(id, IGEDConst.NODE_TREE);
-		else if (tipo.equals("[I"))
-			Interpretador.con.createReference(id, IGEDConst.VETOR);
-		else if (tipo.equals("LBinaryTree"))
-			Interpretador.con.createReference(id, IGEDConst.BINARY_TREE);
+		if (tipo != null){
 		
-		frame.getVariaveisCriadas().put(id, tipo);
+			if (tipo.equals("I")) 			
+				Interpretador.con.creat_Int(id);		
+			else if (tipo.equals("LList"))
+				Interpretador.con.createReference(id, IGEDConst.LISTA);
+			else if (tipo.equals("LNodeList"))
+				Interpretador.con.createReference(id, IGEDConst.NODE);
+			else if (tipo.equals("LNodeTree"))
+				Interpretador.con.createReference(id, IGEDConst.NODE_TREE);
+			else if (tipo.equals("[I"))
+				Interpretador.con.createReference(id, IGEDConst.VETOR);
+			else if (tipo.equals("LBinaryTree"))
+				Interpretador.con.createReference(id, IGEDConst.BINARY_TREE);
+			
+			frame.getVariaveisCriadas().put(id, tipo);
+		
+		}
 		
 	}
 	

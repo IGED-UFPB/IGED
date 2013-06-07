@@ -170,7 +170,42 @@ public class SimboloClasse extends SimboloComEscopo implements Tipo {
     		
     	}
     	
-    	return i;
+    	return -1;
+    	
+    }
+    
+    public int obterIdentificadorVariavel(String identificador){
+    	
+    	int i = 0;
+    	
+    	
+    	for (SimboloVariavel var : constantPool) {
+    		
+    		if (var.isEstatico()){
+    			
+    			if (var.getNome().equals(identificador))
+    			   return i;
+    			else
+    				i++;
+    		}
+    		
+    	}
+    	
+    	i = 0;
+    	
+    	for (SimboloVariavel var : constantPool) {
+    		
+    		if (!var.isEstatico()){
+    			
+    			if (var.getNome().equals(identificador))
+    			   return i;
+    			else
+    				i++;
+    		}
+    		
+    	}
+    	
+    	return -1;
     	
     }
     

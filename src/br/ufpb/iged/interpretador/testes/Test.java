@@ -8,7 +8,9 @@ import br.ufpb.iged.interpretador.parser.AssemblerLexer;
 import br.ufpb.iged.interpretador.parser.AssemblerParser;
 
 public class Test {
-
+	
+	private static Object o;
+	
     public static void main(String[] args) throws Exception {
     
        /*CharStream entrada = new ANTLRFileStream("entrada.txt");
@@ -70,12 +72,22 @@ public class Test {
     	int d = (int)c;
     	System.out.println(d);*/
     	
-    	System.out.println(tabelaSimbolos(6));
+    	//System.out.println(tabelaSimbolos(6));
+    	
+    	//b(o);
+    	
+    	String a = "a.root";
+    	
+    	String[] b = a.split("\\.");
+    	
+    	for (int i = 0; i < b.length; i++)
+    		System.out.println(b[i]);
         
     }
     
     public void a(){
     	
+    	Object o;
     	
     }
     
@@ -88,6 +100,12 @@ public class Test {
     }
     
     public void a(float a, int b){
+    	
+    }
+    
+    public static void b(Object a) {
+    	
+    	
     	
     }
     

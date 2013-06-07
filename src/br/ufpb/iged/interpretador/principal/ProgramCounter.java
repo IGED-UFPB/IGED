@@ -41,6 +41,12 @@ public class ProgramCounter {
 		
 	}
 	
+	public short obterInstrucao(int deslocamento){
+		
+		return simboloMetodo.getCodigo()[instrucao + deslocamento];
+		
+	}
+	
 	public int obterOperandoInteiro() {
 
 		int op = BytecodeAssembler.obterInteiro(simboloMetodo.getCodigo(), instrucao + 1);

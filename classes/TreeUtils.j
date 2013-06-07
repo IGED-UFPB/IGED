@@ -16,24 +16,15 @@ L3: aload_3
 	iload_1
 	aload 4
 	getfield NodeTree/info I
-	if_icmplt L9
+	if_icmplt L7
 	return
-L9: aload 4
+L7: aload 4
 	getfield NodeTree/leftchild LNodeTree;
 	astore_3
 	aload_3
-	ifnull L10
-	goto L8
-L10: aload 4
-	getfield NodeTree/rightchild LNodeTree;
-	ifnull L11
-	goto L12
-L11: aload 4
-	aload 4
-	getfield NodeTree/height I
-	iinc
-	putfield NodeTree/height I
-L12: new NodeTree
+	ifnull L8
+	goto L6
+L8: new NodeTree
 	astore_2
 	aload_2
 	iload_1
@@ -41,17 +32,14 @@ L12: new NodeTree
 	aload 4
 	aload_2
 	putfield NodeTree/leftchild LNodeTree;
-	goto L8
+	goto L6
 L4: aload 4
 	getfield NodeTree/rightchild LNodeTree;
 	astore_3
 	aload_3
 	ifnull L5
-	goto L8
-L5: aload 4
-	getfield NodeTree/leftchild LNodeTree;
-	ifnull L6
-L7: new NodeTree
+	goto L6
+L5: new NodeTree
 	astore_2
 	aload_2
 	iload_1
@@ -59,15 +47,10 @@ L7: new NodeTree
 	aload 4
 	aload_2
 	putfield NodeTree/rightchild LNodeTree;
-L8:	aload_3
+	goto L6
+L6:	aload_3
 	ifnonnull L3
 	goto L2
-L6: aload 4
-	aload 4
-	getfield NodeTree/height I
-	iinc
-	putfield NodeTree/height I
-	goto L7
 L1:	new NodeTree
 	astore_2
 	aload_2
@@ -82,5 +65,32 @@ L2: aload_0
 	iinc
 	putfield BinaryTree/size I
 	return
+.end method
+.method static buscar(LNodeTree;I) LNodeTree;
+.limit locals 2
+	aload_0
+	ifnull L1
+	iload_1
+	aload_0
+	getfield NodeTree/info I
+	if_icmpeq L2
+	iload_1
+	aload_0
+	getfield NodeTree/info I
+	if_icmpgt L3
+	aload_0
+	getfield NodeTree/leftchild LNodeTree;
+	iload_1
+	invokestatic TreeUtils/buscar(LNodeTree;I) LNodeTree;
+	areturn
+L3: aload_0
+	getfield NodeTree/rightchild LNodeTree;
+	iload_1
+	invokestatic TreeUtils/buscar(LNodeTree;I) LNodeTree;
+	areturn
+L2: aload_0
+	areturn
+L1:	aconst_null
+	areturn
 .end method
 .end class

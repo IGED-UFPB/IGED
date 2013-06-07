@@ -19,23 +19,19 @@ L3:				aux = p;
 				if (info > aux.info){
 L4:					p = aux.rightchild;
 					if (p == null){
-L5:						if (aux.leftchild == null)
-L6:							aux.height++;
-L7:						n = new NodeTree(info);
+L5:						n = new NodeTree(info);
 						aux.rightchild = n;
 					}
 				} else if (info < aux.info){
-L9:					p = aux.leftchild;
+L7:					p = aux.leftchild;
 					if (p == null){
-L10:					if (aux.rightchild == null)
-L11:						aux.height++;
-L12:					n = new NodeTree(info);
+L8:						n = new NodeTree(info);
 						aux.leftchild = n;
 					}
 				} else
 					return;
 			
-L8:			} while (p != null)
+L6:			} while (p != null)
 								
 		}
 		
