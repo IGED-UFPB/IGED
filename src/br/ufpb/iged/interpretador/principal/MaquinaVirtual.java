@@ -755,8 +755,7 @@ public class MaquinaVirtual {
 			
 			frameAtual.sp--;
 			
-			if (!frameAtual.getPilhaIdentificadores().isEmpty())
-				frameAtual.getPilhaIdentificadores().pop();
+			frameAtual.getPilhaIdentificadores().pop();
 
 		}
 		;
@@ -772,8 +771,7 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			if (!frameAtual.getPilhaIdentificadores().isEmpty())
-				frameAtual.getPilhaIdentificadores().pop();
+			frameAtual.getPilhaIdentificadores().pop();
 		
 		}
 		;
@@ -789,8 +787,7 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			if (!frameAtual.getPilhaIdentificadores().isEmpty())
-				frameAtual.getPilhaIdentificadores().pop();
+			frameAtual.getPilhaIdentificadores().pop();
 
 		}
 		;
@@ -806,8 +803,7 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			if (!frameAtual.getPilhaIdentificadores().isEmpty())
-				frameAtual.getPilhaIdentificadores().pop();
+			frameAtual.getPilhaIdentificadores().pop();
 
 		}
 		;
@@ -825,8 +821,7 @@ public class MaquinaVirtual {
 
 			frameAtual.sp--;
 			
-			if (!frameAtual.getPilhaIdentificadores().isEmpty())
-				frameAtual.getPilhaIdentificadores().pop();
+			frameAtual.getPilhaIdentificadores().pop();
 
 		}
 		;
@@ -1390,7 +1385,7 @@ public class MaquinaVirtual {
 									
 			List<String> params = new ArrayList<String>();
 			
-			while(!frameAtual.getPilhaIdentificadores().isEmpty())
+			for(int i = 0; i < simboloMetodo.contarParametros() + 1; i++)
 				params.add(frameAtual.getPilhaIdentificadores().pop());
 			
 			Collections.reverse(params);
@@ -1415,7 +1410,7 @@ public class MaquinaVirtual {
 			boolean estatico = simboloMetodo.isEstatico();
 			List<String> params = new ArrayList<String>();
 								
-			while(!frameAtual.getPilhaIdentificadores().isEmpty())
+			for(int i = 0; i < simboloMetodo.contarParametros() + 1; i++)
 				params.add(frameAtual.getPilhaIdentificadores().pop());
 							
 			Collections.reverse(params);
@@ -1597,7 +1592,7 @@ public class MaquinaVirtual {
 			
 			List<String> params = new ArrayList<String>();
 			
-			while(!frameAtual.getPilhaIdentificadores().isEmpty())
+			for(int i = 0; i < simboloMetodo.contarParametros(); i++)
 				params.add(frameAtual.getPilhaIdentificadores().pop());
 											
 			Collections.reverse(params);
@@ -1664,10 +1659,8 @@ public class MaquinaVirtual {
 			simboloClasse.alterarCampo(op2, frameAtual.pilhaOperandos[frameAtual.sp--]);
 					
 			String tipo = frameAtual.pilhaOperandos[0].getTipo();
-			
-			if (!frameAtual.getPilhaIdentificadores().isEmpty())
-						
-				frameAtual.getPilhaIdentificadores().pop();
+									
+			frameAtual.getPilhaIdentificadores().pop();
 						
 			String idCampo = obterIdentificadorCampoEstatico(simboloClasse, op2);
 			
@@ -1727,6 +1720,8 @@ public class MaquinaVirtual {
 			
 			int qtdParametros = metodo.contarParametros();
 			
+			String idReturn = frameAtual.getPilhaIdentificadores().pop();
+			
 			frameAtual = pilha[--topoPilha];
 			
 			for (int i = 0; i < qtdParametros; i++)
@@ -1735,7 +1730,22 @@ public class MaquinaVirtual {
 			if (!metodo.isEstatico())
 				frameAtual.sp--;
 			
+			if (!frameAtual.getPilhaIdentificadores().isEmpty()){
+				
+				toRead = new Read();
+				toRead.ehCampo = false;
+				toRead.endereco = 0;
+				toRead.estatico = false;
+				toRead.id = frameAtual.getPilhaIdentificadores().peek();
+				toRead.objeto = null;
+				
+				lerReferenciaGrafica();
+				
+			}
+			
 			frameAtual.pilhaOperandos[++frameAtual.sp] = new Inteiro(valor);
+			
+			frameAtual.getPilhaIdentificadores().push(idReturn);
 			
 		}
 		
@@ -1753,6 +1763,8 @@ public class MaquinaVirtual {
 			
 			int qtdParametros = metodo.contarParametros();
 			
+			String idReturn = frameAtual.getPilhaIdentificadores().peek();
+			
 			frameAtual = pilha[--topoPilha];
 			
 			for (int i = 0; i < qtdParametros; i++)
@@ -1761,7 +1773,22 @@ public class MaquinaVirtual {
 			if (!metodo.isEstatico())
 				frameAtual.sp--;
 			
+			if (!frameAtual.getPilhaIdentificadores().isEmpty()){
+				
+				toRead = new Read();
+				toRead.ehCampo = false;
+				toRead.endereco = 0;
+				toRead.estatico = false;
+				toRead.id = frameAtual.getPilhaIdentificadores().pop();
+				toRead.objeto = null;
+				
+				lerReferenciaGrafica();
+				
+			}
+			
 			frameAtual.pilhaOperandos[++frameAtual.sp] = valor;
+			
+			frameAtual.getPilhaIdentificadores().push(idReturn);
 			
 		}
 		

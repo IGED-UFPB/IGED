@@ -32,6 +32,9 @@ L8: new NodeTree
 	aload 4
 	aload_2
 	putfield NodeTree/leftchild LNodeTree;
+	aload_0
+	getfield BinaryTree/root LNodeTree;
+	invokestatic TreeUtils/atualizarAlturaNos(LNodeTree;) V
 	goto L6
 L4: aload 4
 	getfield NodeTree/rightchild LNodeTree;
@@ -47,6 +50,9 @@ L5: new NodeTree
 	aload 4
 	aload_2
 	putfield NodeTree/rightchild LNodeTree;
+	aload_0
+	getfield BinaryTree/root LNodeTree;
+	invokestatic TreeUtils/atualizarAlturaNos(LNodeTree;) V
 	goto L6
 L6:	aload_3
 	ifnonnull L3
@@ -92,5 +98,45 @@ L2: aload_0
 	areturn
 L1:	aconst_null
 	areturn
+.end method
+.method static altura(LNodeTree;) I
+.limit locals 3
+	aload_0
+	ifnull L1
+	aload_0
+	getfield NodeTree/leftchild LNodeTree;
+	invokestatic TreeUtils/altura(LNodeTree;) I
+	istore_1
+	aload_0
+	getfield NodeTree/rightchild LNodeTree;
+	invokestatic TreeUtils/altura(LNodeTree;) I
+	istore_2
+	iload_1
+	iload_2
+	if_icmplt L2
+	iload_1
+	iinc
+	ireturn
+L2:	iload_2
+	iinc
+	ireturn
+L1:	iconst_m1
+	ireturn
+.end method
+.method static atualizarAlturaNos(LNodeTree;) V
+.limit locals 1
+	aload_0
+	ifnull L1
+	aload_0
+	aload_0
+	invokestatic TreeUtils/altura(LNodeTree;) I
+	putfield NodeTree/height I
+	aload_0
+	getfield NodeTree/rightchild LNodeTree;
+	invokestatic TreeUtils/atualizarAlturaNos(LNodeTree;) V
+	aload_0
+	getfield NodeTree/leftchild LNodeTree;
+	invokestatic TreeUtils/atualizarAlturaNos(LNodeTree;) V
+L1:	return	
 .end method
 .end class

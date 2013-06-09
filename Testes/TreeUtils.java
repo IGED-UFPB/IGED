@@ -21,12 +21,14 @@ L4:					p = aux.rightchild;
 					if (p == null){
 L5:						n = new NodeTree(info);
 						aux.rightchild = n;
+						atualizarAlturaNos(t.root);
 					}
 				} else if (info < aux.info){
 L7:					p = aux.leftchild;
 					if (p == null){
 L8:						n = new NodeTree(info);
 						aux.leftchild = n;
+						atualizarAlturaNos(t.root);
 					}
 				} else
 					return;
@@ -51,6 +53,33 @@ L2:		t.size++;
 			return buscar(n.rightchild, info);
 		else
 			return buscar(n.leftchild, info);
+		
+	}
+	
+	public static int altura(NodeTree n) {
+		
+		   if (n == null) 
+		      return -1; 
+		   else {
+		      int he = altura(n.leftchild);
+		      int hd = altura(n.rightchild);
+		      if (he < hd) 
+		    	  return hd++;
+		      else 
+		    	  return he++;
+		   }
+		   
+	}
+	
+	public static void atualizarAlturaNos(NodeTree n){
+		
+		if (n == null)
+			return;
+		
+		n.height = altura(n);
+		
+		atualizarAlturaNos(n.rightchild);
+		atualizarAlturaNos(n.leftchild);
 		
 	}
 	
