@@ -1,61 +1,22 @@
 .class Main
 .method static main() V
-.limit locals 8
-	ldc 5
-	istore_0
-	iconst_3
-	istore_1
-	iload_1
-	istore_0
-	new List
-	astore_2
-	aload_2
-	invokespecial List/<init>() V
-	new NodeList
-	astore_3
-	aload_3
-	iconst_4
-	invokespecial NodeList/<init>(I) V
-	aload_2
-	aload_3
-	putfield List/init LNodeList;
-	new NodeList
-	astore 4
-	aload 4
-	iconst_3
-	invokespecial NodeList/<init>(I) V
-	aload_2
-	getfield List/init LNodeList;
-	aload 4
-	putfield NodeList/next LNodeList;
-	new Vector
-	astore 5
-	aload 5
-	ldc 10
-	invokespecial Vector/<init>(I) V
-	iconst_0
-	istore 6
-	aload 5
-	getfield Vector/size I
-	iconst_1
-	isub
-	istore 7
-L1: aload 5
-	getfield Vector/data [I;
-	iload 6
-	iload 7
-	iastore
-	iload 6
-	iinc
-	istore 6
-	iload 7
-	iconst_1
-	isub
-	istore 7
-	iload 6
-	aload 5
-	getfield Vector/size I
-	if_icmplt L1
+.limit locals 1
+	new BinaryTree
+	astore_0
+	aload_0
+	invokespecial BinaryTree/<init>() V
+	aload_0
+	ldc 8
+	invokestatic TreeUtils/inserirAVL(LBinaryTree;I) V
+	aload_0
+	ldc 12
+	invokestatic TreeUtils/inserirAVL(LBinaryTree;I) V
+	aload_0
+	ldc 15
+	invokestatic TreeUtils/inserirAVL(LBinaryTree;I) V
+	aload_0
+	ldc 18
+	invokestatic TreeUtils/inserirAVL(LBinaryTree;I) V
 	return
 .end method
 .end class

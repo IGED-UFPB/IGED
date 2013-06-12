@@ -4,11 +4,25 @@ public class Main{
 		
 		BinaryTree a = new BinaryTree();
 		
-		NodeTree b = new NodeTree(35);
+		TreeUtils.inserir(a, 35);
 		
-		a.root = b;
+		TreeUtils.inserir(a, 22);
 		
-		NodeTree c = a.root;	
+		TreeUtils.inserir(a, 59);
+		
+		TreeUtils.inserir(a, 15);
+		
+		TreeUtils.inserir(a, 19);
+		
+		TreeUtils.inserir(a, 28);
+		
+		TreeUtils.inserir(a, 72);
+		
+		TreeUtils.inserir(a, 41);
+				
+		b = TreeUtils.buscar(a.root, 41);
+		
+		a.root.height = altura(a.root);
 		
 	}
 	

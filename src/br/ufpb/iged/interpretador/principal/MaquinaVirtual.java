@@ -1655,9 +1655,7 @@ public class MaquinaVirtual {
 			SimboloClasse simboloClasse = ClassLoader.carregarClasse(op1);
 						
 			Valor valorAntigo = simboloClasse.getFields()[op2];
-			
-			simboloClasse.alterarCampo(op2, frameAtual.pilhaOperandos[frameAtual.sp--]);
-					
+								
 			String tipo = frameAtual.pilhaOperandos[0].getTipo();
 									
 			frameAtual.getPilhaIdentificadores().pop();
@@ -1676,6 +1674,8 @@ public class MaquinaVirtual {
 				}
 			
 			}
+			
+			simboloClasse.alterarCampo(op2, frameAtual.pilhaOperandos[frameAtual.sp--]);
 												
 		}
 		
@@ -1895,6 +1895,9 @@ public class MaquinaVirtual {
 						
 						Interpretador.con.readReference(identificador);
 						
+						if (toRead.id.split("\\.").length > 2)
+							toRead.ehCampo = false;
+						
 						if (toRead.ehCampo)
 						
 							Interpretador.con.readReference(obterReferenciaDoCampo(toRead.id));
@@ -1927,6 +1930,9 @@ public class MaquinaVirtual {
 						
 						Interpretador.con.readReference(identificador);
 						
+						if (toRead.id.split("\\.").length > 2)
+							toRead.ehCampo = false;
+						
 						if (toRead.ehCampo)
 						
 							Interpretador.con.readReference(obterReferenciaDoCampo(toRead.id));
@@ -1947,7 +1953,8 @@ public class MaquinaVirtual {
 				
 				Interpretador.con.writeReference();
 			
-		}
+		} else
+			Interpretador.con.removeReference(identificador);
 					
 		Interpretador.con.endCommand();
 		
