@@ -661,7 +661,7 @@ public class MaquinaVirtual {
 			
 			Objeto objeto = heap.get((Integer)referencia.getValor());
 			frameAtual.pilhaOperandos[++frameAtual.sp] = new Inteiro((Integer)objeto.getMemoriaLocal()[indice].getValor());
-			
+        				
 			frameAtual.getPilhaIdentificadores().pop();
 			frameAtual.getPilhaIdentificadores().pop();
 			
@@ -829,6 +829,8 @@ public class MaquinaVirtual {
 		
 		case Definicao.IASTORE: {
 			
+			Interpretador.con.endCommand();
+			
 			int valor = (Integer)frameAtual.pilhaOperandos[frameAtual.sp--].getValor();
 			int indice = (Integer)frameAtual.pilhaOperandos[frameAtual.sp--].getValor();
 			Referencia referencia = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp--];
@@ -837,6 +839,8 @@ public class MaquinaVirtual {
 			
 			objeto.getMemoriaLocal()[indice] = new Inteiro(valor);
 			
+			Interpretador.con.readReference(frameAtual.getPilhaIdentificadores().elementAt(0));
+					
         	Interpretador.con.setPosVector(indice);
         	Interpretador.con.writeStructInfo(valor);
         	
@@ -1484,6 +1488,22 @@ public class MaquinaVirtual {
 			objeto.getMemoriaLocal()[op1] = frameAtual.pilhaOperandos[frameAtual.sp--];
 			
 			frameAtual.sp--;
+			
+			if (novoObjeto){
+								
+				Referencia referenciaNovoObjeto = (Referencia)frameAtual.pilhaOperandos[frameAtual.sp + 2];
+				Objeto objetoNovo = heap.get((Integer)referenciaNovoObjeto.getValor());
+				
+				if (Interpretador.ehTipoEstruturaDeDadosReferencia(objetoNovo.getNome())) {
+			 					
+					Interpretador.criarEstrutura(objetoNovo.getNome(), 0);
+				
+					novoObjeto = false;
+					
+				}
+				
+			}
+			
 							
 			if (objeto.getNome().equals("LList")) {				
 				if (op1 == 0) {
@@ -2208,7 +2228,7 @@ public class MaquinaVirtual {
 	
 	private String obterTipoVariavelCriada(String identificador) {
 		
-		int sp = frameAtual.sp;
+		int sp = topoPilha;
 		StackFrame frame;
 		String tipo = null;
 		

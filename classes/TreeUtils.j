@@ -4,71 +4,68 @@
 .field static nu LNodeTree;
 .field static nv LNodeTree;
 .method static inserir(LBinaryTree;I) V
-.limit locals 5
+.limit locals 4
 	aload_0
 	getfield BinaryTree/root LNodeTree;
 	ifnull L1
 	aload_0
 	getfield BinaryTree/root LNodeTree;
+	astore_2
+L3: aload_2
 	astore_3
-L3: aload_3
-	astore 4
 	iload_1
-	aload 4
+	aload_3
 	getfield NodeTree/info I
 	if_icmpgt L4
 	iload_1
-	aload 4
+	aload_3
 	getfield NodeTree/info I
 	if_icmplt L7
 	return
-L7: aload 4
+L7: aload_3
 	getfield NodeTree/leftchild LNodeTree;
-	astore_3
-	aload_3
+	astore_2
+	aload_2
 	ifnull L8
 	goto L6
-L8: new NodeTree
-	astore_2
-	aload_2
+L8: aload_3
+	new NodeTree
+	putfield NodeTree/leftchild LNodeTree;
+	aload_3
+	getfield NodeTree/leftchild LNodeTree;
 	iload_1
 	invokespecial NodeTree/<init>(I) V
-	aload 4
-	aload_2
-	putfield NodeTree/leftchild LNodeTree;
 	aload_0
 	getfield BinaryTree/root LNodeTree;
 	invokestatic TreeUtils/atualizarAlturaNos(LNodeTree;) V
 	goto L6
-L4: aload 4
+L4: aload_3
 	getfield NodeTree/rightchild LNodeTree;
-	astore_3
-	aload_3
+	astore_2
+	aload_2
 	ifnull L5
 	goto L6
-L5: new NodeTree
-	astore_2
-	aload_2
+L5: aload_3
+	new NodeTree
+	putfield NodeTree/rightchild LNodeTree;
+	aload_3
+	getfield NodeTree/rightchild LNodeTree;
 	iload_1
 	invokespecial NodeTree/<init>(I) V
-	aload 4
-	aload_2
-	putfield NodeTree/rightchild LNodeTree;
 	aload_0
 	getfield BinaryTree/root LNodeTree;
 	invokestatic TreeUtils/atualizarAlturaNos(LNodeTree;) V
 	goto L6
-L6:	aload_3
+L6:	aload_2
 	ifnonnull L3
 	goto L2
-L1:	new NodeTree
-	astore_2
-	aload_2
+L1:	aload_0
+	new NodeTree
+	putfield BinaryTree/root LNodeTree;
+	aload_0
+	getfield BinaryTree/root LNodeTree;
 	iload_1
 	invokespecial NodeTree/<init>(I) V
-	aload_0
-	aload_2
-	putfield BinaryTree/root LNodeTree;
 L2: aload_0
 	aload_0
 	getfield BinaryTree/size I

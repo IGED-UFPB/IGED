@@ -8,12 +8,9 @@ public class TreeUtils{
 	
 	public static void inserir(BinaryTree t, int info) {
 		
-		NodeTree n;
-		
-		if (t.root == null) {			
-L1:			n = new NodeTree(info);		
-			t.root = n;			
-		} else {
+		if (t.root == null)			
+L1:			t.root = new NodeTree(info);		
+		else {
 			
 			NodeTree p = t.root;
 			NodeTree aux;
@@ -25,15 +22,13 @@ L3:				aux = p;
 				if (info > aux.info){
 L4:					p = aux.rightchild;
 					if (p == null){
-L5:						n = new NodeTree(info);
-						aux.rightchild = n;
+L5:						aux.rightchild = new NodeTree(info);
 						atualizarAlturaNos(t.root);
 					}
 				} else if (info < aux.info){
 L7:					p = aux.leftchild;
 					if (p == null){
-L8:						n = new NodeTree(info);
-						aux.leftchild = n;
+L8:						aux.leftchild = new NodeTree(info);
 						atualizarAlturaNos(t.root);
 					}
 				} else
