@@ -5,12 +5,13 @@
 .method static main() V
 .limit locals 1
 	new Vector
-	putstatic Main/vetor2 LVector;
-	getstatic Main/vetor2 LVector;
+	putstatic Main/vetor3 LVector;
+	getstatic Main/vetor3 LVector;
 	invokestatic Main/preencherVetor(LVector;) V
-	getstatic Main/vetor2 LVector;
+	getstatic Main/vetor3 LVector;
+	iconst_1
 	ldc 15
-	invokestatic VetorUtils/insertionsort(LVector;I) V
+	invokestatic VetorUtils/mergesort(LVector;II) V
 	return
 .end method
 .method static preencherVetor(LVector;) V

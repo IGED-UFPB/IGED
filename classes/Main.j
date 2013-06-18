@@ -1,16 +1,45 @@
 .class Main
 .method static main() V
-.limit locals 1
-	new List
+.limit locals 2
+	new BinaryTree
 	astore_0
 	aload_0
-	invokespecial List/<init>() V
+	invokespecial BinaryTree/<init>() V
 	aload_0
-	ldc 5
-	invokestatic ListaUtils/preencherLista(LList;I) V
+	ldc 35
+	invokestatic TreeUtils/inserir(LBinaryTree;I) V
 	aload_0
-	iconst_3
-	invokestatic ListaUtils/removerNo(LList;I) V
+	ldc 22
+	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	aload_0
+	ldc 59
+	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	aload_0
+	ldc 15
+	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	aload_0
+	ldc 19
+	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	aload_0
+	ldc 28
+	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	aload_0
+	ldc 72
+	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	aload_0
+	ldc 41
+	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	aload_0
+	getfield BinaryTree/root LNodeTree;
+	ldc 21
+	invokestatic TreeUtils/buscar(LNodeTree;I) LNodeTree;
+	astore_1
+	aload_0
+	getfield BinaryTree/root LNodeTree;
+	aload_0
+	getfield BinaryTree/root LNodeTree;
+	invokestatic TreeUtils/altura(LNodeTree;) I
+	putfield NodeTree/height I
 	return
 .end method
 .end class

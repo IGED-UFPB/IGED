@@ -49,7 +49,7 @@ public class Lista {
 		
 		NodeList c = a.init;
 		
-		if (b == 0){		
+		if (b == 1){		
 			a.init = c.next;
 			c.next = null;
 			return;

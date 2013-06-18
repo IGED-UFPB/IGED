@@ -96,7 +96,8 @@ L2: aload_0
 	getfield List/init LNodeList;
 	astore_2
 	iload_1
-	ifeq L3
+	iconst_1
+	if_icmpeq L3
 	iconst_0
 	istore_3
 L4: iload_3

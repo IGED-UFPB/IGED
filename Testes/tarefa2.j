@@ -11,7 +11,7 @@ Remoção de um nó na posição informada
 	ldc 5
 	invokestatic ListaUtils/preencherLista(LList;I) V
 	aload_0
-	iconst_3
+	ldc 5
 	invokestatic ListaUtils/removerNo(LList;I) V
 	return
 .end method
