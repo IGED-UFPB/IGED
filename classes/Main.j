@@ -1,45 +1,22 @@
 .class Main
 .method static main() V
-.limit locals 2
+.limit locals 1
 	new BinaryTree
 	astore_0
 	aload_0
 	invokespecial BinaryTree/<init>() V
 	aload_0
-	ldc 35
-	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	ldc 8
+	invokestatic TreeUtils/inserirAVL(LBinaryTree;I) V
 	aload_0
-	ldc 22
-	invokestatic TreeUtils/inserir(LBinaryTree;I) V
-	aload_0
-	ldc 59
-	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	ldc 12
+	invokestatic TreeUtils/inserirAVL(LBinaryTree;I) V
 	aload_0
 	ldc 15
-	invokestatic TreeUtils/inserir(LBinaryTree;I) V
+	invokestatic TreeUtils/inserirAVL(LBinaryTree;I) V
 	aload_0
-	ldc 19
-	invokestatic TreeUtils/inserir(LBinaryTree;I) V
-	aload_0
-	ldc 28
-	invokestatic TreeUtils/inserir(LBinaryTree;I) V
-	aload_0
-	ldc 72
-	invokestatic TreeUtils/inserir(LBinaryTree;I) V
-	aload_0
-	ldc 41
-	invokestatic TreeUtils/inserir(LBinaryTree;I) V
-	aload_0
-	getfield BinaryTree/root LNodeTree;
-	ldc 22
-	invokestatic TreeUtils/buscar(LNodeTree;I) LNodeTree;
-	astore_1
-	aload_0
-	getfield BinaryTree/root LNodeTree;
-	aload_0
-	getfield BinaryTree/root LNodeTree;
-	invokestatic TreeUtils/altura(LNodeTree;) I
-	putfield NodeTree/height I
+	ldc 18
+	invokestatic TreeUtils/inserirAVL(LBinaryTree;I) V
 	return
 .end method
 .end class
