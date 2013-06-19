@@ -1,13 +1,11 @@
 package br.ufpb.iged.interpretador.principal;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
-import br.ufpb.iged.IGEDConst;
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.Definicao;
 import br.ufpb.iged.interpretador.excecoes.ClassNotFoundException;
 import br.ufpb.iged.interpretador.symboltable.classes.SimboloClasse;
