@@ -4,7 +4,7 @@
 .field static vetor3 LVector;
 .method static main() V
 .limit locals 1
-	new Vector
+    new Vector
 	putstatic Main/vetor3 LVector;
 	getstatic Main/vetor3 LVector;
 	invokestatic Main/preencherVetor(LVector;) V

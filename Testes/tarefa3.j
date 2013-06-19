@@ -31,7 +31,7 @@
 	invokestatic TreeUtils/inserir(LBinaryTree;I) V
 	aload_0
 	getfield BinaryTree/root LNodeTree;
-	ldc 21
+	ldc 41
 	invokestatic TreeUtils/buscar(LNodeTree;I) LNodeTree;
 	astore_1
 	aload_0

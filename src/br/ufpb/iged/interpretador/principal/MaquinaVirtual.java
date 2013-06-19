@@ -661,6 +661,13 @@ public class MaquinaVirtual {
 			
 			Objeto objeto = heap.get((Integer)referencia.getValor());
 			frameAtual.pilhaOperandos[++frameAtual.sp] = new Inteiro((Integer)objeto.getMemoriaLocal()[indice].getValor());
+			
+			Interpretador.con.readReference(frameAtual.getPilhaIdentificadores().elementAt(frameAtual.getPilhaIdentificadores().size() - 2));
+			
+        	Interpretador.con.setPosVector(indice);
+        	Interpretador.con.readStructInfo();
+        	
+        	Interpretador.con.endCommand();
         				
 			frameAtual.getPilhaIdentificadores().pop();
 			frameAtual.getPilhaIdentificadores().pop();
