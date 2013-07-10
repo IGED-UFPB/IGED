@@ -1,5 +1,10 @@
 package br.ufpb.iged.interpretador.testes;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.antlr.runtime.*;
 
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.BytecodeAssembler;
@@ -10,6 +15,14 @@ import br.ufpb.iged.interpretador.parser.AssemblerParser;
 public class Test {
 	
 	private static Object o;
+	
+	int a;
+	
+	Test(int a){
+		
+		this.a = a;
+		
+	}
 	
     public static void main(String[] args) throws Exception {
     
@@ -96,12 +109,177 @@ public class Test {
     	
     	System.out.println(o);*/
     	
-    	int vetor[] = {51, 100, 20, 93, 11, 65, 92, 76, 61, 40, 39, 52, 10, 62, 91};
+    	/*int vetor[] = {51, 100, 20, 93, 11, 65, 92, 76, 61, 40, 39, 52, 10, 62, 91};
     	
     	mergesort(vetor, 1, 15);
     	
     	for (int i = 0; i < vetor.length; i++)
-    		System.out.print(vetor[i]+" ");
+    		System.out.print(vetor[i]+" ");*/
+    	
+    	/*int y = 5;
+    	
+    	int z = 9;
+    	
+    	boolean x = 6+7*5 > y-8;
+    	
+    	int w = 9 * 5 / 4 - y++;
+    	
+    	int p = 5 - (y = y - 1);
+    	
+    	w = 5+ 3 * a(2);
+    	
+    	if (w > y){
+    		
+    	}
+    	
+    	do{
+    		x = 6+7*5 > y-8;
+  		  	w = 9 * 5 / 4 - y++;
+  		  	p = 5 - (y = y - 1);
+    	}while(y > 8);
+    	
+    	do
+    		x = 6+7*5 > y-8;
+    	while(y > 8);
+    	
+		int hdf;
+    	
+    	{
+            int hghg;
+    		x = 6+7*5 > y-8;
+  		  	w = 9 * 5 / 4 - y++;
+  		    hghg = 5 - (hdf = hdf - 1);
+    	}
+    	
+    	{
+    		int g;
+    		x = 6+7*5 > y-8;
+  		  	w = 9 * 5 / 4 - y++;
+  		  	p = 5 - (g = y - 1);
+  		    p = 5 - hdf = hdf - 1;
+    		
+    	}
+    	
+    	int hhh;
+    	
+    	hhh = y - 1;
+    	
+    	int i = 8+23, int j, k = i;
+    	
+    	/*if (x>y) {
+    		   int x = 6+7*5 > y-8;
+    		   w = 9 * 5 / 4 - y++;
+    		   p = 5 - (y = y - 1);
+    		   a(6, c);
+    		   a.b.c(o, l, t);
+    		} else if (a > b) {
+    		   w = 9 * 5 / 4 - y++;
+    		   p = 5 - (y = y - 1);
+
+    		} else {
+    		   a = 2;
+    		   x = 5 + b(8);
+    		}*/
+    	
+    	/*int i, j, k;
+		
+for (i = 1; i < n; i++) {
+			
+    k = v.data[i];
+			
+    j = i - 1;
+			
+    while  (j >= 0 && v.data[j] > k) {
+      v.data[j + 1] = v.data[j];
+      j--;
+    }
+			
+    v.data[j + 1] = k;
+			
+}*/
+    	
+    	/*for (int q = 8, t = 6+7*5, hfhf = 3;;);
+    	
+    	for(p = 6+7*5, int u = 2, w = 2;w<2 && p<4 && w < 3;)
+    	
+    	/*while(5 - (y = y - 1)){
+    		
+    		
+    		
+    	}*/
+    	
+    	/*if (x > y) {
+    		  int x = 6+7*5 > y-8;
+    		  w = 9 * 5 / 4 - y++;
+    		  p = 5 - (y = y - 1);
+    		}
+    	
+    	int k = ((1 || (2 ^ ((3 * 2) && 13))) || 2);
+    	
+    	-x;*/
+    	
+    	/*int k = 5;
+    	
+    	int j = 4 + k++;
+    	
+    	System.out.println(k);
+    	
+    	k = 5;
+    	
+    	int m = 4 + (k++);
+    	
+    	System.out.println(k);
+    	
+    	System.out.println(j);
+    	System.out.println(m);*/
+    	
+    	/*int derw;
+    	
+    	int djdf = 8;
+    	
+    	djdf = 5 - (derw = djdf + 4);
+    	
+    	System.out.println(derw);
+    	
+    	System.out.println(djdf);
+    	
+    	int kgkg[] = new int [5];
+    	
+    	for(kgkg[0] = 2;;);*/
+    	
+    	//int jhjhh, float hajshas;
+    	
+    	int kgkg[] = new int [5];
+    	
+    	kgkg[0] = 5;
+    	
+    	System.out.println(kgkg[0]);
+    	
+    	StringBuffer buffer = new StringBuffer();
+    	
+           
+            
+            try {
+            	 File file = new File("dir"); 
+                 file.mkdir();
+	FileWriter fw = new FileWriter("dir/A.j");
+	BufferedWriter bw =  new BufferedWriter(fw);
+	bw.write(buffer.toString());
+	bw.close();
+	fw.close();
+} catch (IOException e) {
+	e.printStackTrace();
+};
+
+   o = new Object();
+   
+   int x = 0;
+   
+   int ppp[] = new int[8];
+   
+   
+   kgkg[ppp[8] + x - 2 + 6] = 3;
+  
         
     }
     
@@ -184,7 +362,9 @@ public class Test {
     	
     }
     
-    public void a(int a){
+    public static int a(int a){
+    	
+    	return 5;
     	
     }
     

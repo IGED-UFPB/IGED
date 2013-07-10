@@ -34,12 +34,6 @@
 	ldc 41
 	invokestatic TreeUtils/buscar(LNodeTree;I) LNodeTree;
 	astore_1
-	aload_0
-	getfield BinaryTree/root LNodeTree;
-	aload_0
-	getfield BinaryTree/root LNodeTree;
-	invokestatic TreeUtils/altura(LNodeTree;) I
-	putfield NodeTree/height I
 	return
 .end method
 .end class

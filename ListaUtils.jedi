@@ -1,4 +1,4 @@
-class Lista {
+class ListaUtils {
 	
 	
 	static void preencherLista(List a, int b) {

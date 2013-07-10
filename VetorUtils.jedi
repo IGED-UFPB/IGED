@@ -98,7 +98,7 @@ class VetorUtils {
 
     }
 
-   static void mergesort(Vector vet[], int p, int r) {
+   static void mergesort(Vector vet, int p, int r) {
     	
     	if (p < r) {
     		int q = (p + r) / 2;

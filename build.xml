@@ -1,10 +1,15 @@
 
-<project name="Interpretador" default="gerar" basedir=".">
+<project name="Interpretador" default="gerarTradutor" basedir=".">
 	
-	<property name = "src.dir" value = 
+	<property name = "src.int.dir" value = 
 		"src/br/ufpb/iged/interpretador/gramaticas"/>
-	<property name = "dest.dir" value = 
+	<property name = "dest.int.dir" value = 
 			"src/br/ufpb/iged/interpretador/parser"/>
+	<property name = "src.trad.dir" value = 
+			"src/br/ufpb/iged/tradutor/gramaticas"/>
+		<property name = "dest.trad.dir" value = 
+				"src/br/ufpb/iged/tradutor/parser"/>
+	<property name="jedi.gram" value = "Jedi.g"/>
 	<property name="assembler.gram" value = "Assembler.g"/>
 	<property name="def.gram" value = "Def.g"/>
 	<property name="ref.gram" value = "Ref.g"/>
@@ -12,24 +17,45 @@
 				"src/br/ufpb/iged/interpretador/tradutor/intermediario/parser"/>
 	<property name="intermediario.gram" value = "Intermediario.g"/>
     
-    <target name="clean">
+    <target name="cleanInterpretador">
     	<delete>
-			<fileset dir="${dest.dir}">
+			<fileset dir="${dest.int.dir}">
 	    		<include name="*.java"/>
 				<include name="*.tokens"/>
 			</fileset>
 		</delete>
 	</target>
     	
-	<target name="gerar" depends="clean">
+	<target name="gerarInterpretador" depends="cleanInterpretador">
 		<java classname="org.antlr.Tool" fork="true" failonerror="true">
 			<arg value="-verbose"/>
 			<arg value="-make"/>
 			<arg value="-o"/>
-			<arg path="${dest.dir}"/>
-			<arg path="${src.dir}/${assembler.gram}"/>
-			<arg path="${src.dir}/${def.gram}"/>
-			<arg path="${src.dir}/${ref.gram}"/>
+			<arg path="${dest.int.dir}"/>
+			<arg path="${src.int.dir}/${assembler.gram}"/>
+			<arg path="${src.int.dir}/${def.gram}"/>
+			<arg path="${src.int.dir}/${ref.gram}"/>
+		</java>
+	</target>
+	
+	<target name="cleanTradutor">
+	    	<delete>
+				<fileset dir="${dest.trad.dir}">
+		    		<include name="*.java"/>
+					<include name="*.tokens"/>
+				</fileset>
+			</delete>
+	</target>
+	    	
+	<target name="gerarTradutor" depends="cleanTradutor">
+		<java classname="org.antlr.Tool" fork="true" failonerror="true">
+			<arg value="-verbose"/>
+			<arg value="-make"/>
+			<arg value="-o"/>
+			<arg path="${dest.trad.dir}"/>
+			<arg path="${src.trad.dir}/${jedi.gram}"/>
+			<arg path="${src.trad.dir}/${def.gram}"/>
+			<arg path="${src.trad.dir}/${ref.gram}"/>
 		</java>
 	</target>
 	

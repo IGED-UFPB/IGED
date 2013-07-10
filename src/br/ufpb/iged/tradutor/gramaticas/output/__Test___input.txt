@@ -1,0 +1,60 @@
+class A {
+
+  static int x;
+  static int y;
+  static Jkgujf orbv;
+ 
+  int a;
+  int b;
+  Swyre jeklf;
+
+  A(int a, int b) {
+  
+    int x = 12;
+    
+  	int y = x;
+  	
+  	x = y;
+  	
+  	x = 7;
+  	
+  	y = 4;
+    
+    Node c = new NodeList(10);
+    
+    int k = maior(1, 2);
+	
+	this.a = a;
+    this.b = b;
+    
+    Node e = iotort(2);
+    int f = iotort(2);
+
+  }
+  
+  int maior(int a, int b){
+  
+  	if (a > b)
+  		return a;
+  		
+  	return b;
+  
+  }
+  
+  void aritmeticas(){
+  
+  	int x, y, k;
+  	
+  	x = 3;
+  	y = 2;
+  	k = 4;
+  	
+  	int z = x + y * g.k(2, 8);
+  	
+  	k  = a.x.y.z.w[2] + z - 10;
+
+	x = b[4];
+  
+  }
+
+}

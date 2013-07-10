@@ -12,6 +12,9 @@ Inversão de uma lista chamando métodos de outra classe
 	invokestatic ListaUtils/preencherLista(LList;I) V
 	aload_0
 	invokestatic ListaUtils/inverterLista(LList;) V
+	aload_0
+	iconst_3
+	invokestatic ListaUtils/removerNo(LList;I) V
 	return
 .end method
 .end class
