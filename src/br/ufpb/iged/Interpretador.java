@@ -189,7 +189,7 @@ public class Interpretador {
     																}
     																try {
     																	int v = Integer.parseInt(s);
-    																	con.setValueInt(v);
+    																	//con.setValueInt(v);
     																} catch (Exception e) {
     																}
     															} else {

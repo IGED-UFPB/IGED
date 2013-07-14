@@ -18,7 +18,7 @@ public class VectorGenerate {
 			
 			}
 
-		
+		}
 
 		return null;
 	}

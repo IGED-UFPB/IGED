@@ -1,0 +1,17 @@
+class B{
+
+	int x;	
+	int y;	
+	int z;
+	C w;
+	int v[];
+	
+	static int s;
+	
+	void doSomething(){
+	
+		int a = 2 + 3;
+	
+	}
+
+}
