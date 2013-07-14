@@ -2,7 +2,7 @@ grammar Jedi;
 
 options {
   output = AST;              
-  //ASTLabelType = TradutorAST;
+  ASTLabelType = TradutorAST;
 }
 
 tokens{
@@ -37,16 +37,16 @@ tokens{
 }
 
 @header{
-  //package br.ufpb.iged.tradutor.parser;
-  package br.ufpb.iged.tradutor.gramaticas.output;
+  package br.ufpb.iged.tradutor.parser;
+  //package br.ufpb.iged.tradutor.gramaticas.output;
   
-  //import br.ufpb.iged.tradutor.simbolos.TradutorAST;
+  import br.ufpb.iged.tradutor.simbolos.TradutorAST;
   
 }
 
 @lexer::header{
-  //package br.ufpb.iged.tradutor.parser;
-  package br.ufpb.iged.tradutor.gramaticas.output;
+  package br.ufpb.iged.tradutor.parser;
+  //package br.ufpb.iged.tradutor.gramaticas.output;
 }
 
 programa : classe+;
@@ -92,7 +92,7 @@ instrucao  : ';'
 
 expressao  : atribuicao -> ^(EXPR atribuicao);	
 
-atribuicao : or (('='^) or)* ; 	
+atribuicao : or (('='^) or)*;
 
 or :  and (('||'^) and)* ;
 

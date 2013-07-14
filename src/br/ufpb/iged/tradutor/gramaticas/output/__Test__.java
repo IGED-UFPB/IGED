@@ -1,3 +1,5 @@
+package br.ufpb.iged.tradutor.gramaticas.output;
+
 import java.io.*;
 import org.antlr.runtime.*;
 import org.antlr.runtime.debug.DebugEventSocketProxy;

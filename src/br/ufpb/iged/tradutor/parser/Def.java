@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g 2013-07-02 17:43:47
+// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g 2013-07-14 18:43:08
 
 
     package br.ufpb.iged.tradutor.parser;
@@ -118,7 +118,7 @@ public class Def extends TreeFilter {
     }
 
     public String[] getTokenNames() { return Def.tokenNames; }
-    public String getGrammarFileName() { return "C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g"; }
+    public String getGrammarFileName() { return "C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g"; }
 
 
         TabelaSimbolos tabelaSimbolos;
@@ -128,16 +128,16 @@ public class Def extends TreeFilter {
         public Def(CommonTreeNodeStream input, TabelaSimbolos tabelaSimbolos) {
             this(input);
             this.tabelaSimbolos = tabelaSimbolos;
-            escopoAtual = tabelaSimbolos.globals;
+            escopoAtual = tabelaSimbolos.global;
         }
 
 
 
     // $ANTLR start "topdown"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:36:1: topdown : ( enterBlock | enterMethod | enterClass | enterConstructor | fieldDecl | listaVarDecl | varDeclFor | varDeclLista | paramDecl | atoms );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:36:1: topdown : ( enterBlock | enterMethod | enterClass | enterConstructor | fieldDecl | listaVarDecl | varDeclFor | varDeclLista | paramDecl | atoms );
     public final void topdown() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:37:5: ( enterBlock | enterMethod | enterClass | enterConstructor | fieldDecl | listaVarDecl | varDeclFor | varDeclLista | paramDecl | atoms )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:37:5: ( enterBlock | enterMethod | enterClass | enterConstructor | fieldDecl | listaVarDecl | varDeclFor | varDeclLista | paramDecl | atoms )
             int alt1=10;
             switch ( input.LA(1) ) {
             case BLOCO:
@@ -201,7 +201,7 @@ public class Def extends TreeFilter {
 
             switch (alt1) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:37:9: enterBlock
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:37:9: enterBlock
                     {
                     pushFollow(FOLLOW_enterBlock_in_topdown60);
                     enterBlock();
@@ -212,7 +212,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:38:9: enterMethod
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:38:9: enterMethod
                     {
                     pushFollow(FOLLOW_enterMethod_in_topdown70);
                     enterMethod();
@@ -223,7 +223,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:39:9: enterClass
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:39:9: enterClass
                     {
                     pushFollow(FOLLOW_enterClass_in_topdown80);
                     enterClass();
@@ -234,7 +234,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:40:9: enterConstructor
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:40:9: enterConstructor
                     {
                     pushFollow(FOLLOW_enterConstructor_in_topdown90);
                     enterConstructor();
@@ -245,7 +245,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:41:9: fieldDecl
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:41:9: fieldDecl
                     {
                     pushFollow(FOLLOW_fieldDecl_in_topdown100);
                     fieldDecl();
@@ -256,7 +256,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 6 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:42:9: listaVarDecl
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:42:9: listaVarDecl
                     {
                     pushFollow(FOLLOW_listaVarDecl_in_topdown110);
                     listaVarDecl();
@@ -267,7 +267,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 7 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:43:9: varDeclFor
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:43:9: varDeclFor
                     {
                     pushFollow(FOLLOW_varDeclFor_in_topdown120);
                     varDeclFor();
@@ -278,7 +278,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 8 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:44:9: varDeclLista
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:44:9: varDeclLista
                     {
                     pushFollow(FOLLOW_varDeclLista_in_topdown130);
                     varDeclLista();
@@ -289,7 +289,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 9 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:45:9: paramDecl
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:45:9: paramDecl
                     {
                     pushFollow(FOLLOW_paramDecl_in_topdown140);
                     paramDecl();
@@ -300,7 +300,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 10 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:46:9: atoms
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:46:9: atoms
                     {
                     pushFollow(FOLLOW_atoms_in_topdown150);
                     atoms();
@@ -328,10 +328,10 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "bottomup"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:49:1: bottomup : ( exitBlock | exitMethod | exitClass | exitConstructor );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:49:1: bottomup : ( exitBlock | exitMethod | exitClass | exitConstructor );
     public final void bottomup() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:50:5: ( exitBlock | exitMethod | exitClass | exitConstructor )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:50:5: ( exitBlock | exitMethod | exitClass | exitConstructor )
             int alt2=4;
             switch ( input.LA(1) ) {
             case BLOCO:
@@ -365,7 +365,7 @@ public class Def extends TreeFilter {
 
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:50:9: exitBlock
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:50:9: exitBlock
                     {
                     pushFollow(FOLLOW_exitBlock_in_bottomup169);
                     exitBlock();
@@ -376,7 +376,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:51:9: exitMethod
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:51:9: exitMethod
                     {
                     pushFollow(FOLLOW_exitMethod_in_bottomup179);
                     exitMethod();
@@ -387,7 +387,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:52:9: exitClass
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:52:9: exitClass
                     {
                     pushFollow(FOLLOW_exitClass_in_bottomup189);
                     exitClass();
@@ -398,7 +398,7 @@ public class Def extends TreeFilter {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:53:9: exitConstructor
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:53:9: exitConstructor
                     {
                     pushFollow(FOLLOW_exitConstructor_in_bottomup199);
                     exitConstructor();
@@ -426,11 +426,11 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "enterBlock"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:57:1: enterBlock : BLOCO ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:57:1: enterBlock : BLOCO ;
     public final void enterBlock() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:58:5: ( BLOCO )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:58:9: BLOCO
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:58:5: ( BLOCO )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:58:9: BLOCO
             {
             match(input,BLOCO,FOLLOW_BLOCO_in_enterBlock219); if (state.failed) return ;
 
@@ -454,11 +454,11 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "exitBlock"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:60:1: exitBlock : BLOCO ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:60:1: exitBlock : BLOCO ;
     public final void exitBlock() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:61:5: ( BLOCO )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:61:9: BLOCO
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:61:5: ( BLOCO )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:61:9: BLOCO
             {
             match(input,BLOCO,FOLLOW_BLOCO_in_exitBlock240); if (state.failed) return ;
 
@@ -485,21 +485,21 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "enterClass"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:68:1: enterClass : ^( CLASSE nome= ID ( ^( EXTENDS sup= ID ) )? ( . )+ ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:68:1: enterClass : ^( CLASSE nome= ID ( ^( EXTENDS sup= ID ) )? ( . )+ ) ;
     public final void enterClass() throws RecognitionException {
         TradutorAST nome=null;
         TradutorAST sup=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:5: ( ^( CLASSE nome= ID ( ^( EXTENDS sup= ID ) )? ( . )+ ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:9: ^( CLASSE nome= ID ( ^( EXTENDS sup= ID ) )? ( . )+ )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:5: ( ^( CLASSE nome= ID ( ^( EXTENDS sup= ID ) )? ( . )+ ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:9: ^( CLASSE nome= ID ( ^( EXTENDS sup= ID ) )? ( . )+ )
             {
             match(input,CLASSE,FOLLOW_CLASSE_in_enterClass270); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
             nome=(TradutorAST)match(input,ID,FOLLOW_ID_in_enterClass276); if (state.failed) return ;
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:28: ( ^( EXTENDS sup= ID ) )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:28: ( ^( EXTENDS sup= ID ) )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -520,7 +520,7 @@ public class Def extends TreeFilter {
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:29: ^( EXTENDS sup= ID )
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:29: ^( EXTENDS sup= ID )
                     {
                     match(input,EXTENDS,FOLLOW_EXTENDS_in_enterClass280); if (state.failed) return ;
 
@@ -536,7 +536,7 @@ public class Def extends TreeFilter {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:51: ( . )+
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:51: ( . )+
             int cnt4=0;
             loop4:
             do {
@@ -553,7 +553,7 @@ public class Def extends TreeFilter {
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:51: .
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:69:51: .
             	    {
             	    matchAny(input); if (state.failed) return ;
 
@@ -606,11 +606,11 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "exitClass"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:85:1: exitClass : CLASSE ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:85:1: exitClass : CLASSE ;
     public final void exitClass() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:86:5: ( CLASSE )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:86:9: CLASSE
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:86:5: ( CLASSE )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:86:9: CLASSE
             {
             match(input,CLASSE,FOLLOW_CLASSE_in_exitClass322); if (state.failed) return ;
 
@@ -640,7 +640,7 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "enterMethod"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:93:1: enterMethod : ^( METHOD_DECL (st= . )? tp= . ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:93:1: enterMethod : ^( METHOD_DECL (st= . )? tp= . ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) ) ;
     public final Def.enterMethod_return enterMethod() throws RecognitionException {
         Def.enterMethod_return retval = new Def.enterMethod_return();
         retval.start = input.LT(1);
@@ -651,18 +651,18 @@ public class Def extends TreeFilter {
         TradutorAST tp=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:5: ( ^( METHOD_DECL (st= . )? tp= . ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:8: ^( METHOD_DECL (st= . )? tp= . ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:5: ( ^( METHOD_DECL (st= . )? tp= . ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:8: ^( METHOD_DECL (st= . )? tp= . ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) )
             {
             match(input,METHOD_DECL,FOLLOW_METHOD_DECL_in_enterMethod351); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:25: (st= . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:25: (st= . )?
             int alt5=2;
             alt5 = dfa5.predict(input);
             switch (alt5) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:25: st= .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:25: st= .
                     {
                     st=(TradutorAST)input.LT(1);
 
@@ -680,7 +680,7 @@ public class Def extends TreeFilter {
 
             ID1=(TradutorAST)match(input,ID,FOLLOW_ID_in_enterMethod366); if (state.failed) return retval;
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:40: ( ^( PARAMS ( . )+ ) )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:40: ( ^( PARAMS ( . )+ ) )*
             loop7:
             do {
                 int alt7=2;
@@ -693,12 +693,12 @@ public class Def extends TreeFilter {
 
                 switch (alt7) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:41: ^( PARAMS ( . )+ )
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:41: ^( PARAMS ( . )+ )
             	    {
             	    match(input,PARAMS,FOLLOW_PARAMS_in_enterMethod370); if (state.failed) return retval;
 
             	    match(input, Token.DOWN, null); if (state.failed) return retval;
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:50: ( . )+
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:50: ( . )+
             	    int cnt6=0;
             	    loop6:
             	    do {
@@ -715,7 +715,7 @@ public class Def extends TreeFilter {
 
             	        switch (alt6) {
             	    	case 1 :
-            	    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:50: .
+            	    	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:50: .
             	    	    {
             	    	    matchAny(input); if (state.failed) return retval;
 
@@ -749,7 +749,7 @@ public class Def extends TreeFilter {
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return retval;
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:64: ( . )*
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:64: ( . )*
                 loop8:
                 do {
                     int alt8=2;
@@ -765,7 +765,7 @@ public class Def extends TreeFilter {
 
                     switch (alt8) {
                 	case 1 :
-                	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:64: .
+                	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:94:64: .
                 	    {
                 	    matchAny(input); if (state.failed) return retval;
 
@@ -826,20 +826,20 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "enterConstructor"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:119:1: enterConstructor : ^( CONSTR_DECL ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:119:1: enterConstructor : ^( CONSTR_DECL ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) ) ;
     public final void enterConstructor() throws RecognitionException {
         TradutorAST ID2=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:2: ( ^( CONSTR_DECL ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:5: ^( CONSTR_DECL ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:2: ( ^( CONSTR_DECL ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:5: ^( CONSTR_DECL ID ( ^( PARAMS ( . )+ ) )* ^( BLOCO ( . )* ) )
             {
             match(input,CONSTR_DECL,FOLLOW_CONSTR_DECL_in_enterConstructor415); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
             ID2=(TradutorAST)match(input,ID,FOLLOW_ID_in_enterConstructor417); if (state.failed) return ;
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:22: ( ^( PARAMS ( . )+ ) )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:22: ( ^( PARAMS ( . )+ ) )*
             loop10:
             do {
                 int alt10=2;
@@ -852,12 +852,12 @@ public class Def extends TreeFilter {
 
                 switch (alt10) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:23: ^( PARAMS ( . )+ )
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:23: ^( PARAMS ( . )+ )
             	    {
             	    match(input,PARAMS,FOLLOW_PARAMS_in_enterConstructor421); if (state.failed) return ;
 
             	    match(input, Token.DOWN, null); if (state.failed) return ;
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:32: ( . )+
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:32: ( . )+
             	    int cnt9=0;
             	    loop9:
             	    do {
@@ -874,7 +874,7 @@ public class Def extends TreeFilter {
 
             	        switch (alt9) {
             	    	case 1 :
-            	    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:32: .
+            	    	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:32: .
             	    	    {
             	    	    matchAny(input); if (state.failed) return ;
 
@@ -908,7 +908,7 @@ public class Def extends TreeFilter {
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); if (state.failed) return ;
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:46: ( . )*
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:46: ( . )*
                 loop11:
                 do {
                     int alt11=2;
@@ -924,7 +924,7 @@ public class Def extends TreeFilter {
 
                     switch (alt11) {
                 	case 1 :
-                	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:46: .
+                	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:120:46: .
                 	    {
                 	    matchAny(input); if (state.failed) return ;
 
@@ -976,11 +976,11 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "exitMethod"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:136:1: exitMethod : METHOD_DECL ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:136:1: exitMethod : METHOD_DECL ;
     public final void exitMethod() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:137:5: ( METHOD_DECL )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:137:9: METHOD_DECL
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:137:5: ( METHOD_DECL )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:137:9: METHOD_DECL
             {
             match(input,METHOD_DECL,FOLLOW_METHOD_DECL_in_exitMethod469); if (state.failed) return ;
 
@@ -1007,11 +1007,11 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "exitConstructor"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:144:1: exitConstructor : CONSTR_DECL ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:144:1: exitConstructor : CONSTR_DECL ;
     public final void exitConstructor() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:145:5: ( CONSTR_DECL )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:145:9: CONSTR_DECL
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:145:5: ( CONSTR_DECL )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:145:9: CONSTR_DECL
             {
             match(input,CONSTR_DECL,FOLLOW_CONSTR_DECL_in_exitConstructor498); if (state.failed) return ;
 
@@ -1038,22 +1038,22 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "atoms"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:152:1: atoms :{...}? ( ID ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:152:1: atoms :{...}? ( ID ) ;
     public final void atoms() throws RecognitionException {
         TradutorAST t = (TradutorAST)input.LT(1);
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:154:5: ({...}? ( ID ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:154:8: {...}? ( ID )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:154:5: ({...}? ( ID ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:154:8: {...}? ( ID )
             {
             if ( !((t.hasAncestor(FIELD_DECL) || t.hasAncestor(PARAM) || t.hasAncestor(EXPR) || t.hasAncestor(PRE_DECREMENTO)
                 	|| t.hasAncestor(PRE_INCREMENTO) || t.hasAncestor(POS_DECREMENTO) || t.hasAncestor(POS_INCREMENTO)
-                	|| t.hasAncestor(VAR_DECL) || t.hasAncestor(INIT_FOR)))) {
+                	|| t.hasAncestor(VAR_DECL) || t.hasAncestor(INIT_FOR))) ) {
                 if (state.backtracking>0) {state.failed=true; return ;}
                 throw new FailedPredicateException(input, "atoms", "t.hasAncestor(FIELD_DECL) || t.hasAncestor(PARAM) || t.hasAncestor(EXPR) || t.hasAncestor(PRE_DECREMENTO)\r\n    \t|| t.hasAncestor(PRE_INCREMENTO) || t.hasAncestor(POS_DECREMENTO) || t.hasAncestor(POS_INCREMENTO)\r\n    \t|| t.hasAncestor(VAR_DECL) || t.hasAncestor(INIT_FOR)");
             }
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:156:62: ( ID )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:156:63: ID
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:156:62: ( ID )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:156:63: ID
             {
             match(input,ID,FOLLOW_ID_in_atoms534); if (state.failed) return ;
 
@@ -1080,7 +1080,7 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "fieldDecl"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:169:1: fieldDecl : ^( FIELD_DECL (st= . )? tp= . ID (vet= . )? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:169:1: fieldDecl : ^( FIELD_DECL (st= . )? tp= . ID (vet= . )? ) ;
     public final void fieldDecl() throws RecognitionException {
         TradutorAST ID3=null;
         TradutorAST st=null;
@@ -1088,18 +1088,18 @@ public class Def extends TreeFilter {
         TradutorAST vet=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:5: ( ^( FIELD_DECL (st= . )? tp= . ID (vet= . )? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:9: ^( FIELD_DECL (st= . )? tp= . ID (vet= . )? )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:5: ( ^( FIELD_DECL (st= . )? tp= . ID (vet= . )? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:9: ^( FIELD_DECL (st= . )? tp= . ID (vet= . )? )
             {
             match(input,FIELD_DECL,FOLLOW_FIELD_DECL_in_fieldDecl577); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:25: (st= . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:25: (st= . )?
             int alt12=2;
             alt12 = dfa12.predict(input);
             switch (alt12) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:25: st= .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:25: st= .
                     {
                     st=(TradutorAST)input.LT(1);
 
@@ -1117,7 +1117,7 @@ public class Def extends TreeFilter {
 
             ID3=(TradutorAST)match(input,ID,FOLLOW_ID_in_fieldDecl592); if (state.failed) return ;
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:44: (vet= . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:44: (vet= . )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1126,7 +1126,7 @@ public class Def extends TreeFilter {
             }
             switch (alt13) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:44: vet= .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:170:44: vet= .
                     {
                     vet=(TradutorAST)input.LT(1);
 
@@ -1145,13 +1145,18 @@ public class Def extends TreeFilter {
             	        System.out.println("line "+ID3.getLine()+": def "+(ID3!=null?ID3.getText():null));
             	        tp.escopo = escopoAtual;
             	        SimboloVariavel simboloVariavel;
-            	        if (tp.getText().equals("int"))
+            	        if (tp.getText().equals("int") && vet == null)
             	        	simboloVariavel = new SimboloVariavel((ID3!=null?ID3.getText():null),new SimboloTipoPrimitivo("int"));
-            	        else
-            	        	simboloVariavel = new SimboloVariavel((ID3!=null?ID3.getText():null),new SimboloTipoReferencia(tp.getText()));
+            	        else {
+            	        	String tipo = tp.getText();
+            	        	if (vet != null)
+            	        		tipo += "[]";
+            	        	simboloVariavel = new SimboloVariavel((ID3!=null?ID3.getText():null),new SimboloTipoReferencia(tipo));
+            	        }
+            	        
             	        simboloVariavel.def = ID3;            
             	        ID3.simbolo = simboloVariavel;         
-            	        escopoAtual.definir(simboloVariavel);
+            	        ((SimboloClasse)escopoAtual).definirCampo(simboloVariavel);
                     }
 
             }
@@ -1172,15 +1177,15 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "paramDecl"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:185:1: paramDecl : ^( PARAM tp= . ID (vet= . )? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:190:1: paramDecl : ^( PARAM tp= . ID (vet= . )? ) ;
     public final void paramDecl() throws RecognitionException {
         TradutorAST ID4=null;
         TradutorAST tp=null;
         TradutorAST vet=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:186:5: ( ^( PARAM tp= . ID (vet= . )? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:186:9: ^( PARAM tp= . ID (vet= . )? )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:191:5: ( ^( PARAM tp= . ID (vet= . )? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:191:9: ^( PARAM tp= . ID (vet= . )? )
             {
             match(input,PARAM,FOLLOW_PARAM_in_paramDecl635); if (state.failed) return ;
 
@@ -1191,7 +1196,7 @@ public class Def extends TreeFilter {
 
             ID4=(TradutorAST)match(input,ID,FOLLOW_ID_in_paramDecl643); if (state.failed) return ;
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:186:31: (vet= . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:191:31: (vet= . )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1200,7 +1205,7 @@ public class Def extends TreeFilter {
             }
             switch (alt14) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:186:31: vet= .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:191:31: vet= .
                     {
                     vet=(TradutorAST)input.LT(1);
 
@@ -1219,10 +1224,15 @@ public class Def extends TreeFilter {
             	        System.out.println("line "+ID4.getLine()+": def "+(ID4!=null?ID4.getText():null));
             	        tp.escopo = escopoAtual;
             	        SimboloVariavel simboloVariavel;
-            	        if (tp.getText().equals("int"))
+            	        if (tp.getText().equals("int") && vet == null)
             	        	simboloVariavel = new SimboloVariavel((ID4!=null?ID4.getText():null),new SimboloTipoPrimitivo("int"), metodoAtual.getQuantidadeVariaveis());
-            	        else
-            	        	simboloVariavel = new SimboloVariavel((ID4!=null?ID4.getText():null),new SimboloTipoReferencia(tp.getText()), metodoAtual.getQuantidadeVariaveis());
+            		else {
+            	        	String tipo = tp.getText();
+            	        	if (vet != null)
+            	        		tipo += "[]";
+            	        	simboloVariavel = new SimboloVariavel((ID4!=null?ID4.getText():null),new SimboloTipoReferencia(tipo), metodoAtual.getQuantidadeVariaveis());
+            	        } 	
+            	              
             	        simboloVariavel.def = ID4;            
             	        ID4.simbolo = simboloVariavel;         
             	        escopoAtual.definir(simboloVariavel);
@@ -1249,15 +1259,15 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "listaVarDecl"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:204:1: listaVarDecl : ^( LISTA_VAR_DECL ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:214:1: listaVarDecl : ^( LISTA_VAR_DECL ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* ) ;
     public final void listaVarDecl() throws RecognitionException {
         TradutorAST ID5=null;
         TradutorAST tp=null;
         TradutorAST vet=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:205:5: ( ^( LISTA_VAR_DECL ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:205:9: ^( LISTA_VAR_DECL ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:215:5: ( ^( LISTA_VAR_DECL ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:215:9: ^( LISTA_VAR_DECL ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* )
             {
             match(input,LISTA_VAR_DECL,FOLLOW_LISTA_VAR_DECL_in_listaVarDecl686); if (state.failed) return ;
 
@@ -1271,7 +1281,7 @@ public class Def extends TreeFilter {
 
             ID5=(TradutorAST)match(input,ID,FOLLOW_ID_in_listaVarDecl697); if (state.failed) return ;
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:205:51: (vet= . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:215:51: (vet= . )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -1280,7 +1290,7 @@ public class Def extends TreeFilter {
             }
             switch (alt15) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:205:51: vet= .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:215:51: vet= .
                     {
                     vet=(TradutorAST)input.LT(1);
 
@@ -1292,7 +1302,7 @@ public class Def extends TreeFilter {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:205:55: ( . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:215:55: ( . )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1301,7 +1311,7 @@ public class Def extends TreeFilter {
             }
             switch (alt16) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:205:55: .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:215:55: .
                     {
                     matchAny(input); if (state.failed) return ;
 
@@ -1314,7 +1324,7 @@ public class Def extends TreeFilter {
             match(input, Token.UP, null); if (state.failed) return ;
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:205:59: ( . )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:215:59: ( . )*
             loop17:
             do {
                 int alt17=2;
@@ -1330,7 +1340,7 @@ public class Def extends TreeFilter {
 
                 switch (alt17) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:205:59: .
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:215:59: .
             	    {
             	    matchAny(input); if (state.failed) return ;
 
@@ -1350,10 +1360,15 @@ public class Def extends TreeFilter {
                     	System.out.println("line "+ID5.getLine()+": def "+(ID5!=null?ID5.getText():null));
             	        tp.escopo = escopoAtual;
             	        SimboloVariavel simboloVariavel;
-            	        if (tp.getText().equals("int"))
+            	        if (tp.getText().equals("int") && (vet == null || !vet.getText().equals("[]")))
             	        	simboloVariavel = new SimboloVariavel((ID5!=null?ID5.getText():null), new SimboloTipoPrimitivo("int"), metodoAtual.getQuantidadeVariaveis());
-            	        else
-            	        	simboloVariavel = new SimboloVariavel((ID5!=null?ID5.getText():null), new SimboloTipoReferencia(tp.getText()), metodoAtual.getQuantidadeVariaveis());
+            	        else {
+            	        	String tipo = tp.getText();
+            	        	if (vet != null)
+            	        		tipo += "[]";
+            	        	simboloVariavel = new SimboloVariavel((ID5!=null?ID5.getText():null), new SimboloTipoReferencia(tipo), metodoAtual.getQuantidadeVariaveis());
+            	        } 	
+            	        
             	        simboloVariavel.def = ID5;            
             	        ID5.simbolo = simboloVariavel;         
             	        escopoAtual.definir(simboloVariavel);
@@ -1384,15 +1399,15 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "varDeclFor"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:228:1: varDeclFor : ^( INIT_FOR ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:243:1: varDeclFor : ^( INIT_FOR ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* ) ;
     public final void varDeclFor() throws RecognitionException {
         TradutorAST ID6=null;
         TradutorAST tp=null;
         TradutorAST vet=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:229:5: ( ^( INIT_FOR ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:229:9: ^( INIT_FOR ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:244:5: ( ^( INIT_FOR ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:244:9: ^( INIT_FOR ^( VAR_DECL tp= . ID (vet= . )? ( . )? ) ( . )* )
             {
             match(input,INIT_FOR,FOLLOW_INIT_FOR_in_varDeclFor743); if (state.failed) return ;
 
@@ -1406,7 +1421,7 @@ public class Def extends TreeFilter {
 
             ID6=(TradutorAST)match(input,ID,FOLLOW_ID_in_varDeclFor754); if (state.failed) return ;
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:229:45: (vet= . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:244:45: (vet= . )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -1415,7 +1430,7 @@ public class Def extends TreeFilter {
             }
             switch (alt18) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:229:45: vet= .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:244:45: vet= .
                     {
                     vet=(TradutorAST)input.LT(1);
 
@@ -1427,7 +1442,7 @@ public class Def extends TreeFilter {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:229:49: ( . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:244:49: ( . )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -1436,7 +1451,7 @@ public class Def extends TreeFilter {
             }
             switch (alt19) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:229:49: .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:244:49: .
                     {
                     matchAny(input); if (state.failed) return ;
 
@@ -1449,7 +1464,7 @@ public class Def extends TreeFilter {
             match(input, Token.UP, null); if (state.failed) return ;
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:229:53: ( . )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:244:53: ( . )*
             loop20:
             do {
                 int alt20=2;
@@ -1465,7 +1480,7 @@ public class Def extends TreeFilter {
 
                 switch (alt20) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:229:53: .
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:244:53: .
             	    {
             	    matchAny(input); if (state.failed) return ;
 
@@ -1485,10 +1500,15 @@ public class Def extends TreeFilter {
                     	System.out.println("line "+ID6.getLine()+": def "+(ID6!=null?ID6.getText():null));
             	        tp.escopo = escopoAtual;
             	        SimboloVariavel simboloVariavel;
-            	        if (tp.getText().equals("int"))
+            	        if (tp.getText().equals("int") && vet == null)
             	        	simboloVariavel = new SimboloVariavel((ID6!=null?ID6.getText():null), new SimboloTipoPrimitivo("int"), metodoAtual.getQuantidadeVariaveis());
-            	        else
-            	        	simboloVariavel = new SimboloVariavel((ID6!=null?ID6.getText():null), new SimboloTipoReferencia(tp.getText()), metodoAtual.getQuantidadeVariaveis());
+            		else {
+            	        	String tipo = tp.getText();
+            	        	if (vet != null)
+            	        		tipo += "[]";
+            	        	simboloVariavel = new SimboloVariavel((ID6!=null?ID6.getText():null), new SimboloTipoReferencia(tipo), metodoAtual.getQuantidadeVariaveis());
+            	        } 	
+            	        
             	        simboloVariavel.def = ID6;            
             	        ID6.simbolo = simboloVariavel;         
             	        escopoAtual.definir(simboloVariavel);
@@ -1516,21 +1536,21 @@ public class Def extends TreeFilter {
 
 
     // $ANTLR start "varDeclLista"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:248:1: varDeclLista : ^( VAR_DECL_LISTA ID (vet= . )? ( . )? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:268:1: varDeclLista : ^( VAR_DECL_LISTA ID (vet= . )? ( . )? ) ;
     public final void varDeclLista() throws RecognitionException {
         TradutorAST ID7=null;
         TradutorAST vet=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:249:5: ( ^( VAR_DECL_LISTA ID (vet= . )? ( . )? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:249:9: ^( VAR_DECL_LISTA ID (vet= . )? ( . )? )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:269:5: ( ^( VAR_DECL_LISTA ID (vet= . )? ( . )? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:269:9: ^( VAR_DECL_LISTA ID (vet= . )? ( . )? )
             {
             match(input,VAR_DECL_LISTA,FOLLOW_VAR_DECL_LISTA_in_varDeclLista807); if (state.failed) return ;
 
             match(input, Token.DOWN, null); if (state.failed) return ;
             ID7=(TradutorAST)match(input,ID,FOLLOW_ID_in_varDeclLista809); if (state.failed) return ;
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:249:33: (vet= . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:269:33: (vet= . )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -1539,7 +1559,7 @@ public class Def extends TreeFilter {
             }
             switch (alt21) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:249:33: vet= .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:269:33: vet= .
                     {
                     vet=(TradutorAST)input.LT(1);
 
@@ -1551,7 +1571,7 @@ public class Def extends TreeFilter {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:249:38: ( . )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:269:38: ( . )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -1560,7 +1580,7 @@ public class Def extends TreeFilter {
             }
             switch (alt22) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:249:38: .
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Def.g:269:38: .
                     {
                     matchAny(input); if (state.failed) return ;
 

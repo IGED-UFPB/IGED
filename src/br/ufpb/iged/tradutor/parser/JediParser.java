@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g 2013-07-02 17:43:46
+// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g 2013-07-14 18:43:06
 
   package br.ufpb.iged.tradutor.parser;
   //package br.ufpb.iged.tradutor.gramaticas.output;
@@ -120,7 +120,7 @@ public TreeAdaptor getTreeAdaptor() {
     return adaptor;
 }
     public String[] getTokenNames() { return JediParser.tokenNames; }
-    public String getGrammarFileName() { return "C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g"; }
+    public String getGrammarFileName() { return "C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g"; }
 
 
     public static class programa_return extends ParserRuleReturnScope {
@@ -130,7 +130,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "programa"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:1: programa : ( classe )+ ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:1: programa : ( classe )+ ;
     public final JediParser.programa_return programa() throws RecognitionException {
         JediParser.programa_return retval = new JediParser.programa_return();
         retval.start = input.LT(1);
@@ -143,13 +143,13 @@ public TreeAdaptor getTreeAdaptor() {
 
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:10: ( ( classe )+ )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:12: ( classe )+
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:10: ( ( classe )+ )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:12: ( classe )+
             {
             root_0 = (TradutorAST)adaptor.nil();
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:12: ( classe )+
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:12: ( classe )+
             int cnt1=0;
             loop1:
             do {
@@ -163,7 +163,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:12: classe
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:52:12: classe
             	    {
             	    pushFollow(FOLLOW_classe_in_programa205);
             	    classe1=classe();
@@ -219,7 +219,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "classe"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:1: classe : 'class' ID ( superClasse )? '{' ( membroClasse )+ '}' -> ^( CLASSE ID ( superClasse )? ( membroClasse )+ ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:1: classe : 'class' ID ( superClasse )? '{' ( membroClasse )+ '}' -> ^( CLASSE ID ( superClasse )? ( membroClasse )+ ) ;
     public final JediParser.classe_return classe() throws RecognitionException {
         JediParser.classe_return retval = new JediParser.classe_return();
         retval.start = input.LT(1);
@@ -247,8 +247,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_membroClasse=new RewriteRuleSubtreeStream(adaptor,"rule membroClasse");
         RewriteRuleSubtreeStream stream_superClasse=new RewriteRuleSubtreeStream(adaptor,"rule superClasse");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:8: ( 'class' ID ( superClasse )? '{' ( membroClasse )+ '}' -> ^( CLASSE ID ( superClasse )? ( membroClasse )+ ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:10: 'class' ID ( superClasse )? '{' ( membroClasse )+ '}'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:8: ( 'class' ID ( superClasse )? '{' ( membroClasse )+ '}' -> ^( CLASSE ID ( superClasse )? ( membroClasse )+ ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:10: 'class' ID ( superClasse )? '{' ( membroClasse )+ '}'
             {
             string_literal2=(Token)match(input,61,FOLLOW_61_in_classe214); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_61.add(string_literal2);
@@ -258,7 +258,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_ID.add(ID3);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:22: ( superClasse )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:22: ( superClasse )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -267,7 +267,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:22: superClasse
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:22: superClasse
                     {
                     pushFollow(FOLLOW_superClasse_in_classe219);
                     superClasse4=superClasse();
@@ -286,7 +286,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_72.add(char_literal5);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:39: ( membroClasse )+
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:39: ( membroClasse )+
             int cnt3=0;
             loop3:
             do {
@@ -300,7 +300,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt3) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:39: membroClasse
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:54:39: membroClasse
             	    {
             	    pushFollow(FOLLOW_membroClasse_in_classe224);
             	    membroClasse6=membroClasse();
@@ -342,7 +342,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 55:9: -> ^( CLASSE ID ( superClasse )? ( membroClasse )+ )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:55:12: ^( CLASSE ID ( superClasse )? ( membroClasse )+ )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:55:12: ^( CLASSE ID ( superClasse )? ( membroClasse )+ )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -353,7 +353,7 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:55:24: ( superClasse )?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:55:24: ( superClasse )?
                 if ( stream_superClasse.hasNext() ) {
                     adaptor.addChild(root_1, stream_superClasse.nextTree());
 
@@ -411,7 +411,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "superClasse"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:58:1: superClasse : 'extends' ID -> ^( EXTENDS ID ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:58:1: superClasse : 'extends' ID -> ^( EXTENDS ID ) ;
     public final JediParser.superClasse_return superClasse() throws RecognitionException {
         JediParser.superClasse_return retval = new JediParser.superClasse_return();
         retval.start = input.LT(1);
@@ -428,8 +428,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:59:2: ( 'extends' ID -> ^( EXTENDS ID ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:59:5: 'extends' ID
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:59:2: ( 'extends' ID -> ^( EXTENDS ID ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:59:5: 'extends' ID
             {
             string_literal8=(Token)match(input,64,FOLLOW_64_in_superClasse269); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_64.add(string_literal8);
@@ -454,7 +454,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 59:18: -> ^( EXTENDS ID )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:59:21: ^( EXTENDS ID )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:59:21: ^( EXTENDS ID )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -507,7 +507,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "membroClasse"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:1: membroClasse : ( fieldDecl | constrDecl | methodDecl );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:1: membroClasse : ( fieldDecl | constrDecl | methodDecl );
     public final JediParser.membroClasse_return membroClasse() throws RecognitionException {
         JediParser.membroClasse_return retval = new JediParser.membroClasse_return();
         retval.start = input.LT(1);
@@ -524,7 +524,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:14: ( fieldDecl | constrDecl | methodDecl )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:14: ( fieldDecl | constrDecl | methodDecl )
             int alt4=3;
             switch ( input.LA(1) ) {
             case 70:
@@ -649,7 +649,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt4) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:16: fieldDecl
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:16: fieldDecl
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -664,7 +664,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:28: constrDecl
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:28: constrDecl
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -679,7 +679,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:41: methodDecl
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:62:41: methodDecl
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -726,7 +726,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "fieldDecl"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:1: fieldDecl : (a= 'static' )? tipo ID (vet= '[]' )? ';' -> ^( FIELD_DECL ( $a)? tipo ID ( $vet)? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:1: fieldDecl : (a= 'static' )? tipo ID (vet= '[]' )? ';' -> ^( FIELD_DECL ( $a)? tipo ID ( $vet)? ) ;
     public final JediParser.fieldDecl_return fieldDecl() throws RecognitionException {
         JediParser.fieldDecl_return retval = new JediParser.fieldDecl_return();
         retval.start = input.LT(1);
@@ -751,10 +751,10 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_50=new RewriteRuleTokenStream(adaptor,"token 50");
         RewriteRuleSubtreeStream stream_tipo=new RewriteRuleSubtreeStream(adaptor,"rule tipo");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:11: ( (a= 'static' )? tipo ID (vet= '[]' )? ';' -> ^( FIELD_DECL ( $a)? tipo ID ( $vet)? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:13: (a= 'static' )? tipo ID (vet= '[]' )? ';'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:11: ( (a= 'static' )? tipo ID (vet= '[]' )? ';' -> ^( FIELD_DECL ( $a)? tipo ID ( $vet)? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:13: (a= 'static' )? tipo ID (vet= '[]' )? ';'
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:15: (a= 'static' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:15: (a= 'static' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -763,7 +763,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:15: a= 'static'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:15: a= 'static'
                     {
                     a=(Token)match(input,70,FOLLOW_70_in_fieldDecl309); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_70.add(a);
@@ -786,7 +786,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_ID.add(ID14);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:39: (vet= '[]' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:39: (vet= '[]' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -795,7 +795,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt6) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:39: vet= '[]'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:64:39: vet= '[]'
                     {
                     vet=(Token)match(input,58,FOLLOW_58_in_fieldDecl319); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_58.add(vet);
@@ -812,7 +812,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: vet, a, ID, tipo
+            // elements: ID, tipo, a, vet
             // token labels: a, vet
             // rule labels: retval
             // token list labels: 
@@ -828,14 +828,14 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 65:2: -> ^( FIELD_DECL ( $a)? tipo ID ( $vet)? )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:65:5: ^( FIELD_DECL ( $a)? tipo ID ( $vet)? )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:65:5: ^( FIELD_DECL ( $a)? tipo ID ( $vet)? )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
                 (TradutorAST)adaptor.create(FIELD_DECL, "FIELD_DECL")
                 , root_1);
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:65:19: ( $a)?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:65:19: ( $a)?
                 if ( stream_a.hasNext() ) {
                     adaptor.addChild(root_1, stream_a.nextNode());
 
@@ -848,7 +848,7 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:65:31: ( $vet)?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:65:31: ( $vet)?
                 if ( stream_vet.hasNext() ) {
                     adaptor.addChild(root_1, stream_vet.nextNode());
 
@@ -897,7 +897,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "methodDecl"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:1: methodDecl : (a= 'static' )? tipo ID '(' ( params )* ')' bloco -> ^( METHOD_DECL ( $a)? tipo ID ( params )* bloco ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:1: methodDecl : (a= 'static' )? tipo ID '(' ( params )* ')' bloco -> ^( METHOD_DECL ( $a)? tipo ID ( params )* bloco ) ;
     public final JediParser.methodDecl_return methodDecl() throws RecognitionException {
         JediParser.methodDecl_return retval = new JediParser.methodDecl_return();
         retval.start = input.LT(1);
@@ -928,10 +928,10 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_tipo=new RewriteRuleSubtreeStream(adaptor,"rule tipo");
         RewriteRuleSubtreeStream stream_params=new RewriteRuleSubtreeStream(adaptor,"rule params");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:12: ( (a= 'static' )? tipo ID '(' ( params )* ')' bloco -> ^( METHOD_DECL ( $a)? tipo ID ( params )* bloco ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:14: (a= 'static' )? tipo ID '(' ( params )* ')' bloco
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:12: ( (a= 'static' )? tipo ID '(' ( params )* ')' bloco -> ^( METHOD_DECL ( $a)? tipo ID ( params )* bloco ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:14: (a= 'static' )? tipo ID '(' ( params )* ')' bloco
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:16: (a= 'static' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:16: (a= 'static' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -940,7 +940,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt7) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:16: a= 'static'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:16: a= 'static'
                     {
                     a=(Token)match(input,70,FOLLOW_70_in_methodDecl359); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_70.add(a);
@@ -967,7 +967,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_40.add(char_literal18);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:40: ( params )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:40: ( params )*
             loop8:
             do {
                 int alt8=2;
@@ -980,7 +980,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt8) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:40: params
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:68:40: params
             	    {
             	    pushFollow(FOLLOW_params_in_methodDecl368);
             	    params19=params();
@@ -1010,7 +1010,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_bloco.add(bloco21.getTree());
 
             // AST REWRITE
-            // elements: tipo, a, bloco, params, ID
+            // elements: ID, tipo, a, params, bloco
             // token labels: a
             // rule labels: retval
             // token list labels: 
@@ -1025,14 +1025,14 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 69:12: -> ^( METHOD_DECL ( $a)? tipo ID ( params )* bloco )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:69:15: ^( METHOD_DECL ( $a)? tipo ID ( params )* bloco )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:69:15: ^( METHOD_DECL ( $a)? tipo ID ( params )* bloco )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
                 (TradutorAST)adaptor.create(METHOD_DECL, "METHOD_DECL")
                 , root_1);
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:69:30: ( $a)?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:69:30: ( $a)?
                 if ( stream_a.hasNext() ) {
                     adaptor.addChild(root_1, stream_a.nextNode());
 
@@ -1045,7 +1045,7 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:69:41: ( params )*
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:69:41: ( params )*
                 while ( stream_params.hasNext() ) {
                     adaptor.addChild(root_1, stream_params.nextTree());
 
@@ -1096,7 +1096,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "constrDecl"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:1: constrDecl : ID '(' ( params )* ')' bloco -> ^( CONSTR_DECL ID ( params )* bloco ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:1: constrDecl : ID '(' ( params )* ')' bloco -> ^( CONSTR_DECL ID ( params )* bloco ) ;
     public final JediParser.constrDecl_return constrDecl() throws RecognitionException {
         JediParser.constrDecl_return retval = new JediParser.constrDecl_return();
         retval.start = input.LT(1);
@@ -1121,8 +1121,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_bloco=new RewriteRuleSubtreeStream(adaptor,"rule bloco");
         RewriteRuleSubtreeStream stream_params=new RewriteRuleSubtreeStream(adaptor,"rule params");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:12: ( ID '(' ( params )* ')' bloco -> ^( CONSTR_DECL ID ( params )* bloco ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:15: ID '(' ( params )* ')' bloco
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:12: ( ID '(' ( params )* ')' bloco -> ^( CONSTR_DECL ID ( params )* bloco ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:15: ID '(' ( params )* ')' bloco
             {
             ID22=(Token)match(input,ID,FOLLOW_ID_in_constrDecl421); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ID.add(ID22);
@@ -1132,7 +1132,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_40.add(char_literal23);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:22: ( params )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:22: ( params )*
             loop9:
             do {
                 int alt9=2;
@@ -1145,7 +1145,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt9) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:22: params
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:72:22: params
             	    {
             	    pushFollow(FOLLOW_params_in_constrDecl425);
             	    params24=params();
@@ -1189,7 +1189,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 73:12: -> ^( CONSTR_DECL ID ( params )* bloco )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:73:15: ^( CONSTR_DECL ID ( params )* bloco )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:73:15: ^( CONSTR_DECL ID ( params )* bloco )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -1200,7 +1200,7 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:73:32: ( params )*
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:73:32: ( params )*
                 while ( stream_params.hasNext() ) {
                     adaptor.addChild(root_1, stream_params.nextTree());
 
@@ -1251,7 +1251,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "params"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:1: params : param ( ',' param )* -> ^( PARAMS ( param )+ ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:1: params : param ( ',' param )* -> ^( PARAMS ( param )+ ) ;
     public final JediParser.params_return params() throws RecognitionException {
         JediParser.params_return retval = new JediParser.params_return();
         retval.start = input.LT(1);
@@ -1269,8 +1269,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_45=new RewriteRuleTokenStream(adaptor,"token 45");
         RewriteRuleSubtreeStream stream_param=new RewriteRuleSubtreeStream(adaptor,"rule param");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:8: ( param ( ',' param )* -> ^( PARAMS ( param )+ ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:11: param ( ',' param )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:8: ( param ( ',' param )* -> ^( PARAMS ( param )+ ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:11: param ( ',' param )*
             {
             pushFollow(FOLLOW_param_in_params473);
             param27=param();
@@ -1279,7 +1279,7 @@ public TreeAdaptor getTreeAdaptor() {
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_param.add(param27.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:17: ( ',' param )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:17: ( ',' param )*
             loop10:
             do {
                 int alt10=2;
@@ -1292,7 +1292,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt10) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:18: ',' param
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:18: ',' param
             	    {
             	    char_literal28=(Token)match(input,45,FOLLOW_45_in_params476); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_45.add(char_literal28);
@@ -1329,7 +1329,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 76:30: -> ^( PARAMS ( param )+ )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:33: ^( PARAMS ( param )+ )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:76:33: ^( PARAMS ( param )+ )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -1387,7 +1387,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "param"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:1: param : tipo ID (vet= '[]' )? -> ^( PARAM tipo ID ( $vet)? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:1: param : tipo ID (vet= '[]' )? -> ^( PARAM tipo ID ( $vet)? ) ;
     public final JediParser.param_return param() throws RecognitionException {
         JediParser.param_return retval = new JediParser.param_return();
         retval.start = input.LT(1);
@@ -1406,8 +1406,8 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleSubtreeStream stream_tipo=new RewriteRuleSubtreeStream(adaptor,"rule tipo");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:7: ( tipo ID (vet= '[]' )? -> ^( PARAM tipo ID ( $vet)? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:10: tipo ID (vet= '[]' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:7: ( tipo ID (vet= '[]' )? -> ^( PARAM tipo ID ( $vet)? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:10: tipo ID (vet= '[]' )?
             {
             pushFollow(FOLLOW_tipo_in_param498);
             tipo30=tipo();
@@ -1420,7 +1420,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_ID.add(ID31);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:22: (vet= '[]' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:22: (vet= '[]' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1429,7 +1429,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt11) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:22: vet= '[]'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:22: vet= '[]'
                     {
                     vet=(Token)match(input,58,FOLLOW_58_in_param505); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_58.add(vet);
@@ -1442,7 +1442,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: tipo, vet, ID
+            // elements: vet, tipo, ID
             // token labels: vet
             // rule labels: retval
             // token list labels: 
@@ -1457,7 +1457,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 78:29: -> ^( PARAM tipo ID ( $vet)? )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:32: ^( PARAM tipo ID ( $vet)? )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:32: ^( PARAM tipo ID ( $vet)? )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -1470,7 +1470,7 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:49: ( $vet)?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:78:49: ( $vet)?
                 if ( stream_vet.hasNext() ) {
                     adaptor.addChild(root_1, stream_vet.nextNode());
 
@@ -1519,7 +1519,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "instrucao"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:80:1: instrucao : ( ';' | expressao ';' | listaVarDecl ';' | bloco | ifStatement | whileStatement | doWhileStatement ';' | forStatement | returnStatement ';' );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:80:1: instrucao : ( ';' | expressao ';' | listaVarDecl ';' | bloco | ifStatement | whileStatement | doWhileStatement ';' | forStatement | returnStatement ';' );
     public final JediParser.instrucao_return instrucao() throws RecognitionException {
         JediParser.instrucao_return retval = new JediParser.instrucao_return();
         retval.start = input.LT(1);
@@ -1556,7 +1556,7 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST char_literal44_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:80:12: ( ';' | expressao ';' | listaVarDecl ';' | bloco | ifStatement | whileStatement | doWhileStatement ';' | forStatement | returnStatement ';' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:80:12: ( ';' | expressao ';' | listaVarDecl ';' | bloco | ifStatement | whileStatement | doWhileStatement ';' | forStatement | returnStatement ';' )
             int alt12=9;
             switch ( input.LA(1) ) {
             case 50:
@@ -1655,7 +1655,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt12) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:80:14: ';'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:80:14: ';'
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1671,7 +1671,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:81:4: expressao ';'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:81:4: expressao ';'
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1694,7 +1694,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:82:4: listaVarDecl ';'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:82:4: listaVarDecl ';'
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1717,7 +1717,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:83:4: bloco
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:83:4: bloco
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1732,7 +1732,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:84:4: ifStatement
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:84:4: ifStatement
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1747,7 +1747,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 6 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:85:4: whileStatement
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:85:4: whileStatement
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1762,7 +1762,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 7 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:86:4: doWhileStatement ';'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:86:4: doWhileStatement ';'
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1785,7 +1785,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 8 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:87:4: forStatement
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:87:4: forStatement
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1800,7 +1800,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 9 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:88:4: returnStatement ';'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:88:4: returnStatement ';'
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
@@ -1855,7 +1855,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "expressao"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:93:1: expressao : atribuicao -> ^( EXPR atribuicao ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:93:1: expressao : atribuicao -> ^( EXPR atribuicao ) ;
     public final JediParser.expressao_return expressao() throws RecognitionException {
         JediParser.expressao_return retval = new JediParser.expressao_return();
         retval.start = input.LT(1);
@@ -1868,8 +1868,8 @@ public TreeAdaptor getTreeAdaptor() {
 
         RewriteRuleSubtreeStream stream_atribuicao=new RewriteRuleSubtreeStream(adaptor,"rule atribuicao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:93:12: ( atribuicao -> ^( EXPR atribuicao ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:93:14: atribuicao
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:93:12: ( atribuicao -> ^( EXPR atribuicao ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:93:14: atribuicao
             {
             pushFollow(FOLLOW_atribuicao_in_expressao590);
             atribuicao45=atribuicao();
@@ -1893,7 +1893,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 93:25: -> ^( EXPR atribuicao )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:93:28: ^( EXPR atribuicao )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:93:28: ^( EXPR atribuicao )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -1944,7 +1944,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "atribuicao"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:1: atribuicao : or ( ( '=' ^) or )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:1: atribuicao : or ( ( '=' ^) or )* ;
     public final JediParser.atribuicao_return atribuicao() throws RecognitionException {
         JediParser.atribuicao_return retval = new JediParser.atribuicao_return();
         retval.start = input.LT(1);
@@ -1961,8 +1961,8 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST char_literal47_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:12: ( or ( ( '=' ^) or )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:14: or ( ( '=' ^) or )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:12: ( or ( ( '=' ^) or )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:14: or ( ( '=' ^) or )*
             {
             root_0 = (TradutorAST)adaptor.nil();
 
@@ -1974,7 +1974,7 @@ public TreeAdaptor getTreeAdaptor() {
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, or46.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:17: ( ( '=' ^) or )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:17: ( ( '=' ^) or )*
             loop13:
             do {
                 int alt13=2;
@@ -1987,10 +1987,10 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt13) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:18: ( '=' ^) or
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:18: ( '=' ^) or
             	    {
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:18: ( '=' ^)
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:19: '=' ^
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:18: ( '=' ^)
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:95:19: '=' ^
             	    {
             	    char_literal47=(Token)match(input,53,FOLLOW_53_in_atribuicao611); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
@@ -2052,7 +2052,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "or"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:1: or : and ( ( '||' ^) and )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:1: or : and ( ( '||' ^) and )* ;
     public final JediParser.or_return or() throws RecognitionException {
         JediParser.or_return retval = new JediParser.or_return();
         retval.start = input.LT(1);
@@ -2069,20 +2069,20 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST string_literal50_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:4: ( and ( ( '||' ^) and )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:7: and ( ( '||' ^) and )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:4: ( and ( ( '||' ^) and )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:7: and ( ( '||' ^) and )*
             {
             root_0 = (TradutorAST)adaptor.nil();
 
 
-            pushFollow(FOLLOW_and_in_or629);
+            pushFollow(FOLLOW_and_in_or626);
             and49=and();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, and49.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:11: ( ( '||' ^) and )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:11: ( ( '||' ^) and )*
             loop14:
             do {
                 int alt14=2;
@@ -2095,12 +2095,12 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt14) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:12: ( '||' ^) and
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:12: ( '||' ^) and
             	    {
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:12: ( '||' ^)
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:13: '||' ^
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:12: ( '||' ^)
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:97:13: '||' ^
             	    {
-            	    string_literal50=(Token)match(input,73,FOLLOW_73_in_or633); if (state.failed) return retval;
+            	    string_literal50=(Token)match(input,73,FOLLOW_73_in_or630); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    string_literal50_tree = 
             	    (TradutorAST)adaptor.create(string_literal50)
@@ -2111,7 +2111,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_and_in_or637);
+            	    pushFollow(FOLLOW_and_in_or634);
             	    and51=and();
 
             	    state._fsp--;
@@ -2160,7 +2160,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "and"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:1: and : xor ( ( '&&' ^) xor )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:1: and : xor ( ( '&&' ^) xor )* ;
     public final JediParser.and_return and() throws RecognitionException {
         JediParser.and_return retval = new JediParser.and_return();
         retval.start = input.LT(1);
@@ -2177,20 +2177,20 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST string_literal53_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:5: ( xor ( ( '&&' ^) xor )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:7: xor ( ( '&&' ^) xor )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:5: ( xor ( ( '&&' ^) xor )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:7: xor ( ( '&&' ^) xor )*
             {
             root_0 = (TradutorAST)adaptor.nil();
 
 
-            pushFollow(FOLLOW_xor_in_and648);
+            pushFollow(FOLLOW_xor_in_and645);
             xor52=xor();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, xor52.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:11: ( ( '&&' ^) xor )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:11: ( ( '&&' ^) xor )*
             loop15:
             do {
                 int alt15=2;
@@ -2203,12 +2203,12 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt15) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:12: ( '&&' ^) xor
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:12: ( '&&' ^) xor
             	    {
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:12: ( '&&' ^)
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:13: '&&' ^
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:12: ( '&&' ^)
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:99:13: '&&' ^
             	    {
-            	    string_literal53=(Token)match(input,39,FOLLOW_39_in_and652); if (state.failed) return retval;
+            	    string_literal53=(Token)match(input,39,FOLLOW_39_in_and649); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    string_literal53_tree = 
             	    (TradutorAST)adaptor.create(string_literal53)
@@ -2219,7 +2219,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_xor_in_and656);
+            	    pushFollow(FOLLOW_xor_in_and653);
             	    xor54=xor();
 
             	    state._fsp--;
@@ -2268,7 +2268,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "xor"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:1: xor : igualdade ( ( '^' ^) igualdade )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:1: xor : igualdade ( ( '^' ^) igualdade )* ;
     public final JediParser.xor_return xor() throws RecognitionException {
         JediParser.xor_return retval = new JediParser.xor_return();
         retval.start = input.LT(1);
@@ -2285,20 +2285,20 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST char_literal56_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:6: ( igualdade ( ( '^' ^) igualdade )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:10: igualdade ( ( '^' ^) igualdade )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:6: ( igualdade ( ( '^' ^) igualdade )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:10: igualdade ( ( '^' ^) igualdade )*
             {
             root_0 = (TradutorAST)adaptor.nil();
 
 
-            pushFollow(FOLLOW_igualdade_in_xor670);
+            pushFollow(FOLLOW_igualdade_in_xor667);
             igualdade55=igualdade();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, igualdade55.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:20: ( ( '^' ^) igualdade )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:20: ( ( '^' ^) igualdade )*
             loop16:
             do {
                 int alt16=2;
@@ -2311,12 +2311,12 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt16) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:21: ( '^' ^) igualdade
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:21: ( '^' ^) igualdade
             	    {
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:21: ( '^' ^)
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:22: '^' ^
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:21: ( '^' ^)
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:101:22: '^' ^
             	    {
-            	    char_literal56=(Token)match(input,60,FOLLOW_60_in_xor674); if (state.failed) return retval;
+            	    char_literal56=(Token)match(input,60,FOLLOW_60_in_xor671); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    char_literal56_tree = 
             	    (TradutorAST)adaptor.create(char_literal56)
@@ -2327,7 +2327,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_igualdade_in_xor678);
+            	    pushFollow(FOLLOW_igualdade_in_xor675);
             	    igualdade57=igualdade();
 
             	    state._fsp--;
@@ -2376,7 +2376,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "igualdade"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:1: igualdade : relacional ( ( '==' ^| '!=' ^) relacional )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:1: igualdade : relacional ( ( '==' ^| '!=' ^) relacional )* ;
     public final JediParser.igualdade_return igualdade() throws RecognitionException {
         JediParser.igualdade_return retval = new JediParser.igualdade_return();
         retval.start = input.LT(1);
@@ -2395,20 +2395,20 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST string_literal60_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:12: ( relacional ( ( '==' ^| '!=' ^) relacional )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:16: relacional ( ( '==' ^| '!=' ^) relacional )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:12: ( relacional ( ( '==' ^| '!=' ^) relacional )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:16: relacional ( ( '==' ^| '!=' ^) relacional )*
             {
             root_0 = (TradutorAST)adaptor.nil();
 
 
-            pushFollow(FOLLOW_relacional_in_igualdade692);
+            pushFollow(FOLLOW_relacional_in_igualdade689);
             relacional58=relacional();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, relacional58.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:27: ( ( '==' ^| '!=' ^) relacional )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:27: ( ( '==' ^| '!=' ^) relacional )*
             loop18:
             do {
                 int alt18=2;
@@ -2421,9 +2421,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt18) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:28: ( '==' ^| '!=' ^) relacional
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:28: ( '==' ^| '!=' ^) relacional
             	    {
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:28: ( '==' ^| '!=' ^)
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:28: ( '==' ^| '!=' ^)
             	    int alt17=2;
             	    int LA17_0 = input.LA(1);
 
@@ -2443,9 +2443,9 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    switch (alt17) {
             	        case 1 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:29: '==' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:29: '==' ^
             	            {
-            	            string_literal59=(Token)match(input,54,FOLLOW_54_in_igualdade696); if (state.failed) return retval;
+            	            string_literal59=(Token)match(input,54,FOLLOW_54_in_igualdade693); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal59_tree = 
             	            (TradutorAST)adaptor.create(string_literal59)
@@ -2456,9 +2456,9 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:36: '!=' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:103:36: '!=' ^
             	            {
-            	            string_literal60=(Token)match(input,37,FOLLOW_37_in_igualdade700); if (state.failed) return retval;
+            	            string_literal60=(Token)match(input,37,FOLLOW_37_in_igualdade697); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal60_tree = 
             	            (TradutorAST)adaptor.create(string_literal60)
@@ -2472,7 +2472,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_relacional_in_igualdade704);
+            	    pushFollow(FOLLOW_relacional_in_igualdade701);
             	    relacional61=relacional();
 
             	    state._fsp--;
@@ -2521,7 +2521,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "relacional"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:1: relacional : add ( ( '<' ^| '>' ^| '>=' ^| '<=' ^) add )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:1: relacional : add ( ( '<' ^| '>' ^| '>=' ^| '<=' ^) add )* ;
     public final JediParser.relacional_return relacional() throws RecognitionException {
         JediParser.relacional_return retval = new JediParser.relacional_return();
         retval.start = input.LT(1);
@@ -2544,20 +2544,20 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST string_literal66_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:12: ( add ( ( '<' ^| '>' ^| '>=' ^| '<=' ^) add )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:14: add ( ( '<' ^| '>' ^| '>=' ^| '<=' ^) add )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:12: ( add ( ( '<' ^| '>' ^| '>=' ^| '<=' ^) add )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:14: add ( ( '<' ^| '>' ^| '>=' ^| '<=' ^) add )*
             {
             root_0 = (TradutorAST)adaptor.nil();
 
 
-            pushFollow(FOLLOW_add_in_relacional715);
+            pushFollow(FOLLOW_add_in_relacional712);
             add62=add();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, add62.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:18: ( ( '<' ^| '>' ^| '>=' ^| '<=' ^) add )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:18: ( ( '<' ^| '>' ^| '>=' ^| '<=' ^) add )*
             loop20:
             do {
                 int alt20=2;
@@ -2570,9 +2570,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt20) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:19: ( '<' ^| '>' ^| '>=' ^| '<=' ^) add
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:19: ( '<' ^| '>' ^| '>=' ^| '<=' ^) add
             	    {
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:19: ( '<' ^| '>' ^| '>=' ^| '<=' ^)
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:19: ( '<' ^| '>' ^| '>=' ^| '<=' ^)
             	    int alt19=4;
             	    switch ( input.LA(1) ) {
             	    case 51:
@@ -2606,9 +2606,9 @@ public TreeAdaptor getTreeAdaptor() {
 
             	    switch (alt19) {
             	        case 1 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:20: '<' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:20: '<' ^
             	            {
-            	            char_literal63=(Token)match(input,51,FOLLOW_51_in_relacional719); if (state.failed) return retval;
+            	            char_literal63=(Token)match(input,51,FOLLOW_51_in_relacional716); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal63_tree = 
             	            (TradutorAST)adaptor.create(char_literal63)
@@ -2619,9 +2619,9 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:27: '>' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:27: '>' ^
             	            {
-            	            char_literal64=(Token)match(input,55,FOLLOW_55_in_relacional724); if (state.failed) return retval;
+            	            char_literal64=(Token)match(input,55,FOLLOW_55_in_relacional721); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal64_tree = 
             	            (TradutorAST)adaptor.create(char_literal64)
@@ -2632,9 +2632,9 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 3 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:34: '>=' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:34: '>=' ^
             	            {
-            	            string_literal65=(Token)match(input,56,FOLLOW_56_in_relacional729); if (state.failed) return retval;
+            	            string_literal65=(Token)match(input,56,FOLLOW_56_in_relacional726); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal65_tree = 
             	            (TradutorAST)adaptor.create(string_literal65)
@@ -2645,9 +2645,9 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 4 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:42: '<=' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:105:42: '<=' ^
             	            {
-            	            string_literal66=(Token)match(input,52,FOLLOW_52_in_relacional734); if (state.failed) return retval;
+            	            string_literal66=(Token)match(input,52,FOLLOW_52_in_relacional731); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            string_literal66_tree = 
             	            (TradutorAST)adaptor.create(string_literal66)
@@ -2661,7 +2661,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_add_in_relacional738);
+            	    pushFollow(FOLLOW_add_in_relacional735);
             	    add67=add();
 
             	    state._fsp--;
@@ -2710,7 +2710,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "add"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:1: add : mult ( ( '+' ^| '-' ^) mult )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:1: add : mult ( ( '+' ^| '-' ^) mult )* ;
     public final JediParser.add_return add() throws RecognitionException {
         JediParser.add_return retval = new JediParser.add_return();
         retval.start = input.LT(1);
@@ -2729,20 +2729,20 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST char_literal70_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:4: ( mult ( ( '+' ^| '-' ^) mult )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:8: mult ( ( '+' ^| '-' ^) mult )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:4: ( mult ( ( '+' ^| '-' ^) mult )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:8: mult ( ( '+' ^| '-' ^) mult )*
             {
             root_0 = (TradutorAST)adaptor.nil();
 
 
-            pushFollow(FOLLOW_mult_in_add750);
+            pushFollow(FOLLOW_mult_in_add747);
             mult68=mult();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, mult68.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:13: ( ( '+' ^| '-' ^) mult )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:13: ( ( '+' ^| '-' ^) mult )*
             loop22:
             do {
                 int alt22=2;
@@ -2755,9 +2755,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt22) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:14: ( '+' ^| '-' ^) mult
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:14: ( '+' ^| '-' ^) mult
             	    {
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:14: ( '+' ^| '-' ^)
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:14: ( '+' ^| '-' ^)
             	    int alt21=2;
             	    int LA21_0 = input.LA(1);
 
@@ -2777,9 +2777,9 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    switch (alt21) {
             	        case 1 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:15: '+' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:15: '+' ^
             	            {
-            	            char_literal69=(Token)match(input,43,FOLLOW_43_in_add754); if (state.failed) return retval;
+            	            char_literal69=(Token)match(input,43,FOLLOW_43_in_add751); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal69_tree = 
             	            (TradutorAST)adaptor.create(char_literal69)
@@ -2790,9 +2790,9 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:21: '-' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:107:21: '-' ^
             	            {
-            	            char_literal70=(Token)match(input,46,FOLLOW_46_in_add758); if (state.failed) return retval;
+            	            char_literal70=(Token)match(input,46,FOLLOW_46_in_add755); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal70_tree = 
             	            (TradutorAST)adaptor.create(char_literal70)
@@ -2806,7 +2806,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_mult_in_add762);
+            	    pushFollow(FOLLOW_mult_in_add759);
             	    mult71=mult();
 
             	    state._fsp--;
@@ -2855,7 +2855,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "mult"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:1: mult : novo ( ( '*' ^| '/' ^| '%' ^) novo )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:1: mult : novo ( ( '*' ^| '/' ^| '%' ^) novo )* ;
     public final JediParser.mult_return mult() throws RecognitionException {
         JediParser.mult_return retval = new JediParser.mult_return();
         retval.start = input.LT(1);
@@ -2876,20 +2876,20 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST char_literal75_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:5: ( novo ( ( '*' ^| '/' ^| '%' ^) novo )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:7: novo ( ( '*' ^| '/' ^| '%' ^) novo )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:5: ( novo ( ( '*' ^| '/' ^| '%' ^) novo )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:7: novo ( ( '*' ^| '/' ^| '%' ^) novo )*
             {
             root_0 = (TradutorAST)adaptor.nil();
 
 
-            pushFollow(FOLLOW_novo_in_mult772);
+            pushFollow(FOLLOW_novo_in_mult769);
             novo72=novo();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, novo72.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:12: ( ( '*' ^| '/' ^| '%' ^) novo )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:12: ( ( '*' ^| '/' ^| '%' ^) novo )*
             loop24:
             do {
                 int alt24=2;
@@ -2902,9 +2902,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt24) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:13: ( '*' ^| '/' ^| '%' ^) novo
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:13: ( '*' ^| '/' ^| '%' ^) novo
             	    {
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:13: ( '*' ^| '/' ^| '%' ^)
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:13: ( '*' ^| '/' ^| '%' ^)
             	    int alt23=3;
             	    switch ( input.LA(1) ) {
             	    case 42:
@@ -2933,9 +2933,9 @@ public TreeAdaptor getTreeAdaptor() {
 
             	    switch (alt23) {
             	        case 1 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:14: '*' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:14: '*' ^
             	            {
-            	            char_literal73=(Token)match(input,42,FOLLOW_42_in_mult776); if (state.failed) return retval;
+            	            char_literal73=(Token)match(input,42,FOLLOW_42_in_mult773); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal73_tree = 
             	            (TradutorAST)adaptor.create(char_literal73)
@@ -2946,9 +2946,9 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 2 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:21: '/' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:21: '/' ^
             	            {
-            	            char_literal74=(Token)match(input,49,FOLLOW_49_in_mult781); if (state.failed) return retval;
+            	            char_literal74=(Token)match(input,49,FOLLOW_49_in_mult778); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal74_tree = 
             	            (TradutorAST)adaptor.create(char_literal74)
@@ -2959,9 +2959,9 @@ public TreeAdaptor getTreeAdaptor() {
             	            }
             	            break;
             	        case 3 :
-            	            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:28: '%' ^
+            	            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:109:28: '%' ^
             	            {
-            	            char_literal75=(Token)match(input,38,FOLLOW_38_in_mult786); if (state.failed) return retval;
+            	            char_literal75=(Token)match(input,38,FOLLOW_38_in_mult783); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            char_literal75_tree = 
             	            (TradutorAST)adaptor.create(char_literal75)
@@ -2975,7 +2975,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
 
 
-            	    pushFollow(FOLLOW_novo_in_mult790);
+            	    pushFollow(FOLLOW_novo_in_mult787);
             	    novo76=novo();
 
             	    state._fsp--;
@@ -3024,7 +3024,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "novo"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:1: novo : ( posfixa | ( ( 'new' ^) posfixa ) );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:1: novo : ( posfixa | ( ( 'new' ^) posfixa ) );
     public final JediParser.novo_return novo() throws RecognitionException {
         JediParser.novo_return retval = new JediParser.novo_return();
         retval.start = input.LT(1);
@@ -3041,7 +3041,7 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST string_literal78_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:6: ( posfixa | ( ( 'new' ^) posfixa ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:6: ( posfixa | ( ( 'new' ^) posfixa ) )
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -3061,12 +3061,12 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt25) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:9: posfixa
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:9: posfixa
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_posfixa_in_novo802);
+                    pushFollow(FOLLOW_posfixa_in_novo799);
                     posfixa77=posfixa();
 
                     state._fsp--;
@@ -3076,18 +3076,18 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:19: ( ( 'new' ^) posfixa )
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:19: ( ( 'new' ^) posfixa )
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
 
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:19: ( ( 'new' ^) posfixa )
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:20: ( 'new' ^) posfixa
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:19: ( ( 'new' ^) posfixa )
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:20: ( 'new' ^) posfixa
                     {
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:20: ( 'new' ^)
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:21: 'new' ^
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:20: ( 'new' ^)
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:111:21: 'new' ^
                     {
-                    string_literal78=(Token)match(input,68,FOLLOW_68_in_novo808); if (state.failed) return retval;
+                    string_literal78=(Token)match(input,68,FOLLOW_68_in_novo805); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal78_tree = 
                     (TradutorAST)adaptor.create(string_literal78)
@@ -3098,7 +3098,7 @@ public TreeAdaptor getTreeAdaptor() {
                     }
 
 
-                    pushFollow(FOLLOW_posfixa_in_novo812);
+                    pushFollow(FOLLOW_posfixa_in_novo809);
                     posfixa79=posfixa();
 
                     state._fsp--;
@@ -3143,7 +3143,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "posfixa"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:113:1: posfixa : ( primaria -> primaria ) ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes ) | '.' ID -> ^( '.' $posfixa ID ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $posfixa listaExpressoes ) | '.' ID '[' expressao ']' -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao ) | '[' expressao ']' -> ^( VECT_EXPR $posfixa expressao ) )* ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:113:1: posfixa : ( primaria -> primaria ) ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes ) | '.' ID -> ^( '.' $posfixa ID ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $posfixa listaExpressoes ) | '.' ID '[' expressao ']' -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao ) | '[' expressao ']' -> ^( VECT_EXPR $posfixa expressao ) )* ;
     public final JediParser.posfixa_return posfixa() throws RecognitionException {
         JediParser.posfixa_return retval = new JediParser.posfixa_return();
         retval.start = input.LT(1);
@@ -3200,13 +3200,13 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_listaExpressoes=new RewriteRuleSubtreeStream(adaptor,"rule listaExpressoes");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:114:5: ( ( primaria -> primaria ) ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes ) | '.' ID -> ^( '.' $posfixa ID ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $posfixa listaExpressoes ) | '.' ID '[' expressao ']' -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao ) | '[' expressao ']' -> ^( VECT_EXPR $posfixa expressao ) )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:114:9: ( primaria -> primaria ) ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes ) | '.' ID -> ^( '.' $posfixa ID ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $posfixa listaExpressoes ) | '.' ID '[' expressao ']' -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao ) | '[' expressao ']' -> ^( VECT_EXPR $posfixa expressao ) )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:114:5: ( ( primaria -> primaria ) ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes ) | '.' ID -> ^( '.' $posfixa ID ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $posfixa listaExpressoes ) | '.' ID '[' expressao ']' -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao ) | '[' expressao ']' -> ^( VECT_EXPR $posfixa expressao ) )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:114:9: ( primaria -> primaria ) ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes ) | '.' ID -> ^( '.' $posfixa ID ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $posfixa listaExpressoes ) | '.' ID '[' expressao ']' -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao ) | '[' expressao ']' -> ^( VECT_EXPR $posfixa expressao ) )*
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:114:9: ( primaria -> primaria )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:114:10: primaria
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:114:9: ( primaria -> primaria )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:114:10: primaria
             {
-            pushFollow(FOLLOW_primaria_in_posfixa830);
+            pushFollow(FOLLOW_primaria_in_posfixa827);
             primaria80=primaria();
 
             state._fsp--;
@@ -3239,7 +3239,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:115:6: ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes ) | '.' ID -> ^( '.' $posfixa ID ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $posfixa listaExpressoes ) | '.' ID '[' expressao ']' -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao ) | '[' expressao ']' -> ^( VECT_EXPR $posfixa expressao ) )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:115:6: ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes ) | '.' ID -> ^( '.' $posfixa ID ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $posfixa listaExpressoes ) | '.' ID '[' expressao ']' -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao ) | '[' expressao ']' -> ^( VECT_EXPR $posfixa expressao ) )*
             loop26:
             do {
                 int alt26=6;
@@ -3276,33 +3276,33 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt26) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:5: '.' ID '(' listaExpressoes ')'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:5: '.' ID '(' listaExpressoes ')'
             	    {
-            	    char_literal81=(Token)match(input,48,FOLLOW_48_in_posfixa853); if (state.failed) return retval; 
+            	    char_literal81=(Token)match(input,48,FOLLOW_48_in_posfixa850); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_48.add(char_literal81);
 
 
-            	    ID82=(Token)match(input,ID,FOLLOW_ID_in_posfixa855); if (state.failed) return retval; 
+            	    ID82=(Token)match(input,ID,FOLLOW_ID_in_posfixa852); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_ID.add(ID82);
 
 
-            	    char_literal83=(Token)match(input,40,FOLLOW_40_in_posfixa857); if (state.failed) return retval; 
+            	    char_literal83=(Token)match(input,40,FOLLOW_40_in_posfixa854); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_40.add(char_literal83);
 
 
-            	    pushFollow(FOLLOW_listaExpressoes_in_posfixa859);
+            	    pushFollow(FOLLOW_listaExpressoes_in_posfixa856);
             	    listaExpressoes84=listaExpressoes();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_listaExpressoes.add(listaExpressoes84.getTree());
 
-            	    char_literal85=(Token)match(input,41,FOLLOW_41_in_posfixa861); if (state.failed) return retval; 
+            	    char_literal85=(Token)match(input,41,FOLLOW_41_in_posfixa858); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_41.add(char_literal85);
 
 
             	    // AST REWRITE
-            	    // elements: ID, 48, listaExpressoes, posfixa
+            	    // elements: listaExpressoes, ID, posfixa, 48
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -3316,14 +3316,14 @@ public TreeAdaptor getTreeAdaptor() {
             	    root_0 = (TradutorAST)adaptor.nil();
             	    // 116:36: -> ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes )
             	    {
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:39: ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:39: ^( METHOD_CALL ^( '.' $posfixa ID ) listaExpressoes )
             	        {
             	        TradutorAST root_1 = (TradutorAST)adaptor.nil();
             	        root_1 = (TradutorAST)adaptor.becomeRoot(
             	        (TradutorAST)adaptor.create(METHOD_CALL, "METHOD_CALL")
             	        , root_1);
 
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:53: ^( '.' $posfixa ID )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:53: ^( '.' $posfixa ID )
             	        {
             	        TradutorAST root_2 = (TradutorAST)adaptor.nil();
             	        root_2 = (TradutorAST)adaptor.becomeRoot(
@@ -3353,18 +3353,18 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:117:5: '.' ID
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:117:5: '.' ID
             	    {
-            	    char_literal86=(Token)match(input,48,FOLLOW_48_in_posfixa885); if (state.failed) return retval; 
+            	    char_literal86=(Token)match(input,48,FOLLOW_48_in_posfixa882); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_48.add(char_literal86);
 
 
-            	    ID87=(Token)match(input,ID,FOLLOW_ID_in_posfixa887); if (state.failed) return retval; 
+            	    ID87=(Token)match(input,ID,FOLLOW_ID_in_posfixa884); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_ID.add(ID87);
 
 
             	    // AST REWRITE
-            	    // elements: ID, 48, posfixa
+            	    // elements: ID, posfixa, 48
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -3378,7 +3378,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    root_0 = (TradutorAST)adaptor.nil();
             	    // 117:19: -> ^( '.' $posfixa ID )
             	    {
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:117:22: ^( '.' $posfixa ID )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:117:22: ^( '.' $posfixa ID )
             	        {
             	        TradutorAST root_1 = (TradutorAST)adaptor.nil();
             	        root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -3403,25 +3403,25 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    break;
             	case 3 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:118:5: '(' listaExpressoes ')'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:118:5: '(' listaExpressoes ')'
             	    {
-            	    char_literal88=(Token)match(input,40,FOLLOW_40_in_posfixa911); if (state.failed) return retval; 
+            	    char_literal88=(Token)match(input,40,FOLLOW_40_in_posfixa908); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_40.add(char_literal88);
 
 
-            	    pushFollow(FOLLOW_listaExpressoes_in_posfixa913);
+            	    pushFollow(FOLLOW_listaExpressoes_in_posfixa910);
             	    listaExpressoes89=listaExpressoes();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_listaExpressoes.add(listaExpressoes89.getTree());
 
-            	    char_literal90=(Token)match(input,41,FOLLOW_41_in_posfixa915); if (state.failed) return retval; 
+            	    char_literal90=(Token)match(input,41,FOLLOW_41_in_posfixa912); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_41.add(char_literal90);
 
 
             	    // AST REWRITE
-            	    // elements: posfixa, listaExpressoes
+            	    // elements: listaExpressoes, posfixa
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -3435,7 +3435,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    root_0 = (TradutorAST)adaptor.nil();
             	    // 118:36: -> ^( METHOD_CALL $posfixa listaExpressoes )
             	    {
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:118:39: ^( METHOD_CALL $posfixa listaExpressoes )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:118:39: ^( METHOD_CALL $posfixa listaExpressoes )
             	        {
             	        TradutorAST root_1 = (TradutorAST)adaptor.nil();
             	        root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -3458,33 +3458,33 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    break;
             	case 4 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:11: '.' ID '[' expressao ']'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:11: '.' ID '[' expressao ']'
             	    {
-            	    char_literal91=(Token)match(input,48,FOLLOW_48_in_posfixa945); if (state.failed) return retval; 
+            	    char_literal91=(Token)match(input,48,FOLLOW_48_in_posfixa942); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_48.add(char_literal91);
 
 
-            	    ID92=(Token)match(input,ID,FOLLOW_ID_in_posfixa947); if (state.failed) return retval; 
+            	    ID92=(Token)match(input,ID,FOLLOW_ID_in_posfixa944); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_ID.add(ID92);
 
 
-            	    char_literal93=(Token)match(input,57,FOLLOW_57_in_posfixa949); if (state.failed) return retval; 
+            	    char_literal93=(Token)match(input,57,FOLLOW_57_in_posfixa946); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_57.add(char_literal93);
 
 
-            	    pushFollow(FOLLOW_expressao_in_posfixa951);
+            	    pushFollow(FOLLOW_expressao_in_posfixa948);
             	    expressao94=expressao();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_expressao.add(expressao94.getTree());
 
-            	    char_literal95=(Token)match(input,59,FOLLOW_59_in_posfixa953); if (state.failed) return retval; 
+            	    char_literal95=(Token)match(input,59,FOLLOW_59_in_posfixa950); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_59.add(char_literal95);
 
 
             	    // AST REWRITE
-            	    // elements: 48, posfixa, expressao, ID
+            	    // elements: posfixa, 48, expressao, ID
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -3498,14 +3498,14 @@ public TreeAdaptor getTreeAdaptor() {
             	    root_0 = (TradutorAST)adaptor.nil();
             	    // 119:36: -> ^( VECT_EXPR ^( '.' $posfixa ID ) expressao )
             	    {
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:39: ^( VECT_EXPR ^( '.' $posfixa ID ) expressao )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:39: ^( VECT_EXPR ^( '.' $posfixa ID ) expressao )
             	        {
             	        TradutorAST root_1 = (TradutorAST)adaptor.nil();
             	        root_1 = (TradutorAST)adaptor.becomeRoot(
             	        (TradutorAST)adaptor.create(VECT_EXPR, "VECT_EXPR")
             	        , root_1);
 
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:51: ^( '.' $posfixa ID )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:51: ^( '.' $posfixa ID )
             	        {
             	        TradutorAST root_2 = (TradutorAST)adaptor.nil();
             	        root_2 = (TradutorAST)adaptor.becomeRoot(
@@ -3535,25 +3535,25 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    break;
             	case 5 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:120:11: '[' expressao ']'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:120:11: '[' expressao ']'
             	    {
-            	    char_literal96=(Token)match(input,57,FOLLOW_57_in_posfixa983); if (state.failed) return retval; 
+            	    char_literal96=(Token)match(input,57,FOLLOW_57_in_posfixa980); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_57.add(char_literal96);
 
 
-            	    pushFollow(FOLLOW_expressao_in_posfixa985);
+            	    pushFollow(FOLLOW_expressao_in_posfixa982);
             	    expressao97=expressao();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_expressao.add(expressao97.getTree());
 
-            	    char_literal98=(Token)match(input,59,FOLLOW_59_in_posfixa987); if (state.failed) return retval; 
+            	    char_literal98=(Token)match(input,59,FOLLOW_59_in_posfixa984); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_59.add(char_literal98);
 
 
             	    // AST REWRITE
-            	    // elements: expressao, posfixa
+            	    // elements: posfixa, expressao
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -3567,7 +3567,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    root_0 = (TradutorAST)adaptor.nil();
             	    // 120:30: -> ^( VECT_EXPR $posfixa expressao )
             	    {
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:120:33: ^( VECT_EXPR $posfixa expressao )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:120:33: ^( VECT_EXPR $posfixa expressao )
             	        {
             	        TradutorAST root_1 = (TradutorAST)adaptor.nil();
             	        root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -3629,7 +3629,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "listaExpressoes"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:124:1: listaExpressoes : expressao ( ',' expressao )* -> ^( LISTA_EXPR ( expressao )+ ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:124:1: listaExpressoes : expressao ( ',' expressao )* -> ^( LISTA_EXPR ( expressao )+ ) ;
     public final JediParser.listaExpressoes_return listaExpressoes() throws RecognitionException {
         JediParser.listaExpressoes_return retval = new JediParser.listaExpressoes_return();
         retval.start = input.LT(1);
@@ -3647,17 +3647,17 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_45=new RewriteRuleTokenStream(adaptor,"token 45");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:5: ( expressao ( ',' expressao )* -> ^( LISTA_EXPR ( expressao )+ ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:9: expressao ( ',' expressao )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:5: ( expressao ( ',' expressao )* -> ^( LISTA_EXPR ( expressao )+ ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:9: expressao ( ',' expressao )*
             {
-            pushFollow(FOLLOW_expressao_in_listaExpressoes1022);
+            pushFollow(FOLLOW_expressao_in_listaExpressoes1019);
             expressao99=expressao();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_expressao.add(expressao99.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:19: ( ',' expressao )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:19: ( ',' expressao )*
             loop27:
             do {
                 int alt27=2;
@@ -3670,13 +3670,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt27) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:20: ',' expressao
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:20: ',' expressao
             	    {
-            	    char_literal100=(Token)match(input,45,FOLLOW_45_in_listaExpressoes1025); if (state.failed) return retval; 
+            	    char_literal100=(Token)match(input,45,FOLLOW_45_in_listaExpressoes1022); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_45.add(char_literal100);
 
 
-            	    pushFollow(FOLLOW_expressao_in_listaExpressoes1027);
+            	    pushFollow(FOLLOW_expressao_in_listaExpressoes1024);
             	    expressao101=expressao();
 
             	    state._fsp--;
@@ -3707,7 +3707,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 125:36: -> ^( LISTA_EXPR ( expressao )+ )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:39: ^( LISTA_EXPR ( expressao )+ )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:125:39: ^( LISTA_EXPR ( expressao )+ )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -3765,7 +3765,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "primaria"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:129:1: primaria : ( INT | ID -> ID | 'int' -> 'int' | '-' ^ ID | incremento | '(' expressao ')' -> expressao );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:129:1: primaria : ( INT | ID -> ID | 'int' -> 'int' | '-' ^ ID | incremento | '(' expressao ')' -> expressao );
     public final JediParser.primaria_return primaria() throws RecognitionException {
         JediParser.primaria_return retval = new JediParser.primaria_return();
         retval.start = input.LT(1);
@@ -3798,17 +3798,17 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:130:5: ( INT | ID -> ID | 'int' -> 'int' | '-' ^ ID | incremento | '(' expressao ')' -> expressao )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:130:5: ( INT | ID -> ID | 'int' -> 'int' | '-' ^ ID | incremento | '(' expressao ')' -> expressao )
             int alt28=6;
             alt28 = dfa28.predict(input);
             switch (alt28) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:130:9: INT
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:130:9: INT
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
 
-                    INT102=(Token)match(input,INT,FOLLOW_INT_in_primaria1058); if (state.failed) return retval;
+                    INT102=(Token)match(input,INT,FOLLOW_INT_in_primaria1055); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     INT102_tree = 
                     (TradutorAST)adaptor.create(INT102)
@@ -3819,9 +3819,9 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:131:9: ID
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:131:9: ID
                     {
-                    ID103=(Token)match(input,ID,FOLLOW_ID_in_primaria1071); if (state.failed) return retval; 
+                    ID103=(Token)match(input,ID,FOLLOW_ID_in_primaria1068); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(ID103);
 
 
@@ -3853,9 +3853,9 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:132:9: 'int'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:132:9: 'int'
                     {
-                    string_literal104=(Token)match(input,67,FOLLOW_67_in_primaria1085); if (state.failed) return retval; 
+                    string_literal104=(Token)match(input,67,FOLLOW_67_in_primaria1082); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_67.add(string_literal104);
 
 
@@ -3887,12 +3887,12 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:135:9: '-' ^ ID
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:135:9: '-' ^ ID
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
 
-                    char_literal105=(Token)match(input,46,FOLLOW_46_in_primaria1109); if (state.failed) return retval;
+                    char_literal105=(Token)match(input,46,FOLLOW_46_in_primaria1106); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     char_literal105_tree = 
                     (TradutorAST)adaptor.create(char_literal105)
@@ -3900,7 +3900,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (TradutorAST)adaptor.becomeRoot(char_literal105_tree, root_0);
                     }
 
-                    ID106=(Token)match(input,ID,FOLLOW_ID_in_primaria1112); if (state.failed) return retval;
+                    ID106=(Token)match(input,ID,FOLLOW_ID_in_primaria1109); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     ID106_tree = 
                     (TradutorAST)adaptor.create(ID106)
@@ -3911,12 +3911,12 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:136:7: incremento
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:136:7: incremento
                     {
                     root_0 = (TradutorAST)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_incremento_in_primaria1120);
+                    pushFollow(FOLLOW_incremento_in_primaria1117);
                     incremento107=incremento();
 
                     state._fsp--;
@@ -3926,20 +3926,20 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 6 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:137:9: '(' expressao ')'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:137:9: '(' expressao ')'
                     {
-                    char_literal108=(Token)match(input,40,FOLLOW_40_in_primaria1130); if (state.failed) return retval; 
+                    char_literal108=(Token)match(input,40,FOLLOW_40_in_primaria1127); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_40.add(char_literal108);
 
 
-                    pushFollow(FOLLOW_expressao_in_primaria1132);
+                    pushFollow(FOLLOW_expressao_in_primaria1129);
                     expressao109=expressao();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_expressao.add(expressao109.getTree());
 
-                    char_literal110=(Token)match(input,41,FOLLOW_41_in_primaria1133); if (state.failed) return retval; 
+                    char_literal110=(Token)match(input,41,FOLLOW_41_in_primaria1130); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_41.add(char_literal110);
 
 
@@ -4001,7 +4001,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "incremento"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:1: incremento : ( '--' ID ( '.' ID )* -> ^( PRE_DECREMENTO ( ID )+ ) | '++' ID ( '.' ID )* -> ^( PRE_INCREMENTO ( ID )+ ) | ID ( '.' ID )* '--' -> ^( POS_DECREMENTO ( ID )+ ) | ID ( '.' ID )* '++' -> ^( POS_INCREMENTO ( ID )+ ) );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:1: incremento : ( '--' ID ( '.' ID )* -> ^( PRE_DECREMENTO ( ID )+ ) | '++' ID ( '.' ID )* -> ^( PRE_INCREMENTO ( ID )+ ) | ID ( '.' ID )* '--' -> ^( POS_DECREMENTO ( ID )+ ) | ID ( '.' ID )* '++' -> ^( POS_INCREMENTO ( ID )+ ) );
     public final JediParser.incremento_return incremento() throws RecognitionException {
         JediParser.incremento_return retval = new JediParser.incremento_return();
         retval.start = input.LT(1);
@@ -4048,22 +4048,22 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:12: ( '--' ID ( '.' ID )* -> ^( PRE_DECREMENTO ( ID )+ ) | '++' ID ( '.' ID )* -> ^( PRE_INCREMENTO ( ID )+ ) | ID ( '.' ID )* '--' -> ^( POS_DECREMENTO ( ID )+ ) | ID ( '.' ID )* '++' -> ^( POS_INCREMENTO ( ID )+ ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:12: ( '--' ID ( '.' ID )* -> ^( PRE_DECREMENTO ( ID )+ ) | '++' ID ( '.' ID )* -> ^( PRE_INCREMENTO ( ID )+ ) | ID ( '.' ID )* '--' -> ^( POS_DECREMENTO ( ID )+ ) | ID ( '.' ID )* '++' -> ^( POS_INCREMENTO ( ID )+ ) )
             int alt33=4;
             alt33 = dfa33.predict(input);
             switch (alt33) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:15: '--' ID ( '.' ID )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:15: '--' ID ( '.' ID )*
                     {
-                    string_literal111=(Token)match(input,47,FOLLOW_47_in_incremento1153); if (state.failed) return retval; 
+                    string_literal111=(Token)match(input,47,FOLLOW_47_in_incremento1150); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_47.add(string_literal111);
 
 
-                    ID112=(Token)match(input,ID,FOLLOW_ID_in_incremento1155); if (state.failed) return retval; 
+                    ID112=(Token)match(input,ID,FOLLOW_ID_in_incremento1152); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(ID112);
 
 
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:23: ( '.' ID )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:23: ( '.' ID )*
                     loop29:
                     do {
                         int alt29=2;
@@ -4082,13 +4082,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt29) {
                     	case 1 :
-                    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:24: '.' ID
+                    	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:24: '.' ID
                     	    {
-                    	    char_literal113=(Token)match(input,48,FOLLOW_48_in_incremento1158); if (state.failed) return retval; 
+                    	    char_literal113=(Token)match(input,48,FOLLOW_48_in_incremento1155); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_48.add(char_literal113);
 
 
-                    	    ID114=(Token)match(input,ID,FOLLOW_ID_in_incremento1159); if (state.failed) return retval; 
+                    	    ID114=(Token)match(input,ID,FOLLOW_ID_in_incremento1156); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_ID.add(ID114);
 
 
@@ -4116,7 +4116,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (TradutorAST)adaptor.nil();
                     // 142:32: -> ^( PRE_DECREMENTO ( ID )+ )
                     {
-                        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:35: ^( PRE_DECREMENTO ( ID )+ )
+                        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:142:35: ^( PRE_DECREMENTO ( ID )+ )
                         {
                         TradutorAST root_1 = (TradutorAST)adaptor.nil();
                         root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -4146,17 +4146,17 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:143:12: '++' ID ( '.' ID )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:143:12: '++' ID ( '.' ID )*
                     {
-                    string_literal115=(Token)match(input,44,FOLLOW_44_in_incremento1183); if (state.failed) return retval; 
+                    string_literal115=(Token)match(input,44,FOLLOW_44_in_incremento1180); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_44.add(string_literal115);
 
 
-                    ID116=(Token)match(input,ID,FOLLOW_ID_in_incremento1185); if (state.failed) return retval; 
+                    ID116=(Token)match(input,ID,FOLLOW_ID_in_incremento1182); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(ID116);
 
 
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:143:20: ( '.' ID )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:143:20: ( '.' ID )*
                     loop30:
                     do {
                         int alt30=2;
@@ -4175,13 +4175,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt30) {
                     	case 1 :
-                    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:143:21: '.' ID
+                    	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:143:21: '.' ID
                     	    {
-                    	    char_literal117=(Token)match(input,48,FOLLOW_48_in_incremento1188); if (state.failed) return retval; 
+                    	    char_literal117=(Token)match(input,48,FOLLOW_48_in_incremento1185); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_48.add(char_literal117);
 
 
-                    	    ID118=(Token)match(input,ID,FOLLOW_ID_in_incremento1189); if (state.failed) return retval; 
+                    	    ID118=(Token)match(input,ID,FOLLOW_ID_in_incremento1186); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_ID.add(ID118);
 
 
@@ -4209,7 +4209,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (TradutorAST)adaptor.nil();
                     // 143:29: -> ^( PRE_INCREMENTO ( ID )+ )
                     {
-                        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:143:32: ^( PRE_INCREMENTO ( ID )+ )
+                        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:143:32: ^( PRE_INCREMENTO ( ID )+ )
                         {
                         TradutorAST root_1 = (TradutorAST)adaptor.nil();
                         root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -4239,13 +4239,13 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:144:16: ID ( '.' ID )* '--'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:144:16: ID ( '.' ID )* '--'
                     {
-                    ID119=(Token)match(input,ID,FOLLOW_ID_in_incremento1217); if (state.failed) return retval; 
+                    ID119=(Token)match(input,ID,FOLLOW_ID_in_incremento1214); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(ID119);
 
 
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:144:19: ( '.' ID )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:144:19: ( '.' ID )*
                     loop31:
                     do {
                         int alt31=2;
@@ -4258,13 +4258,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt31) {
                     	case 1 :
-                    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:144:20: '.' ID
+                    	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:144:20: '.' ID
                     	    {
-                    	    char_literal120=(Token)match(input,48,FOLLOW_48_in_incremento1220); if (state.failed) return retval; 
+                    	    char_literal120=(Token)match(input,48,FOLLOW_48_in_incremento1217); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_48.add(char_literal120);
 
 
-                    	    ID121=(Token)match(input,ID,FOLLOW_ID_in_incremento1221); if (state.failed) return retval; 
+                    	    ID121=(Token)match(input,ID,FOLLOW_ID_in_incremento1218); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_ID.add(ID121);
 
 
@@ -4277,7 +4277,7 @@ public TreeAdaptor getTreeAdaptor() {
                     } while (true);
 
 
-                    string_literal122=(Token)match(input,47,FOLLOW_47_in_incremento1225); if (state.failed) return retval; 
+                    string_literal122=(Token)match(input,47,FOLLOW_47_in_incremento1222); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_47.add(string_literal122);
 
 
@@ -4296,7 +4296,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (TradutorAST)adaptor.nil();
                     // 144:33: -> ^( POS_DECREMENTO ( ID )+ )
                     {
-                        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:144:36: ^( POS_DECREMENTO ( ID )+ )
+                        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:144:36: ^( POS_DECREMENTO ( ID )+ )
                         {
                         TradutorAST root_1 = (TradutorAST)adaptor.nil();
                         root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -4326,13 +4326,13 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:145:16: ID ( '.' ID )* '++'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:145:16: ID ( '.' ID )* '++'
                     {
-                    ID123=(Token)match(input,ID,FOLLOW_ID_in_incremento1251); if (state.failed) return retval; 
+                    ID123=(Token)match(input,ID,FOLLOW_ID_in_incremento1248); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ID.add(ID123);
 
 
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:145:19: ( '.' ID )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:145:19: ( '.' ID )*
                     loop32:
                     do {
                         int alt32=2;
@@ -4345,13 +4345,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt32) {
                     	case 1 :
-                    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:145:20: '.' ID
+                    	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:145:20: '.' ID
                     	    {
-                    	    char_literal124=(Token)match(input,48,FOLLOW_48_in_incremento1254); if (state.failed) return retval; 
+                    	    char_literal124=(Token)match(input,48,FOLLOW_48_in_incremento1251); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_48.add(char_literal124);
 
 
-                    	    ID125=(Token)match(input,ID,FOLLOW_ID_in_incremento1255); if (state.failed) return retval; 
+                    	    ID125=(Token)match(input,ID,FOLLOW_ID_in_incremento1252); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_ID.add(ID125);
 
 
@@ -4364,7 +4364,7 @@ public TreeAdaptor getTreeAdaptor() {
                     } while (true);
 
 
-                    string_literal126=(Token)match(input,44,FOLLOW_44_in_incremento1259); if (state.failed) return retval; 
+                    string_literal126=(Token)match(input,44,FOLLOW_44_in_incremento1256); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_44.add(string_literal126);
 
 
@@ -4383,7 +4383,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (TradutorAST)adaptor.nil();
                     // 145:33: -> ^( POS_INCREMENTO ( ID )+ )
                     {
-                        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:145:36: ^( POS_INCREMENTO ( ID )+ )
+                        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:145:36: ^( POS_INCREMENTO ( ID )+ )
                         {
                         TradutorAST root_1 = (TradutorAST)adaptor.nil();
                         root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -4445,7 +4445,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "chamadaMetodo"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:148:1: chamadaMetodo : ID ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $chamadaMetodo listaExpressoes ) )+ ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:148:1: chamadaMetodo : ID ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $chamadaMetodo listaExpressoes ) )+ ;
     public final JediParser.chamadaMetodo_return chamadaMetodo() throws RecognitionException {
         JediParser.chamadaMetodo_return retval = new JediParser.chamadaMetodo_return();
         retval.start = input.LT(1);
@@ -4478,14 +4478,14 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleSubtreeStream stream_listaExpressoes=new RewriteRuleSubtreeStream(adaptor,"rule listaExpressoes");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:149:5: ( ID ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $chamadaMetodo listaExpressoes ) )+ )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:149:9: ID ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $chamadaMetodo listaExpressoes ) )+
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:149:5: ( ID ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $chamadaMetodo listaExpressoes ) )+ )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:149:9: ID ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $chamadaMetodo listaExpressoes ) )+
             {
-            ID127=(Token)match(input,ID,FOLLOW_ID_in_chamadaMetodo1291); if (state.failed) return retval; 
+            ID127=(Token)match(input,ID,FOLLOW_ID_in_chamadaMetodo1288); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ID.add(ID127);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:150:6: ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $chamadaMetodo listaExpressoes ) )+
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:150:6: ( options {backtrack=true; } : '.' ID '(' listaExpressoes ')' -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes ) | '(' listaExpressoes ')' -> ^( METHOD_CALL $chamadaMetodo listaExpressoes ) )+
             int cnt34=0;
             loop34:
             do {
@@ -4502,33 +4502,33 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt34) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:151:5: '.' ID '(' listaExpressoes ')'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:151:5: '.' ID '(' listaExpressoes ')'
             	    {
-            	    char_literal128=(Token)match(input,48,FOLLOW_48_in_chamadaMetodo1311); if (state.failed) return retval; 
+            	    char_literal128=(Token)match(input,48,FOLLOW_48_in_chamadaMetodo1308); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_48.add(char_literal128);
 
 
-            	    ID129=(Token)match(input,ID,FOLLOW_ID_in_chamadaMetodo1313); if (state.failed) return retval; 
+            	    ID129=(Token)match(input,ID,FOLLOW_ID_in_chamadaMetodo1310); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_ID.add(ID129);
 
 
-            	    char_literal130=(Token)match(input,40,FOLLOW_40_in_chamadaMetodo1315); if (state.failed) return retval; 
+            	    char_literal130=(Token)match(input,40,FOLLOW_40_in_chamadaMetodo1312); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_40.add(char_literal130);
 
 
-            	    pushFollow(FOLLOW_listaExpressoes_in_chamadaMetodo1317);
+            	    pushFollow(FOLLOW_listaExpressoes_in_chamadaMetodo1314);
             	    listaExpressoes131=listaExpressoes();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_listaExpressoes.add(listaExpressoes131.getTree());
 
-            	    char_literal132=(Token)match(input,41,FOLLOW_41_in_chamadaMetodo1319); if (state.failed) return retval; 
+            	    char_literal132=(Token)match(input,41,FOLLOW_41_in_chamadaMetodo1316); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_41.add(char_literal132);
 
 
             	    // AST REWRITE
-            	    // elements: listaExpressoes, chamadaMetodo, 48, ID
+            	    // elements: ID, listaExpressoes, 48, chamadaMetodo
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -4542,14 +4542,14 @@ public TreeAdaptor getTreeAdaptor() {
             	    root_0 = (TradutorAST)adaptor.nil();
             	    // 151:36: -> ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes )
             	    {
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:151:39: ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:151:39: ^( METHOD_CALL ^( '.' $chamadaMetodo ID ) listaExpressoes )
             	        {
             	        TradutorAST root_1 = (TradutorAST)adaptor.nil();
             	        root_1 = (TradutorAST)adaptor.becomeRoot(
             	        (TradutorAST)adaptor.create(METHOD_CALL, "METHOD_CALL")
             	        , root_1);
 
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:151:53: ^( '.' $chamadaMetodo ID )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:151:53: ^( '.' $chamadaMetodo ID )
             	        {
             	        TradutorAST root_2 = (TradutorAST)adaptor.nil();
             	        root_2 = (TradutorAST)adaptor.becomeRoot(
@@ -4579,25 +4579,25 @@ public TreeAdaptor getTreeAdaptor() {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:152:5: '(' listaExpressoes ')'
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:152:5: '(' listaExpressoes ')'
             	    {
-            	    char_literal133=(Token)match(input,40,FOLLOW_40_in_chamadaMetodo1343); if (state.failed) return retval; 
+            	    char_literal133=(Token)match(input,40,FOLLOW_40_in_chamadaMetodo1340); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_40.add(char_literal133);
 
 
-            	    pushFollow(FOLLOW_listaExpressoes_in_chamadaMetodo1345);
+            	    pushFollow(FOLLOW_listaExpressoes_in_chamadaMetodo1342);
             	    listaExpressoes134=listaExpressoes();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_listaExpressoes.add(listaExpressoes134.getTree());
 
-            	    char_literal135=(Token)match(input,41,FOLLOW_41_in_chamadaMetodo1347); if (state.failed) return retval; 
+            	    char_literal135=(Token)match(input,41,FOLLOW_41_in_chamadaMetodo1344); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_41.add(char_literal135);
 
 
             	    // AST REWRITE
-            	    // elements: chamadaMetodo, listaExpressoes
+            	    // elements: listaExpressoes, chamadaMetodo
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -4611,7 +4611,7 @@ public TreeAdaptor getTreeAdaptor() {
             	    root_0 = (TradutorAST)adaptor.nil();
             	    // 152:36: -> ^( METHOD_CALL $chamadaMetodo listaExpressoes )
             	    {
-            	        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:152:39: ^( METHOD_CALL $chamadaMetodo listaExpressoes )
+            	        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:152:39: ^( METHOD_CALL $chamadaMetodo listaExpressoes )
             	        {
             	        TradutorAST root_1 = (TradutorAST)adaptor.nil();
             	        root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -4678,7 +4678,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "varDecl"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:156:1: varDecl : tipo ID (vet= '[]' )? ( '=' expressao )? -> ^( VAR_DECL tipo ID ( $vet)? ( expressao )? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:156:1: varDecl : tipo ID (vet= '[]' )? ( '=' expressao )? -> ^( VAR_DECL tipo ID ( $vet)? ( expressao )? ) ;
     public final JediParser.varDecl_return varDecl() throws RecognitionException {
         JediParser.varDecl_return retval = new JediParser.varDecl_return();
         retval.start = input.LT(1);
@@ -4703,21 +4703,21 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_tipo=new RewriteRuleSubtreeStream(adaptor,"rule tipo");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:5: ( tipo ID (vet= '[]' )? ( '=' expressao )? -> ^( VAR_DECL tipo ID ( $vet)? ( expressao )? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:9: tipo ID (vet= '[]' )? ( '=' expressao )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:5: ( tipo ID (vet= '[]' )? ( '=' expressao )? -> ^( VAR_DECL tipo ID ( $vet)? ( expressao )? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:9: tipo ID (vet= '[]' )? ( '=' expressao )?
             {
-            pushFollow(FOLLOW_tipo_in_varDecl1389);
+            pushFollow(FOLLOW_tipo_in_varDecl1386);
             tipo136=tipo();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_tipo.add(tipo136.getTree());
 
-            ID137=(Token)match(input,ID,FOLLOW_ID_in_varDecl1391); if (state.failed) return retval; 
+            ID137=(Token)match(input,ID,FOLLOW_ID_in_varDecl1388); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ID.add(ID137);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:21: (vet= '[]' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:21: (vet= '[]' )?
             int alt35=2;
             int LA35_0 = input.LA(1);
 
@@ -4726,9 +4726,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt35) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:21: vet= '[]'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:21: vet= '[]'
                     {
-                    vet=(Token)match(input,58,FOLLOW_58_in_varDecl1396); if (state.failed) return retval; 
+                    vet=(Token)match(input,58,FOLLOW_58_in_varDecl1393); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_58.add(vet);
 
 
@@ -4738,7 +4738,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:28: ( '=' expressao )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:28: ( '=' expressao )?
             int alt36=2;
             int LA36_0 = input.LA(1);
 
@@ -4747,13 +4747,13 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt36) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:29: '=' expressao
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:157:29: '=' expressao
                     {
-                    char_literal138=(Token)match(input,53,FOLLOW_53_in_varDecl1400); if (state.failed) return retval; 
+                    char_literal138=(Token)match(input,53,FOLLOW_53_in_varDecl1397); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_53.add(char_literal138);
 
 
-                    pushFollow(FOLLOW_expressao_in_varDecl1402);
+                    pushFollow(FOLLOW_expressao_in_varDecl1399);
                     expressao139=expressao();
 
                     state._fsp--;
@@ -4767,7 +4767,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: expressao, ID, tipo, vet
+            // elements: ID, vet, tipo, expressao
             // token labels: vet
             // rule labels: retval
             // token list labels: 
@@ -4782,7 +4782,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 158:5: -> ^( VAR_DECL tipo ID ( $vet)? ( expressao )? )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:158:8: ^( VAR_DECL tipo ID ( $vet)? ( expressao )? )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:158:8: ^( VAR_DECL tipo ID ( $vet)? ( expressao )? )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -4795,14 +4795,14 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:158:28: ( $vet)?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:158:28: ( $vet)?
                 if ( stream_vet.hasNext() ) {
                     adaptor.addChild(root_1, stream_vet.nextNode());
 
                 }
                 stream_vet.reset();
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:158:33: ( expressao )?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:158:33: ( expressao )?
                 if ( stream_expressao.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressao.nextTree());
 
@@ -4851,7 +4851,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "listaVarDecl"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:1: listaVarDecl : varDecl ( varDeclLista )* -> ^( LISTA_VAR_DECL varDecl ( varDeclLista )* ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:1: listaVarDecl : varDecl ( varDeclLista )* -> ^( LISTA_VAR_DECL varDecl ( varDeclLista )* ) ;
     public final JediParser.listaVarDecl_return listaVarDecl() throws RecognitionException {
         JediParser.listaVarDecl_return retval = new JediParser.listaVarDecl_return();
         retval.start = input.LT(1);
@@ -4867,17 +4867,17 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_varDeclLista=new RewriteRuleSubtreeStream(adaptor,"rule varDeclLista");
         RewriteRuleSubtreeStream stream_varDecl=new RewriteRuleSubtreeStream(adaptor,"rule varDecl");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:14: ( varDecl ( varDeclLista )* -> ^( LISTA_VAR_DECL varDecl ( varDeclLista )* ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:16: varDecl ( varDeclLista )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:14: ( varDecl ( varDeclLista )* -> ^( LISTA_VAR_DECL varDecl ( varDeclLista )* ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:16: varDecl ( varDeclLista )*
             {
-            pushFollow(FOLLOW_varDecl_in_listaVarDecl1449);
+            pushFollow(FOLLOW_varDecl_in_listaVarDecl1446);
             varDecl140=varDecl();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_varDecl.add(varDecl140.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:24: ( varDeclLista )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:24: ( varDeclLista )*
             loop37:
             do {
                 int alt37=2;
@@ -4890,9 +4890,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt37) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:25: varDeclLista
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:162:25: varDeclLista
             	    {
-            	    pushFollow(FOLLOW_varDeclLista_in_listaVarDecl1452);
+            	    pushFollow(FOLLOW_varDeclLista_in_listaVarDecl1449);
             	    varDeclLista141=varDeclLista();
 
             	    state._fsp--;
@@ -4909,7 +4909,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: varDecl, varDeclLista
+            // elements: varDeclLista, varDecl
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -4923,7 +4923,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 163:7: -> ^( LISTA_VAR_DECL varDecl ( varDeclLista )* )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:163:10: ^( LISTA_VAR_DECL varDecl ( varDeclLista )* )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:163:10: ^( LISTA_VAR_DECL varDecl ( varDeclLista )* )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -4932,7 +4932,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 adaptor.addChild(root_1, stream_varDecl.nextTree());
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:163:35: ( varDeclLista )*
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:163:35: ( varDeclLista )*
                 while ( stream_varDeclLista.hasNext() ) {
                     adaptor.addChild(root_1, stream_varDeclLista.nextTree());
 
@@ -4981,7 +4981,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "varDeclLista"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:1: varDeclLista : ',' ID (vet= '[]' )? ( '=' expressao )? -> ^( VAR_DECL_LISTA ID ( $vet)? ( expressao )? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:1: varDeclLista : ',' ID (vet= '[]' )? ( '=' expressao )? -> ^( VAR_DECL_LISTA ID ( $vet)? ( expressao )? ) ;
     public final JediParser.varDeclLista_return varDeclLista() throws RecognitionException {
         JediParser.varDeclLista_return retval = new JediParser.varDeclLista_return();
         retval.start = input.LT(1);
@@ -5006,18 +5006,18 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_53=new RewriteRuleTokenStream(adaptor,"token 53");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:14: ( ',' ID (vet= '[]' )? ( '=' expressao )? -> ^( VAR_DECL_LISTA ID ( $vet)? ( expressao )? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:16: ',' ID (vet= '[]' )? ( '=' expressao )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:14: ( ',' ID (vet= '[]' )? ( '=' expressao )? -> ^( VAR_DECL_LISTA ID ( $vet)? ( expressao )? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:16: ',' ID (vet= '[]' )? ( '=' expressao )?
             {
-            char_literal142=(Token)match(input,45,FOLLOW_45_in_varDeclLista1494); if (state.failed) return retval; 
+            char_literal142=(Token)match(input,45,FOLLOW_45_in_varDeclLista1491); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_45.add(char_literal142);
 
 
-            ID143=(Token)match(input,ID,FOLLOW_ID_in_varDeclLista1496); if (state.failed) return retval; 
+            ID143=(Token)match(input,ID,FOLLOW_ID_in_varDeclLista1493); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ID.add(ID143);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:27: (vet= '[]' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:27: (vet= '[]' )?
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -5026,9 +5026,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt38) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:27: vet= '[]'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:27: vet= '[]'
                     {
-                    vet=(Token)match(input,58,FOLLOW_58_in_varDeclLista1502); if (state.failed) return retval; 
+                    vet=(Token)match(input,58,FOLLOW_58_in_varDeclLista1499); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_58.add(vet);
 
 
@@ -5038,7 +5038,7 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:35: ( '=' expressao )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:35: ( '=' expressao )?
             int alt39=2;
             int LA39_0 = input.LA(1);
 
@@ -5047,13 +5047,13 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt39) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:36: '=' expressao
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:166:36: '=' expressao
                     {
-                    char_literal144=(Token)match(input,53,FOLLOW_53_in_varDeclLista1506); if (state.failed) return retval; 
+                    char_literal144=(Token)match(input,53,FOLLOW_53_in_varDeclLista1503); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_53.add(char_literal144);
 
 
-                    pushFollow(FOLLOW_expressao_in_varDeclLista1508);
+                    pushFollow(FOLLOW_expressao_in_varDeclLista1505);
                     expressao145=expressao();
 
                     state._fsp--;
@@ -5067,7 +5067,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: expressao, ID, vet
+            // elements: vet, expressao, ID
             // token labels: vet
             // rule labels: retval
             // token list labels: 
@@ -5082,7 +5082,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 167:7: -> ^( VAR_DECL_LISTA ID ( $vet)? ( expressao )? )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:167:10: ^( VAR_DECL_LISTA ID ( $vet)? ( expressao )? )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:167:10: ^( VAR_DECL_LISTA ID ( $vet)? ( expressao )? )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -5093,14 +5093,14 @@ public TreeAdaptor getTreeAdaptor() {
                 stream_ID.nextNode()
                 );
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:167:31: ( $vet)?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:167:31: ( $vet)?
                 if ( stream_vet.hasNext() ) {
                     adaptor.addChild(root_1, stream_vet.nextNode());
 
                 }
                 stream_vet.reset();
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:167:36: ( expressao )?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:167:36: ( expressao )?
                 if ( stream_expressao.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressao.nextTree());
 
@@ -5149,7 +5149,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "tipo"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:170:1: tipo : ( 'int' | ID );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:170:1: tipo : ( 'int' | ID );
     public final JediParser.tipo_return tipo() throws RecognitionException {
         JediParser.tipo_return retval = new JediParser.tipo_return();
         retval.start = input.LT(1);
@@ -5162,8 +5162,8 @@ public TreeAdaptor getTreeAdaptor() {
         TradutorAST set146_tree=null;
 
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:170:5: ( 'int' | ID )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:170:5: ( 'int' | ID )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
             {
             root_0 = (TradutorAST)adaptor.nil();
 
@@ -5218,7 +5218,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "ifStatement"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:1: ifStatement : 'if' '(' expressao ')' instrucao ( elseIf )? -> ^( IF expressao instrucao ( elseIf )? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:1: ifStatement : 'if' '(' expressao ')' instrucao ( elseIf )? -> ^( IF expressao instrucao ( elseIf )? ) ;
     public final JediParser.ifStatement_return ifStatement() throws RecognitionException {
         JediParser.ifStatement_return retval = new JediParser.ifStatement_return();
         retval.start = input.LT(1);
@@ -5246,36 +5246,36 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_instrucao=new RewriteRuleSubtreeStream(adaptor,"rule instrucao");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:14: ( 'if' '(' expressao ')' instrucao ( elseIf )? -> ^( IF expressao instrucao ( elseIf )? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:16: 'if' '(' expressao ')' instrucao ( elseIf )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:14: ( 'if' '(' expressao ')' instrucao ( elseIf )? -> ^( IF expressao instrucao ( elseIf )? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:16: 'if' '(' expressao ')' instrucao ( elseIf )?
             {
-            string_literal147=(Token)match(input,66,FOLLOW_66_in_ifStatement1582); if (state.failed) return retval; 
+            string_literal147=(Token)match(input,66,FOLLOW_66_in_ifStatement1579); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_66.add(string_literal147);
 
 
-            char_literal148=(Token)match(input,40,FOLLOW_40_in_ifStatement1584); if (state.failed) return retval; 
+            char_literal148=(Token)match(input,40,FOLLOW_40_in_ifStatement1581); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_40.add(char_literal148);
 
 
-            pushFollow(FOLLOW_expressao_in_ifStatement1586);
+            pushFollow(FOLLOW_expressao_in_ifStatement1583);
             expressao149=expressao();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_expressao.add(expressao149.getTree());
 
-            char_literal150=(Token)match(input,41,FOLLOW_41_in_ifStatement1588); if (state.failed) return retval; 
+            char_literal150=(Token)match(input,41,FOLLOW_41_in_ifStatement1585); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_41.add(char_literal150);
 
 
-            pushFollow(FOLLOW_instrucao_in_ifStatement1590);
+            pushFollow(FOLLOW_instrucao_in_ifStatement1587);
             instrucao151=instrucao();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_instrucao.add(instrucao151.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:49: ( elseIf )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:49: ( elseIf )?
             int alt40=2;
             int LA40_0 = input.LA(1);
 
@@ -5284,9 +5284,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt40) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:49: elseIf
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:174:49: elseIf
                     {
-                    pushFollow(FOLLOW_elseIf_in_ifStatement1592);
+                    pushFollow(FOLLOW_elseIf_in_ifStatement1589);
                     elseIf152=elseIf();
 
                     state._fsp--;
@@ -5300,7 +5300,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: instrucao, expressao, elseIf
+            // elements: elseIf, instrucao, expressao
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -5314,7 +5314,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 175:7: -> ^( IF expressao instrucao ( elseIf )? )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:175:10: ^( IF expressao instrucao ( elseIf )? )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:175:10: ^( IF expressao instrucao ( elseIf )? )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -5325,7 +5325,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 adaptor.addChild(root_1, stream_instrucao.nextTree());
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:175:35: ( elseIf )?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:175:35: ( elseIf )?
                 if ( stream_elseIf.hasNext() ) {
                     adaptor.addChild(root_1, stream_elseIf.nextTree());
 
@@ -5374,7 +5374,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "elseIf"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:1: elseIf : ( 'else' instrucao ) -> ^( 'else' instrucao ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:1: elseIf : ( 'else' instrucao ) -> ^( 'else' instrucao ) ;
     public final JediParser.elseIf_return elseIf() throws RecognitionException {
         JediParser.elseIf_return retval = new JediParser.elseIf_return();
         retval.start = input.LT(1);
@@ -5390,17 +5390,17 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_63=new RewriteRuleTokenStream(adaptor,"token 63");
         RewriteRuleSubtreeStream stream_instrucao=new RewriteRuleSubtreeStream(adaptor,"rule instrucao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:8: ( ( 'else' instrucao ) -> ^( 'else' instrucao ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:11: ( 'else' instrucao )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:8: ( ( 'else' instrucao ) -> ^( 'else' instrucao ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:11: ( 'else' instrucao )
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:11: ( 'else' instrucao )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:12: 'else' instrucao
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:11: ( 'else' instrucao )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:12: 'else' instrucao
             {
-            string_literal153=(Token)match(input,63,FOLLOW_63_in_elseIf1629); if (state.failed) return retval; 
+            string_literal153=(Token)match(input,63,FOLLOW_63_in_elseIf1626); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_63.add(string_literal153);
 
 
-            pushFollow(FOLLOW_instrucao_in_elseIf1631);
+            pushFollow(FOLLOW_instrucao_in_elseIf1628);
             instrucao154=instrucao();
 
             state._fsp--;
@@ -5425,7 +5425,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 178:30: -> ^( 'else' instrucao )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:33: ^( 'else' instrucao )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:178:33: ^( 'else' instrucao )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -5476,7 +5476,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "bloco"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:180:1: bloco : '{' ( instrucao )* '}' -> ^( BLOCO ( instrucao )* ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:180:1: bloco : '{' ( instrucao )* '}' -> ^( BLOCO ( instrucao )* ) ;
     public final JediParser.bloco_return bloco() throws RecognitionException {
         JediParser.bloco_return retval = new JediParser.bloco_return();
         retval.start = input.LT(1);
@@ -5495,14 +5495,14 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
         RewriteRuleSubtreeStream stream_instrucao=new RewriteRuleSubtreeStream(adaptor,"rule instrucao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:2: ( '{' ( instrucao )* '}' -> ^( BLOCO ( instrucao )* ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:5: '{' ( instrucao )* '}'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:2: ( '{' ( instrucao )* '}' -> ^( BLOCO ( instrucao )* ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:5: '{' ( instrucao )* '}'
             {
-            char_literal155=(Token)match(input,72,FOLLOW_72_in_bloco1652); if (state.failed) return retval; 
+            char_literal155=(Token)match(input,72,FOLLOW_72_in_bloco1649); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_72.add(char_literal155);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:9: ( instrucao )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:9: ( instrucao )*
             loop41:
             do {
                 int alt41=2;
@@ -5515,9 +5515,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt41) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:9: instrucao
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:9: instrucao
             	    {
-            	    pushFollow(FOLLOW_instrucao_in_bloco1654);
+            	    pushFollow(FOLLOW_instrucao_in_bloco1651);
             	    instrucao156=instrucao();
 
             	    state._fsp--;
@@ -5533,7 +5533,7 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            char_literal157=(Token)match(input,74,FOLLOW_74_in_bloco1657); if (state.failed) return retval; 
+            char_literal157=(Token)match(input,74,FOLLOW_74_in_bloco1654); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_74.add(char_literal157);
 
 
@@ -5552,14 +5552,14 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 181:24: -> ^( BLOCO ( instrucao )* )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:27: ^( BLOCO ( instrucao )* )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:27: ^( BLOCO ( instrucao )* )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
                 (TradutorAST)adaptor.create(BLOCO, "BLOCO")
                 , root_1);
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:35: ( instrucao )*
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:181:35: ( instrucao )*
                 while ( stream_instrucao.hasNext() ) {
                     adaptor.addChild(root_1, stream_instrucao.nextTree());
 
@@ -5608,7 +5608,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "whileStatement"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:185:1: whileStatement : 'while' '(' expressao ')' instrucao -> ^( WHILE expressao instrucao ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:185:1: whileStatement : 'while' '(' expressao ')' instrucao -> ^( WHILE expressao instrucao ) ;
     public final JediParser.whileStatement_return whileStatement() throws RecognitionException {
         JediParser.whileStatement_return retval = new JediParser.whileStatement_return();
         retval.start = input.LT(1);
@@ -5633,29 +5633,29 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_instrucao=new RewriteRuleSubtreeStream(adaptor,"rule instrucao");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:185:16: ( 'while' '(' expressao ')' instrucao -> ^( WHILE expressao instrucao ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:185:18: 'while' '(' expressao ')' instrucao
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:185:16: ( 'while' '(' expressao ')' instrucao -> ^( WHILE expressao instrucao ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:185:18: 'while' '(' expressao ')' instrucao
             {
-            string_literal158=(Token)match(input,71,FOLLOW_71_in_whileStatement1685); if (state.failed) return retval; 
+            string_literal158=(Token)match(input,71,FOLLOW_71_in_whileStatement1682); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_71.add(string_literal158);
 
 
-            char_literal159=(Token)match(input,40,FOLLOW_40_in_whileStatement1687); if (state.failed) return retval; 
+            char_literal159=(Token)match(input,40,FOLLOW_40_in_whileStatement1684); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_40.add(char_literal159);
 
 
-            pushFollow(FOLLOW_expressao_in_whileStatement1689);
+            pushFollow(FOLLOW_expressao_in_whileStatement1686);
             expressao160=expressao();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_expressao.add(expressao160.getTree());
 
-            char_literal161=(Token)match(input,41,FOLLOW_41_in_whileStatement1691); if (state.failed) return retval; 
+            char_literal161=(Token)match(input,41,FOLLOW_41_in_whileStatement1688); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_41.add(char_literal161);
 
 
-            pushFollow(FOLLOW_instrucao_in_whileStatement1693);
+            pushFollow(FOLLOW_instrucao_in_whileStatement1690);
             instrucao162=instrucao();
 
             state._fsp--;
@@ -5663,7 +5663,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_instrucao.add(instrucao162.getTree());
 
             // AST REWRITE
-            // elements: expressao, instrucao
+            // elements: instrucao, expressao
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -5677,7 +5677,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 186:16: -> ^( WHILE expressao instrucao )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:186:19: ^( WHILE expressao instrucao )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:186:19: ^( WHILE expressao instrucao )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -5730,7 +5730,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "doWhileStatement"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:189:1: doWhileStatement : 'do' instrucao 'while' '(' expressao ')' -> ^( DOWHILE expressao instrucao ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:189:1: doWhileStatement : 'do' instrucao 'while' '(' expressao ')' -> ^( DOWHILE expressao instrucao ) ;
     public final JediParser.doWhileStatement_return doWhileStatement() throws RecognitionException {
         JediParser.doWhileStatement_return retval = new JediParser.doWhileStatement_return();
         retval.start = input.LT(1);
@@ -5758,41 +5758,41 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_instrucao=new RewriteRuleSubtreeStream(adaptor,"rule instrucao");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:189:19: ( 'do' instrucao 'while' '(' expressao ')' -> ^( DOWHILE expressao instrucao ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:189:21: 'do' instrucao 'while' '(' expressao ')'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:189:19: ( 'do' instrucao 'while' '(' expressao ')' -> ^( DOWHILE expressao instrucao ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:189:21: 'do' instrucao 'while' '(' expressao ')'
             {
-            string_literal163=(Token)match(input,62,FOLLOW_62_in_doWhileStatement1744); if (state.failed) return retval; 
+            string_literal163=(Token)match(input,62,FOLLOW_62_in_doWhileStatement1741); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_62.add(string_literal163);
 
 
-            pushFollow(FOLLOW_instrucao_in_doWhileStatement1746);
+            pushFollow(FOLLOW_instrucao_in_doWhileStatement1743);
             instrucao164=instrucao();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_instrucao.add(instrucao164.getTree());
 
-            string_literal165=(Token)match(input,71,FOLLOW_71_in_doWhileStatement1748); if (state.failed) return retval; 
+            string_literal165=(Token)match(input,71,FOLLOW_71_in_doWhileStatement1745); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_71.add(string_literal165);
 
 
-            char_literal166=(Token)match(input,40,FOLLOW_40_in_doWhileStatement1750); if (state.failed) return retval; 
+            char_literal166=(Token)match(input,40,FOLLOW_40_in_doWhileStatement1747); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_40.add(char_literal166);
 
 
-            pushFollow(FOLLOW_expressao_in_doWhileStatement1752);
+            pushFollow(FOLLOW_expressao_in_doWhileStatement1749);
             expressao167=expressao();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_expressao.add(expressao167.getTree());
 
-            char_literal168=(Token)match(input,41,FOLLOW_41_in_doWhileStatement1754); if (state.failed) return retval; 
+            char_literal168=(Token)match(input,41,FOLLOW_41_in_doWhileStatement1751); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_41.add(char_literal168);
 
 
             // AST REWRITE
-            // elements: instrucao, expressao
+            // elements: expressao, instrucao
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -5806,7 +5806,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 190:19: -> ^( DOWHILE expressao instrucao )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:190:22: ^( DOWHILE expressao instrucao )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:190:22: ^( DOWHILE expressao instrucao )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -5859,7 +5859,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "forStatement"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:1: forStatement : 'for' '(' ( inicializacaoFor )? ';' ( condicaoFor )? ';' ( incrementoFor )? ')' instrucao -> ^( FOR ( inicializacaoFor )? ( condicaoFor )? ( incrementoFor )? instrucao ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:1: forStatement : 'for' '(' ( inicializacaoFor )? ';' ( condicaoFor )? ';' ( incrementoFor )? ')' instrucao -> ^( FOR ( inicializacaoFor )? ( condicaoFor )? ( incrementoFor )? instrucao ) ;
     public final JediParser.forStatement_return forStatement() throws RecognitionException {
         JediParser.forStatement_return retval = new JediParser.forStatement_return();
         retval.start = input.LT(1);
@@ -5895,18 +5895,18 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_inicializacaoFor=new RewriteRuleSubtreeStream(adaptor,"rule inicializacaoFor");
         RewriteRuleSubtreeStream stream_incrementoFor=new RewriteRuleSubtreeStream(adaptor,"rule incrementoFor");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:14: ( 'for' '(' ( inicializacaoFor )? ';' ( condicaoFor )? ';' ( incrementoFor )? ')' instrucao -> ^( FOR ( inicializacaoFor )? ( condicaoFor )? ( incrementoFor )? instrucao ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:16: 'for' '(' ( inicializacaoFor )? ';' ( condicaoFor )? ';' ( incrementoFor )? ')' instrucao
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:14: ( 'for' '(' ( inicializacaoFor )? ';' ( condicaoFor )? ';' ( incrementoFor )? ')' instrucao -> ^( FOR ( inicializacaoFor )? ( condicaoFor )? ( incrementoFor )? instrucao ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:16: 'for' '(' ( inicializacaoFor )? ';' ( condicaoFor )? ';' ( incrementoFor )? ')' instrucao
             {
-            string_literal169=(Token)match(input,65,FOLLOW_65_in_forStatement1805); if (state.failed) return retval; 
+            string_literal169=(Token)match(input,65,FOLLOW_65_in_forStatement1802); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_65.add(string_literal169);
 
 
-            char_literal170=(Token)match(input,40,FOLLOW_40_in_forStatement1807); if (state.failed) return retval; 
+            char_literal170=(Token)match(input,40,FOLLOW_40_in_forStatement1804); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_40.add(char_literal170);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:25: ( inicializacaoFor )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:25: ( inicializacaoFor )?
             int alt42=2;
             int LA42_0 = input.LA(1);
 
@@ -5915,9 +5915,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt42) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:25: inicializacaoFor
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:25: inicializacaoFor
                     {
-                    pushFollow(FOLLOW_inicializacaoFor_in_forStatement1808);
+                    pushFollow(FOLLOW_inicializacaoFor_in_forStatement1805);
                     inicializacaoFor171=inicializacaoFor();
 
                     state._fsp--;
@@ -5930,11 +5930,11 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            char_literal172=(Token)match(input,50,FOLLOW_50_in_forStatement1810); if (state.failed) return retval; 
+            char_literal172=(Token)match(input,50,FOLLOW_50_in_forStatement1807); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_50.add(char_literal172);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:46: ( condicaoFor )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:46: ( condicaoFor )?
             int alt43=2;
             int LA43_0 = input.LA(1);
 
@@ -5943,9 +5943,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt43) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:46: condicaoFor
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:46: condicaoFor
                     {
-                    pushFollow(FOLLOW_condicaoFor_in_forStatement1812);
+                    pushFollow(FOLLOW_condicaoFor_in_forStatement1809);
                     condicaoFor173=condicaoFor();
 
                     state._fsp--;
@@ -5958,11 +5958,11 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            char_literal174=(Token)match(input,50,FOLLOW_50_in_forStatement1814); if (state.failed) return retval; 
+            char_literal174=(Token)match(input,50,FOLLOW_50_in_forStatement1811); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_50.add(char_literal174);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:62: ( incrementoFor )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:62: ( incrementoFor )?
             int alt44=2;
             int LA44_0 = input.LA(1);
 
@@ -5971,9 +5971,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt44) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:62: incrementoFor
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:194:62: incrementoFor
                     {
-                    pushFollow(FOLLOW_incrementoFor_in_forStatement1816);
+                    pushFollow(FOLLOW_incrementoFor_in_forStatement1813);
                     incrementoFor175=incrementoFor();
 
                     state._fsp--;
@@ -5986,11 +5986,11 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            char_literal176=(Token)match(input,41,FOLLOW_41_in_forStatement1819); if (state.failed) return retval; 
+            char_literal176=(Token)match(input,41,FOLLOW_41_in_forStatement1816); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_41.add(char_literal176);
 
 
-            pushFollow(FOLLOW_instrucao_in_forStatement1821);
+            pushFollow(FOLLOW_instrucao_in_forStatement1818);
             instrucao177=instrucao();
 
             state._fsp--;
@@ -5998,7 +5998,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( state.backtracking==0 ) stream_instrucao.add(instrucao177.getTree());
 
             // AST REWRITE
-            // elements: incrementoFor, condicaoFor, inicializacaoFor, instrucao
+            // elements: instrucao, inicializacaoFor, incrementoFor, condicaoFor
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -6012,28 +6012,28 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 195:7: -> ^( FOR ( inicializacaoFor )? ( condicaoFor )? ( incrementoFor )? instrucao )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:195:10: ^( FOR ( inicializacaoFor )? ( condicaoFor )? ( incrementoFor )? instrucao )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:195:10: ^( FOR ( inicializacaoFor )? ( condicaoFor )? ( incrementoFor )? instrucao )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
                 (TradutorAST)adaptor.create(FOR, "FOR")
                 , root_1);
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:195:16: ( inicializacaoFor )?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:195:16: ( inicializacaoFor )?
                 if ( stream_inicializacaoFor.hasNext() ) {
                     adaptor.addChild(root_1, stream_inicializacaoFor.nextTree());
 
                 }
                 stream_inicializacaoFor.reset();
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:195:34: ( condicaoFor )?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:195:34: ( condicaoFor )?
                 if ( stream_condicaoFor.hasNext() ) {
                     adaptor.addChild(root_1, stream_condicaoFor.nextTree());
 
                 }
                 stream_condicaoFor.reset();
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:195:47: ( incrementoFor )?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:195:47: ( incrementoFor )?
                 if ( stream_incrementoFor.hasNext() ) {
                     adaptor.addChild(root_1, stream_incrementoFor.nextTree());
 
@@ -6084,7 +6084,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "inicializacaoFor"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:1: inicializacaoFor : ( varDecl ( ',' atribuicao )* -> ^( INIT_FOR varDecl ( atribuicao )* ) | atribuicao ( ',' atribuicao )* -> ^( INIT_FOR ( atribuicao )+ ) );
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:1: inicializacaoFor : ( varDecl ( ',' atribuicao )* -> ^( INIT_FOR varDecl ( atribuicao )* ) | atribuicao ( ',' atribuicao )* -> ^( INIT_FOR ( atribuicao )+ ) );
     public final JediParser.inicializacaoFor_return inicializacaoFor() throws RecognitionException {
         JediParser.inicializacaoFor_return retval = new JediParser.inicializacaoFor_return();
         retval.start = input.LT(1);
@@ -6109,7 +6109,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_atribuicao=new RewriteRuleSubtreeStream(adaptor,"rule atribuicao");
         RewriteRuleSubtreeStream stream_varDecl=new RewriteRuleSubtreeStream(adaptor,"rule varDecl");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:18: ( varDecl ( ',' atribuicao )* -> ^( INIT_FOR varDecl ( atribuicao )* ) | atribuicao ( ',' atribuicao )* -> ^( INIT_FOR ( atribuicao )+ ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:18: ( varDecl ( ',' atribuicao )* -> ^( INIT_FOR varDecl ( atribuicao )* ) | atribuicao ( ',' atribuicao )* -> ^( INIT_FOR ( atribuicao )+ ) )
             int alt47=2;
             switch ( input.LA(1) ) {
             case ID:
@@ -6173,16 +6173,16 @@ public TreeAdaptor getTreeAdaptor() {
 
             switch (alt47) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:21: varDecl ( ',' atribuicao )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:21: varDecl ( ',' atribuicao )*
                     {
-                    pushFollow(FOLLOW_varDecl_in_inicializacaoFor1881);
+                    pushFollow(FOLLOW_varDecl_in_inicializacaoFor1878);
                     varDecl178=varDecl();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_varDecl.add(varDecl178.getTree());
 
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:29: ( ',' atribuicao )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:29: ( ',' atribuicao )*
                     loop45:
                     do {
                         int alt45=2;
@@ -6195,13 +6195,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt45) {
                     	case 1 :
-                    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:30: ',' atribuicao
+                    	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:30: ',' atribuicao
                     	    {
-                    	    char_literal179=(Token)match(input,45,FOLLOW_45_in_inicializacaoFor1884); if (state.failed) return retval; 
+                    	    char_literal179=(Token)match(input,45,FOLLOW_45_in_inicializacaoFor1881); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_45.add(char_literal179);
 
 
-                    	    pushFollow(FOLLOW_atribuicao_in_inicializacaoFor1886);
+                    	    pushFollow(FOLLOW_atribuicao_in_inicializacaoFor1883);
                     	    atribuicao180=atribuicao();
 
                     	    state._fsp--;
@@ -6218,7 +6218,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
                     // AST REWRITE
-                    // elements: varDecl, atribuicao
+                    // elements: atribuicao, varDecl
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -6232,7 +6232,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (TradutorAST)adaptor.nil();
                     // 198:48: -> ^( INIT_FOR varDecl ( atribuicao )* )
                     {
-                        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:51: ^( INIT_FOR varDecl ( atribuicao )* )
+                        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:51: ^( INIT_FOR varDecl ( atribuicao )* )
                         {
                         TradutorAST root_1 = (TradutorAST)adaptor.nil();
                         root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -6241,7 +6241,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                         adaptor.addChild(root_1, stream_varDecl.nextTree());
 
-                        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:70: ( atribuicao )*
+                        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:198:70: ( atribuicao )*
                         while ( stream_atribuicao.hasNext() ) {
                             adaptor.addChild(root_1, stream_atribuicao.nextTree());
 
@@ -6260,16 +6260,16 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:199:7: atribuicao ( ',' atribuicao )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:199:7: atribuicao ( ',' atribuicao )*
                     {
-                    pushFollow(FOLLOW_atribuicao_in_inicializacaoFor1908);
+                    pushFollow(FOLLOW_atribuicao_in_inicializacaoFor1905);
                     atribuicao181=atribuicao();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_atribuicao.add(atribuicao181.getTree());
 
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:199:18: ( ',' atribuicao )*
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:199:18: ( ',' atribuicao )*
                     loop46:
                     do {
                         int alt46=2;
@@ -6282,13 +6282,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt46) {
                     	case 1 :
-                    	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:199:19: ',' atribuicao
+                    	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:199:19: ',' atribuicao
                     	    {
-                    	    char_literal182=(Token)match(input,45,FOLLOW_45_in_inicializacaoFor1911); if (state.failed) return retval; 
+                    	    char_literal182=(Token)match(input,45,FOLLOW_45_in_inicializacaoFor1908); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_45.add(char_literal182);
 
 
-                    	    pushFollow(FOLLOW_atribuicao_in_inicializacaoFor1913);
+                    	    pushFollow(FOLLOW_atribuicao_in_inicializacaoFor1910);
                     	    atribuicao183=atribuicao();
 
                     	    state._fsp--;
@@ -6319,7 +6319,7 @@ public TreeAdaptor getTreeAdaptor() {
                     root_0 = (TradutorAST)adaptor.nil();
                     // 199:37: -> ^( INIT_FOR ( atribuicao )+ )
                     {
-                        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:199:40: ^( INIT_FOR ( atribuicao )+ )
+                        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:199:40: ^( INIT_FOR ( atribuicao )+ )
                         {
                         TradutorAST root_1 = (TradutorAST)adaptor.nil();
                         root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -6379,7 +6379,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "condicaoFor"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:202:1: condicaoFor : expressao -> ^( COND_FOR expressao ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:202:1: condicaoFor : expressao -> ^( COND_FOR expressao ) ;
     public final JediParser.condicaoFor_return condicaoFor() throws RecognitionException {
         JediParser.condicaoFor_return retval = new JediParser.condicaoFor_return();
         retval.start = input.LT(1);
@@ -6392,10 +6392,10 @@ public TreeAdaptor getTreeAdaptor() {
 
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:202:13: ( expressao -> ^( COND_FOR expressao ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:202:16: expressao
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:202:13: ( expressao -> ^( COND_FOR expressao ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:202:16: expressao
             {
-            pushFollow(FOLLOW_expressao_in_condicaoFor1953);
+            pushFollow(FOLLOW_expressao_in_condicaoFor1950);
             expressao184=expressao();
 
             state._fsp--;
@@ -6417,7 +6417,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 203:13: -> ^( COND_FOR expressao )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:203:16: ^( COND_FOR expressao )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:203:16: ^( COND_FOR expressao )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -6468,7 +6468,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "incrementoFor"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:1: incrementoFor : incremento ( ',' incremento )* -> ^( INC_FOR ( incremento )+ ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:1: incrementoFor : incremento ( ',' incremento )* -> ^( INC_FOR ( incremento )+ ) ;
     public final JediParser.incrementoFor_return incrementoFor() throws RecognitionException {
         JediParser.incrementoFor_return retval = new JediParser.incrementoFor_return();
         retval.start = input.LT(1);
@@ -6486,17 +6486,17 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_45=new RewriteRuleTokenStream(adaptor,"token 45");
         RewriteRuleSubtreeStream stream_incremento=new RewriteRuleSubtreeStream(adaptor,"rule incremento");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:15: ( incremento ( ',' incremento )* -> ^( INC_FOR ( incremento )+ ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:17: incremento ( ',' incremento )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:15: ( incremento ( ',' incremento )* -> ^( INC_FOR ( incremento )+ ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:17: incremento ( ',' incremento )*
             {
-            pushFollow(FOLLOW_incremento_in_incrementoFor1992);
+            pushFollow(FOLLOW_incremento_in_incrementoFor1989);
             incremento185=incremento();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_incremento.add(incremento185.getTree());
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:28: ( ',' incremento )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:28: ( ',' incremento )*
             loop48:
             do {
                 int alt48=2;
@@ -6509,13 +6509,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt48) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:29: ',' incremento
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:206:29: ',' incremento
             	    {
-            	    char_literal186=(Token)match(input,45,FOLLOW_45_in_incrementoFor1995); if (state.failed) return retval; 
+            	    char_literal186=(Token)match(input,45,FOLLOW_45_in_incrementoFor1992); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_45.add(char_literal186);
 
 
-            	    pushFollow(FOLLOW_incremento_in_incrementoFor1997);
+            	    pushFollow(FOLLOW_incremento_in_incrementoFor1994);
             	    incremento187=incremento();
 
             	    state._fsp--;
@@ -6546,7 +6546,7 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 207:15: -> ^( INC_FOR ( incremento )+ )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:207:18: ^( INC_FOR ( incremento )+ )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:207:18: ^( INC_FOR ( incremento )+ )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
@@ -6604,7 +6604,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "returnStatement"
-    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:1: returnStatement : 'return' ( expressao )? -> ^( RETURN ( expressao )? ) ;
+    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:1: returnStatement : 'return' ( expressao )? -> ^( RETURN ( expressao )? ) ;
     public final JediParser.returnStatement_return returnStatement() throws RecognitionException {
         JediParser.returnStatement_return retval = new JediParser.returnStatement_return();
         retval.start = input.LT(1);
@@ -6620,14 +6620,14 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_69=new RewriteRuleTokenStream(adaptor,"token 69");
         RewriteRuleSubtreeStream stream_expressao=new RewriteRuleSubtreeStream(adaptor,"rule expressao");
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:17: ( 'return' ( expressao )? -> ^( RETURN ( expressao )? ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:20: 'return' ( expressao )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:17: ( 'return' ( expressao )? -> ^( RETURN ( expressao )? ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:20: 'return' ( expressao )?
             {
-            string_literal188=(Token)match(input,69,FOLLOW_69_in_returnStatement2061); if (state.failed) return retval; 
+            string_literal188=(Token)match(input,69,FOLLOW_69_in_returnStatement2058); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_69.add(string_literal188);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:29: ( expressao )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:29: ( expressao )?
             int alt49=2;
             int LA49_0 = input.LA(1);
 
@@ -6636,9 +6636,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt49) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:29: expressao
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:29: expressao
                     {
-                    pushFollow(FOLLOW_expressao_in_returnStatement2063);
+                    pushFollow(FOLLOW_expressao_in_returnStatement2060);
                     expressao189=expressao();
 
                     state._fsp--;
@@ -6666,14 +6666,14 @@ public TreeAdaptor getTreeAdaptor() {
             root_0 = (TradutorAST)adaptor.nil();
             // 210:40: -> ^( RETURN ( expressao )? )
             {
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:43: ^( RETURN ( expressao )? )
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:43: ^( RETURN ( expressao )? )
                 {
                 TradutorAST root_1 = (TradutorAST)adaptor.nil();
                 root_1 = (TradutorAST)adaptor.becomeRoot(
                 (TradutorAST)adaptor.create(RETURN, "RETURN")
                 , root_1);
 
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:52: ( expressao )?
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:210:52: ( expressao )?
                 if ( stream_expressao.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressao.nextTree());
 
@@ -6716,22 +6716,22 @@ public TreeAdaptor getTreeAdaptor() {
 
     // $ANTLR start synpred1_Jedi
     public final void synpred1_Jedi_fragment() throws RecognitionException {
-        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:5: ( '.' ID '(' listaExpressoes ')' )
-        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:5: '.' ID '(' listaExpressoes ')'
+        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:5: ( '.' ID '(' listaExpressoes ')' )
+        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:116:5: '.' ID '(' listaExpressoes ')'
         {
-        match(input,48,FOLLOW_48_in_synpred1_Jedi853); if (state.failed) return ;
+        match(input,48,FOLLOW_48_in_synpred1_Jedi850); if (state.failed) return ;
 
-        match(input,ID,FOLLOW_ID_in_synpred1_Jedi855); if (state.failed) return ;
+        match(input,ID,FOLLOW_ID_in_synpred1_Jedi852); if (state.failed) return ;
 
-        match(input,40,FOLLOW_40_in_synpred1_Jedi857); if (state.failed) return ;
+        match(input,40,FOLLOW_40_in_synpred1_Jedi854); if (state.failed) return ;
 
-        pushFollow(FOLLOW_listaExpressoes_in_synpred1_Jedi859);
+        pushFollow(FOLLOW_listaExpressoes_in_synpred1_Jedi856);
         listaExpressoes();
 
         state._fsp--;
         if (state.failed) return ;
 
-        match(input,41,FOLLOW_41_in_synpred1_Jedi861); if (state.failed) return ;
+        match(input,41,FOLLOW_41_in_synpred1_Jedi858); if (state.failed) return ;
 
         }
 
@@ -6740,12 +6740,12 @@ public TreeAdaptor getTreeAdaptor() {
 
     // $ANTLR start synpred2_Jedi
     public final void synpred2_Jedi_fragment() throws RecognitionException {
-        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:117:5: ( '.' ID )
-        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:117:5: '.' ID
+        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:117:5: ( '.' ID )
+        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:117:5: '.' ID
         {
-        match(input,48,FOLLOW_48_in_synpred2_Jedi885); if (state.failed) return ;
+        match(input,48,FOLLOW_48_in_synpred2_Jedi882); if (state.failed) return ;
 
-        match(input,ID,FOLLOW_ID_in_synpred2_Jedi887); if (state.failed) return ;
+        match(input,ID,FOLLOW_ID_in_synpred2_Jedi884); if (state.failed) return ;
 
         }
 
@@ -6754,22 +6754,22 @@ public TreeAdaptor getTreeAdaptor() {
 
     // $ANTLR start synpred4_Jedi
     public final void synpred4_Jedi_fragment() throws RecognitionException {
-        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:11: ( '.' ID '[' expressao ']' )
-        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:11: '.' ID '[' expressao ']'
+        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:11: ( '.' ID '[' expressao ']' )
+        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:119:11: '.' ID '[' expressao ']'
         {
-        match(input,48,FOLLOW_48_in_synpred4_Jedi945); if (state.failed) return ;
+        match(input,48,FOLLOW_48_in_synpred4_Jedi942); if (state.failed) return ;
 
-        match(input,ID,FOLLOW_ID_in_synpred4_Jedi947); if (state.failed) return ;
+        match(input,ID,FOLLOW_ID_in_synpred4_Jedi944); if (state.failed) return ;
 
-        match(input,57,FOLLOW_57_in_synpred4_Jedi949); if (state.failed) return ;
+        match(input,57,FOLLOW_57_in_synpred4_Jedi946); if (state.failed) return ;
 
-        pushFollow(FOLLOW_expressao_in_synpred4_Jedi951);
+        pushFollow(FOLLOW_expressao_in_synpred4_Jedi948);
         expressao();
 
         state._fsp--;
         if (state.failed) return ;
 
-        match(input,59,FOLLOW_59_in_synpred4_Jedi953); if (state.failed) return ;
+        match(input,59,FOLLOW_59_in_synpred4_Jedi950); if (state.failed) return ;
 
         }
 
@@ -6993,159 +6993,159 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_or_in_atribuicao607 = new BitSet(new long[]{0x0020000000000002L});
     public static final BitSet FOLLOW_53_in_atribuicao611 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
     public static final BitSet FOLLOW_or_in_atribuicao615 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_and_in_or629 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000200L});
-    public static final BitSet FOLLOW_73_in_or633 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_and_in_or637 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000200L});
-    public static final BitSet FOLLOW_xor_in_and648 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_39_in_and652 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_xor_in_and656 = new BitSet(new long[]{0x0000008000000002L});
-    public static final BitSet FOLLOW_igualdade_in_xor670 = new BitSet(new long[]{0x1000000000000002L});
-    public static final BitSet FOLLOW_60_in_xor674 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_igualdade_in_xor678 = new BitSet(new long[]{0x1000000000000002L});
-    public static final BitSet FOLLOW_relacional_in_igualdade692 = new BitSet(new long[]{0x0040002000000002L});
-    public static final BitSet FOLLOW_54_in_igualdade696 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_37_in_igualdade700 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_relacional_in_igualdade704 = new BitSet(new long[]{0x0040002000000002L});
-    public static final BitSet FOLLOW_add_in_relacional715 = new BitSet(new long[]{0x0198000000000002L});
-    public static final BitSet FOLLOW_51_in_relacional719 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_55_in_relacional724 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_56_in_relacional729 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_52_in_relacional734 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_add_in_relacional738 = new BitSet(new long[]{0x0198000000000002L});
-    public static final BitSet FOLLOW_mult_in_add750 = new BitSet(new long[]{0x0000480000000002L});
-    public static final BitSet FOLLOW_43_in_add754 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_46_in_add758 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_mult_in_add762 = new BitSet(new long[]{0x0000480000000002L});
-    public static final BitSet FOLLOW_novo_in_mult772 = new BitSet(new long[]{0x0002044000000002L});
-    public static final BitSet FOLLOW_42_in_mult776 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_49_in_mult781 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_38_in_mult786 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_novo_in_mult790 = new BitSet(new long[]{0x0002044000000002L});
-    public static final BitSet FOLLOW_posfixa_in_novo802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_novo808 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000008L});
-    public static final BitSet FOLLOW_posfixa_in_novo812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primaria_in_posfixa830 = new BitSet(new long[]{0x0201010000000002L});
-    public static final BitSet FOLLOW_48_in_posfixa853 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_posfixa855 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_posfixa857 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_listaExpressoes_in_posfixa859 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_posfixa861 = new BitSet(new long[]{0x0201010000000002L});
-    public static final BitSet FOLLOW_48_in_posfixa885 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_posfixa887 = new BitSet(new long[]{0x0201010000000002L});
-    public static final BitSet FOLLOW_40_in_posfixa911 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_listaExpressoes_in_posfixa913 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_posfixa915 = new BitSet(new long[]{0x0201010000000002L});
-    public static final BitSet FOLLOW_48_in_posfixa945 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_posfixa947 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_57_in_posfixa949 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_posfixa951 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_posfixa953 = new BitSet(new long[]{0x0201010000000002L});
-    public static final BitSet FOLLOW_57_in_posfixa983 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_posfixa985 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_posfixa987 = new BitSet(new long[]{0x0201010000000002L});
-    public static final BitSet FOLLOW_expressao_in_listaExpressoes1022 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_45_in_listaExpressoes1025 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_listaExpressoes1027 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_INT_in_primaria1058 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_primaria1071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_primaria1085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_primaria1109 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_primaria1112 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_incremento_in_primaria1120 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_primaria1130 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_primaria1132 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_primaria1133 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_incremento1153 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_incremento1155 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_48_in_incremento1158 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_incremento1159 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_44_in_incremento1183 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_incremento1185 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_48_in_incremento1188 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_incremento1189 = new BitSet(new long[]{0x0001000000000002L});
-    public static final BitSet FOLLOW_ID_in_incremento1217 = new BitSet(new long[]{0x0001800000000000L});
-    public static final BitSet FOLLOW_48_in_incremento1220 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_incremento1221 = new BitSet(new long[]{0x0001800000000000L});
-    public static final BitSet FOLLOW_47_in_incremento1225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_incremento1251 = new BitSet(new long[]{0x0001100000000000L});
-    public static final BitSet FOLLOW_48_in_incremento1254 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_incremento1255 = new BitSet(new long[]{0x0001100000000000L});
-    public static final BitSet FOLLOW_44_in_incremento1259 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_chamadaMetodo1291 = new BitSet(new long[]{0x0001010000000000L});
-    public static final BitSet FOLLOW_48_in_chamadaMetodo1311 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_chamadaMetodo1313 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_chamadaMetodo1315 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_listaExpressoes_in_chamadaMetodo1317 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_chamadaMetodo1319 = new BitSet(new long[]{0x0001010000000002L});
-    public static final BitSet FOLLOW_40_in_chamadaMetodo1343 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_listaExpressoes_in_chamadaMetodo1345 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_chamadaMetodo1347 = new BitSet(new long[]{0x0001010000000002L});
-    public static final BitSet FOLLOW_tipo_in_varDecl1389 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_varDecl1391 = new BitSet(new long[]{0x0420000000000002L});
-    public static final BitSet FOLLOW_58_in_varDecl1396 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_53_in_varDecl1400 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_varDecl1402 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_varDecl_in_listaVarDecl1449 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_varDeclLista_in_listaVarDecl1452 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_45_in_varDeclLista1494 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_varDeclLista1496 = new BitSet(new long[]{0x0420000000000002L});
-    public static final BitSet FOLLOW_58_in_varDeclLista1502 = new BitSet(new long[]{0x0020000000000002L});
-    public static final BitSet FOLLOW_53_in_varDeclLista1506 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_varDeclLista1508 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ifStatement1582 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_ifStatement1584 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_ifStatement1586 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_ifStatement1588 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
-    public static final BitSet FOLLOW_instrucao_in_ifStatement1590 = new BitSet(new long[]{0x8000000000000002L});
-    public static final BitSet FOLLOW_elseIf_in_ifStatement1592 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_elseIf1629 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
-    public static final BitSet FOLLOW_instrucao_in_elseIf1631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_bloco1652 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000005BEL});
-    public static final BitSet FOLLOW_instrucao_in_bloco1654 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000005BEL});
-    public static final BitSet FOLLOW_74_in_bloco1657 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_whileStatement1685 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_whileStatement1687 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_whileStatement1689 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_whileStatement1691 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
-    public static final BitSet FOLLOW_instrucao_in_whileStatement1693 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_doWhileStatement1744 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
-    public static final BitSet FOLLOW_instrucao_in_doWhileStatement1746 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_71_in_doWhileStatement1748 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_doWhileStatement1750 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_doWhileStatement1752 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_doWhileStatement1754 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_forStatement1805 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_forStatement1807 = new BitSet(new long[]{0x0004D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_inicializacaoFor_in_forStatement1808 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_50_in_forStatement1810 = new BitSet(new long[]{0x0004D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_condicaoFor_in_forStatement1812 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_50_in_forStatement1814 = new BitSet(new long[]{0x0000920000002000L});
-    public static final BitSet FOLLOW_incrementoFor_in_forStatement1816 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_forStatement1819 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
-    public static final BitSet FOLLOW_instrucao_in_forStatement1821 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_varDecl_in_inicializacaoFor1881 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_45_in_inicializacaoFor1884 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_atribuicao_in_inicializacaoFor1886 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_atribuicao_in_inicializacaoFor1908 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_45_in_inicializacaoFor1911 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_atribuicao_in_inicializacaoFor1913 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_expressao_in_condicaoFor1953 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_incremento_in_incrementoFor1992 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_45_in_incrementoFor1995 = new BitSet(new long[]{0x0000900000002000L});
-    public static final BitSet FOLLOW_incremento_in_incrementoFor1997 = new BitSet(new long[]{0x0000200000000002L});
-    public static final BitSet FOLLOW_69_in_returnStatement2061 = new BitSet(new long[]{0x0000D10000022002L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_returnStatement2063 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_synpred1_Jedi853 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_synpred1_Jedi855 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_40_in_synpred1_Jedi857 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_listaExpressoes_in_synpred1_Jedi859 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_41_in_synpred1_Jedi861 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_synpred2_Jedi885 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_synpred2_Jedi887 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_synpred4_Jedi945 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_ID_in_synpred4_Jedi947 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_57_in_synpred4_Jedi949 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
-    public static final BitSet FOLLOW_expressao_in_synpred4_Jedi951 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_59_in_synpred4_Jedi953 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_and_in_or626 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000200L});
+    public static final BitSet FOLLOW_73_in_or630 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_and_in_or634 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000200L});
+    public static final BitSet FOLLOW_xor_in_and645 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_39_in_and649 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_xor_in_and653 = new BitSet(new long[]{0x0000008000000002L});
+    public static final BitSet FOLLOW_igualdade_in_xor667 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_60_in_xor671 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_igualdade_in_xor675 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_relacional_in_igualdade689 = new BitSet(new long[]{0x0040002000000002L});
+    public static final BitSet FOLLOW_54_in_igualdade693 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_37_in_igualdade697 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_relacional_in_igualdade701 = new BitSet(new long[]{0x0040002000000002L});
+    public static final BitSet FOLLOW_add_in_relacional712 = new BitSet(new long[]{0x0198000000000002L});
+    public static final BitSet FOLLOW_51_in_relacional716 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_55_in_relacional721 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_56_in_relacional726 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_52_in_relacional731 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_add_in_relacional735 = new BitSet(new long[]{0x0198000000000002L});
+    public static final BitSet FOLLOW_mult_in_add747 = new BitSet(new long[]{0x0000480000000002L});
+    public static final BitSet FOLLOW_43_in_add751 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_46_in_add755 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_mult_in_add759 = new BitSet(new long[]{0x0000480000000002L});
+    public static final BitSet FOLLOW_novo_in_mult769 = new BitSet(new long[]{0x0002044000000002L});
+    public static final BitSet FOLLOW_42_in_mult773 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_49_in_mult778 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_38_in_mult783 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_novo_in_mult787 = new BitSet(new long[]{0x0002044000000002L});
+    public static final BitSet FOLLOW_posfixa_in_novo799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_novo805 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_posfixa_in_novo809 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primaria_in_posfixa827 = new BitSet(new long[]{0x0201010000000002L});
+    public static final BitSet FOLLOW_48_in_posfixa850 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_posfixa852 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_posfixa854 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_listaExpressoes_in_posfixa856 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_posfixa858 = new BitSet(new long[]{0x0201010000000002L});
+    public static final BitSet FOLLOW_48_in_posfixa882 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_posfixa884 = new BitSet(new long[]{0x0201010000000002L});
+    public static final BitSet FOLLOW_40_in_posfixa908 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_listaExpressoes_in_posfixa910 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_posfixa912 = new BitSet(new long[]{0x0201010000000002L});
+    public static final BitSet FOLLOW_48_in_posfixa942 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_posfixa944 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_57_in_posfixa946 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_posfixa948 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_posfixa950 = new BitSet(new long[]{0x0201010000000002L});
+    public static final BitSet FOLLOW_57_in_posfixa980 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_posfixa982 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_posfixa984 = new BitSet(new long[]{0x0201010000000002L});
+    public static final BitSet FOLLOW_expressao_in_listaExpressoes1019 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_45_in_listaExpressoes1022 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_listaExpressoes1024 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_INT_in_primaria1055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_primaria1068 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_primaria1082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_primaria1106 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_primaria1109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_incremento_in_primaria1117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_primaria1127 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_primaria1129 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_primaria1130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_incremento1150 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_incremento1152 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_48_in_incremento1155 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_incremento1156 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_44_in_incremento1180 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_incremento1182 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_48_in_incremento1185 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_incremento1186 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_ID_in_incremento1214 = new BitSet(new long[]{0x0001800000000000L});
+    public static final BitSet FOLLOW_48_in_incremento1217 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_incremento1218 = new BitSet(new long[]{0x0001800000000000L});
+    public static final BitSet FOLLOW_47_in_incremento1222 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_incremento1248 = new BitSet(new long[]{0x0001100000000000L});
+    public static final BitSet FOLLOW_48_in_incremento1251 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_incremento1252 = new BitSet(new long[]{0x0001100000000000L});
+    public static final BitSet FOLLOW_44_in_incremento1256 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_chamadaMetodo1288 = new BitSet(new long[]{0x0001010000000000L});
+    public static final BitSet FOLLOW_48_in_chamadaMetodo1308 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_chamadaMetodo1310 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_chamadaMetodo1312 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_listaExpressoes_in_chamadaMetodo1314 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_chamadaMetodo1316 = new BitSet(new long[]{0x0001010000000002L});
+    public static final BitSet FOLLOW_40_in_chamadaMetodo1340 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_listaExpressoes_in_chamadaMetodo1342 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_chamadaMetodo1344 = new BitSet(new long[]{0x0001010000000002L});
+    public static final BitSet FOLLOW_tipo_in_varDecl1386 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_varDecl1388 = new BitSet(new long[]{0x0420000000000002L});
+    public static final BitSet FOLLOW_58_in_varDecl1393 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_53_in_varDecl1397 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_varDecl1399 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_varDecl_in_listaVarDecl1446 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_varDeclLista_in_listaVarDecl1449 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_45_in_varDeclLista1491 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_varDeclLista1493 = new BitSet(new long[]{0x0420000000000002L});
+    public static final BitSet FOLLOW_58_in_varDeclLista1499 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_53_in_varDeclLista1503 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_varDeclLista1505 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ifStatement1579 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_ifStatement1581 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_ifStatement1583 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_ifStatement1585 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
+    public static final BitSet FOLLOW_instrucao_in_ifStatement1587 = new BitSet(new long[]{0x8000000000000002L});
+    public static final BitSet FOLLOW_elseIf_in_ifStatement1589 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_elseIf1626 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
+    public static final BitSet FOLLOW_instrucao_in_elseIf1628 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_bloco1649 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000005BEL});
+    public static final BitSet FOLLOW_instrucao_in_bloco1651 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000005BEL});
+    public static final BitSet FOLLOW_74_in_bloco1654 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_whileStatement1682 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_whileStatement1684 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_whileStatement1686 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_whileStatement1688 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
+    public static final BitSet FOLLOW_instrucao_in_whileStatement1690 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_doWhileStatement1741 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
+    public static final BitSet FOLLOW_instrucao_in_doWhileStatement1743 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_71_in_doWhileStatement1745 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_doWhileStatement1747 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_doWhileStatement1749 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_doWhileStatement1751 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_forStatement1802 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_forStatement1804 = new BitSet(new long[]{0x0004D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_inicializacaoFor_in_forStatement1805 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_50_in_forStatement1807 = new BitSet(new long[]{0x0004D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_condicaoFor_in_forStatement1809 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_50_in_forStatement1811 = new BitSet(new long[]{0x0000920000002000L});
+    public static final BitSet FOLLOW_incrementoFor_in_forStatement1813 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_forStatement1816 = new BitSet(new long[]{0x4004D10000022000L,0x00000000000001BEL});
+    public static final BitSet FOLLOW_instrucao_in_forStatement1818 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_varDecl_in_inicializacaoFor1878 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_45_in_inicializacaoFor1881 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_atribuicao_in_inicializacaoFor1883 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_atribuicao_in_inicializacaoFor1905 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_45_in_inicializacaoFor1908 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_atribuicao_in_inicializacaoFor1910 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_expressao_in_condicaoFor1950 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_incremento_in_incrementoFor1989 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_45_in_incrementoFor1992 = new BitSet(new long[]{0x0000900000002000L});
+    public static final BitSet FOLLOW_incremento_in_incrementoFor1994 = new BitSet(new long[]{0x0000200000000002L});
+    public static final BitSet FOLLOW_69_in_returnStatement2058 = new BitSet(new long[]{0x0000D10000022002L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_returnStatement2060 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_synpred1_Jedi850 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_synpred1_Jedi852 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_40_in_synpred1_Jedi854 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_listaExpressoes_in_synpred1_Jedi856 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_41_in_synpred1_Jedi858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_synpred2_Jedi882 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_synpred2_Jedi884 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_synpred4_Jedi942 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_ID_in_synpred4_Jedi944 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_57_in_synpred4_Jedi946 = new BitSet(new long[]{0x0000D10000022000L,0x0000000000000018L});
+    public static final BitSet FOLLOW_expressao_in_synpred4_Jedi948 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_synpred4_Jedi950 = new BitSet(new long[]{0x0000000000000002L});
 
 }

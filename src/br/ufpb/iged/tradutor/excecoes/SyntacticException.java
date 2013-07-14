@@ -1,5 +1,7 @@
 package br.ufpb.iged.tradutor.excecoes;
 
+import org.antlr.runtime.RecognitionException;
+
 public class SyntacticException extends Exception{
 
 	/**

@@ -29,7 +29,7 @@ options {
     public Def(CommonTreeNodeStream input, TabelaSimbolos tabelaSimbolos) {
         this(input);
         this.tabelaSimbolos = tabelaSimbolos;
-        escopoAtual = tabelaSimbolos.globals;
+        escopoAtual = tabelaSimbolos.global;
     }
 }
 
@@ -172,13 +172,18 @@ fieldDecl
 	        System.out.println("line "+$ID.getLine()+": def "+$ID.text);
 	        $tp.escopo = escopoAtual;
 	        SimboloVariavel simboloVariavel;
-	        if ($tp.getText().equals("int"))
+	        if ($tp.getText().equals("int") && $vet == null)
 	        	simboloVariavel = new SimboloVariavel($ID.text,new SimboloTipoPrimitivo("int"));
-	        else
-	        	simboloVariavel = new SimboloVariavel($ID.text,new SimboloTipoReferencia($tp.getText()));
+	        else {
+	        	String tipo = $tp.getText();
+	        	if ($vet != null)
+	        		tipo += "[]";
+	        	simboloVariavel = new SimboloVariavel($ID.text,new SimboloTipoReferencia(tipo));
+	        }
+	        
 	        simboloVariavel.def = $ID;            
 	        $ID.simbolo = simboloVariavel;         
-	        escopoAtual.definir(simboloVariavel);
+	        ((SimboloClasse)escopoAtual).definirCampo(simboloVariavel);
         }
     ;
     
@@ -188,10 +193,15 @@ paramDecl
 	        System.out.println("line "+$ID.getLine()+": def "+$ID.text);
 	        $tp.escopo = escopoAtual;
 	        SimboloVariavel simboloVariavel;
-	        if ($tp.getText().equals("int"))
+	        if ($tp.getText().equals("int") && $vet == null)
 	        	simboloVariavel = new SimboloVariavel($ID.text,new SimboloTipoPrimitivo("int"), metodoAtual.getQuantidadeVariaveis());
-	        else
-	        	simboloVariavel = new SimboloVariavel($ID.text,new SimboloTipoReferencia($tp.getText()), metodoAtual.getQuantidadeVariaveis());
+		else {
+	        	String tipo = $tp.getText();
+	        	if ($vet != null)
+	        		tipo += "[]";
+	        	simboloVariavel = new SimboloVariavel($ID.text,new SimboloTipoReferencia(tipo), metodoAtual.getQuantidadeVariaveis());
+	        } 	
+	              
 	        simboloVariavel.def = $ID;            
 	        $ID.simbolo = simboloVariavel;         
 	        escopoAtual.definir(simboloVariavel);
@@ -207,10 +217,15 @@ listaVarDecl
         	System.out.println("line "+$ID.getLine()+": def "+$ID.text);
 	        $tp.escopo = escopoAtual;
 	        SimboloVariavel simboloVariavel;
-	        if ($tp.getText().equals("int"))
+	        if ($tp.getText().equals("int") && ($vet == null || !$vet.getText().equals("[]")))
 	        	simboloVariavel = new SimboloVariavel($ID.text, new SimboloTipoPrimitivo("int"), metodoAtual.getQuantidadeVariaveis());
-	        else
-	        	simboloVariavel = new SimboloVariavel($ID.text, new SimboloTipoReferencia($tp.getText()), metodoAtual.getQuantidadeVariaveis());
+	        else {
+	        	String tipo = $tp.getText();
+	        	if ($vet != null)
+	        		tipo += "[]";
+	        	simboloVariavel = new SimboloVariavel($ID.text, new SimboloTipoReferencia(tipo), metodoAtual.getQuantidadeVariaveis());
+	        } 	
+	        
 	        simboloVariavel.def = $ID;            
 	        $ID.simbolo = simboloVariavel;         
 	        escopoAtual.definir(simboloVariavel);
@@ -231,10 +246,15 @@ varDeclFor
         	System.out.println("line "+$ID.getLine()+": def "+$ID.text);
 	        $tp.escopo = escopoAtual;
 	        SimboloVariavel simboloVariavel;
-	        if ($tp.getText().equals("int"))
+	        if ($tp.getText().equals("int") && $vet == null)
 	        	simboloVariavel = new SimboloVariavel($ID.text, new SimboloTipoPrimitivo("int"), metodoAtual.getQuantidadeVariaveis());
-	        else
-	        	simboloVariavel = new SimboloVariavel($ID.text, new SimboloTipoReferencia($tp.getText()), metodoAtual.getQuantidadeVariaveis());
+		else {
+	        	String tipo = $tp.getText();
+	        	if ($vet != null)
+	        		tipo += "[]";
+	        	simboloVariavel = new SimboloVariavel($ID.text, new SimboloTipoReferencia(tipo), metodoAtual.getQuantidadeVariaveis());
+	        } 	
+	        
 	        simboloVariavel.def = $ID;            
 	        $ID.simbolo = simboloVariavel;         
 	        escopoAtual.definir(simboloVariavel);

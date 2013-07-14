@@ -2,7 +2,7 @@ package br.ufpb.iged.tradutor.simbolos;
 
 public class TabelaSimbolos {
 	
-    public EscopoGlobal globals = new EscopoGlobal();
+    public EscopoGlobal global = new EscopoGlobal();
     SimboloClasse objetoRaiz;
 
     public TabelaSimbolos() { initTypeSystem(); }
@@ -18,8 +18,8 @@ public class TabelaSimbolos {
         globals.define(objetoRaiz);
 */
         // define predefined atomic types
-        globals.definir(new SimboloTipoPrimitivo("int"));
-        globals.definir(new SimboloTipoPrimitivo("void")); // pseudo-type
+        global.definir(new SimboloTipoPrimitivo("int"));
+        global.definir(new SimboloTipoPrimitivo("void")); // pseudo-type
     }
 
     public static Simbolo resolverID(TradutorAST idAST) {
@@ -58,6 +58,6 @@ public class TabelaSimbolos {
         
     }
 
-    public String toString() { return globals.toString(); }
+    public String toString() { return global.toString(); }
 }
 

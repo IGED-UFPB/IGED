@@ -39,7 +39,7 @@ public class SimboloMetodo extends SimboloComEscopo {
 	public void setQuantidadeVariaveis(int quantidadeVariaveis) {
 		this.quantidadeVariaveis = quantidadeVariaveis;
 	}
-	
+
 	public void incrementarQuantidadeVariaveis() {
 		
 		this.quantidadeVariaveis++;

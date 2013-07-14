@@ -14,6 +14,7 @@ import org.antlr.runtime.TokenStream;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeAdaptor;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.antlr.runtime.tree.Tree;
 import org.antlr.runtime.tree.TreeAdaptor;
 
 import br.ufpb.iged.interpretador.bytecodeassembler.asm.BytecodeAssembler;
@@ -26,14 +27,18 @@ import br.ufpb.iged.tradutor.parser.Ref;
 import br.ufpb.iged.interpretador.symboltable.classes.BytecodesAST;
 import br.ufpb.iged.interpretador.symboltable.classes.BytecodesErrorNode;
 import br.ufpb.iged.tradutor.simbolos.TabelaSimbolos;
+import br.ufpb.iged.tradutor.simbolos.Tipo;
 import br.ufpb.iged.tradutor.parser.JediLexer;
 import br.ufpb.iged.tradutor.parser.JediParser;
 import br.ufpb.iged.tradutor.simbolos.TradutorAST;
 
 public class Tradutor {
 	
-	private static CommonTokenStream tokens = new CommonTokenStream();	
-	private static CommonTree tree = new CommonTree();
+	public static CommonTokenStream tokens = new CommonTokenStream();	
+	public static CommonTree tree = new CommonTree();
+	public static StringBuffer buffer;
+	public static String tipoReferencia;
+	public static Tipo tipoAtual;
 	
 	public static TabelaSimbolos tabelaSimbolos;
 	
@@ -68,7 +73,14 @@ public class Tradutor {
             if ( t==null ) {
                 return null;
             }
-            return create(((BytecodesAST)t).token);
+            
+            Object no = create(((TradutorAST)t).token);
+            
+            ((TradutorAST)no).escopo = ((TradutorAST)t).escopo;
+            ((TradutorAST)no).simbolo = ((TradutorAST)t).simbolo;
+            
+            return no;
+            
         }
         
         public Object errorNode(TokenStream input, Token start, Token stop,

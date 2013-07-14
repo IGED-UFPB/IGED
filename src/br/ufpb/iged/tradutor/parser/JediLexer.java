@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g 2013-07-02 17:43:47
+// $ANTLR 3.4 C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g 2013-07-14 18:43:07
 
   package br.ufpb.iged.tradutor.parser;
   //package br.ufpb.iged.tradutor.gramaticas.output;
@@ -97,15 +97,15 @@ public class JediLexer extends Lexer {
     public JediLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
     }
-    public String getGrammarFileName() { return "C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g"; }
+    public String getGrammarFileName() { return "C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g"; }
 
     // $ANTLR start "T__37"
     public final void mT__37() throws RecognitionException {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:7:7: ( '!=' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:7:9: '!='
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:7:7: ( '!=' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:7:9: '!='
             {
             match("!="); 
 
@@ -127,8 +127,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:8:7: ( '%' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:8:9: '%'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:8:7: ( '%' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:8:9: '%'
             {
             match('%'); 
 
@@ -148,8 +148,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:9:7: ( '&&' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:9:9: '&&'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:9:7: ( '&&' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:9:9: '&&'
             {
             match("&&"); 
 
@@ -171,8 +171,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:10:7: ( '(' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:10:9: '('
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:10:7: ( '(' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:10:9: '('
             {
             match('('); 
 
@@ -192,8 +192,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:11:7: ( ')' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:11:9: ')'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:11:7: ( ')' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:11:9: ')'
             {
             match(')'); 
 
@@ -213,8 +213,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:12:7: ( '*' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:12:9: '*'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:12:7: ( '*' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:12:9: '*'
             {
             match('*'); 
 
@@ -234,8 +234,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:13:7: ( '+' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:13:9: '+'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:13:7: ( '+' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:13:9: '+'
             {
             match('+'); 
 
@@ -255,8 +255,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:14:7: ( '++' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:14:9: '++'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:14:7: ( '++' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:14:9: '++'
             {
             match("++"); 
 
@@ -278,8 +278,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:15:7: ( ',' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:15:9: ','
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:15:7: ( ',' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:15:9: ','
             {
             match(','); 
 
@@ -299,8 +299,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:16:7: ( '-' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:16:9: '-'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:16:7: ( '-' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:16:9: '-'
             {
             match('-'); 
 
@@ -320,8 +320,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:17:7: ( '--' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:17:9: '--'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:17:7: ( '--' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:17:9: '--'
             {
             match("--"); 
 
@@ -343,8 +343,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:18:7: ( '.' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:18:9: '.'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:18:7: ( '.' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:18:9: '.'
             {
             match('.'); 
 
@@ -364,8 +364,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:19:7: ( '/' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:19:9: '/'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:19:7: ( '/' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:19:9: '/'
             {
             match('/'); 
 
@@ -385,8 +385,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:20:7: ( ';' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:20:9: ';'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:20:7: ( ';' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:20:9: ';'
             {
             match(';'); 
 
@@ -406,8 +406,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:21:7: ( '<' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:21:9: '<'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:21:7: ( '<' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:21:9: '<'
             {
             match('<'); 
 
@@ -427,8 +427,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:22:7: ( '<=' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:22:9: '<='
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:22:7: ( '<=' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:22:9: '<='
             {
             match("<="); 
 
@@ -450,8 +450,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:23:7: ( '=' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:23:9: '='
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:23:7: ( '=' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:23:9: '='
             {
             match('='); 
 
@@ -471,8 +471,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:24:7: ( '==' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:24:9: '=='
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:24:7: ( '==' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:24:9: '=='
             {
             match("=="); 
 
@@ -494,8 +494,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:25:7: ( '>' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:25:9: '>'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:25:7: ( '>' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:25:9: '>'
             {
             match('>'); 
 
@@ -515,8 +515,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:26:7: ( '>=' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:26:9: '>='
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:26:7: ( '>=' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:26:9: '>='
             {
             match(">="); 
 
@@ -538,8 +538,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:27:7: ( '[' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:27:9: '['
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:27:7: ( '[' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:27:9: '['
             {
             match('['); 
 
@@ -559,8 +559,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:28:7: ( '[]' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:28:9: '[]'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:28:7: ( '[]' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:28:9: '[]'
             {
             match("[]"); 
 
@@ -582,8 +582,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:29:7: ( ']' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:29:9: ']'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:29:7: ( ']' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:29:9: ']'
             {
             match(']'); 
 
@@ -603,8 +603,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:30:7: ( '^' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:30:9: '^'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:30:7: ( '^' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:30:9: '^'
             {
             match('^'); 
 
@@ -624,8 +624,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:31:7: ( 'class' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:31:9: 'class'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:31:7: ( 'class' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:31:9: 'class'
             {
             match("class"); 
 
@@ -647,8 +647,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:32:7: ( 'do' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:32:9: 'do'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:32:7: ( 'do' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:32:9: 'do'
             {
             match("do"); 
 
@@ -670,8 +670,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:33:7: ( 'else' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:33:9: 'else'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:33:7: ( 'else' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:33:9: 'else'
             {
             match("else"); 
 
@@ -693,8 +693,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:34:7: ( 'extends' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:34:9: 'extends'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:34:7: ( 'extends' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:34:9: 'extends'
             {
             match("extends"); 
 
@@ -716,8 +716,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:35:7: ( 'for' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:35:9: 'for'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:35:7: ( 'for' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:35:9: 'for'
             {
             match("for"); 
 
@@ -739,8 +739,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:36:7: ( 'if' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:36:9: 'if'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:36:7: ( 'if' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:36:9: 'if'
             {
             match("if"); 
 
@@ -762,8 +762,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:37:7: ( 'int' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:37:9: 'int'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:37:7: ( 'int' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:37:9: 'int'
             {
             match("int"); 
 
@@ -785,8 +785,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:38:7: ( 'new' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:38:9: 'new'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:38:7: ( 'new' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:38:9: 'new'
             {
             match("new"); 
 
@@ -808,8 +808,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:39:7: ( 'return' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:39:9: 'return'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:39:7: ( 'return' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:39:9: 'return'
             {
             match("return"); 
 
@@ -831,8 +831,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:40:7: ( 'static' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:40:9: 'static'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:40:7: ( 'static' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:40:9: 'static'
             {
             match("static"); 
 
@@ -854,8 +854,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:41:7: ( 'while' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:41:9: 'while'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:41:7: ( 'while' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:41:9: 'while'
             {
             match("while"); 
 
@@ -877,8 +877,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:42:7: ( '{' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:42:9: '{'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:42:7: ( '{' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:42:9: '{'
             {
             match('{'); 
 
@@ -898,8 +898,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:43:7: ( '||' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:43:9: '||'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:43:7: ( '||' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:43:9: '||'
             {
             match("||"); 
 
@@ -921,8 +921,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:44:7: ( '}' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:44:9: '}'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:44:7: ( '}' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:44:9: '}'
             {
             match('}'); 
 
@@ -942,8 +942,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:212:5: ( ( LETRA | '_' ) ( LETRA | '_' | '0' .. '9' )* )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:212:9: ( LETRA | '_' ) ( LETRA | '_' | '0' .. '9' )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:212:5: ( ( LETRA | '_' ) ( LETRA | '_' | '0' .. '9' )* )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:212:9: ( LETRA | '_' ) ( LETRA | '_' | '0' .. '9' )*
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -955,7 +955,7 @@ public class JediLexer extends Lexer {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:212:23: ( LETRA | '_' | '0' .. '9' )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:212:23: ( LETRA | '_' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -968,7 +968,7 @@ public class JediLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
@@ -1003,8 +1003,8 @@ public class JediLexer extends Lexer {
     // $ANTLR start "LETRA"
     public final void mLETRA() throws RecognitionException {
         try {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:217:8: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:217:8: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
                 input.consume();
@@ -1031,10 +1031,10 @@ public class JediLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:5: ( ( '-' )? ( '0' .. '9' )+ )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:9: ( '-' )? ( '0' .. '9' )+
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:5: ( ( '-' )? ( '0' .. '9' )+ )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:9: ( '-' )? ( '0' .. '9' )+
             {
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:9: ( '-' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:9: ( '-' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1043,7 +1043,7 @@ public class JediLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:10: '-'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:10: '-'
                     {
                     match('-'); 
 
@@ -1053,7 +1053,7 @@ public class JediLexer extends Lexer {
             }
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:16: ( '0' .. '9' )+
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:219:16: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1067,7 +1067,7 @@ public class JediLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
             	    {
             	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
             	        input.consume();
@@ -1108,8 +1108,8 @@ public class JediLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:222:5: ( ( ' ' | '\\r' | '\\t' | '\\n' ) )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:222:9: ( ' ' | '\\r' | '\\t' | '\\n' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:222:5: ( ( ' ' | '\\r' | '\\t' | '\\n' ) )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:222:9: ( ' ' | '\\r' | '\\t' | '\\n' )
             {
             if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -1139,14 +1139,14 @@ public class JediLexer extends Lexer {
         try {
             int _type = SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:5: ( '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' )? '\\n' )
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:9: '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' )? '\\n'
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:5: ( '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' )? '\\n' )
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:9: '//' (~ ( '\\r' | '\\n' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:14: (~ ( '\\r' | '\\n' ) )*
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:14: (~ ( '\\r' | '\\n' ) )*
             loop4:
             do {
                 int alt4=2;
@@ -1159,7 +1159,7 @@ public class JediLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
+            	    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -1180,7 +1180,7 @@ public class JediLexer extends Lexer {
             } while (true);
 
 
-            // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:28: ( '\\r' )?
+            // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:28: ( '\\r' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1189,7 +1189,7 @@ public class JediLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:28: '\\r'
+                    // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:226:28: '\\r'
                     {
                     match('\r'); 
 
@@ -1215,12 +1215,12 @@ public class JediLexer extends Lexer {
     // $ANTLR end "SL_COMMENT"
 
     public void mTokens() throws RecognitionException {
-        // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:8: ( T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | ID | INT | WS | SL_COMMENT )
+        // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:8: ( T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | ID | INT | WS | SL_COMMENT )
         int alt6=42;
         alt6 = dfa6.predict(input);
         switch (alt6) {
             case 1 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:10: T__37
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:10: T__37
                 {
                 mT__37(); 
 
@@ -1228,7 +1228,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 2 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:16: T__38
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:16: T__38
                 {
                 mT__38(); 
 
@@ -1236,7 +1236,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 3 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:22: T__39
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:22: T__39
                 {
                 mT__39(); 
 
@@ -1244,7 +1244,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 4 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:28: T__40
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:28: T__40
                 {
                 mT__40(); 
 
@@ -1252,7 +1252,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 5 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:34: T__41
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:34: T__41
                 {
                 mT__41(); 
 
@@ -1260,7 +1260,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 6 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:40: T__42
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:40: T__42
                 {
                 mT__42(); 
 
@@ -1268,7 +1268,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 7 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:46: T__43
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:46: T__43
                 {
                 mT__43(); 
 
@@ -1276,7 +1276,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 8 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:52: T__44
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:52: T__44
                 {
                 mT__44(); 
 
@@ -1284,7 +1284,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:58: T__45
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:58: T__45
                 {
                 mT__45(); 
 
@@ -1292,7 +1292,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 10 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:64: T__46
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:64: T__46
                 {
                 mT__46(); 
 
@@ -1300,7 +1300,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 11 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:70: T__47
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:70: T__47
                 {
                 mT__47(); 
 
@@ -1308,7 +1308,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 12 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:76: T__48
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:76: T__48
                 {
                 mT__48(); 
 
@@ -1316,7 +1316,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 13 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:82: T__49
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:82: T__49
                 {
                 mT__49(); 
 
@@ -1324,7 +1324,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 14 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:88: T__50
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:88: T__50
                 {
                 mT__50(); 
 
@@ -1332,7 +1332,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 15 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:94: T__51
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:94: T__51
                 {
                 mT__51(); 
 
@@ -1340,7 +1340,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 16 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:100: T__52
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:100: T__52
                 {
                 mT__52(); 
 
@@ -1348,7 +1348,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 17 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:106: T__53
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:106: T__53
                 {
                 mT__53(); 
 
@@ -1356,7 +1356,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 18 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:112: T__54
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:112: T__54
                 {
                 mT__54(); 
 
@@ -1364,7 +1364,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 19 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:118: T__55
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:118: T__55
                 {
                 mT__55(); 
 
@@ -1372,7 +1372,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 20 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:124: T__56
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:124: T__56
                 {
                 mT__56(); 
 
@@ -1380,7 +1380,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 21 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:130: T__57
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:130: T__57
                 {
                 mT__57(); 
 
@@ -1388,7 +1388,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 22 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:136: T__58
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:136: T__58
                 {
                 mT__58(); 
 
@@ -1396,7 +1396,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 23 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:142: T__59
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:142: T__59
                 {
                 mT__59(); 
 
@@ -1404,7 +1404,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 24 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:148: T__60
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:148: T__60
                 {
                 mT__60(); 
 
@@ -1412,7 +1412,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 25 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:154: T__61
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:154: T__61
                 {
                 mT__61(); 
 
@@ -1420,7 +1420,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 26 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:160: T__62
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:160: T__62
                 {
                 mT__62(); 
 
@@ -1428,7 +1428,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 27 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:166: T__63
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:166: T__63
                 {
                 mT__63(); 
 
@@ -1436,7 +1436,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 28 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:172: T__64
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:172: T__64
                 {
                 mT__64(); 
 
@@ -1444,7 +1444,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 29 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:178: T__65
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:178: T__65
                 {
                 mT__65(); 
 
@@ -1452,7 +1452,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 30 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:184: T__66
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:184: T__66
                 {
                 mT__66(); 
 
@@ -1460,7 +1460,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 31 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:190: T__67
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:190: T__67
                 {
                 mT__67(); 
 
@@ -1468,7 +1468,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 32 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:196: T__68
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:196: T__68
                 {
                 mT__68(); 
 
@@ -1476,7 +1476,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 33 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:202: T__69
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:202: T__69
                 {
                 mT__69(); 
 
@@ -1484,7 +1484,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 34 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:208: T__70
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:208: T__70
                 {
                 mT__70(); 
 
@@ -1492,7 +1492,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 35 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:214: T__71
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:214: T__71
                 {
                 mT__71(); 
 
@@ -1500,7 +1500,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 36 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:220: T__72
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:220: T__72
                 {
                 mT__72(); 
 
@@ -1508,7 +1508,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 37 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:226: T__73
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:226: T__73
                 {
                 mT__73(); 
 
@@ -1516,7 +1516,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 38 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:232: T__74
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:232: T__74
                 {
                 mT__74(); 
 
@@ -1524,7 +1524,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 39 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:238: ID
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:238: ID
                 {
                 mID(); 
 
@@ -1532,7 +1532,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 40 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:241: INT
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:241: INT
                 {
                 mINT(); 
 
@@ -1540,7 +1540,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 41 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:245: WS
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:245: WS
                 {
                 mWS(); 
 
@@ -1548,7 +1548,7 @@ public class JediLexer extends Lexer {
                 }
                 break;
             case 42 :
-                // C:\\Users\\Tiago\\Git\\IGED\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:248: SL_COMMENT
+                // C:\\Users\\Tiago\\Git\\IGED\\src\\br\\ufpb\\iged\\tradutor\\gramaticas\\Jedi.g:1:248: SL_COMMENT
                 {
                 mSL_COMMENT(); 
 

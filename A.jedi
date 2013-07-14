@@ -1,6 +1,6 @@
 class A {
 
-  static int x;
+  static int x[];
   static int y;
   static Jkgujf orbv;
  
@@ -19,16 +19,6 @@ class A {
   	x = 7;
   	
   	y = 4;
-    
-    Node c = new NodeList(10);
-    
-    int k = maior(1, 2);
-	
-	this.a = a;
-    this.b = b;
-    
-    Node e = iotort(2);
-    int f = iotort(2);
 
   }
   
@@ -52,6 +42,24 @@ class A {
   	int z = x + y * k;
   	
   	k = x + z - 10;
+  
+  }
+  
+  void esdf(){
+  
+  	int vet[];
+  	int b = 2;
+  	
+  	int j = vet[b + 3 * 4];
+  	
+  	B c;
+  	
+  	int k = c.x;
+  	int o = B.s;
+  	
+  	int n = c.w.a;
+  	
+  	int p = c.v[3];
   
   }
 

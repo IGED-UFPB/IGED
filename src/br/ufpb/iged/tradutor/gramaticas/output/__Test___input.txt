@@ -19,16 +19,6 @@ class A {
   	x = 7;
   	
   	y = 4;
-    
-    Node c = new NodeList(10);
-    
-    int k = maior(1, 2);
-	
-	this.a = a;
-    this.b = b;
-    
-    Node e = iotort(2);
-    int f = iotort(2);
 
   }
   
@@ -49,11 +39,18 @@ class A {
   	y = 2;
   	k = 4;
   	
-  	int z = x + y * g.k(2, 8);
+  	int z = x + y * k;
   	
-  	k  = a.x.y.z.w[2] + z - 10;
-
-	x = b[4];
+  	k = x + z - 10;
+  
+  }
+  
+  void esdf(){
+  
+  	int vet[];
+  	int b = 2;
+  	
+  	int j = vet[b + 3 * 4];
   
   }
 
