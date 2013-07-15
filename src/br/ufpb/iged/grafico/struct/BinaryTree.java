@@ -15,9 +15,9 @@ import java.awt.geom.Point2D;
  */
 public class BinaryTree extends Struct{
 		/**desta forma quando criamos uma estrutura do tipo bt
-		 * a sua coordenada x È X_INIT + "espaÁo entre estruturas", que por sua vez È igual a 250
-		 * assim a coordenada x inicial ser· 150 (o valor que desejamos)
-		 * ou seja, igual ao X_BOUND que È o limite da coordenada x inicial */
+		 * a sua coordenada x ÔøΩ X_INIT + "espaÔøΩo entre estruturas", que por sua vez ÔøΩ igual a 250
+		 * assim a coordenada x inicial serÔøΩ 150 (o valor que desejamos)
+		 * ou seja, igual ao X_BOUND que ÔøΩ o limite da coordenada x inicial */
 		public static double X_INIT = -100;
         public static double X_BOUND = 150;
 	
@@ -33,12 +33,12 @@ public class BinaryTree extends Struct{
 	private String referencia;
 	private String tamanho = "0";
 	
-	/**Representam o deslocamento, para ajustar o label 'size', nos eixos x e y no momento em que a BinaryTree È criada
-	 * quando ainda n„o possui elementos*/
+	/**Representam o deslocamento, para ajustar o label 'size', nos eixos x e y no momento em que a BinaryTree ÔøΩ criada
+	 * quando ainda nÔøΩo possui elementos*/
 	private int sprainXInit = 90;
 	private int sprainYInit = 75;
 	
-	/**Deslocamento nos eixos x e y quando a BT j· possui elementos*/
+	/**Deslocamento nos eixos x e y quando a BT jÔøΩ possui elementos*/
 	private int sprainX = 28;
 	private int sprainY = 20;
 	
@@ -158,6 +158,7 @@ public class BinaryTree extends Struct{
 		this.yBase = yBase;
 		
 		if (this.ini == null) {
+			System.out.println(">>>>>> t√° entrando aki");
 			// desenhar lista vazia "referencia solta"
 			
 			double xPosition = this.pi.getX()-40;
@@ -210,7 +211,7 @@ public class BinaryTree extends Struct{
 			
 //			ref = new Referencia(ini, referencia + ".raiz",
 //					new Point2D.Double(60, yBase+ espaco+ 10), quadro);
-			ref.setFixa(false);
+			ref.setFixa(true);
 			
 			this.size.mover(new Point2D.Double(this.ref.getPB().getX()-this.sprainX,
 					this.ref.getPB().getY()-this.sprainY));

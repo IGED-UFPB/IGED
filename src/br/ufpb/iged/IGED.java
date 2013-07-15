@@ -3,7 +3,7 @@ package br.ufpb.iged;
 import br.ufpb.iged.grafico.manager.AcaoUsuario;
 import br.ufpb.iged.grafico.manager.PaintUI;
 import br.ufpb.iged.grafico.manager.Quadro;
-import br.ufpb.iged.interpretador.principal.Interpretador;
+//import br.ufpb.iged.interpretador.principal.Interpretador;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -42,7 +42,7 @@ public class IGED implements AcaoUsuario{
 
 	@Override
 	public void color() {
-           /*final StringTokenizer st = new StringTokenizer(pait.Lines(), "\n");
+           final StringTokenizer st = new StringTokenizer(pait.Lines(), "\n");
             new Thread(){
                 @Override
                 public void run(){
@@ -52,20 +52,20 @@ public class IGED implements AcaoUsuario{
                         iter.interprete(c);
                     }
                 }
-            }.start();*/
+            }.start();
 		
-		String codigoArquivo = pait.Lines();
-		try {
-			FileWriter fw = new FileWriter("classes/Main.j");
-			BufferedWriter bw =  new BufferedWriter(fw);
-			bw.write(codigoArquivo);
-			bw.close();
-			fw.close();
-			iter.interpretar();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		String codigoArquivo = pait.Lines();
+//		try {
+//			FileWriter fw = new FileWriter("classes/Main.j");
+//			BufferedWriter bw =  new BufferedWriter(fw);
+//			bw.write(codigoArquivo);
+//			bw.close();
+//			fw.close();
+//			iter.interpretar();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 	}
 

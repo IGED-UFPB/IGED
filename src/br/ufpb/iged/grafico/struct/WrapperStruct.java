@@ -56,7 +56,7 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
                 break;
                 
                 
-                /**Agora este código pode ser utilizado pelas estruturas Node (linkedListNode e NodeTree)
+                /**Agora este cï¿½digo pode ser utilizado pelas estruturas Node (linkedListNode e NodeTree)
                  * */
             case IGEDConst.NODE:
                 if (ref != null && ref.getNode() != null) {
@@ -159,8 +159,7 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
             
             case IGEDConst.NODE_TREE:
                 if(this.s!=null){
-                    NodeTree nt = ((NodeTree)s);
-                    nt.remove(this.ref);
+                    this.s.remove(this.ref);
 				}
 				this.ref = new Referencia(((NodeTree)s), this.referencia, quadro);
 				quadro.add(this.ref);
@@ -208,10 +207,10 @@ public class WrapperStruct implements Comparable<WrapperStruct> {
     public int compareTo(WrapperStruct w) {
     	
     	/**Para o caso de e estrutura ser do tipo nodeTree
-    	 * Proporciona reuso de código
-    	 * Então a estrutura assume um tipo mais genérico
+    	 * Proporciona reuso de cï¿½digo
+    	 * Entï¿½o a estrutura assume um tipo mais genï¿½rico
     	 * 
-    	 * Desta forma ainda é possível comparar os dois tipos de node*/
+    	 * Desta forma ainda ï¿½ possï¿½vel comparar os dois tipos de node*/
     	
     	int compareType,compareTypeStruct;
     	if(type == IGEDConst.NODE_TREE) compareType=IGEDConst.NODE;
