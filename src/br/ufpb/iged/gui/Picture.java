@@ -1,3 +1,4 @@
+package br.ufpb.iged.gui;
 
 import java.awt.Graphics;
 import java.awt.Image;

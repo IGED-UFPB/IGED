@@ -236,12 +236,23 @@ public class GraphicManager {
         ints.push(referencia);
     }
 
+    /* Esse método apresentou problemas, foi modificado abaixo
     public void setValue(String value) {
         vi.setValor(ints.pop(), value);
+    }*/
+    
+    public void setValue(String referencia) {
+        vi.setValor(referencia, ints.pop());
     }
 
-    public void read_Int(String referencia) {
+    /* Esse método apresentou problemas, foi modificado abaixo
+     * public void read_Int(String referencia) {
         vi.ler(referencia);
+    }*/
+    
+    public void read_Int(String referencia) {
+        String valorInteiro = vi.lerInteiro(referencia);
+        ints.push(valorInteiro);
     }
 
     private int getXNodeSoltos() {

@@ -119,10 +119,17 @@ public class GraficoAED {
                     gm.readReferenceInt(referencia);
 	}
 	
-	public void setValueInt(int value){
+	//Esse método apresentou problemas, foi modificado abaixo
+	 public void setValueInt(int value){
 		if(mode != IGEDConst.MODE_PROFESSOR)
                     gm.setValue(String.valueOf(value));
 	}
+	
+	public void setValueInt(String referencia){
+		if(mode != IGEDConst.MODE_PROFESSOR)
+                    gm.setValue(referencia);
+	}
+	
 	public void ler_Int(String referencia){
 		if(mode != IGEDConst.MODE_PROFESSOR)
                     gm.read_Int(referencia);

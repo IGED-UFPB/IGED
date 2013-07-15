@@ -37,6 +37,10 @@ public class VarInteiro extends Elemento{
 		this.valor.setText(t);
 		this.r.evidencia(Color.red, 4, quadro);
 	}
+	
+	public String getValor(){
+		return this.valor.getText();		
+	}
 
 	public static final int LARGURA = 60;
 }
