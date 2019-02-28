@@ -16,7 +16,7 @@ import org.jdesktop.swingx.JXBusyLabel;
 
 /**
  *
- * @author darkolyver
+ * @author
  */
 public class TelaSequenciaDidaticaPesquisa extends javax.swing.JInternalFrame {
 
