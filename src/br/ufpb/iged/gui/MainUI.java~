@@ -9,7 +9,7 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author darkolyver
+ * @author
  */
 public class MainUI extends javax.swing.JFrame {
 
