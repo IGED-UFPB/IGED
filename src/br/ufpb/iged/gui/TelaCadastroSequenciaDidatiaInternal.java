@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author darkolyver
+ * @author
  */
 public class TelaCadastroSequenciaDidatiaInternal extends javax.swing.JInternalFrame {
 
