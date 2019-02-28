@@ -1,7 +1,7 @@
 package br.ufpb.iged.gui;
 
 /**
- * @author darkolyver
+ * @author
  */
 public class TelaMain extends javax.swing.JFrame {
 
