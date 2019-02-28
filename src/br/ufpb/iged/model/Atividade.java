@@ -2,7 +2,7 @@ package br.ufpb.iged.model;
 
 /**
  *
- * @author darkolyver
+ * @author
  */
 
 public class Atividade {
