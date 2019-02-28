@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author darkolyver
+ * @author
  */
 public class AtividadeController {
 
