@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author darkolyver
+ * @author
  */
 public class TelaCadastroAtividadeInternal extends javax.swing.JInternalFrame {
 
